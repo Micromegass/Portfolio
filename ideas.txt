@@ -1,0 +1,21 @@
+
+
+
+I really love code and I am a nice dude 
+(just ask my mum)
+
+I love code logo
+
+binary tree as next pic 
+
+I commit ==> git commit bild
+
+
+var Axel class {
+    species: human
+    hobbies: code
+
+}
+
+
+Video
