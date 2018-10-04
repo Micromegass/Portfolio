@@ -1,27 +1,116 @@
 body {
-    font-family: 'Raleway',sans-serif;
-    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
     line-height: 1.6;
 }
 
-header nav a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
+
+#logo {
+    padding-top: 3px;
+    width: 100px;
+    padding-right: 20px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+
+
 }
 
-.home-wrapper {
-    background: url('../images/slider/teclado.jpg') no-repeat center top;
-    background-size: cover;
-    color: white;
-    padding-bottom: 650px;
+
+
+/* Navbar Styling */
+
+.navbar-header .navbar-brand .brick-logo {
+    display: inline-block;
+    padding-top: 15px;
+    color: gray;
 }
 
-header img {
-    width: 200p50
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: 0;
 }
 
-header nav {
-    float: right;
-    margin-top: 10px;
+.navbar-inverse .navbar-nav li a {
+    display: inline-block;
+    color: black;
+    padding-right: 40px;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: #EA7F64;
+}
+
+.navbar-inverse .navbar-nav li a:focus {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav .active a {
+    background-color: transparent;
+    color: black;
+}
+
+.navbar-inverse .navbar-nav .active a:hover {
+    background-color: transparent;
+    color: #EA7F64;
+}
+
+.navbar-toggle {
+    background-color: #D8D8D8;
+}
+
+#nav {
+    background-color: #FFFFFF;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px;
+    padding-right: 200px;
+}
+
+.navbar-brand {
+    min-height: 55px;
+    padding: 0 15px 5px;
+}
+
+/* Navbar Styling End*/
+
+
+
+#slider1 {
+
+    width: 100%;
+}
+
+.item:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    
+}
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    color: whitesmoke;
+
+
+}
+
+
+.heading {
+
+    text-align: center;
+}
+
+
+section {
+
+    margin-bottom: 100px;
+
 }
