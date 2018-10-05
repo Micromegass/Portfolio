@@ -135,6 +135,7 @@ section {
 
 }
 
+
 .link a:hover {
 
     color: #EA7F64;
@@ -153,4 +154,14 @@ section {
     padding-top: 30px;
     padding-bottom: 30px;
     background: #D8D8D8;
+}
+
+#text-video {
+
+    padding-top: 10px;
+
+}
+
+.tool {
+    text-align: center;
 }

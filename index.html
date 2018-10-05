@@ -88,10 +88,10 @@
             </div>
             <!-- Carousel controls -->
             <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
+                <!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
             </a>
             <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
+                <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
             </a>
         </div>
         <!-- end carousel  -->
@@ -148,7 +148,7 @@
                     </div>
                     <br><br><br>
                     <div class="object">
-                       <img class="thumbnail col-md-12" src="images/human.png" alt="constructor function">
+                        <img class="thumbnail col-md-12 human" src="images/human.png" alt="constructor function">
                         <br>
                     </div>
                 </div>
@@ -156,6 +156,10 @@
                     <h4 class="caption heading"> Get to know me personally...</h4>
                     <iframe src="https://drive.google.com/file/d/1LNaxW44-vqwvq2YPh1mtw2vpohbpf6lw/preview" width="640"
                         height="380"></iframe>
+                    <br>
+                    <p class="heading" id="text-video"> A little presentation of how I got to where I am, in case you
+                        were to lazy to read ;)</p>
+
                 </div>
             </div>
 
@@ -174,15 +178,16 @@
 
                 <div class="box col-md-6 skill-description">
                     <p> I started to learn to code roughly about a year ago. My first programming language was Ruby and
-                        I still really enjoy coding in Ruby. The Bootcamp I completed at <a href="https://www.makeitreal.camp/">
-                            <span>Make it Real</span></a>
+                        I still really enjoy coding in Ruby. The Bootcamp I completed at <span class="link"><a class="link"
+                                href="https://www.makeitreal.camp/">
+                                Make it Real</a></span>
                         taught me more than I
                         could have ever imagined about this language and its frameworks like Rails and Sinatra. There
                         are always more things to
                         know about a programming
                         language, but I feel very comfortable and secure with Ruby. I
-                        deployed various RoR Web Applications on Heroku and some pure Ruby projects on <a href="https://github.com/Micromegass"><span>Github</span></a>
-                        . I write
+                        deployed various RoR Web Applications on Heroku and some pure Ruby projects on <span class="link"><a
+                                href="https://github.com/Micromegass">Github</a></span>. I write
                         clean HTML and CSS and I often integrate Bootstrap into my projects. My second coding language
                         I learned was Pascal. As I am studying Computer Sciences next to my fulltime job, I studied the
                         fundamentals of algorithms, pointers and lists and that really helped me to understand
@@ -262,9 +267,88 @@
 
 
     <section id="portfolio">
-        <h1 class="heading">PORTFOLIO</h1>
-        
+        <div class="container">
+            <h1 class="heading">PORTFOLIO</h1>
 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Bandpage Brickwater <i class="fas fa-headphones"></i></h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> HTML, CSS, Bootstrap,
+                            Javascript, jQuery, Instafeed.js </div>
+                    </div>
+
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Picas y Fijas <i class="fa fa-cubes" aria-hidden="true"></i>
+                        </h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> Javascript, jQuery </div>
+                    </div>
+
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Ruby on Crack <i class="far fa-gem"></i></h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR </div>
+                    </div>
+                </div>
+            </div>
+
+            <br> <br>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Cities <i class="fas fa-university"></i></h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Heroku </div>
+                    </div>
+
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Infinity Blog <i class="fas fa-infinity"></i></i>
+                        </h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> Hexo, javascript, HTML, CSS
+                        </div>
+                    </div>
+
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Axel's Stack <i class="fas fa-question"></i></h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Heroku</div>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> To-Do-List <i class="fas fa-list-ol"></i></h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, Sinatra, Heroku</div>
+                    </div>
+
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Hurry Up (in progress) <i class="fas fa-hourglass-half"> </i> </h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> React
+                        </div>
+                    </div>
+
+                    <div class="box col-md-4 project">
+                        <h4 class="heading"> Expensify (in progress) <i class="fas fa-money-bill-wave"></i> </h4>
+                        <div><img class="col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Api, Minitest,
+                            Heroku </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
     </section>
 
 
