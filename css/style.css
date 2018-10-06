@@ -4,18 +4,13 @@ body {
     line-height: 1.6;
 }
 
-
 #logo {
     padding-top: 3px;
     width: 100px;
     padding-right: 20px;
     border-radius: 5px;
     padding-bottom: 5px;
-
-
 }
-
-
 
 /* Navbar Styling */
 
@@ -76,10 +71,7 @@ body {
 
 /* Navbar Styling End*/
 
-
-
 #slider1 {
-
     width: 100%;
 }
 
@@ -92,28 +84,20 @@ body {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.5);
-
 }
 
 .carousel-caption {
     position: absolute;
     top: 0;
     color: whitesmoke;
-
-
 }
 
-
 .heading {
-
     text-align: center;
 }
 
-
 section {
-
     margin-bottom: 100px;
-
 }
 
 .object {
@@ -123,24 +107,17 @@ section {
 }
 
 .skill-pic {
-
     max-width: 570px;
-
 }
 
 .link a {
-
     text-decoration: none;
     color: #3498DB;
-
 }
-
 
 .link a:hover {
-
     color: #EA7F64;
 }
-
 
 #education {
     padding-top: 30px;
@@ -148,20 +125,49 @@ section {
     background: #D8D8D8;
 }
 
-
 #personal {
-
     padding-top: 30px;
     padding-bottom: 30px;
     background: #D8D8D8;
 }
 
 #text-video {
-
     padding-top: 10px;
-
 }
 
 .tool {
     text-align: center;
 }
+
+
+
+
+
+
+/* .carousel-fade .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+    z-index: 2;
+} */

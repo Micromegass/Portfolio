@@ -18,9 +18,16 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.11/css/mdb.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/logo/logo.png">
+
+    <!-- Title Page Scroll -->
+    <link rel="stylesheet" href="css/tiltedpage-scroll.css">
+
+
 </head>
 
 <body>
@@ -55,55 +62,58 @@
     </div>
 
 
-    <!-- carousel -->
-    <section id="home">
-        <!-- slider -->
-        <div id="myCarousel" class="my-carousel carousel slide" data-ride="carousel">
-            <!-- Carousel indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <!-- Wrapper for carousel items -->
-            <div class="carousel-inner">
+    <div class="main">
+        <!-- carousel -->
+        <section id="home">
+            <!-- slider -->
+            <div id="myCarousel" class="my-carousel carousel slide carousel-fade" data-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
 
-                <div class="item">
-                    <img class="slider" src="images/slider/slider2.png" alt="First Slide" id="slider2">
+                    <div class="item">
+                        <img class="slider" src="images/slider/slider2.png" alt="First Slide" id="slider2">
 
-                </div>
-
-                <div class="item">
-                    <img class="slider" src="images/slider/slider1.png" alt="First Slide" id="slider1">
-                </div>
-
-                <div class="item active">
-                    <div class="carousel-caption">
-                        <h1> Axel Braunschweiger</h1>
-                        <p> - Full Stack Developer and Economist - </p>
                     </div>
-                    <img class="slider" src="images/slider/slider3.png" alt="Third Slide" id="slider3">
+
+                    <div class="item">
+                        <img class="slider" src="images/slider/slider1.png" alt="First Slide" id="slider1">
+                    </div>
+
+                    <div class="item active">
+                        <div class="carousel-caption">
+                            <h1> Axel Braunschweiger</h1>
+                            <p> - Full Stack Developer and Economist - </p>
+                        </div>
+                        <img class="slider" src="images/slider/slider3.png" alt="Third Slide" id="slider3">
+                    </div>
+
                 </div>
-
+                <!-- Carousel controls -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
             </div>
-            <!-- Carousel controls -->
-            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                <!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
-            </a>
-            <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                <!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
-            </a>
-        </div>
-        <!-- end carousel  -->
-    </section>
+            <!-- end carousel  -->
+        </section>
+    </div>
 
 
 
-    <section id="personal">
+    <section id="personal" class="page1">
         <div class="container">
             <h1 class="heading"> PERSONAL PROFILE </h1>
 
-            <p class="quote heading"> "In the professional world of tomorrow, you have to know two things: You have to
+            <p class="quote heading"> "In the professional world of tomorrow, you have to know two things: You have
+                to
                 know the
                 basics of business, and the basics of coding. Without both, you are taking an enormous risk".
                 <a href="https://www.youtube.com/watch?v=XKL4lBlmeXE&feature=share"> <span>Susan Kish. </span></a>
@@ -119,26 +129,33 @@
                     </div>
 
                     <div class="box col-md-8 col-sm-5 col-sm-offset-1 col-md-offset-0 col-xs-8 col-xs-offset-3" id="songs">
-                        <p> Hi, I'm Axel. I am a Fullstack Developer and an Economist. I love code and I am also a nice
+                        <p> Hi, I'm Axel. I am a Fullstack Developer and an Economist. I love code and I am also a
+                            nice
                             guy, but if you doubt that you can just ask my mum or head to my <a href="https://github.com/Micromegass"><span>Github
                                     Page</span></a>. I graduated from Friedrich-Alexander University (Germany) with
                             a B.A. in Economics. Always being fascinated with code, combined with my thirst for
                             knowledge I
                             came to Colombia (Medellín), where I completed the Make it Real Bootcamp to turn myself
                             into a
-                            Fullstack Developer. I love to create things and to have to opportunity to always learn and
+                            Fullstack Developer. I love to create things and to have to opportunity to always learn
+                            and
                             improve my skillset. To gain a more profound knowledge of algorithms and programming
                             concepts I
                             decided to enroll again into a Computer Science major at the University of Hagen.
-                            Motivation, persistence and the willingness to give a 100% in all the things I do is what
+                            Motivation, persistence and the willingness to give a 100% in all the things I do is
+                            what
                             defines me.
                             ....Maybe add read more button here.... part of machine learning team, link to CV</p>
                     </div>
                 </div>
             </div> <!-- end row-->
+        </div> <!-- end container-->
 
-            <br><br><br>
 
+        <br><br><br>
+
+
+        <div class="container">
             <div class="row">
                 <div class="box col-md-6 commit">
                     <div class="git-commit">
@@ -157,14 +174,15 @@
                     <iframe src="https://drive.google.com/file/d/1LNaxW44-vqwvq2YPh1mtw2vpohbpf6lw/preview" width="640"
                         height="380"></iframe>
                     <br>
-                    <p class="heading" id="text-video"> A little presentation of how I got to where I am, in case you
+                    <p class="heading" id="text-video"> A little presentation of how I got to where I am, in case
+                        you
                         were to lazy to read ;)</p>
 
                 </div>
             </div>
-
-        </div> <!-- end container-->
+        </div>
     </section>
+
 
 
 
@@ -173,29 +191,37 @@
             <div class="row">
                 <h2 class="heading">SKILLSET</h2> <br>
                 <div class="box col-md-6 skills">
-                    <img class="skill-pic thumbnail" src="images/skills.png" alt="skillset diagram">
+                    <img class="col-sm-12 sol-md-12 skill-pic thumbnail" src="images/skills.png" alt="skillset diagram">
                 </div>
 
-                <div class="box col-md-6 skill-description">
-                    <p> I started to learn to code roughly about a year ago. My first programming language was Ruby and
+                <div class="box col-md-6 col-sm-12 col-sm-offset-1 col-md-offset-0 col-xs-8 col-xs-offset-3 skill-description">
+                    <p class=""> I started to learn to code roughly about a year ago. My first programming language
+                        was Ruby and
                         I still really enjoy coding in Ruby. The Bootcamp I completed at <span class="link"><a class="link"
                                 href="https://www.makeitreal.camp/">
                                 Make it Real</a></span>
                         taught me more than I
-                        could have ever imagined about this language and its frameworks like Rails and Sinatra. There
+                        could have ever imagined about this language and its frameworks like Rails and Sinatra.
+                        There
                         are always more things to
                         know about a programming
                         language, but I feel very comfortable and secure with Ruby. I
                         deployed various RoR Web Applications on Heroku and some pure Ruby projects on <span class="link"><a
                                 href="https://github.com/Micromegass">Github</a></span>. I write
-                        clean HTML and CSS and I often integrate Bootstrap into my projects. My second coding language
-                        I learned was Pascal. As I am studying Computer Sciences next to my fulltime job, I studied the
+                        clean HTML and CSS and I often integrate Bootstrap into my projects. My second coding
+                        language
+                        I learned was Pascal. As I am studying Computer Sciences next to my fulltime job, I studied
+                        the
                         fundamentals of algorithms, pointers and lists and that really helped me to understand
-                        programming more profoundly. Javascript and jQuery were next, and even though all the brackets
-                        were confusing to me in the beginning, I started to really enjoy the sheer power of Javascript
+                        programming more profoundly. Javascript and jQuery were next, and even though all the
+                        brackets
+                        were confusing to me in the beginning, I started to really enjoy the sheer power of
+                        Javascript
                         and jQuery in Web
-                        Applications and almost every project of mine includes Javascript and jQuery. But I still have
-                        a lot to learn and I am trying to improve every day. Since I am part of a study group here at
+                        Applications and almost every project of mine includes Javascript and jQuery. But I still
+                        have
+                        a lot to learn and I am trying to improve every day. Since I am part of a study group here
+                        at
                         my work in EAFIT which wants to explore and learn about machine learning, I also started to
                         learn Python. For my Web Projects I am starting to integrate
                         React and last but not least I am starting to study JAVA this semester. This hopefully
@@ -217,16 +243,20 @@
                 <h1 class="heading">EDUCATION</h1>
 
                 <div class="box col-md-6">
-                    <h3 class="heading link"> <a href="https://www.fernuni-hagen.de/" target="_blank"> University of
+                    <h3 class="heading link"> <a href="https://www.fernuni-hagen.de/" target="_blank"> University
+                            of
                             Hagen
                             (ongoing)</a>
                     </h3>
                     <p> Realizing that I love to create things, solve problems and always learn something new, I
-                        decided to enroll again in the distance university of Hagen to major in Computer Sciences. The
+                        decided to enroll again in the distance university of Hagen to major in Computer Sciences.
+                        The
                         university is the only state
-                        universtiy in Germany that allows you to study in different countries and take your exams in
+                        universtiy in Germany that allows you to study in different countries and take your exams
+                        in
                         the German schools around the world. It also allows you to study at your own rhythm while
-                        working fulltime. It is a normal Bachelor of Science programme in which you learn all there is
+                        working fulltime. It is a normal Bachelor of Science programme in which you learn all there
+                        is
                         to know about the fundamentals of Computer Sciences</p>
                 </div>
 
@@ -240,7 +270,8 @@
                         entrance test. Once accepted, the second phase started which consisted of intensive 12-week
                         full-time programme. Everyday students and the teacher came together to study Ruby, Rails,
                         Sinatra,
-                        Javascript, jQuery, APIs, Testing, Bootstrap, HTML, CSS and various other such as responsive
+                        Javascript, jQuery, APIs, Testing, Bootstrap, HTML, CSS and various other such as
+                        responsive
                         design, testing techniques
                         and deploying different services such as Heroku and Amazon Web services. During
                         post-phase students were assigned a mentor and asked to complete the rest of the online
@@ -254,8 +285,10 @@
                 <div class="box col-md-6">
                     <h3 class="heading link"> <a href="https://www.fau.eu/" target="_blank">University of
                             Friedrich-Alexander (graduated)</a> </h3>
-                    <p> Because I was interested in the workings of the economy I studied Economics and Anglistic at
-                        the university of Friedrich-Alexander. Apart from Economics my degree involved a broad variety
+                    <p> Because I was interested in the workings of the economy I studied Economics and Anglistic
+                        at
+                        the university of Friedrich-Alexander. Apart from Economics my degree involved a broad
+                        variety
                         of subjects. I studied critical theory and I also enrolled in
                         spanish and philosophy classes. </p>
                 </div>
@@ -277,27 +310,150 @@
                                     target="_blank">Bandpage Brickwater</a> </span><i class="fas fa-headphones"></i></h4>
                         <div><img class="thumbnail col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> HTML, CSS, Bootstrap,
-                            Javascript, jQuery, Instafeed.js </div>
-                    </div>
+                            Javascript, jQuery </div>
 
+                        <!-- Button trigger modal 1 -->
+                        <button type="button" class="btn aqua-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#myModal">
+                            <span>Info</i></span>
+                        </button>
+
+                        <!-- Modal 1 -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="heading modal-title" id="myModalLabel"><span class="link"><a href="https://micromegass.github.io/Brickwater-Responsive/"
+                                                    target="_blank">Bandpage Brickwater</a></span></h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> This project was created for a band called Brickwater. They are from
+                                            Nürnberg, a city in the south of Germany. They are pretty well known
+                                            locally and want to start to become more professional, that's why I
+                                            designed and created the webpage for them. Their music is great, you
+                                            should
+                                            head to the website and check them out. </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+
+                                        <p> For me, creating this webpage was as much fun as it was challenging.
+                                            Especially because their singer came up with new ideas what to
+                                            implement on
+                                            the page every day. That's why I had to restructure a lot and do a lot
+                                            of
+                                            research until the final product was presented. In turn, I learned a
+                                            lot
+                                            and I am very happy to have worked with the band and I am proud of my
+                                            result </p>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <span class="link btn btn-outline-success waves-effect"><a href="https://micromegass.github.io/Brickwater-Responsive/"
+                                                target="_blank"> Visit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal 1 End -->
+                    </div>
+                    <!-- Box 1 End -->
+
+                    <!-- Box 2 Start -->
                     <div class="box col-md-4 project">
                         <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/Picas-y-Fijas/"
-                                    target="_blank">Picas y Fijas</a></spn>
-                                <i class="fa fa-cubes" aria-hidden="true"></i>
+                                    target="_blank">Picas y Fijas</a></span>
+                            <i class="fa fa-cubes" aria-hidden="true"></i>
                         </h4>
                         <div><img class="thumbnail col-md-12" src="images/projects/project-2.png" alt="Picas y Fijas"></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Javascript, jQuery </div>
+
+
+                        <!-- Button trigger modal 2 -->
+                        <button type="button" class="btn peach-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project2">
+                            Info
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="project2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title heading" id="myModalLabel"><span class="link"><a href="https://micromegass.github.io/Picas-y-Fijas/"
+                                                    target="_blank">Picas
+                                                    y Fijas</a></span>
+                                            <i class="fa fa-cubes" aria-hidden="true"></i></h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> This project was my first project using pure Javascript and jQuery for
+                                            the
+                                            backend. The website generates a random 4-digit number which the user
+                                            has
+                                            to guess. Each time the user enters a 4-digit number the website tells
+                                            the
+                                            users how many picas (correct numbers, but wrong place) and how many
+                                            fijas
+                                            (correct number at the right place) the input number has. The user
+                                            keeps on
+                                            guessing until the right number is found. Once guessed correctly the
+                                            user
+                                            can pick up a new game.</p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+
+                                        <p> I really enjoyed it because it was a tricky project. I learned how to
+                                            use
+                                            Javascript and jQuery better. </p>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <span class="link btn btn-outline-success waves-effect"><a href="https://micromegass.github.io/Picas-y-Fijas/"
+                                                target="_blank"> Visit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal 2 -->
                     </div>
+                    <!-- End Box 2 -->
+
+
+                    <!-- Start Box 3 -->
 
                     <div class="box col-md-4 project">
-                        <h4 class="heading"> <span class="link"><a href="https://rubyoncrack.herokuapp.com/">Ruby on
+                        <h4 class="heading"> <span class="link"><a href="https://rubyoncrack.herokuapp.com/">Ruby
+                                    on
                                     Crack</a> </span><i class="far fa-gem"></i></h4>
                         <div><img class="thumbnail col-md-12" src="images/projects/project-3.png" alt="Ruby on Crack"></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR </div>
+
+
+
+
+
                     </div>
+                    <!-- End Box 3 -->
+
+
+
+
+
+
                 </div>
             </div>
-
             <br> <br>
 
             <div class="row">
@@ -310,8 +466,9 @@
                     </div>
 
                     <div class="box col-md-4 project">
-                        <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/">Infinity Blog</a> </span><i
-                                class="fas fa-infinity"></i></i>
+                        <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/">Infinity
+                                    Blog</a>
+                            </span><i class="fas fa-infinity"></i></i>
                         </h4>
                         <div><img class="thumbnail col-md-12" src="images/projects/project-5.png" alt="Personal Blog"></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Hexo, javascript, HTML, CSS
@@ -361,6 +518,24 @@
 
         </div>
     </section>
+
+
+
+    <section class="last-page">
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery.tiltedpage-scroll.min.js"></script>
+    <script src="js/jquery.tiltedpage-scroll.js"></script>
 
 
 </body>
