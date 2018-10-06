@@ -139,17 +139,47 @@ section {
     text-align: center;
 }
 
+.fas:hover {
+
+color: greenyellow;
+}
+
+.far:hover {
+    color: greenyellow;
+
+}
+
+.fa:hover {
+        color: greenyellow;
+
+}
 
 
+img:hover {
+    transform: scale(1.5);
+}
+
+.thumbnail {
+    transition: all 2s ease-in-out;
+
+}
+
+img:hover {
+    transition: all 2s ease;
+    z-index:10;
+
+}
+ 
 
 
-
-/* .carousel-fade .carousel-inner .item {
+/* slider animation */
+.carousel-fade .carousel-inner .item {
     opacity: 0;
     -webkit-transition-property: opacity;
     -moz-transition-property: opacity;
     -o-transition-property: opacity;
     transition-property: opacity;
+    transition: 3s ease;
 }
 
 .carousel-fade .carousel-inner .active {
@@ -170,4 +200,5 @@ section {
 
 .carousel-fade .carousel-control {
     z-index: 2;
-} */
+}
+/* slider animation end */

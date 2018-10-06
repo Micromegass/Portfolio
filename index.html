@@ -26,12 +26,12 @@
 
     <!-- Title Page Scroll -->
     <link rel="stylesheet" href="css/tiltedpage-scroll.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
 
 
 </head>
 
 <body>
-
 
     <div class="header">
         <nav class="my-nav navbar navbar-inverse hidden-xs hidden-sm hidden-md" id="nav">
@@ -116,7 +116,8 @@
                 to
                 know the
                 basics of business, and the basics of coding. Without both, you are taking an enormous risk".
-                <a href="https://www.youtube.com/watch?v=XKL4lBlmeXE&feature=share"> <span>Susan Kish. </span></a>
+                <span class="link"> <a href="https://www.youtube.com/watch?v=XKL4lBlmeXE&feature=share" target="_blank">
+                        Susan Kish </a> </span>
             </p>
 
 
@@ -124,15 +125,16 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="thumbnail box col-md-4 col-sm-6 col-xs-8" id="cover">
-                        <img src="images/me.jpg" class="img-responsive" id="album-cover" alt="Album Cover">
+                    <div class="thumbnail box col-md-4 col-sm-6 col-xs-8 gallery" id="cover">
+                        <a href="images/me.jpg" data-lightbox="gallery" data-title="That's me"><img src="images/me.jpg" class="img-responsive" id="me" alt="me"></a>
                     </div>
 
                     <div class="box col-md-8 col-sm-5 col-sm-offset-1 col-md-offset-0 col-xs-8 col-xs-offset-3" id="songs">
                         <p> Hi, I'm Axel. I am a Fullstack Developer and an Economist. I love code and I am also a
                             nice
-                            guy, but if you doubt that you can just ask my mum or head to my <a href="https://github.com/Micromegass"><span>Github
-                                    Page</span></a>. I graduated from Friedrich-Alexander University (Germany) with
+                            guy, but if you doubt that you can just ask my mum or head to my <span class="link"><a href="https://github.com/Micromegass"
+                                    target="_blank"> Github
+                                    Page</a> </span>. I graduated from Friedrich-Alexander University (Germany) with
                             a B.A. in Economics. Always being fascinated with code, combined with my thirst for
                             knowledge I
                             came to Colombia (Medellín), where I completed the Make it Real Bootcamp to turn myself
@@ -160,12 +162,12 @@
                 <div class="box col-md-6 commit">
                     <div class="git-commit">
                         <h4 class="caption heading"> I can be very commited... </h4>
-                        <img class="col-md-12 thumbnail" src="images/commit.png" alt="git commit">
+                        <a href="images/commit.png" data-lightbox="gallery" data-title="My commits"><img class="col-md-12 thumbnail img-responsive" src="images/commit.png" alt="git commit"></a>
 
                     </div>
                     <br><br><br>
                     <div class="object">
-                        <img class="thumbnail col-md-12 human" src="images/human.png" alt="constructor function">
+                       <a href="images/human.png" data-lightbox="gallery" data-title="That's me as a constructor function"> <img class="thumbnail col-md-12 human img-responsive" src="images/human.png" alt="constructor function"></a>
                         <br>
                     </div>
                 </div>
@@ -183,15 +185,12 @@
         </div>
     </section>
 
-
-
-
     <section id="skills">
         <div class="container">
             <div class="row">
                 <h2 class="heading">SKILLSET</h2> <br>
                 <div class="box col-md-6 skills">
-                    <img class="col-sm-12 sol-md-12 skill-pic thumbnail" src="images/skills.png" alt="skillset diagram">
+                    <a href="images/skills.png" data-lightbox="gallery" data-title="My humble self-proclaimed skillset"><img class="col-sm-12 sol-md-12 skill-pic thumbnail" src="images/skills.png" alt="skillset diagram"></a>
                 </div>
 
                 <div class="box col-md-6 col-sm-12 col-sm-offset-1 col-md-offset-0 col-xs-8 col-xs-offset-3 skill-description">
@@ -225,9 +224,10 @@
                         my work in EAFIT which wants to explore and learn about machine learning, I also started to
                         learn Python. For my Web Projects I am starting to integrate
                         React and last but not least I am starting to study JAVA this semester. This hopefully
-                        illuminates me even more in Object Oriented Programming. Feel free to check out my <a href="https://github.com/Micromegass"><span>Github</span></a>
+                        illuminates me even more in Object Oriented Programming. Feel free to check out my <span class="link"><a
+                                href="https://github.com/Micromegass">Github</a></span>
                         profile
-                        or give me a <a href="tel:00573193811245">call</a>
+                        or give me a <span class="link"><a href="tel:00573193811245">call</a></span>
                         if you would like to know more about me and my work.
                     </p>
                 </div>
@@ -308,7 +308,7 @@
                     <div class="box col-md-4 project">
                         <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/Brickwater-Responsive/"
                                     target="_blank">Bandpage Brickwater</a> </span><i class="fas fa-headphones"></i></h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></div>
+                        <div><a href="images/projects/project-1.png" data-lightbox="gallery" data-title="Bandpage for Brickwater"><img class="thumbnail col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> HTML, CSS, Bootstrap,
                             Javascript, jQuery </div>
 
@@ -326,7 +326,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                                 aria-hidden="true">&times;</span></button>
                                         <h4 class="heading modal-title" id="myModalLabel"><span class="link"><a href="https://micromegass.github.io/Brickwater-Responsive/"
-                                                    target="_blank">Bandpage Brickwater</a></span></h4>
+                                                    target="_blank">Bandpage Brickwater</a></span> <i class="fas fa-headphones"></i></h4>
                                     </div>
                                     <div class="modal-body">
 
@@ -354,8 +354,9 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
-                                        <span class="link btn btn-outline-success waves-effect"><a href="https://micromegass.github.io/Brickwater-Responsive/"
-                                                target="_blank"> Visit</a>
+                                        <a href="https://micromegass.github.io/Brickwater-Responsive/" target="_blank">
+                                            <span class="link btn btn-outline-success waves-effect">Visit</span></a>
+
                                     </div>
                                 </div>
                             </div>
@@ -370,7 +371,7 @@
                                     target="_blank">Picas y Fijas</a></span>
                             <i class="fa fa-cubes" aria-hidden="true"></i>
                         </h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-2.png" alt="Picas y Fijas"></div>
+                        <div><a href="images/projects/project-2.png" data-lightbox="gallery" data-title="Guess the number with Pijas and Fijas"><img class="thumbnail col-md-12" src="images/projects/project-2.png" alt="Picas y Fijas"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Javascript, jQuery </div>
 
 
@@ -415,13 +416,12 @@
                                         <p> I really enjoyed it because it was a tricky project. I learned how to
                                             use
                                             Javascript and jQuery better. </p>
-
                                     </div>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
-                                        <span class="link btn btn-outline-success waves-effect"><a href="https://micromegass.github.io/Picas-y-Fijas/"
-                                                target="_blank"> Visit</a>
+                                        <a href="https://micromegass.github.io/Picas-y-Fijas/" target="_blank"> <span
+                                                class="link btn btn-outline-success waves-effect">Visit</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -434,53 +434,240 @@
                     <!-- Start Box 3 -->
 
                     <div class="box col-md-4 project">
-                        <h4 class="heading"> <span class="link"><a href="https://rubyoncrack.herokuapp.com/">Ruby
+                        <h4 class="heading"> <span class="link"><a href="https://rubyoncrack.herokuapp.com/" target="_blank">Ruby
                                     on
                                     Crack</a> </span><i class="far fa-gem"></i></h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-3.png" alt="Ruby on Crack"></div>
+                        <div><a href="images/projects/project-3.png" data-lightbox="gallery" data-title="RoC: Your forum for Questions on Ruby"><img class="thumbnail col-md-12" src="images/projects/project-3.png" alt="Ruby on Crack"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR </div>
 
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn purple-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project3">
+                            Info
+                        </button>
 
+                        <!-- Modal -->
+                        <div class="modal fade" id="project3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <h4 class="heading"> <span class="link"><a href="https://rubyoncrack.herokuapp.com/"
+                                                        target="_blank">Ruby on Crack</a> </span><i class="far fa-gem"></i></h4>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
 
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> This application is a forum where ruby programmers can ask questions about
+                                            Ruby and Ruby on Rails. Much like Stackoverflow, yet the focus is only Ruby
+                                            and its frameworks. Once signed up and authenticated, users can ask new
+                                            questions and answer questions. Plus, they can comment and vote for for
+                                            answers and questions. </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
 
+                                        <p> This project took me some time and it was a real challenge. I had to use
+                                            everything I knew about Ruby and do a lot of research. The most difficult
+                                            part was to create a polymorphic voting system and a polymorphic comment
+                                            system. I also tried to <span style="font-weight:bold">not</span> use the
+                                            gem Devise to create user
+                                            authentication which also had its challenges. But at the end I am very
+                                            happy with the application and I think the styling with CSS makes the
+                                            application and the UI just very nice. </p>
 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <a href="https://rubyoncrack.herokuapp.com/" target="_blank"> <span class="link btn btn-outline-success waves-effect">Visit</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal 3 -->
                     </div>
                     <!-- End Box 3 -->
-
-
-
-
-
-
                 </div>
             </div>
             <br> <br>
 
             <div class="row">
                 <div class="col-md-12">
+
+                    <!-- start Box 4-->
                     <div class="box col-md-4 project">
                         <h4 class="heading"> <span class="link"><a href="https://super-city-blog.herokuapp.com/">
                                     Cities </a></span> <i class="fas fa-university"></i></h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-4.png" alt="City Blog"></div>
+                        <div><a href="images/projects/project-4.png" data-lightbox="gallery" data-title="Every city has a story..."><img class="thumbnail col-md-12" src="images/projects/project-4.png" alt="City Blog"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Heroku </div>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn aqua-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project4">
+                            <span>Info</i></span>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="project4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <h4 class="heading"> <span class="link"><a href="https://super-city-blog.herokuapp.com/"
+                                                        target="_blank">Cities</a>
+                                                </span><i class="fas fa-university"></i></h4>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> The idea of this application is that everyone who is registered and
+                                            authenticated can create new posts about cities or places. When a new post
+                                            is created the user can upload an image which is the background of his
+                                            post. Other users can comment beneath the post. </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+
+                                        <p> The Backend part for this project was easier than the deployment part. I
+                                            tried to use AWS and Heroku for deployment what only worked to some degree.
+                                            After a certain amount of time, Heroku unfortunately deletes the uploaded
+                                            pictures. A problem, which I could
+                                            not yet solve. That's why I added a fallback background which is a workable
+                                            solution but not the optimum. Another challenge was to configure the whole
+                                            app in Spanish with the gem of Sven Fuchs.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <a href="https://super-city-blog.herokuapp.com/" target="_blank"> <span class="link btn btn-outline-success waves-effect">Visit</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Modal 4-->
                     </div>
+                    <!-- end Box 4-->
+
 
                     <div class="box col-md-4 project">
                         <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/">Infinity
                                     Blog</a>
                             </span><i class="fas fa-infinity"></i></i>
                         </h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-5.png" alt="Personal Blog"></div>
+                        <div><a href="images/projects/project-5.png" data-lightbox="gallery" data-title="All about what I like..."><img class="thumbnail col-md-12" src="images/projects/project-5.png" alt="Personal Blog"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Hexo, javascript, HTML, CSS
                         </div>
+
+                        <!-- Button trigger modal 5-->
+                        <button type="button" class="btn peach-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project5">
+                            <span>Info</i></span>
+                        </button>
+
+                        <!-- Modal 5-->
+                        <div class="modal fade" id="project5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/"
+                                                        target="_blank">Infinity Blog</a>
+                                                </span><i class="fas fa-infinity"></i></h4>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> This is my Personal Blog where I write about stuff that interests me. I
+                                            like Coding, Philosophy, Poetry and controversial topics, so that is the
+                                            content. One
+                                            article about the influence of modern day backpacking appeared in an
+                                            alternative newspaper in Germany.
+                                        </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+
+                                        <p> It took me a while to understand how to create my own template in hexo. The
+                                            most challenging part was the poor user documentation when it comes to
+                                            creating ones own template. Now, I really appreciate Hexo and the easy way
+                                            to deploy and integrate it with Git. </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <a href="https://micromegass.github.io/" target="_blank"> <span class="link btn btn-outline-success waves-effect">Visit</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Modal 5-->
                     </div>
+                    <!-- end box 5-->
 
                     <div class="box col-md-4 project">
                         <h4 class="heading"><span class="link"> <a href="https://stormy-temple-63608.herokuapp.com/">Axel's
                                     Stack</a></span> <i class="fas fa-question"></i></h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-6.png" alt="StackOverflow clone"></div>
+                        <div><a href="images/projects/project-6.png" data-lightbox="gallery" data-title="A Flowoverstack...."><img class="thumbnail col-md-12" src="images/projects/project-6.png" alt="StackOverflow clone"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Heroku</div>
+
+
+                        <!-- Button trigger modal 6-->
+                        <button type="button" class="btn purple-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project6">
+                            <span>Info</i></span>
+                        </button>
+
+                        <!-- Modal 6-->
+                        <div class="modal fade" id="project6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <h4 class="heading"> <span class="link"><a href="https://stormy-temple-63608.herokuapp.com/"
+                                                        target="_blank">Axel's Stack</a>
+                                                </span><i class="fas fa-question"></i></h4>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> Axel's Stack is basically a copy of Stackoverflow and also the first
+                                            version of Ruby on Crack. It also includes a polymorphic voting system and
+                                            a polymorphic comment system. The styles are very different and the idea is
+                                            also to ask questions about programming in general. The code is not as
+                                            clean as in Ruby on Crack because of some dificulties with the migrations.
+                                            But I still like the app and its style.
+                                        </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+
+                                        <p> The same challenges I had with Ruby on Crack. I was less experienced when
+                                            writing this version, so I spent hours solving problems and looking for
+                                            solutions. Great project, I learned heaps. </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <a href="https://stormy-temple-63608.herokuapp.com/" target="_blank"> <span
+                                                class="link btn btn-outline-success waves-effect">Visit</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Modal 6-->
                     </div>
+                    <!-- end box 6-->
+
+
                 </div>
             </div>
 
@@ -488,40 +675,173 @@
 
             <div class="row">
                 <div class="col-md-12">
+
                     <div class="box col-md-4 project">
                         <h4 class="heading"> <span class="link"><a href="https://github.com/Micromegass/ToDoList">To-Do-List</a>
                             </span>
                             <i class="fas fa-list-ol"></i></h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-7.png" alt="Brickwater Bandpage"></div>
+                        <div><a href="images/projects/project-7.png" data-lightbox="gallery" data-title="Get your things done mate!"><img class="thumbnail col-md-12" src="images/projects/project-7.png" alt="Brickwater Bandpage"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, Sinatra, Heroku</div>
+
+                        <!-- Button trigger modal 7-->
+                        <button type="button" class="btn aqua-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project7">
+                            <span>Info</i></span>
+                        </button>
+
+                        <!-- Modal 7-->
+                        <div class="modal fade" id="project7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <h4 class="heading"> <span class="link"><a href="https://github.com/Micromegass/ToDoList"
+                                                        target="_blank">To Do List</a>
+                                                </span><i class="fas fa-list-ol"></i></h4>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> As the title says, the Application is a simple To Do List. Users can
+                                            create, delete and update their chores.
+                                        </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+                                        <p> Before studying Rails I studied Sinatra. The idea was to gain a deeper
+                                            understanding of the underlying MVC system and
+                                            its implementation. Back then this was pretty challenging because of all
+                                            the new concepts, yet at the same time it was extremely helpful to
+                                            understand Rails.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <a href="https://github.com/Micromegass/ToDoList" target="_blank"> <span class="link btn btn-outline-success waves-effect">Visit</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Modal 7-->
                     </div>
+                    <!--End box 7-->
 
                     <div class="box col-md-4 project">
-                        <h4 class="heading"><span class="link"> <a href="https://micromegass.github.io/eCommerce/">eCommerce
+                        <h4 class="heading"><span class="link"> <a href="https://micromegass.github.io/eCommerce/"
+                                    target="_blank">eCommerce
                                 </a> </span><i class="fas fa-hourglass-half">
                             </i> </h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-9.png" alt="Brickwater Bandpage"></div>
+                        <div><a href="images/projects/project-9.png" data-lightbox="gallery" data-title="Shop till you drop..."><img class="thumbnail col-md-12" src="images/projects/project-9.png" alt="Brickwater Bandpage"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> HTML, CSS, Bootstrap
                         </div>
+
+                        <!-- Button trigger modal 8-->
+                        <button type="button" class="btn peach-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project8">
+                            <span>Info</i></span>
+                        </button>
+
+                        <!-- Modal 8-->
+                        <div class="modal fade" id="project8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/eCommerce/"
+                                                        target="_blank">eCommerce</a>
+                                                </span><i class="fas fa-hourglass-half"></i></h4>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> This is a fictional eCommerce site to sell clothes. There is no backend
+                                            involved but everything is hardcoded in HTML.
+                                        </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+                                        <p>This project was to practice Bootstrap and get more familiar with the
+                                            individual components. The most challenging part was probably to refrain
+                                            from CSS completely. I created two versions which are identical, one with
+                                            Bootstrap 3.7 and the other with Bootstrap 4. It was not difficult but
+                                            interesting to see which components changed in the newer version. Plus it
+                                            made me work more with font awesome icons, because of the lack of glyphs in
+                                            Bootstrap 4</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                        <a href="https://micromegass.github.io/eCommerce/" target="_blank"> <span class="link btn btn-outline-success waves-effect">Visit</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Modal 8-->
                     </div>
+                    <!--end box 8-->
+
 
                     <div class="box col-md-4 project">
                         <h4 class="heading"> Expensify (in progress) <i class="fas fa-money-bill-wave"></i> </h4>
-                        <div><img class="thumbnail col-md-12" src="images/projects/project-8.png" alt="Brickwater Bandpage"></div>
+                        <a href="images/projects/project-8.png" data-lightbox="gallery" data-title="Know how broke you are"> <img class="thumbnail col-md-12" src="images/projects/project-8.png" alt="Brickwater Bandpage"></a>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Api, Minitest,
                             Heroku </div>
+
+                        <!-- Button trigger modal 9-->
+                        <button type="button" class="btn purple-gradient btn-rounded btn-lg" data-toggle="modal"
+                            data-target="#project9">
+                            <span>Info</i></span>
+                        </button>
+
+                        <!-- Modal 9-->
+                        <div class="modal fade" id="project9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">
+                                            <h4 class="heading"> <span class="link"> Expensify
+                                                </span><i class="fas fa-money-bill-wave"></i></h4>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4 style="font-weight:bold">What's it all about?</h4>
+                                        <p> This application will allow registered and authenticated user to track
+                                            their expenses over time. They will be able to create, update, sort and
+                                            compare their expenses with the application or via an API.
+
+                                        </p>
+                                        <br>
+                                        <h4 style="font-weight:bold"> Likes and challenges creating the project:
+                                        </h4>
+                                        <p> This application will be the most complex one I have worked on so far. The
+                                            idea and the challenge is to implement a variety of tests with Minitest and
+                                            also an API to create, delete and update expenses. I'm very excited about
+                                            it.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Modal 9-->
                     </div>
+                    <!--end box 8-->
                 </div>
             </div>
-
-
-
         </div>
     </section>
 
 
 
-    <section class="last-page">
+    <section id="contact">
 
 
     </section>
@@ -533,7 +853,7 @@
 
 
 
-
+    <script src="js/lightbox.min.js"></script>
     <script src="js/jquery.tiltedpage-scroll.min.js"></script>
     <script src="js/jquery.tiltedpage-scroll.js"></script>
 
