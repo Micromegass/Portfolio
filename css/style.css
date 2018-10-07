@@ -229,3 +229,9 @@ img:hover {
     cursor: pointer;
 }
 /* styling social buttons end*/
+
+
+footer {
+
+    position: fixed;
+}
