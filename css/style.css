@@ -202,3 +202,30 @@ img:hover {
     z-index: 2;
 }
 /* slider animation end */
+
+/* styling social buttons */
+.social2 a {
+    display: inline-block;
+    margin-right: 15px;
+    border-radius: 5px;
+    color: rgb(41, 39, 39);
+    font-size: 30px;
+    line-height: 15px;
+    font-weight: bold;
+}
+
+.social2 {
+    display: inline-block;
+}
+
+.icons {
+    text-align: center;
+}
+
+.social2 a:hover {
+        display: inline-block;
+
+    color: yellowgreen;
+    cursor: pointer;
+}
+/* styling social buttons end*/
