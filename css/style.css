@@ -222,9 +222,23 @@ img:hover {
     text-align: center;
 }
 
-.social2 a:hover {
-        display: inline-block;
+.icons2 {
 
+    text-align: center;
+    
+}
+
+.icons2 a {
+color:whitesmoke;
+    font-size: 19px;
+
+}
+
+.icons2 a:hover {
+color: yellowgreen;
+}
+
+.social2 a:hover {
     color: yellowgreen;
     cursor: pointer;
 }

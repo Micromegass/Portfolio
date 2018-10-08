@@ -27,6 +27,9 @@
     <!-- Title Page Scroll -->
     <link rel="stylesheet" href="css/tiltedpage-scroll.css">
     <link rel="stylesheet" href="css/lightbox.min.css">
+    <script src="js/lightbox.min.js"></script>
+    <script src="js/jquery.tiltedpage-scroll.min.js"></script>
+    <script src="js/jquery.tiltedpage-scroll.js"></script>
 
 
 </head>
@@ -37,11 +40,6 @@
         <nav class="my-nav navbar navbar-inverse hidden-xs hidden-sm hidden-md" id="nav">
             <div class="container-fluid ">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <!-- insert image here in the source to display logo -->
                 </div>
 
@@ -54,7 +52,6 @@
                         <li><a href="#education">EDUCATION</a></li>
                         <li><a href="#portfolio">PORTFOLIO</a></li>
                         <li><a href="#contact">CONTACT</a></li>
-
                     </ul>
                 </div>
             </div>
@@ -88,11 +85,37 @@
                     <div class="item active">
                         <div class="carousel-caption">
                             <h1> Axel Braunschweiger</h1>
-                            <p> - Full Stack Developer and Economist - </p>
-                        </div>
-                        <img class="slider" src="images/slider/slider3.png" alt="Third Slide" id="slider3">
-                    </div>
+                            <p> - Full Stack Developer, Economist and Teacher - </p>
+                            <div class="icons2">
+                                <span class="social2">
+                                    <a target="_blank" href="https://www.facebook.com/mIcRoMeGaSs"><i class="fab fa-facebook-square"></i></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/">
+                                        <i class="fab fa-linkedin-in"></i></a>
 
+                                    <a target="_blank" href="https://angel.co/axel-braunschweiger">
+                                        <i class="fab fa-angellist"></i></a>
+
+                                    <a target="_blank" href="https://github.com/Micromegass"><i class="fab fa-github"></i>
+                                    </a>
+                                    <a target="_blank" href="https://stackoverflow.com/users/9893391/micromegas"><i
+                                            class="fab fa-stack-overflow"></i></a>
+
+                                    <a href="mailto:axelbraunschweiger@gmx.de ?Subject=Hello%20again" target="_top"> <i
+                                            class="fas fa-at"></i></a>
+
+
+                                    <a href="skype:axel_australia?call" onclick="return confirm('Please confirm you want to skype with Axel')"><i
+                                            class="fab fa-skype"></i></a>
+
+                                    <a href="tel:00573193811245" onclick="return confirm('Please confirm you want to call Axel')"><i
+                                            class="fas fa-phone-volume"></i></a>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="slider" src="images/slider/slider3.png" alt="Third Slide" id="slider3">
+                        </div>
+                    </div>
                 </div>
                 <!-- Carousel controls -->
                 <a class="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -112,14 +135,14 @@
         <div class="container">
             <h1 class="heading"> PERSONAL PROFILE </h1>
 
-            <p class="quote heading" style="font-style: italic"> "In the professional world of tomorrow, you have to
+            <div class="quote heading" style="font-style: italic"> "In the professional world of tomorrow, you have to
                 know two things: You have
                 to
                 know the
                 basics of business, and the basics of coding. Without both, you are taking an enormous risk".
-                <span class="link"> <a href="https://www.youtube.com/watch?v=XKL4lBlmeXE&feature=share" target="_blank">
-                        Susan Kish </a> </span>
-            </p>
+                <span class="link"> <a href="https://www.youtube.com/watch?v=XKL4lBlmeXE&t=9s" target="_blank"> Susan
+                        Kish </a></span>
+            </div>
 
 
             <br><br>
@@ -246,6 +269,7 @@
         <div class="container">
             <div class="row">
                 <h1 class="heading">EDUCATION</h1>
+
 
                 <div class="box col-md-6">
                     <h3 class="heading link"> <a href="https://www.fernuni-hagen.de/" target="_blank"> University
@@ -851,82 +875,68 @@
                 </div>
             </div>
         </div>
-    </section>
+
+        <br><br>
 
 
-
-    <section id="contact">
-        <h1 class="heading"> Contact</h1>
-        <div class="heading"> Choose your favourite channel to contact me... </div> <br>
-
-        <div class="icons">
-            <span class="social2">
-                <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/mIcRoMeGaSs"><i class="fab fa-facebook-square"></i></a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/">
-                    <i class="fab fa-linkedin-in"></i></a>
-
-                <a target="_blank" href="https://angel.co/axel-braunschweiger">
-                    <i class="fab fa-angellist"></i></a>
-
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/Micromegass"><i class="fab fa-github"></i>
-                </a>
-                <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/9893391/micromegas"><i
-                        class="fab fa-stack-overflow"></i></a>
-
-                <a href="mailto:axelbraunschweiger@gmx.de ?Subject=Hello%20again" target="_top"> <i class="fas fa-at"></i></a>
+        <section id="contact">
+            <h1 class="heading"> Contact</h1>
+            <div class="heading"> Choose your favourite channel to contact me... </div> <br>
+            <div class="heading">...or just leave me a message right here ... </div>
 
 
-                <a href="skype:axel_australia?call" onclick="return confirm('Please confirm you want to skype with Axel')"><i
-                        class="fab fa-skype"></i></a>
+            <div class="icons2">
+                <p>
+                    <span class="social2">
+                        <i class="fab fa-facebook-square" id="facebook-square"></i>
+                        <a target="_blank" href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/">
+                            <i class="fab fa-linkedin-in"></i></a>
 
-                <a href="tel:00573193811245" onclick="return confirm('Please confirm you want to call Axel')"><i class="fas fa-phone-volume"></i></a>
+                        <a target="_blank" href="https://angel.co/axel-braunschweiger">
+                            <i class="fab fa-angellist"></i></a>
+
+                        <a target="_blank" href="https://github.com/Micromegass"><i class="fab fa-github"></i>
+                        </a>
+                        <a target="_blank" href="https://stackoverflow.com/users/9893391/micromegas"><i class="fab fa-stack-overflow"></i></a>
+
+                        <a href="mailto:axelbraunschweiger@gmx.de ?Subject=Hello%20again" target="_top"> <i class="fas fa-at"></i></a>
 
 
-            </span>
-        </div>
-        <br>
-        <div class="heading">...or just leave me a message right here ... </div>
+                        <a href="skype:axel_australia?call" onclick="return confirm('Please confirm you want to skype with Axel')"><i
+                                class="fab fa-skype"></i></a>
 
-
-
-        <form action="https://getsimpleform.com/messages?form_api_token=" method="post">
-            <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
-
-            <div class="form-group col-md-6 col-sm-7">
-                <input type='hidden' name='redirect_to' value='https://micromegass.github.io/Portfolio/' />
-            </div>
-            <!-- all your input fields here.... -->
-
-            <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
-                <input type='text' name='email' placeholder="Your email: email@example.com" class="form-control" />
+                        <a href="tel:00573193811245" onclick="return confirm('Please confirm you want to call Axel')"><i
+                                class="fas fa-phone-volume"></i></a>
+                    </span>
             </div>
 
-            <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
-                <textarea rows="15" placeholder="Write to me..." type="text" name="message" id="message" class="form-control"></textarea>
-                <br>
 
-                <button class="btn purple-gradient btn-rounded btn-lg" type="submit" id="send-button"><span class="fas fa-paper-plane "></span>
-                    Send </button>
-            </div>
-        </form>
+            <form action="https://getsimpleform.com/messages?form_api_token=76435f7f59e8d308248cad00e4c38545" method="post">
+                <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+                <div class="form-group col-md-6 col-sm-7">
+                    <input type='hidden' name='redirect_to' value='https://micromegass.github.io/Portfolio/' />
+                </div>
+                <!-- all your input fields here.... -->
 
+                <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
+                    <input type='text' name='email' placeholder="Your email: email@example.com" class="form-control" />
+                </div>
 
-    </section>
+                <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
+                    <textarea rows="15" placeholder="Write to me..." type="text" name="message" id="message" class="form-control"></textarea>
+                    <br>
 
+                    <button class="btn purple-gradient btn-rounded btn-lg" type="submit" id="send-button"><span class="fas fa-paper-plane "></span>
+                        Send </button>
+                </div>
+            </form>
 
-
-
-
-    <footer>
-        Axel Braunschweiger, All rights reserved
-    </footer>
-
-
-    <script src="js/lightbox.min.js"></script>
-    <script src="js/jquery.tiltedpage-scroll.min.js"></script>
-    <script src="js/jquery.tiltedpage-scroll.js"></script>
+        </section>
 
 
+        <footer>
+            Axel Braunschweiger, All rights reserved
+        </footer>
 </body>
 
 </html>
