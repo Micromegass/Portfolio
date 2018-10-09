@@ -94,10 +94,11 @@ body {
 
 .heading {
     text-align: center;
+
 }
 
 section {
-    margin-bottom: 100px;
+    padding-bottom: 100px;
 }
 
 .object {
@@ -119,17 +120,7 @@ section {
     color: #EA7F64;
 }
 
-#education {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background: #D8D8D8;
-}
 
-#personal {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background: #D8D8D8;
-}
 
 #text-video {
     padding-top: 10px;
@@ -141,7 +132,7 @@ section {
 
 .fas:hover {
 
-color: greenyellow;
+    color: greenyellow;
 }
 
 .far:hover {
@@ -150,7 +141,7 @@ color: greenyellow;
 }
 
 .fa:hover {
-        color: greenyellow;
+    color: greenyellow;
 
 }
 
@@ -166,10 +157,10 @@ img:hover {
 
 img:hover {
     transition: all 2s ease;
-    z-index:10;
+    z-index: 10;
 
 }
- 
+
 
 
 /* slider animation */
@@ -201,6 +192,7 @@ img:hover {
 .carousel-fade .carousel-control {
     z-index: 2;
 }
+
 /* slider animation end */
 
 /* styling social buttons */
@@ -209,7 +201,7 @@ img:hover {
     margin-right: 15px;
     border-radius: 5px;
     color: rgb(41, 39, 39);
-    font-size: 30px;
+    font-size: 25px;
     line-height: 15px;
     font-weight: bold;
 }
@@ -225,27 +217,79 @@ img:hover {
 .icons2 {
 
     text-align: center;
-    
+
 }
 
 .icons2 a {
-color:whitesmoke;
+    color: whitesmoke;
     font-size: 19px;
 
 }
 
 .icons2 a:hover {
-color: yellowgreen;
+    color: yellowgreen;
 }
 
 .social2 a:hover {
     color: yellowgreen;
     cursor: pointer;
 }
+
 /* styling social buttons end*/
 
 
-footer {
 
+
+#skills,
+#portfolio {
+
+    background: #D8D8D8;
+
+}
+
+#contact {
+
+    background: white;
+
+
+}
+
+
+
+
+h1 {
+
+    padding-top: 70px;
+    padding-bottom: 50px;
+
+}
+
+
+
+
+.hiddenText {
+
+    display: none;
+}
+
+.read {
+
+    color: #3498DB;
+
+}
+
+.read:hover {
+
+    cursor: pointer;
+}
+
+footer {
     position: fixed;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
 }
