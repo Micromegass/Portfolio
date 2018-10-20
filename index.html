@@ -45,7 +45,7 @@
                         <li class="active"> <a href="#home">HOME</a> </li>
                         <li><a href="#personal">PERSONAL PROFILE</a></li>
                         <li><a href="#skills">SKILLS</a></li>
-                        <li><span class="logo"> <img id="logo" class="img-responsive" src="images/logo/logo.png" alt="logo"></span></li>
+                        <li><span class="logo"> <img id="logo" src="images/logo/logo.png" alt="logo"></span></li>
                         <li><a href="#education">EDUCATION</a></li>
                         <li><a href="#portfolio">PORTFOLIO</a></li>
                         <li><a href="#contact">CONTACT</a></li>
@@ -71,16 +71,17 @@
                 <div class="carousel-inner">
 
                     <div class="item">
-                        <img class="slider img-responsive" src="images/slider/slider2.png" alt="First Slide" id="slider2">
+                        <img class="slider" src="images/slider/slider2.png" alt="First Slide" id="slider2">
+
                     </div>
 
                     <div class="item">
-                        <img class="slider img-responsive" src="images/slider/slider1.png" alt="First Slide" id="slider1">
+                        <img class="slider" src="images/slider/slider1.png" alt="First Slide" id="slider1">
                     </div>
 
                     <div class="item active">
                         <div class="carousel-caption">
-                            <h2> Axel Braunschweiger</h2>
+                            <h1> Axel Braunschweiger</h1>
                             <p> - Full Stack Developer, Economist and Teacher - </p>
                             <div class="icons2">
                                 <span class="social2">
@@ -109,7 +110,7 @@
                             </div>
                         </div>
                         <div>
-                            <img class="slider img-responsive" src="images/slider/slider3.png" alt="Third Slide" id="slider3">
+                            <img class="slider" src="images/slider/slider3.png" alt="Third Slide" id="slider3">
                         </div>
                     </div>
                 </div>
@@ -125,9 +126,16 @@
         </section>
     </div>
 
-    <section id="personal">
+
+
+    <section id="personal" class="page1">
         <div class="container">
             <h1 class="heading"> PERSONAL PROFILE </h1>
+
+            <div class="cv">
+                <button class="btn btn-elegant btn-lg"> <a href="https://resume.creddle.io/resume/3zyf7sgf40t" target="_blank">
+                         Curriculum Vitae </a> </button>
+            </div>
 
             <div class="quote heading" style="font-style: italic"> "In the professional world of tomorrow, you have to
                 know two things: You have
@@ -143,7 +151,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="thumbnail box col-md-4 col-sm-6 col-xs-8 col-xs-offset-2 col-md-offset-0 gallery" id="cover">
+                    <div class="thumbnail box col-md-4 col-sm-6 col-xs-8 gallery" id="cover">
                         <a href="images/me.jpg" data-lightbox="gallery" data-title="That's me"><img src="images/me.jpg"
                                 class="img-responsive" id="me" alt="me"></a>
                     </div>
@@ -153,12 +161,9 @@
                             love code and I am
                             also a
                             nice
-                            guy, but if you doubt that you can just ask my mum, head directly to my <span class="link"><a
+                            guy, but if you doubt that you can just ask my mum or head directly to my <span class="link"><a
                                     href="https://github.com/Micromegass" target="_blank"> Github
-                                    Page</a> </span> or read my <span class="link">
-                                <a href="https://drive.google.com/file/d/1HTDg7Uft2OHMVuHueNGuNVedg7n4xgEh/view?usp=sharing"
-                                    target="_blank"> CV here
-                                </a> </span> first. I graduated from Friedrich-Alexander University (Germany) with
+                                    Page</a> </span>. I graduated from Friedrich-Alexander University (Germany) with
                             a B.A. in Economics. Always being fascinated with code, combined with my thirst for
                             knowledge I
                             came to Colombia (Medellín), where I completed the Make it Real Bootcamp to turn myself
@@ -173,7 +178,7 @@
                             Motivation, persistence and the willingness to give a 100% in all the things I do is
                             what
                             defines me.
-                            <div class="readmore read">Read more...</div>
+                            <div class="readmore link">read more...</div>
 
                         </p>
 
@@ -183,14 +188,14 @@
                             working atmospheres in which
                             I can learn and develop personally as well as professionally. I'm a rockstar
                             communicator
-                            and I'm fluent in German, English, Spanish and Paisa (the local accent of Medellín
-                            ). I
+                            and I'm fluent in German, English, Spanish and Paisa (- the local accent of Medellín
+                            -). I
                             also can have a short conversation in Italian and French, but I'd like to improve.
                             If that sounded interesting to you check out my recent CV <span class="link">
-                                <a href="https://drive.google.com/file/d/1HTDg7Uft2OHMVuHueNGuNVedg7n4xgEh/view?usp=sharing"
-                                    target="_blank"> here. </a> </span>
+                                <a href="https://resume.creddle.io/resume/3zyf7sgf40t" target="_blank"> here. </a>
+                            </span>
 
-                            <div class="readless read">Read less</div>
+                            <div class="link readless">read less...</div>
 
                         </div>
 
@@ -206,13 +211,12 @@
         <div class="container">
             <div class="row">
                 <div class="box col-md-6 commit">
-
                     <div class="git-commit">
                         <h4 class="caption heading"> I can be very commited... </h4>
                         <a href="images/commit.png" data-lightbox="gallery" data-title="My commits"><img class="col-md-12 thumbnail img-responsive"
                                 src="images/commit.png" alt="git commit"></a>
-                    </div>
 
+                    </div>
                     <br><br><br>
                     <div class="object">
                         <a href="images/human.png" data-lightbox="gallery" data-title="That's me as a constructor function">
@@ -220,32 +224,27 @@
                         <br>
                     </div>
                 </div>
-
                 <div class="box video col-md-6">
                     <h4 class="caption heading"> Get to know me personally...</h4>
-                    <div class="col-sm-11 col-md-12 col-xs-1">
-                        <iframe src="https://drive.google.com/file/d/1LNaxW44-vqwvq2YPh1mtw2vpohbpf6lw/preview" width="640vh"
-                            height="380"></iframe>
-                    </div>
+                    <iframe src="https://drive.google.com/file/d/1LNaxW44-vqwvq2YPh1mtw2vpohbpf6lw/preview" width="640"
+                        height="380"></iframe>
                     <br>
-                    <p class="heading col-xs-offset-2 col-sm-6 col-xs-5 col-md-12 col-md-offset-0" id="text-video"> A
-                        little presentation of how I got to where I am, in case
+                    <p class="heading" id="text-video"> A little presentation of how I got to where I am, in case
                         you
                         were to lazy to read ;)</p>
+
                 </div>
             </div>
         </div>
     </section>
 
-
     <section id="skills">
         <div class="container">
             <div class="row">
-                <h1 class="heading">SKILLSET</h1> <br>
+                <h2 class="heading">SKILLSET</h2> <br>
                 <div class="box col-md-6 skills">
                     <a href="images/skills.png" data-lightbox="gallery" data-title="My humble self-proclaimed skillset"><img
-                            class="col-xs-9 col-sm-12 col-md-12 col-xs-offset-2 col-md-offset-0 skill-pic thumbnail"
-                            src="images/skills.png" alt="skillset diagram"></a>
+                            class="col-sm-12 sol-md-12 skill-pic thumbnail" src="images/skills.png" alt="skillset diagram"></a>
                 </div>
 
                 <div class="box col-md-6 col-sm-12 col-sm-offset-1 col-md-offset-0 col-xs-8 col-xs-offset-3 skill-description">
@@ -290,64 +289,6 @@
         </div>
     </section>
 
-    <section id="education">
-        <div class="container">
-            <div class="row">
-                <h1 class="heading">EDUCATION</h1>
-
-                <div class="box col-md-6">
-                    <h3 class="heading link"> <a href="https://www.fernuni-hagen.de/" target="_blank"> University
-                            of
-                            Hagen
-                            (ongoing)</a>
-                    </h3>
-                    <p> Realizing that I love to create things, solve problems and always learn something new, I
-                        decided to enroll again in the distance university of Hagen to major in Computer Sciences.
-                        The
-                        university is the only state
-                        universtiy in Germany that allows you to study in different countries and take your exams
-                        in
-                        the German schools around the world. It also allows you to study at your own rhythm while
-                        working fulltime. It is a normal Bachelor of Science programme in which you learn all there
-                        is
-                        to know about the fundamentals of Computer Sciences</p>
-                </div>
-
-                <div class="box col-md-6">
-                    <h3 class="heading link"> <a href="https://www.makeitreal.camp/" target="_blank"> <span>Make it
-                                Real
-                                Camp (graduated)</span></a></h3>
-                    <p> I took part in an intensive instructor-led coding Bootcamp at Make it Real. The programme
-                        included three phases. The first phase
-                        included self-study and an
-                        entrance test. Once accepted, the second phase started which consisted of intensive 12-week
-                        full-time programme. Everyday students and the teacher came together to study Ruby, Rails,
-                        Sinatra,
-                        Javascript, jQuery, APIs, Testing, Bootstrap, HTML, CSS and various other such as
-                        responsive
-                        design, testing techniques
-                        and deploying different services such as Heroku and Amazon Web services. During
-                        post-phase students were assigned a mentor and asked to complete the rest of the online
-                        platform
-                        which is full of material, coding challenges and projects.
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="box col-md-6">
-                    <h3 class="heading link"> <a href="https://www.fau.eu/" target="_blank">University of
-                            Friedrich-Alexander (graduated)</a> </h3>
-                    <p> Because I was interested in the workings of the economy I studied Economics and Anglistic
-                        at
-                        the university of Friedrich-Alexander. Apart from Economics my degree involved a broad
-                        variety
-                        of subjects. I studied critical theory and I also enrolled in
-                        spanish and philosophy classes. </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <section id="portfolio">
@@ -360,7 +301,7 @@
                         <h4 class="heading"> <span class="link"><a href="https://micromegass.github.io/Brickwater-Responsive/"
                                     target="_blank">Bandpage Brickwater</a> </span><i class="fas fa-headphones"></i></h4>
                         <div><a href="images/projects/project-1.png" data-lightbox="gallery" data-title="Bandpage for Brickwater"><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-1.png" alt="Brickwater Bandpage"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> HTML, CSS, Bootstrap,
                             Javascript, jQuery </div>
 
@@ -424,7 +365,7 @@
                             <i class="fa fa-cubes" aria-hidden="true"></i>
                         </h4>
                         <div><a href="images/projects/project-2.png" data-lightbox="gallery" data-title="Guess the number with Pijas and Fijas"><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-2.png" alt="Picas y Fijas"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-2.png" alt="Picas y Fijas"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Javascript, jQuery </div>
 
 
@@ -491,7 +432,7 @@
                                     on
                                     Crack</a> </span><i class="far fa-gem"></i></h4>
                         <div><a href="images/projects/project-3.png" data-lightbox="gallery" data-title="RoC: Your forum for Questions on Ruby"><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-3.png" alt="Ruby on Crack"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-3.png" alt="Ruby on Crack"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR </div>
 
                         <!-- Button trigger modal -->
@@ -556,7 +497,7 @@
                         <h4 class="heading"> <span class="link"><a href="https://super-city-blog.herokuapp.com/">
                                     Cities </a></span> <i class="fas fa-university"></i></h4>
                         <div><a href="images/projects/project-4.png" data-lightbox="gallery" data-title="Every city has a story..."><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-4.png" alt="City Blog"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-4.png" alt="City Blog"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Heroku </div>
 
                         <!-- Button trigger modal -->
@@ -615,7 +556,7 @@
                             </span><i class="fas fa-infinity"></i></i>
                         </h4>
                         <div><a href="images/projects/project-5.png" data-lightbox="gallery" data-title="All about what I like..."><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-5.png" alt="Personal Blog"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-5.png" alt="Personal Blog"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Hexo, javascript, HTML, CSS
                         </div>
 
@@ -671,7 +612,7 @@
                         <h4 class="heading"><span class="link"> <a href="https://stormy-temple-63608.herokuapp.com/">Axel's
                                     Stack</a></span> <i class="fas fa-question"></i></h4>
                         <div><a href="images/projects/project-6.png" data-lightbox="gallery" data-title="A Flowoverstack...."><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-6.png" alt="StackOverflow clone"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-6.png" alt="StackOverflow clone"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Heroku</div>
 
 
@@ -738,7 +679,7 @@
                             </span>
                             <i class="fas fa-list-ol"></i></h4>
                         <div><a href="images/projects/project-7.png" data-lightbox="gallery" data-title="Get your things done mate!"><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-7.png" alt="Brickwater Bandpage"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-7.png" alt="Brickwater Bandpage"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, Sinatra, Heroku</div>
 
                         <!-- Button trigger modal 7-->
@@ -792,7 +733,7 @@
                                 </a> </span><i class="fas fa-hourglass-half">
                             </i> </h4>
                         <div><a href="images/projects/project-9.png" data-lightbox="gallery" data-title="Shop till you drop..."><img
-                                    class="thumbnail col-md-12 col-xs-12" src="images/projects/project-9.png" alt="Brickwater Bandpage"></a></div>
+                                    class="thumbnail col-md-12" src="images/projects/project-9.png" alt="Brickwater Bandpage"></a></div>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> HTML, CSS, Bootstrap
                         </div>
 
@@ -847,7 +788,7 @@
                     <div class="box col-md-4 project">
                         <h4 class="heading"> Expensify (in progress) <i class="fas fa-money-bill-wave"></i> </h4>
                         <a href="images/projects/project-8.png" data-lightbox="gallery" data-title="Know how broke you are">
-                            <img class="thumbnail col-md-12 col-xs-12" src="images/projects/project-8.png" alt="Brickwater Bandpage"></a>
+                            <img class="thumbnail col-md-12" src="images/projects/project-8.png" alt="Brickwater Bandpage"></a>
                         <div class="tool"> <span style="font-weight:bold">Tools:</span> Ruby, RoR, Api, Minitest,
                             Heroku </div>
 
@@ -897,121 +838,75 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <br><br>
-
-    <section id="contact">
-        <h1 class="heading"> CONTACT</h1>
-        <div class="heading"> Choose your favourite channel to contact me... </div> <br>
-        <div class="icons">
-            <span class="social2">
-                <a target="_blank" href="https://www.facebook.com/mIcRoMeGaSs"><i class="fab fa-facebook-square"></i></a>
-                <a target="_blank" href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/">
-                    <i class="fab fa-linkedin-in"></i></a>
-
-                <a target="_blank" href="https://angel.co/axel-braunschweiger">
-                    <i class="fab fa-angellist"></i></a>
-
-                <a target="_blank" href="https://github.com/Micromegass"><i class="fab fa-github"></i>
-                </a>
-                <a target="_blank" href="https://stackoverflow.com/users/9893391/micromegas"><i class="fab fa-stack-overflow"></i></a>
-
-                <a href="mailto:axelbraunschweiger@gmx.de ?Subject=Hello%20again" target="_top"> <i class="fas fa-at"></i></a>
+        <br><br>
 
 
-                <a href="skype:axel_australia?call" onclick="return confirm('Please confirm you want to skype with Axel')"><i
-                        class="fab fa-skype"></i></a>
+        <section id="contact">
+            <h1 class="heading"> CONTACT</h1>
+            <div class="heading"> Choose your favourite channel to contact me... </div> <br>
+            <div class="icons">
+                <span class="social2">
+                    <a target="_blank" href="https://www.facebook.com/mIcRoMeGaSs"><i class="fab fa-facebook-square"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/">
+                        <i class="fab fa-linkedin-in"></i></a>
 
-                <a href="tel:00573193811245" onclick="return confirm('Please confirm you want to call Axel')"><i class="fas fa-phone-volume"></i></a>
-            </span>
-        </div>
+                    <a target="_blank" href="https://angel.co/axel-braunschweiger">
+                        <i class="fab fa-angellist"></i></a>
 
-        <br>
-        <div class="heading">...or just leave me a message right here ... </div>
+                    <a target="_blank" href="https://github.com/Micromegass"><i class="fab fa-github"></i>
+                    </a>
+                    <a target="_blank" href="https://stackoverflow.com/users/9893391/micromegas"><i class="fab fa-stack-overflow"></i></a>
 
-        <br>
+                    <a href="mailto:axelbraunschweiger@gmx.de ?Subject=Hello%20again" target="_top"> <i class="fas fa-at"></i></a>
 
 
-        <form action="https://getsimpleform.com/messages?form_api_token=76435f7f59e8d308248cad00e4c38545" method="post">
-            <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
-            <div class="form-group col-md-6 col-sm-7">
-                <input type='hidden' name='redirect_to' value='https://micromegass.github.io/Portfolio/' />
-            </div>
-            <!-- all your input fields here.... -->
+                    <a href="skype:axel_australia?call" onclick="return confirm('Please confirm you want to skype with Axel')"><i
+                            class="fab fa-skype"></i></a>
 
-            <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
-                <input type='text' name='email' placeholder="Your email: email@example.com" class="form-control" />
+                    <a href="tel:00573193811245" onclick="return confirm('Please confirm you want to call Axel')"><i
+                            class="fas fa-phone-volume"></i></a>
+                </span>
             </div>
 
-            <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
-                <textarea rows="15" placeholder="Write to me..." type="text" name="message" id="message" class="form-control"></textarea>
-                <br>
+            <br>
+            <div class="heading">...or just leave me a message right here ... </div>
 
-                <button class="btn purple-gradient btn-rounded btn-lg" type="submit" id="send-button"><span class="fas fa-paper-plane "></span>
-                    Send </button>
-            </div>
-        </form>
-
-    </section>
-
-    <br><br><br>
-
-    <footer class="col-md-6 col-sm-6 col-xs-12 col-xs-offset-3 col-md-offset-4">
-        © 2018
-        <label>Axel Braunschweiger</label>, All Rigths reserved.
-        <!-- Button trigger modal -->
-        <label class="" id="privacy" data-toggle="modal" data-target="#privacy-policy">
-            Privacy Policy</label>
-    </footer>
+            <br>
 
 
+            <form action="https://getsimpleform.com/messages?form_api_token=76435f7f59e8d308248cad00e4c38545" method="post">
+                <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+                <div class="form-group col-md-6 col-sm-7">
+                    <input type='hidden' name='redirect_to' value='https://micromegass.github.io/Portfolio/' />
+                </div>
+                <!-- all your input fields here.... -->
+
+                <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
+                    <input type='text' name='email' placeholder="Your email: email@example.com" class="form-control" />
+                </div>
+
+                <div class="form-group col-md-6 col-sm-7 col-sm-offset-3 col-xs-offset-1">
+                    <textarea rows="15" placeholder="Write to me..." type="text" name="message" id="message" class="form-control"></textarea>
+                    <br>
+
+                    <button class="btn purple-gradient btn-rounded btn-lg" type="submit" id="send-button"><span class="fas fa-paper-plane "></span>
+                        Send </button>
+                </div>
+            </form>
+
+        </section>
 
 
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="privacy-policy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <span style="font-weight:bold" class="modal-title heading">Privacy</span>
-            </div>
-            <div class="modal-body">
-                <p>
-                    <h4 style="font-weight: bold">Short Version</h4>
-
-                    This site only collects the information you choose to give us, and it is processed with
-                    your
-                    consent, or on another legal basis;
-                    Only the minimum amount of personal information is necessary to fulfill
-                    the purpose of your interaction
-                    with me; I don't sell it to third parties; and I only use it as this Privacy
-                    Statement describes. This site is
-                    compliant with the General Data Protection Regulation (GDPR). No matter where you are,
-                    where you live, or what your citizenship is, this site provides the same standard of
-                    privacy protection to all users
-                    around the world, regardless of
-                    their country of origin or location. <br>
-
-                    <h4 style="font-weight: bold">Long Version</h4>
 
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    <script src="js/lightbox.min.js"></script>
-    <script src="js/jquery.tiltedpage-scroll.min.js"></script>
-    <script src="js/jquery.tiltedpage-scroll.js"></script>
-    <script src="js/app.js"></script>
+        <script src="js/lightbox.min.js"></script>
+        <script src="js/jquery.tiltedpage-scroll.min.js"></script>
+        <script src="js/jquery.tiltedpage-scroll.js"></script>
+        <script src="js/app.js"></script>
 
 </body>
 
