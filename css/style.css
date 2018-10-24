@@ -98,7 +98,7 @@ body {
 }
 
 section {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 
@@ -148,7 +148,7 @@ section {
 
 
 img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 .thumbnail {
@@ -161,7 +161,6 @@ img:hover {
     z-index: 10;
 
 }
-
 
 
 /* slider animation */
@@ -242,13 +241,14 @@ img:hover {
 
 
 #skills,
-#portfolio {
+#contact
+ {
 
     background: #D8D8D8;
 
 }
 
-#contact {
+#portfolio {
 
     background: white;
 
@@ -284,16 +284,6 @@ h1 {
     cursor: pointer;
 }
 
-footer {
-    position: fixed;
-    left: 0px;
-    height: 30px;
-    width: 100%;
-
-    padding-top: 100px;
-    padding-bottom: 100px;
-
-}
 
 
 #privacy:hover {
@@ -326,3 +316,16 @@ margin-top: -40px;
     font-size: 13px;
 }
 
+
+.skillset {
+
+    padding-top: 30px;
+
+}
+
+
+footer {
+
+
+    padding-top: 20px;
+}
