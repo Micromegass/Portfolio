@@ -1,0 +1,86 @@
+---
+import { href, type Locale } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const cta = t(locale).cta;
+---
+
+<section class="cta sheet" data-reveal>
+  <div class="cta__box">
+    <span class="anno anno--mark">{cta.kicker}</span>
+    <h2 class="cta__title">{cta.title}</h2>
+    <p class="cta__body">{cta.body}</p>
+    <a class="cta__button" href={href('contact', locale)}>{cta.button} →</a>
+  </div>
+</section>
+
+<style>
+  .cta {
+    margin-top: var(--space-8);
+  }
+
+  .cta__box {
+    border: 1.5px solid var(--ink);
+    background: var(--paper-raised);
+    padding: var(--space-6) var(--space-5);
+    position: relative;
+  }
+
+  /* Drawing corner ticks */
+  .cta__box::before,
+  .cta__box::after {
+    content: '+';
+    position: absolute;
+    font-family: var(--font-anno);
+    color: var(--mark);
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .cta__box::before {
+    top: -0.55em;
+    left: -0.38em;
+  }
+
+  .cta__box::after {
+    bottom: -0.55em;
+    right: -0.38em;
+  }
+
+  .cta__title {
+    margin-top: var(--space-3);
+    max-width: 18ch;
+  }
+
+  .cta__body {
+    color: var(--ink-soft);
+  }
+
+  .cta__button {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-family: var(--font-anno);
+    font-size: var(--text-sm);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--ink);
+    padding: var(--space-3) var(--space-4);
+    border: 1.5px solid var(--ink);
+    transition:
+      background var(--dur-quick) var(--ease-draft),
+      color var(--dur-quick) var(--ease-draft);
+  }
+
+  .cta__button:hover {
+    background: var(--mark);
+    border-color: var(--mark);
+    color: var(--paper);
+  }
+</style>

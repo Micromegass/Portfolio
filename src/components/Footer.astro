@@ -1,0 +1,177 @@
+---
+import { href, type Locale, type PageKey } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+  page: PageKey;
+  /** Sheet number shown in the title block, e.g. "01" for home */
+  sheet: string;
+}
+
+const { locale, page, sheet } = Astro.props;
+const f = t(locale).footer;
+const c = t(locale).contact;
+
+const rev = new Date().toISOString().slice(0, 10);
+---
+
+<!-- Footer designed as a DIN drawing title block (Zeichnungsschriftfeld) -->
+<footer class="footer sheet">
+  <div class="block" role="contentinfo">
+    <div class="cell cell--name">
+      <span class="anno cell__label">{f.drawnBy}</span>
+      <span class="cell__value cell__value--big">Axel Braunschweiger</span>
+      <span class="cell__sub">{f.role}</span>
+    </div>
+
+    <div class="cell">
+      <span class="anno cell__label">{f.contactLabel}</span>
+      <a class="cell__value" href={`mailto:${c.email}`}>{c.email}</a>
+      <span class="cell__sub">{f.locations}</span>
+    </div>
+
+    <div class="cell">
+      <span class="anno cell__label">{f.languagesLabel}</span>
+      <span class="cell__value">{f.languages}</span>
+      <span class="cell__sub">
+        <a href="https://github.com/Micromegass" rel="me noopener" target="_blank">GitHub</a>
+        {' · '}
+        <a
+          href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/"
+          rel="me noopener"
+          target="_blank">LinkedIn</a
+        >
+      </span>
+    </div>
+
+    <div class="cell cell--meta">
+      <div class="meta__row">
+        <span class="anno cell__label">{f.sheetLabel}</span>
+        <span class="cell__value cell__value--mono">{sheet}</span>
+      </div>
+      <div class="meta__row">
+        <span class="anno cell__label">{f.revisionLabel}</span>
+        <span class="cell__value cell__value--mono">{rev}</span>
+      </div>
+      <div class="meta__row meta__row--legal">
+        <a href={href('imprint', locale)}>{f.legalImprint}</a>
+        <a href={href('privacy', locale)}>{f.legalPrivacy}</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="colophon anno">{f.colophon}</p>
+</footer>
+
+<style>
+  .footer {
+    margin-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .block {
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr 0.8fr;
+    border: 1.5px solid var(--ink);
+    background: var(--paper-raised);
+  }
+
+  .cell {
+    padding: var(--space-3);
+    border-left: 1px solid var(--hairline-strong);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+  }
+
+  .cell:first-child {
+    border-left: 0;
+  }
+
+  .cell__label {
+    color: var(--ink-faint);
+  }
+
+  .cell__value {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+
+  .cell__value--big {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 118, 'wght' 640;
+    font-size: var(--text-md);
+    line-height: 1.1;
+  }
+
+  .cell__value--mono {
+    font-family: var(--font-anno);
+  }
+
+  .cell__sub {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+
+  .cell--meta {
+    gap: var(--space-2);
+  }
+
+  .meta__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .meta__row--legal {
+    margin-top: auto;
+    gap: var(--space-3);
+    justify-content: flex-start;
+    font-size: var(--text-sm);
+  }
+
+  .colophon {
+    margin-top: var(--space-3);
+    color: var(--ink-faint);
+    text-transform: none;
+    letter-spacing: 0.04em;
+    max-width: none;
+  }
+
+  @media (max-width: 800px) {
+    .block {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cell {
+      border-top: 1px solid var(--hairline-strong);
+    }
+
+    .cell:nth-child(-n + 2) {
+      border-top: 0;
+    }
+
+    .cell:nth-child(odd) {
+      border-left: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .block {
+      grid-template-columns: 1fr;
+    }
+
+    .cell {
+      border-left: 0;
+    }
+
+    .cell:first-child {
+      border-top: 0;
+    }
+  }
+</style>

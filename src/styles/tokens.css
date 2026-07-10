@@ -1,0 +1,61 @@
+/* ============================================================
+   Das Werkbuch — design tokens (single source of truth)
+   Palette contrast-validated: all text tokens ≥ 4.5:1 on paper.
+   ============================================================ */
+
+:root {
+  /* Color — paper & ink */
+  --paper: #fbfaf7;
+  --paper-raised: #ffffff;
+  --paper-recessed: #f3f1eb;
+  --ink: #16191d;
+  --ink-soft: #494f57;
+  --ink-faint: #6d737c;
+
+  /* Color — drawing marks */
+  --mark: #c2340f;            /* dimension lines, ticks, graphic marks */
+  --accent-text: #a93312;     /* links, accented words (6.35:1 on paper) */
+  --anno-blue: #2b4c7e;       /* secondary annotation labels */
+
+  /* Hairlines & rules */
+  --hairline: rgba(22, 25, 29, 0.16);
+  --hairline-strong: rgba(22, 25, 29, 0.38);
+
+  /* Type families */
+  --font-display: 'Archivo Variable', system-ui, sans-serif;
+  --font-body: 'Source Serif 4 Variable', Georgia, serif;
+  --font-anno: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Fluid type scale */
+  --text-xs: 0.6875rem;                              /* 11px annotations */
+  --text-sm: 0.8125rem;                              /* 13px labels */
+  --text-base: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --text-md: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  --text-lg: clamp(1.6rem, 1.3rem + 1.4vw, 2.25rem);
+  --text-xl: clamp(2.1rem, 1.6rem + 2.6vw, 3.5rem);
+  --text-2xl: clamp(2.75rem, 1.9rem + 4.4vw, 5.25rem);
+
+  /* Display axis settings */
+  --display-width: 118;   /* Archivo wdth axis — drafting-title wide */
+  --display-weight: 640;
+
+  /* Space scale (drawing-grid derived, 8px module) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+  --space-7: 6.5rem;
+  --space-8: clamp(5rem, 4rem + 6vw, 10rem);
+
+  /* Layout */
+  --sheet-max: 78rem;
+  --sheet-pad: clamp(1.25rem, 4vw, 3.5rem);
+  --content-max: 42rem;
+
+  /* Motion */
+  --ease-draft: cubic-bezier(0.6, 0, 0.2, 1);
+  --dur-quick: 180ms;
+  --dur-draw: 700ms;
+}

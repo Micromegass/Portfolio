@@ -1,0 +1,43 @@
+---
+import { routes, locales, type Locale, type PageKey } from '@/lib/i18n';
+import HomePage from '@/templates/HomePage.astro';
+import ServicesPage from '@/templates/ServicesPage.astro';
+import WorkPage from '@/templates/WorkPage.astro';
+import CaseStudyPage from '@/templates/CaseStudyPage.astro';
+import AboutPage from '@/templates/AboutPage.astro';
+import ContactPage from '@/templates/ContactPage.astro';
+import LegalPage from '@/templates/LegalPage.astro';
+
+/**
+ * Every localized route on the site is generated from the route map in
+ * src/lib/i18n.ts — one place to add or rename pages for all languages.
+ */
+export function getStaticPaths() {
+  return (Object.keys(routes) as PageKey[]).flatMap((page) =>
+    locales.map((locale) => {
+      const slug = routes[page][locale].replace(/^\/|\/$/g, '');
+      return {
+        params: { path: slug === '' ? undefined : slug },
+        props: { page, locale },
+      };
+    })
+  );
+}
+
+interface Props {
+  page: PageKey;
+  locale: Locale;
+}
+
+const { page, locale } = Astro.props;
+---
+
+{page === 'home' && <HomePage locale={locale} />}
+{page === 'services' && <ServicesPage locale={locale} />}
+{page === 'work' && <WorkPage locale={locale} />}
+{page === 'case-physio' && <CaseStudyPage locale={locale} caseKey="physio" />}
+{page === 'case-ikuna' && <CaseStudyPage locale={locale} caseKey="ikuna" />}
+{page === 'about' && <AboutPage locale={locale} />}
+{page === 'contact' && <ContactPage locale={locale} />}
+{page === 'imprint' && <LegalPage locale={locale} kind="imprint" />}
+{page === 'privacy' && <LegalPage locale={locale} kind="privacy" />}

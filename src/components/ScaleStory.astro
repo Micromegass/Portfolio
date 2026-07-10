@@ -1,0 +1,172 @@
+---
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).home.scale;
+---
+
+<!-- The one bold moment: a pinned zoom from 1:1 to 1:1000 (see motion.ts) -->
+<section id="scale-story" class="scale" aria-label={s.title}>
+  <div class="sheet scale__head">
+    <span class="anno anno--blue">{s.kicker}</span>
+    <h2 class="scale__title">{s.title}</h2>
+  </div>
+
+  <div class="scale__stage">
+    {
+      s.frames.map((frame, i) => (
+        <figure class="scale-frame" data-frame={i}>
+          <figcaption class="scale-frame__caption">
+            <span class="anno anno--mark scale-frame__scale">{frame.scale}</span>
+            <h3 class="scale-frame__title">{frame.title}</h3>
+            <p class="scale-frame__body">{frame.body}</p>
+          </figcaption>
+          <div class="scale-frame__art" aria-hidden="true">
+            {i === 0 && <span class="art art--code">{'{ }'}</span>}
+            {i === 1 && (
+              <svg viewBox="0 0 120 80" class="art-svg">
+                <rect x="4" y="4" width="112" height="72" />
+                <line x1="4" y1="22" x2="116" y2="22" />
+                <circle cx="14" cy="13" r="3.5" />
+                <rect x="14" y="34" width="60" height="7" />
+                <rect x="14" y="48" width="90" height="4" />
+                <rect x="14" y="58" width="76" height="4" />
+              </svg>
+            )}
+            {i === 2 && (
+              <svg viewBox="0 0 120 80" class="art-svg">
+                <rect x="4" y="4" width="70" height="72" />
+                <rect x="80" y="4" width="36" height="34" />
+                <rect x="80" y="44" width="36" height="32" />
+                <line x1="4" y1="20" x2="74" y2="20" />
+                <rect x="12" y="30" width="40" height="6" />
+                <rect x="12" y="44" width="54" height="4" />
+                <rect x="12" y="54" width="46" height="4" />
+                <circle cx="98" cy="21" r="9" />
+                <line x1="86" y1="56" x2="110" y2="56" />
+                <line x1="86" y1="64" x2="104" y2="64" />
+              </svg>
+            )}
+            {i === 3 && (
+              <svg viewBox="0 0 120 80" class="art-svg">
+                {/* two storefronts, two continents */}
+                <polyline points="8,40 26,20 44,40" />
+                <rect x="12" y="40" width="28" height="28" />
+                <rect x="22" y="52" width="9" height="16" />
+                <polyline points="74,40 92,20 110,40" />
+                <rect x="78" y="40" width="28" height="28" />
+                <rect x="88" y="52" width="9" height="16" />
+                <path d="M 44 30 C 56 12, 64 12, 76 30" class="art-arc" />
+              </svg>
+            )}
+          </div>
+        </figure>
+      ))
+    }
+  </div>
+
+  <p class="sheet scale__outro" data-reveal>{s.outro}</p>
+</section>
+
+<style>
+  .scale {
+    margin-top: var(--space-8);
+  }
+
+  .scale__head {
+    text-align: center;
+    padding-bottom: var(--space-4);
+  }
+
+  .scale__title {
+    margin: var(--space-2) auto 0;
+  }
+
+  /* Static fallback (no JS): frames flow in sequence */
+  .scale__stage {
+    position: relative;
+  }
+
+  .scale-frame {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    text-align: center;
+    margin: 0;
+    padding: var(--space-5) var(--sheet-pad);
+  }
+
+  /* With JS: frames stack for the pinned zoom */
+  :global(html.js) .scale__stage {
+    height: 100vh;
+    min-height: 560px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  :global(html.js) .scale-frame {
+    position: absolute;
+    inset: 0;
+    padding: var(--sheet-pad);
+    will-change: transform, opacity;
+  }
+
+  .scale-frame__caption {
+    max-width: 34rem;
+    order: 2;
+  }
+
+  .scale-frame__scale {
+    font-size: 1rem;
+  }
+
+  .scale-frame__title {
+    margin: var(--space-2) 0;
+  }
+
+  .scale-frame__body {
+    color: var(--ink-soft);
+    margin-inline: auto;
+  }
+
+  .scale-frame__art {
+    order: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .art--code {
+    font-family: var(--font-anno);
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--mark);
+  }
+
+  .art-svg {
+    width: clamp(180px, 30vw, 300px);
+    height: auto;
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 1.5;
+  }
+
+  .art-svg .art-arc {
+    stroke: var(--mark);
+    stroke-dasharray: 4 4;
+  }
+
+  .scale__outro {
+    max-width: var(--content-max);
+    margin-inline: auto;
+    text-align: center;
+    color: var(--ink-soft);
+    font-style: italic;
+    padding-top: var(--space-5);
+  }
+
+  /* No JS or reduced motion: html.js is never set, frames simply flow. */
+</style>

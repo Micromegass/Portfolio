@@ -1,0 +1,36 @@
+---
+import Base from '@/layouts/Base.astro';
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+  kind: 'imprint' | 'privacy';
+}
+
+const { locale, kind } = Astro.props;
+const l = t(locale).legal[kind];
+const sheet = kind === 'imprint' ? 'A1' : 'A2';
+---
+
+<Base locale={locale} page={kind} sheet={sheet}>
+  <section class="sheet legal">
+    <h1 class="legal__title">{l.title}</h1>
+    {l.body.map((para) => <p class="legal__para">{para}</p>)}
+  </section>
+</Base>
+
+<style>
+  .legal {
+    padding-top: var(--space-7);
+    min-height: 50vh;
+  }
+
+  .legal__title {
+    font-size: var(--text-xl);
+  }
+
+  .legal__para {
+    color: var(--ink-soft);
+  }
+</style>

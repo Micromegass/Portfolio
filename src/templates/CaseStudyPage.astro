@@ -1,0 +1,202 @@
+---
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { href, type Locale, type PageKey } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+  caseKey: 'physio' | 'ikuna';
+}
+
+const { locale, caseKey } = Astro.props;
+const c = t(locale).cases[caseKey];
+const m = t(locale).caseMeta;
+const w = t(locale).work;
+
+const page: PageKey = caseKey === 'physio' ? 'case-physio' : 'case-ikuna';
+const nextKey = caseKey === 'physio' ? 'ikuna' : 'physio';
+const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
+const sheet = caseKey === 'physio' ? '03.1' : '03.2';
+---
+
+<Base locale={locale} page={page} sheet={sheet}>
+  <article>
+    <header class="sheet intro">
+      <p class="anno" data-reveal>
+        <a class="intro__back" href={href('work', locale)}>← {m.backLabel}</a>
+      </p>
+      <span class="anno anno--mark" data-reveal>{m.kicker} — {c.client}</span>
+      <h1 class="intro__title" data-reveal>{c.title}</h1>
+      <p class="lead intro__lead" data-reveal>{c.summary}</p>
+      <p data-reveal>
+        <a class="intro__visit" href={c.url} target="_blank" rel="noopener"
+          >{w.visitLabel}: {c.urlLabel} ↗</a
+        >
+      </p>
+    </header>
+
+    <!-- Specification block, drawn like a drawing's parts list -->
+    <section class="sheet" data-reveal>
+      <div class="specs">
+        <div class="specs__head anno anno--blue">{m.specLabel}</div>
+        <dl class="specs__grid">
+          {
+            c.specs.map(({ label, value }) => (
+              <div class="specs__row">
+                <dt class="anno specs__label">{label}</dt>
+                <dd class="specs__value">{value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <section class="sheet body">
+      {
+        c.sections.map((s, i) => (
+          <div class="body__section" data-reveal>
+            <span class="anno anno--mark">{String(i + 1).padStart(2, '0')}</span>
+            <h2 class="body__heading">{s.heading}</h2>
+            <p class="body__text">{s.body}</p>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="sheet outcomes" data-reveal>
+      <span class="anno anno--mark">{c.outcomeKicker}</span>
+      <ul class="outcomes__list">
+        {c.outcomes.map((o) => <li class="outcomes__item">{o}</li>)}
+      </ul>
+    </section>
+
+    <p class="sheet next" data-reveal>
+      <a href={href(nextPage, locale)}>{m.nextLabel}: {t(locale).cases[nextKey].client} →</a>
+    </p>
+  </article>
+
+  <CtaBand locale={locale} />
+</Base>
+
+<style>
+  .intro {
+    padding-top: var(--space-6);
+  }
+
+  .intro__back {
+    text-decoration: none;
+    color: var(--ink-soft);
+  }
+
+  .intro__title {
+    max-width: 18ch;
+    margin-top: var(--space-3);
+  }
+
+  .intro__lead {
+    color: var(--ink-soft);
+    max-width: 40rem;
+  }
+
+  .intro__visit {
+    font-family: var(--font-anno);
+    font-size: var(--text-sm);
+  }
+
+  .specs {
+    margin: var(--space-5) 0 0;
+    border: 1.5px solid var(--ink);
+    background: var(--paper-raised);
+  }
+
+  .specs__head {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+
+  .specs__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+  }
+
+  .specs__row {
+    padding: var(--space-3);
+    border-left: 1px solid var(--hairline);
+  }
+
+  .specs__row:first-of-type {
+    border-left: 0;
+  }
+
+  .specs__label {
+    display: block;
+    color: var(--ink-faint);
+    margin-bottom: var(--space-1);
+  }
+
+  .specs__value {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+
+  .body {
+    margin-top: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .body__heading {
+    font-size: var(--text-lg);
+    margin: var(--space-2) 0 var(--space-3);
+    max-width: 24ch;
+  }
+
+  .body__text {
+    max-width: var(--content-max);
+    color: var(--ink-soft);
+    font-size: var(--text-md);
+    line-height: 1.6;
+  }
+
+  .outcomes {
+    margin-top: var(--space-7);
+  }
+
+  .outcomes__list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-3) 0 0;
+    max-width: var(--content-max);
+  }
+
+  .outcomes__item {
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--hairline-strong);
+    font-size: var(--text-md);
+  }
+
+  .outcomes__item::before {
+    content: '→ ';
+    color: var(--mark);
+  }
+
+  .next {
+    margin-top: var(--space-6);
+    font-family: var(--font-anno);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 800px) {
+    .specs__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .specs__row {
+      border-top: 1px solid var(--hairline);
+    }
+  }
+</style>

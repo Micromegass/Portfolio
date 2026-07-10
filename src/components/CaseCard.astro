@@ -1,0 +1,113 @@
+---
+import { href, type Locale, type PageKey } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+  caseKey: 'physio' | 'ikuna';
+  index: string;
+}
+
+const { locale, caseKey, index } = Astro.props;
+const c = t(locale).cases[caseKey];
+const w = t(locale).work;
+const page: PageKey = caseKey === 'physio' ? 'case-physio' : 'case-ikuna';
+---
+
+<article class="case-card">
+  <div class="case-card__frame" aria-hidden="true">
+    <span class="case-card__dot"></span>
+    <span class="case-card__dot"></span>
+    <span class="case-card__dot"></span>
+    <span class="case-card__url anno">{c.urlLabel}</span>
+  </div>
+  <div class="case-card__body">
+    <span class="anno anno--mark">{w.caseLabel} {index}</span>
+    <h3 class="case-card__title">
+      <a href={href(page, locale)}>{c.title}</a>
+    </h3>
+    <p class="case-card__client anno">{c.client}</p>
+    <p class="case-card__summary">{c.summary}</p>
+    <p class="case-card__link">
+      <a href={href(page, locale)}>{w.readLabel} →</a>
+    </p>
+  </div>
+</article>
+
+<style>
+  .case-card {
+    border: 1.5px solid var(--ink);
+    background: var(--paper-raised);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Minimal browser chrome, drawn not skeuomorphic */
+  .case-card__frame {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+
+  .case-card__dot {
+    width: 7px;
+    height: 7px;
+    border: 1.5px solid var(--ink-faint);
+    border-radius: 50%;
+  }
+
+  .case-card__url {
+    margin-left: var(--space-2);
+    color: var(--ink-faint);
+    text-transform: lowercase;
+    letter-spacing: 0.04em;
+  }
+
+  .case-card__body {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .case-card__title {
+    margin: 0;
+  }
+
+  .case-card__title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .case-card__title a:hover {
+    color: var(--accent-text);
+  }
+
+  .case-card__client {
+    color: var(--ink-faint);
+    margin: 0;
+  }
+
+  .case-card__summary {
+    color: var(--ink-soft);
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .case-card__link {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-anno);
+    font-size: var(--text-sm);
+  }
+
+  .case-card__link a {
+    text-decoration: none;
+  }
+
+  .case-card__link a:hover {
+    text-decoration: underline;
+  }
+</style>

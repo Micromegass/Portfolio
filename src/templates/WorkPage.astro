@@ -1,0 +1,170 @@
+---
+import Base from '@/layouts/Base.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import CaseCard from '@/components/CaseCard.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const w = t(locale).work;
+---
+
+<Base locale={locale} page="work" sheet="03">
+  <section class="sheet intro">
+    <span class="anno anno--mark" data-reveal>{w.kicker}</span>
+    <h1 class="intro__title" data-reveal>{w.title}</h1>
+    <p class="lead intro__lead" data-reveal>{w.intro}</p>
+  </section>
+
+  <section class="sheet cases">
+    <div class="work-grid" data-reveal-group>
+      <CaseCard locale={locale} caseKey="physio" index="01" />
+      <CaseCard locale={locale} caseKey="ikuna" index="02" />
+    </div>
+  </section>
+
+  <section class="sheet employment" data-reveal>
+    <SectionHead fig="02" kicker={w.employment.kicker} title={w.employment.title} />
+    <div class="employment__grid">
+      <p class="employment__body">{w.employment.body}</p>
+      <div class="employment__stack">
+        <span class="anno">{w.employment.stackLabel}</span>
+        <ul class="stack-list">
+          {w.employment.stack.map((tech) => <li class="anno stack-list__item">{tech}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet lab">
+    <SectionHead fig="03" kicker={w.lab.kicker} title={w.lab.title} />
+    <p class="lead" data-reveal>{w.lab.intro}</p>
+    <div class="lab__grid" data-reveal-group>
+      {
+        w.lab.items.map((item, i) => (
+          <article class="lab-card">
+            <span class="anno anno--blue">LAB {String(i + 1).padStart(2, '0')}</span>
+            <h3 class="lab-card__title">{item.title}</h3>
+            <p class="lab-card__desc">{item.desc}</p>
+            <p class="lab-card__status anno">
+              <span class="lab-card__pulse" aria-hidden="true" />
+              {w.lab.statusLabel}: {item.status}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>
+
+<style>
+  .intro {
+    padding-top: var(--space-7);
+  }
+
+  .intro__title {
+    max-width: 20ch;
+    margin-top: var(--space-3);
+  }
+
+  .intro__lead {
+    color: var(--ink-soft);
+    max-width: 38rem;
+  }
+
+  .cases {
+    margin-top: var(--space-6);
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .employment,
+  .lab {
+    margin-top: var(--space-8);
+  }
+
+  .employment__grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--space-5);
+  }
+
+  .employment__body {
+    color: var(--ink-soft);
+    font-size: var(--text-md);
+    line-height: 1.6;
+  }
+
+  .stack-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-3) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .stack-list__item {
+    border: 1px solid var(--hairline-strong);
+    padding: var(--space-1) var(--space-2);
+    color: var(--ink);
+  }
+
+  .lab__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .lab-card {
+    border: 1px dashed var(--hairline-strong);
+    background: var(--paper-raised);
+    padding: var(--space-4);
+  }
+
+  .lab-card__title {
+    margin: var(--space-2) 0;
+    font-size: var(--text-md);
+  }
+
+  .lab-card__desc {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .lab-card__status {
+    margin: var(--space-3) 0 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--anno-blue);
+  }
+
+  .lab-card__pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--anno-blue);
+  }
+
+  @media (max-width: 800px) {
+    .work-grid,
+    .lab__grid,
+    .employment__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

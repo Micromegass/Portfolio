@@ -1,0 +1,163 @@
+---
+import Base from '@/layouts/Base.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).services;
+---
+
+<Base locale={locale} page="services" sheet="02">
+  <section class="sheet intro">
+    <span class="anno anno--mark" data-reveal>{s.kicker}</span>
+    <h1 class="intro__title" data-reveal>{s.title}</h1>
+    <p class="lead intro__lead" data-reveal>{s.intro}</p>
+  </section>
+
+  <section class="sheet services">
+    {
+      s.items.map((item, i) => (
+        <article class="service" id={item.id} data-reveal>
+          <div class="service__index anno anno--mark">{String(i + 1).padStart(2, '0')}</div>
+          <div class="service__main">
+            <h2 class="service__title">{item.title}</h2>
+            <p class="service__desc">{item.desc}</p>
+          </div>
+          <div class="service__side">
+            <span class="anno">{s.deliverablesLabel}</span>
+            <ul class="service__list">
+              {item.deliverables.map((d) => (
+                <li>{d}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="sheet process">
+    <SectionHead fig="05" kicker={s.process.kicker} title={s.process.title} />
+    <p class="lead" data-reveal>{s.process.intro}</p>
+    <ol class="process__steps" data-reveal-group>
+      {
+        s.process.steps.map((step, i) => (
+          <li class="step">
+            <span class="anno anno--mark step__num">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__body">{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>
+
+<style>
+  .intro {
+    padding-top: var(--space-7);
+  }
+
+  .intro__title {
+    max-width: 20ch;
+    margin-top: var(--space-3);
+  }
+
+  .intro__lead {
+    color: var(--ink-soft);
+    max-width: 38rem;
+  }
+
+  .services {
+    margin-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service {
+    display: grid;
+    grid-template-columns: 4rem 1.6fr 1fr;
+    gap: var(--space-4);
+    padding: var(--space-5) 0;
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .service__title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+  }
+
+  .service__desc {
+    color: var(--ink-soft);
+  }
+
+  .service__list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-2) 0 0;
+    font-size: var(--text-sm);
+  }
+
+  .service__list li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .process {
+    margin-top: var(--space-8);
+  }
+
+  .process__steps {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-5) 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    counter-reset: step;
+  }
+
+  .step {
+    border-top: 1.5px solid var(--ink);
+    padding-top: var(--space-3);
+  }
+
+  .step__title {
+    font-size: var(--text-md);
+    margin: var(--space-2) 0;
+  }
+
+  .step__body {
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .service {
+      grid-template-columns: 3rem 1fr;
+    }
+
+    .service__side {
+      grid-column: 2;
+    }
+
+    .process__steps {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .process__steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

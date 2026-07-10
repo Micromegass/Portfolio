@@ -1,0 +1,157 @@
+---
+import { href, alternates, type Locale, type PageKey } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+  page: PageKey;
+}
+
+const { locale, page } = Astro.props;
+const nav = t(locale).nav;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const links: { key: PageKey; label: string }[] = [
+  { key: 'services', label: nav.services },
+  { key: 'work', label: nav.work },
+  { key: 'about', label: nav.about },
+  { key: 'contact', label: nav.contact },
+];
+
+// The language switcher links to THIS page in the other languages
+const langLinks = alternates(page).map(({ locale: l, path }) => ({
+  locale: l,
+  url: base + path,
+  active: l === locale,
+}));
+---
+
+<header class="header">
+  <div class="sheet header__row">
+    <a class="wordmark" href={href('home', locale)} title={nav.homeAria}>
+      <span class="wordmark__initial">AB</span>
+      <span class="wordmark__name">Axel Braunschweiger</span>
+    </a>
+
+    <nav class="nav" aria-label={nav.menuLabel}>
+      {links.map(({ key, label }) => (
+        <a class:list={['nav__link', { 'nav__link--active': key === page }]} href={href(key, locale)}
+          >{label}</a
+        >
+      ))}
+    </nav>
+
+    <nav class="langs anno" aria-label="Language">
+      {langLinks.map(({ locale: l, url, active }) =>
+        active ? (
+          <span class="langs__item langs__item--active" aria-current="true">
+            {l.toUpperCase()}
+          </span>
+        ) : (
+          <a class="langs__item" href={url} lang={l} hreflang={l}>
+            {l.toUpperCase()}
+          </a>
+        )
+      )}
+    </nav>
+  </div>
+  <hr class="rule sheet" aria-hidden="true" />
+</header>
+
+<style>
+  .header {
+    padding-top: var(--space-3);
+    position: relative;
+    z-index: 10;
+  }
+
+  .header__row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    padding-bottom: var(--space-3);
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--ink);
+    margin-right: auto;
+  }
+
+  .wordmark__initial {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 125, 'wght' 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    border: 1.5px solid var(--ink);
+    padding: 0.05em 0.3em;
+    line-height: 1.2;
+  }
+
+  .wordmark__name {
+    font-family: var(--font-anno);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .nav__link {
+    font-family: var(--font-anno);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+    padding-bottom: 2px;
+    border-bottom: 1.5px solid transparent;
+  }
+
+  .nav__link:hover {
+    color: var(--ink);
+    border-bottom-color: var(--hairline-strong);
+  }
+
+  .nav__link--active {
+    color: var(--ink);
+    border-bottom-color: var(--mark);
+  }
+
+  .langs {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .langs__item {
+    color: var(--ink-faint);
+    text-decoration: none;
+    padding: 0.1em 0.25em;
+  }
+
+  a.langs__item:hover {
+    color: var(--ink);
+  }
+
+  .langs__item--active {
+    color: var(--paper);
+    background: var(--ink);
+  }
+
+  @media (max-width: 640px) {
+    .wordmark__name {
+      display: none;
+    }
+
+    .nav {
+      gap: var(--space-3);
+    }
+  }
+</style>
