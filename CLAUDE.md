@@ -34,6 +34,7 @@ Light, editorial-precision design inspired by German technical drawings (Werkbuc
 - SEO targets future domain `axelbraunschweiger.com`; until it exists, deploys go to GitHub Pages (account Micromegass) with **noindex** — do not remove noindex before the real domain is live.
 - German legal pages (Impressum, Datenschutzerklärung) are required — site serves a German commercial purpose.
 - Analytics: none until domain time; privacy-friendly only if added.
+- 2026-07-10: Deployed. Source lives on the `main` branch of github.com/Micromegass/Portfolio (old portfolio remains on `master` for history). CI (`.github/workflows/deploy.yml`) builds with `GITHUB_PAGES=true` and force-publishes `dist/` to `gh-pages` on every push to `main` → live at micromegass.github.io/Portfolio/ (noindexed). Live Lighthouse: perf 100 / a11y 100 / BP 100 (SEO intentionally suppressed by noindex; local prod build scores SEO 100).
 
 ## Roadmap
 
