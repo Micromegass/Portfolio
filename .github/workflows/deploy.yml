@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+# Interim deploy: builds with GITHUB_PAGES=true (noindex, /Portfolio base)
+# and publishes dist/ to the gh-pages branch, which serves the live site.
+# When the real domain exists, switch hosting and drop GITHUB_PAGES.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAGES: 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx astro build
+
+      - run: touch dist/.nojekyll
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true

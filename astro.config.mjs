@@ -11,7 +11,7 @@ export default defineConfig({
   site: onGitHubPages
     ? 'https://micromegass.github.io'
     : 'https://axelbraunschweiger.com',
-  base: onGitHubPages ? '/portfolio' : '/',
+  base: onGitHubPages ? '/Portfolio' : '/',
   trailingSlash: 'ignore',
   output: 'static',
   // No sitemap on the interim GitHub Pages deploy — it must not be indexed
