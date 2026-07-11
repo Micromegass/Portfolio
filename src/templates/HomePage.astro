@@ -120,9 +120,8 @@ const about = t(locale).about;
   }
 
   .hero__accent {
-    font-style: italic;
-    color: var(--green);
-    font-variation-settings: 'SOFT' 100, 'WONK' 1;
+    font-style: normal;
+    color: var(--accent);
   }
 
   .hero__sub {
@@ -139,10 +138,22 @@ const about = t(locale).about;
   .hero__portrait {
     margin: 0;
     justify-self: center;
+    position: relative;
+  }
+
+  /* Offset tint plate behind the portrait — one quiet designed moment */
+  .hero__portrait::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translate(14px, 14px);
+    border-radius: var(--radius-lg);
+    background: var(--tint);
+    z-index: -1;
   }
 
   .hero__portrait :global(img) {
-    border-radius: var(--radius-arch);
+    border-radius: var(--radius-lg);
     width: min(100%, 24rem);
     height: auto;
     box-shadow: var(--shadow-soft);
@@ -161,6 +172,17 @@ const about = t(locale).about;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
+  }
+
+  .stat + .stat::before {
+    content: '';
+    position: absolute;
+    left: calc(-0.5 * var(--space-6));
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: var(--line);
   }
 
   .stat__value {
@@ -168,7 +190,8 @@ const about = t(locale).about;
     font-variation-settings: var(--display-settings);
     font-weight: var(--display-weight);
     font-size: var(--text-xl);
-    color: var(--green-dark);
+    letter-spacing: -0.02em;
+    color: var(--accent);
     line-height: 1;
   }
 

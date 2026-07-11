@@ -70,10 +70,21 @@ const a = t(locale).about;
   .portrait {
     margin: 0;
     justify-self: center;
+    position: relative;
+  }
+
+  .portrait::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translate(14px, 14px);
+    border-radius: var(--radius-lg);
+    background: var(--tint);
+    z-index: -1;
   }
 
   .portrait :global(img) {
-    border-radius: var(--radius-arch);
+    border-radius: var(--radius-lg);
     width: min(100%, 22rem);
     height: auto;
     box-shadow: var(--shadow-soft);

@@ -75,7 +75,7 @@ const { chapters } = Astro.props;
   }
 
   .path__trail-line {
-    stroke: var(--amber-soft);
+    stroke: var(--accent-soft);
     stroke-width: 2.5;
     stroke-dasharray: 1 9;
     stroke-linecap: round;
@@ -113,12 +113,14 @@ const { chapters } = Astro.props;
     width: 2.4rem;
     height: 2.4rem;
     border-radius: 50%;
-    background: var(--green);
-    color: #fff;
-    font-weight: 700;
+    background: var(--card);
+    color: var(--accent);
+    font-weight: 800;
+    font-size: var(--text-sm);
     display: grid;
     place-items: center;
-    border: 4px solid var(--bg);
+    border: 1.5px solid var(--line);
+    box-shadow: 0 0 0 5px var(--bg), var(--shadow-soft);
   }
 
   .stop__title {

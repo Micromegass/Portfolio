@@ -23,14 +23,33 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  position: relative;
+  overflow-x: clip;
+}
+
+/* A barely-there atmosphere: one soft pink wash, high in the page */
+body::before {
+  content: '';
+  position: absolute;
+  top: -20rem;
+  right: -14rem;
+  width: 52rem;
+  height: 52rem;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 7%, transparent) 0%,
+    transparent 62%
+  );
+  z-index: -1;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-variation-settings: var(--display-settings);
   font-weight: var(--display-weight);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   margin: 0 0 var(--space-4);
   text-wrap: balance;
 }
@@ -46,28 +65,28 @@ p {
 }
 
 a {
-  color: var(--green);
+  color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-decoration-color: color-mix(in srgb, var(--green) 45%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
   text-underline-offset: 0.2em;
   transition: color var(--dur-quick) var(--ease-calm),
     text-decoration-color var(--dur-quick) var(--ease-calm);
 }
 
 a:hover {
-  color: var(--green-dark);
+  color: var(--accent-strong);
   text-decoration-color: currentColor;
 }
 
 :focus-visible {
-  outline: 2.5px solid var(--green);
+  outline: 2.5px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 ::selection {
-  background: var(--green);
+  background: var(--accent);
   color: #fff;
 }
 
@@ -85,14 +104,14 @@ img {
   padding-inline: var(--wrap-pad);
 }
 
-/* Friendly eyebrow label */
+/* Eyebrow label — precise, quietly pink */
 .eyebrow {
   font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .lead {
@@ -121,20 +140,20 @@ img {
 }
 
 .button:hover {
-  border-color: var(--green);
-  color: var(--green-dark);
+  border-color: var(--accent);
+  color: var(--accent-strong);
   transform: translateY(-1px);
 }
 
 .button--primary {
-  background: var(--green);
-  border-color: var(--green);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
 
 .button--primary:hover {
-  background: var(--green-dark);
-  border-color: var(--green-dark);
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
   color: #fff;
 }
 

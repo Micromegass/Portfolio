@@ -1,43 +1,44 @@
 /* ============================================================
-   Camino — design tokens (single source of truth)
-   Warm, human, calm. Palette contrast-validated:
-   text ≥ 6.4:1 on linen, cream-on-green 8.8:1, buttons 6.1:1.
+   Camino v2 — design tokens (single source of truth)
+   Clean, stylish, professional: neutral ground, one dark-pink
+   accent. All text/ground pairs contrast-validated ≥ 4.6:1.
    ============================================================ */
 
 :root {
-  /* Color — warm ground */
-  --bg: #fbf7f2;             /* warm linen */
+  /* Color — clean neutral ground */
+  --bg: #fbfaf9;
   --card: #ffffff;
-  --bg-soft: #f4ede4;        /* recessed warm panel */
-  --text: #33302b;           /* espresso */
-  --text-soft: #5f5a52;
-  --text-faint: #6f695e;     /* small-text safe: ≥4.5:1 on every ground */
+  --bg-soft: #f3f0ee;          /* recessed neutral panel */
+  --text: #1b181a;             /* near-black, plum undertone */
+  --text-soft: #5d5660;
+  --text-faint: #6e6770;
 
-  /* Color — nature accents */
-  --green: #3e6b54;          /* primary accent: links, buttons (5.7:1) */
-  --green-dark: #335946;     /* hover */
-  --green-deep: #31473c;     /* full-bleed story band */
-  --cream-on-deep: #f5efe6;  /* text on green-deep (8.8:1) */
-  --amber: #8a5b15;          /* warm secondary text: ≥5:1 on all grounds */
-  --amber-soft: #e7c491;     /* decorative only: path line, dots */
+  /* Color — the touch of dark pink */
+  --accent: #a62655;           /* links, buttons, eyebrows (6.7:1) */
+  --accent-strong: #831c42;    /* hover (9.1:1) */
+  --accent-soft: #e9bacd;      /* decorative: trail, kickers on band */
+  --tint: #f7e9ef;             /* pink wash for chips/pills */
 
-  --line: rgba(51, 48, 43, 0.12);
+  /* Color — dark band (CTA) */
+  --band: #211a1f;             /* plum-black */
+  --on-band: #f5f0f3;          /* 15.1:1 on band */
 
-  /* Type */
-  --font-display: 'Fraunces Variable', Georgia, serif;
-  --font-body: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+  --line: rgba(27, 24, 26, 0.1);
+
+  /* Type — one clean grotesk, contrast via weight & size */
+  --font-display: 'Hanken Grotesk Variable', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk Variable', system-ui, sans-serif;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
   --text-md: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
   --text-lg: clamp(1.55rem, 1.3rem + 1.3vw, 2.15rem);
-  --text-xl: clamp(2rem, 1.55rem + 2.4vw, 3.3rem);
-  --text-2xl: clamp(2.5rem, 1.8rem + 3.8vw, 4.6rem);
+  --text-xl: clamp(2rem, 1.55rem + 2.4vw, 3.4rem);
+  --text-2xl: clamp(2.6rem, 1.8rem + 4.2vw, 5rem);
 
-  /* Fraunces axes: gentle optical size, a touch of SOFT */
-  --display-settings: 'SOFT' 60, 'WONK' 0;
-  --display-weight: 560;
+  --display-settings: normal;
+  --display-weight: 730;
 
   /* Space */
   --space-1: 0.25rem;
@@ -54,15 +55,15 @@
   --wrap-pad: clamp(1.25rem, 4vw, 3rem);
   --content-max: 42rem;
 
-  /* Shape — soft and human */
+  /* Shape — soft but disciplined */
   --radius-sm: 10px;
-  --radius: 18px;
-  --radius-lg: 28px;
-  --radius-arch: 999px 999px 18px 18px; /* arched frame for photos */
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-arch: 24px; /* legacy alias; portraits now use clean radius */
 
-  --shadow-soft: 0 10px 30px -12px rgba(51, 48, 43, 0.18);
+  --shadow-soft: 0 12px 32px -14px rgba(27, 24, 26, 0.16);
 
   /* Motion — calm */
   --ease-calm: cubic-bezier(0.33, 1, 0.68, 1);
-  --dur-quick: 220ms;
+  --dur-quick: 200ms;
 }
