@@ -2,18 +2,14 @@
 interface Props {
   kicker: string;
   title: string;
-  /** Figure number rendered like a drawing label, e.g. "02" */
-  fig?: string;
+  centered?: boolean;
 }
 
-const { kicker, title, fig } = Astro.props;
+const { kicker, title, centered = false } = Astro.props;
 ---
 
-<div class="section-head" data-reveal>
-  <div class="section-head__meta">
-    <span class="anno anno--mark">{fig && `FIG. ${fig} — `}{kicker}</span>
-    <hr class="rule section-head__rule" aria-hidden="true" />
-  </div>
+<div class:list={['section-head', { 'section-head--centered': centered }]} data-reveal>
+  <span class="eyebrow">{kicker}</span>
   <h2>{title}</h2>
 </div>
 
@@ -22,19 +18,16 @@ const { kicker, title, fig } = Astro.props;
     margin-bottom: var(--space-5);
   }
 
-  .section-head__meta {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-3);
+  .section-head h2 {
+    margin: var(--space-2) 0 0;
+    max-width: 24ch;
   }
 
-  .section-head__rule {
-    flex: 1;
+  .section-head--centered {
+    text-align: center;
   }
 
-  h2 {
-    margin-bottom: 0;
-    max-width: 22ch;
+  .section-head--centered h2 {
+    margin-inline: auto;
   }
 </style>

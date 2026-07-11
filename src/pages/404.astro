@@ -7,12 +7,12 @@ const locale = 'en';
 const nf = t(locale).notFound;
 ---
 
-<Base locale={locale} page="home" sheet="—">
-  <section class="sheet nf">
-    <span class="anno anno--mark">ERROR 404</span>
+<Base locale={locale} page="home">
+  <section class="wrap nf">
+    <span class="eyebrow">404</span>
     <h1 class="nf__title">{nf.title}</h1>
     <p class="lead nf__body">{nf.body}</p>
-    <p><a href={href('home', locale)}>{nf.link} →</a></p>
+    <p><a class="button button--primary" href={href('home', locale)}>{nf.link} →</a></p>
   </section>
 </Base>
 
@@ -20,13 +20,15 @@ const nf = t(locale).notFound;
   .nf {
     padding-top: var(--space-7);
     min-height: 55vh;
+    text-align: center;
   }
 
   .nf__title {
-    margin-top: var(--space-3);
+    margin: var(--space-2) auto var(--space-4);
   }
 
   .nf__body {
-    color: var(--ink-soft);
+    margin-inline: auto;
+    max-width: 30rem;
   }
 </style>

@@ -61,9 +61,6 @@ export const es: SiteContent = {
     locations: 'Fürth, Alemania ↔ Medellín, Colombia',
     languagesLabel: 'Idiomas',
     languages: 'ES · EN · DE',
-    drawnBy: 'Dibujado por',
-    sheetLabel: 'Hoja',
-    revisionLabel: 'Rev.',
     contactLabel: 'Contacto',
     legalImprint: 'Aviso legal',
     legalPrivacy: 'Privacidad',
@@ -81,33 +78,12 @@ export const es: SiteContent = {
       { value: '02', label: 'continentes de casa' },
     ],
     cta: { primary: 'Iniciar un proyecto', secondary: 'Ver el trabajo' },
-    scale: {
-      kicker: 'Micromegas — una nota sobre escalas',
-      title: 'Trabajo en todas las escalas.',
-      outro:
-        'El nombre viene de Micromégas de Voltaire, una historia sobre ver el mismo mundo desde distancias muy distintas. El buen software necesita exactamente eso: cuidado en 1:1, criterio en 1:1000.',
-      frames: [
-        {
-          scale: '1:1',
-          title: 'Una línea de código',
-          body: 'Todo descansa sobre esta escala. Código legible, probado y honesto — los hábitos que construí entregando sistemas de producción.',
-        },
-        {
-          scale: '1:10',
-          title: 'Una interfaz',
-          body: 'Componentes que la gente realmente entiende. Como ex profesor, diseño interfaces como explicaba ideas: con claridad.',
-        },
-        {
-          scale: '1:100',
-          title: 'Un producto',
-          body: 'Arquitectura, rendimiento, despliegue — las decisiones poco glamorosas que definen si el software sobrevive al contacto con la realidad.',
-        },
-        {
-          scale: '1:1000',
-          title: 'Un negocio',
-          body: 'Fundé dos empresas y construí su presencia digital. Sé lo que cuesta el software, lo que produce, y cuándo vale la pena construirlo.',
-        },
-      ],
+    journey: {
+      kicker: 'Mi camino',
+      title: 'Ha sido todo un camino.',
+      intro:
+        'Profesor, docente universitario, desarrollador, fundador — cada etapa me enseñó algo que mis clientes aprovechan hoy. Aquí está, en orden.',
+      link: 'Más sobre mí',
     },
     services: {
       kicker: 'Servicios',
@@ -132,12 +108,6 @@ export const es: SiteContent = {
       kicker: 'Trabajo seleccionado',
       title: 'Pruebas, no promesas',
       link: 'Todos los proyectos',
-    },
-    story: {
-      kicker: 'Sobre mí',
-      title: 'Profesor. Fundador. Ingeniero.',
-      body: 'Enseñé en una universidad de Medellín, me volví desarrollador en Alemania, fundé dos empresas, y hoy construyo software con IA como socio diario. El hilo conductor: hacer entendible lo complicado.',
-      link: 'Leer la historia',
     },
     testimonial: {
       kicker: 'Trabajar juntos',
@@ -343,7 +313,7 @@ export const es: SiteContent = {
 
   caseMeta: {
     kicker: 'Caso de estudio',
-    specLabel: 'Especificación',
+    specLabel: 'De un vistazo',
     backLabel: 'Todos los proyectos',
     nextLabel: 'Siguiente caso',
   },
@@ -433,8 +403,8 @@ export const es: SiteContent = {
   },
 
   notFound: {
-    title: 'Hoja no encontrada',
-    body: 'Esta página no existe en el cuaderno de trabajo. Puede que el plano haya sido revisado o movido.',
-    link: 'Volver a la hoja 01',
+    title: 'Esta página se perdió en el camino',
+    body: 'La página que busca no existe — quizás se movió, quizás nunca existió. Volvamos al sendero.',
+    link: 'Volver al inicio',
   },
 };

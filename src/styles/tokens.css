@@ -1,61 +1,68 @@
 /* ============================================================
-   Das Werkbuch — design tokens (single source of truth)
-   Palette contrast-validated: all text tokens ≥ 4.5:1 on paper.
+   Camino — design tokens (single source of truth)
+   Warm, human, calm. Palette contrast-validated:
+   text ≥ 6.4:1 on linen, cream-on-green 8.8:1, buttons 6.1:1.
    ============================================================ */
 
 :root {
-  /* Color — paper & ink */
-  --paper: #fbfaf7;
-  --paper-raised: #ffffff;
-  --paper-recessed: #f3f1eb;
-  --ink: #16191d;
-  --ink-soft: #494f57;
-  --ink-faint: #6d737c;
+  /* Color — warm ground */
+  --bg: #fbf7f2;             /* warm linen */
+  --card: #ffffff;
+  --bg-soft: #f4ede4;        /* recessed warm panel */
+  --text: #33302b;           /* espresso */
+  --text-soft: #5f5a52;
+  --text-faint: #6f695e;     /* small-text safe: ≥4.5:1 on every ground */
 
-  /* Color — drawing marks */
-  --mark: #c2340f;            /* dimension lines, ticks, graphic marks */
-  --accent-text: #a93312;     /* links, accented words (6.35:1 on paper) */
-  --anno-blue: #2b4c7e;       /* secondary annotation labels */
+  /* Color — nature accents */
+  --green: #3e6b54;          /* primary accent: links, buttons (5.7:1) */
+  --green-dark: #335946;     /* hover */
+  --green-deep: #31473c;     /* full-bleed story band */
+  --cream-on-deep: #f5efe6;  /* text on green-deep (8.8:1) */
+  --amber: #8a5b15;          /* warm secondary text: ≥5:1 on all grounds */
+  --amber-soft: #e7c491;     /* decorative only: path line, dots */
 
-  /* Hairlines & rules */
-  --hairline: rgba(22, 25, 29, 0.16);
-  --hairline-strong: rgba(22, 25, 29, 0.38);
+  --line: rgba(51, 48, 43, 0.12);
 
-  /* Type families */
-  --font-display: 'Archivo Variable', system-ui, sans-serif;
-  --font-body: 'Source Serif 4 Variable', Georgia, serif;
-  --font-anno: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+  /* Type */
+  --font-display: 'Fraunces Variable', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
 
-  /* Fluid type scale */
-  --text-xs: 0.6875rem;                              /* 11px annotations */
-  --text-sm: 0.8125rem;                              /* 13px labels */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
   --text-base: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
   --text-md: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
-  --text-lg: clamp(1.6rem, 1.3rem + 1.4vw, 2.25rem);
-  --text-xl: clamp(2.1rem, 1.6rem + 2.6vw, 3.5rem);
-  --text-2xl: clamp(2.75rem, 1.9rem + 4.4vw, 5.25rem);
+  --text-lg: clamp(1.55rem, 1.3rem + 1.3vw, 2.15rem);
+  --text-xl: clamp(2rem, 1.55rem + 2.4vw, 3.3rem);
+  --text-2xl: clamp(2.5rem, 1.8rem + 3.8vw, 4.6rem);
 
-  /* Display axis settings */
-  --display-width: 118;   /* Archivo wdth axis — drafting-title wide */
-  --display-weight: 640;
+  /* Fraunces axes: gentle optical size, a touch of SOFT */
+  --display-settings: 'SOFT' 60, 'WONK' 0;
+  --display-weight: 560;
 
-  /* Space scale (drawing-grid derived, 8px module) */
+  /* Space */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 1rem;
   --space-4: 1.5rem;
   --space-5: 2.5rem;
   --space-6: 4rem;
-  --space-7: 6.5rem;
-  --space-8: clamp(5rem, 4rem + 6vw, 10rem);
+  --space-7: 6rem;
+  --space-8: clamp(4.5rem, 3.5rem + 5vw, 8.5rem);
 
   /* Layout */
-  --sheet-max: 78rem;
-  --sheet-pad: clamp(1.25rem, 4vw, 3.5rem);
+  --wrap-max: 71rem;
+  --wrap-pad: clamp(1.25rem, 4vw, 3rem);
   --content-max: 42rem;
 
-  /* Motion */
-  --ease-draft: cubic-bezier(0.6, 0, 0.2, 1);
-  --dur-quick: 180ms;
-  --dur-draw: 700ms;
+  /* Shape — soft and human */
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --radius-arch: 999px 999px 18px 18px; /* arched frame for photos */
+
+  --shadow-soft: 0 10px 30px -12px rgba(51, 48, 43, 0.18);
+
+  /* Motion — calm */
+  --ease-calm: cubic-bezier(0.33, 1, 0.68, 1);
+  --dur-quick: 220ms;
 }

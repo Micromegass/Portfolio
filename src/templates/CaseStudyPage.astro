@@ -17,35 +17,33 @@ const w = t(locale).work;
 const page: PageKey = caseKey === 'physio' ? 'case-physio' : 'case-ikuna';
 const nextKey = caseKey === 'physio' ? 'ikuna' : 'physio';
 const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
-const sheet = caseKey === 'physio' ? '03.1' : '03.2';
 ---
 
-<Base locale={locale} page={page} sheet={sheet}>
+<Base locale={locale} page={page}>
   <article>
-    <header class="sheet intro">
-      <p class="anno" data-reveal>
+    <header class="wrap intro">
+      <p data-reveal>
         <a class="intro__back" href={href('work', locale)}>← {m.backLabel}</a>
       </p>
-      <span class="anno anno--mark" data-reveal>{m.kicker} — {c.client}</span>
+      <span class="eyebrow" data-reveal>{m.kicker} · {c.client}</span>
       <h1 class="intro__title" data-reveal>{c.title}</h1>
       <p class="lead intro__lead" data-reveal>{c.summary}</p>
       <p data-reveal>
-        <a class="intro__visit" href={c.url} target="_blank" rel="noopener"
+        <a class="button" href={c.url} target="_blank" rel="noopener"
           >{w.visitLabel}: {c.urlLabel} ↗</a
         >
       </p>
     </header>
 
-    <!-- Specification block, drawn like a drawing's parts list -->
-    <section class="sheet" data-reveal>
-      <div class="specs">
-        <div class="specs__head anno anno--blue">{m.specLabel}</div>
-        <dl class="specs__grid">
+    <section class="wrap" data-reveal>
+      <div class="glance">
+        <p class="glance__head">{m.specLabel}</p>
+        <dl class="glance__grid">
           {
             c.specs.map(({ label, value }) => (
-              <div class="specs__row">
-                <dt class="anno specs__label">{label}</dt>
-                <dd class="specs__value">{value}</dd>
+              <div class="glance__row">
+                <dt class="glance__label">{label}</dt>
+                <dd class="glance__value">{value}</dd>
               </div>
             ))
           }
@@ -53,11 +51,10 @@ const sheet = caseKey === 'physio' ? '03.1' : '03.2';
       </div>
     </section>
 
-    <section class="sheet body">
+    <section class="wrap body">
       {
-        c.sections.map((s, i) => (
+        c.sections.map((s) => (
           <div class="body__section" data-reveal>
-            <span class="anno anno--mark">{String(i + 1).padStart(2, '0')}</span>
             <h2 class="body__heading">{s.heading}</h2>
             <p class="body__text">{s.body}</p>
           </div>
@@ -65,14 +62,16 @@ const sheet = caseKey === 'physio' ? '03.1' : '03.2';
       }
     </section>
 
-    <section class="sheet outcomes" data-reveal>
-      <span class="anno anno--mark">{c.outcomeKicker}</span>
-      <ul class="outcomes__list">
-        {c.outcomes.map((o) => <li class="outcomes__item">{o}</li>)}
-      </ul>
+    <section class="wrap outcomes" data-reveal>
+      <div class="outcomes__card">
+        <span class="eyebrow">{c.outcomeKicker}</span>
+        <ul class="outcomes__list">
+          {c.outcomes.map((o) => <li class="outcomes__item">{o}</li>)}
+        </ul>
+      </div>
     </section>
 
-    <p class="sheet next" data-reveal>
+    <p class="wrap next" data-reveal>
       <a href={href(nextPage, locale)}>{m.nextLabel}: {t(locale).cases[nextKey].client} →</a>
     </p>
   </article>
@@ -82,64 +81,59 @@ const sheet = caseKey === 'physio' ? '03.1' : '03.2';
 
 <style>
   .intro {
-    padding-top: var(--space-6);
+    padding-top: var(--space-5);
   }
 
   .intro__back {
     text-decoration: none;
-    color: var(--ink-soft);
+    color: var(--text-soft);
+    font-weight: 600;
+    font-size: var(--text-sm);
   }
 
   .intro__title {
-    max-width: 18ch;
-    margin-top: var(--space-3);
+    max-width: 20ch;
+    margin-top: var(--space-2);
   }
 
   .intro__lead {
-    color: var(--ink-soft);
     max-width: 40rem;
   }
 
-  .intro__visit {
-    font-family: var(--font-anno);
+  .glance {
+    margin-top: var(--space-4);
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glance__head {
+    font-weight: 700;
     font-size: var(--text-sm);
+    margin: 0 0 var(--space-3);
   }
 
-  .specs {
-    margin: var(--space-5) 0 0;
-    border: 1.5px solid var(--ink);
-    background: var(--paper-raised);
-  }
-
-  .specs__head {
-    padding: var(--space-2) var(--space-3);
-    border-bottom: 1px solid var(--hairline-strong);
-  }
-
-  .specs__grid {
+  .glance__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
     margin: 0;
   }
 
-  .specs__row {
-    padding: var(--space-3);
-    border-left: 1px solid var(--hairline);
+  .glance__label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-faint);
   }
 
-  .specs__row:first-of-type {
-    border-left: 0;
-  }
-
-  .specs__label {
-    display: block;
-    color: var(--ink-faint);
-    margin-bottom: var(--space-1);
-  }
-
-  .specs__value {
-    margin: 0;
+  .glance__value {
+    margin: var(--space-1) 0 0;
     font-size: var(--text-sm);
+    color: var(--text-soft);
   }
 
   .body {
@@ -151,19 +145,25 @@ const sheet = caseKey === 'physio' ? '03.1' : '03.2';
 
   .body__heading {
     font-size: var(--text-lg);
-    margin: var(--space-2) 0 var(--space-3);
-    max-width: 24ch;
+    margin: 0 0 var(--space-3);
   }
 
   .body__text {
     max-width: var(--content-max);
-    color: var(--ink-soft);
+    color: var(--text-soft);
     font-size: var(--text-md);
-    line-height: 1.6;
+    line-height: 1.7;
+    margin: 0;
   }
 
   .outcomes {
     margin-top: var(--space-7);
+  }
+
+  .outcomes__card {
+    background: var(--bg-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
   }
 
   .outcomes__list {
@@ -174,29 +174,27 @@ const sheet = caseKey === 'physio' ? '03.1' : '03.2';
   }
 
   .outcomes__item {
-    padding: var(--space-3) 0;
-    border-top: 1px solid var(--hairline-strong);
+    padding: var(--space-2) 0 var(--space-2) 1.6em;
+    position: relative;
     font-size: var(--text-md);
   }
 
   .outcomes__item::before {
-    content: '→ ';
-    color: var(--mark);
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
   }
 
   .next {
     margin-top: var(--space-6);
-    font-family: var(--font-anno);
-    font-size: var(--text-sm);
+    font-weight: 600;
   }
 
   @media (max-width: 800px) {
-    .specs__grid {
+    .glance__grid {
       grid-template-columns: 1fr 1fr;
-    }
-
-    .specs__row {
-      border-top: 1px solid var(--hairline);
     }
   }
 </style>

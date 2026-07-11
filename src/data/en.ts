@@ -61,9 +61,6 @@ export const en: SiteContent = {
     locations: 'Fürth, Germany ↔ Medellín, Colombia',
     languagesLabel: 'Languages',
     languages: 'DE · EN · ES',
-    drawnBy: 'Drawn by',
-    sheetLabel: 'Sheet',
-    revisionLabel: 'Rev.',
     contactLabel: 'Contact',
     legalImprint: 'Imprint',
     legalPrivacy: 'Privacy',
@@ -80,33 +77,12 @@ export const en: SiteContent = {
       { value: '02', label: 'home continents' },
     ],
     cta: { primary: 'Start a project', secondary: 'See the work' },
-    scale: {
-      kicker: 'Micromegas — a note on scale',
-      title: 'I work at every scale.',
-      outro:
-        'Named after Voltaire’s Micromégas, a story about seeing the same world from very different distances. Good software needs exactly that: care at 1:1, judgement at 1:1000.',
-      frames: [
-        {
-          scale: '1:1',
-          title: 'A line of code',
-          body: 'Everything rests on this scale. Readable, tested, honest code — the habits I built shipping production systems.',
-        },
-        {
-          scale: '1:10',
-          title: 'An interface',
-          body: 'Components people actually understand. As a former teacher, I design interfaces the way I explained ideas: clearly.',
-        },
-        {
-          scale: '1:100',
-          title: 'A product',
-          body: 'Architecture, performance, deployment — the unglamorous decisions that decide whether software survives contact with reality.',
-        },
-        {
-          scale: '1:1000',
-          title: 'A business',
-          body: 'I founded two companies and built their digital presence. I know what software costs, what it earns, and when it is worth building.',
-        },
-      ],
+    journey: {
+      kicker: 'My path',
+      title: 'It’s been a bit of a journey.',
+      intro:
+        'Teacher, university lecturer, developer, founder — every stop taught me something I still use for my clients today. Here it is, in order.',
+      link: 'More about me',
     },
     services: {
       kicker: 'Services',
@@ -128,12 +104,6 @@ export const en: SiteContent = {
       link: 'All services',
     },
     work: { kicker: 'Selected work', title: 'Proof, not promises', link: 'All work' },
-    story: {
-      kicker: 'About',
-      title: 'Teacher. Founder. Engineer.',
-      body: 'I taught at a university in Medellín, became a developer in Germany, founded two companies, and now build software with AI as my daily partner. The common thread: making complicated things understandable.',
-      link: 'Read the story',
-    },
     testimonial: {
       kicker: 'Working together',
       quote: '', // TODO-CONTENT: LinkedIn testimonial from Heatbeat colleague (text + permission pending)
@@ -338,7 +308,7 @@ export const en: SiteContent = {
 
   caseMeta: {
     kicker: 'Case study',
-    specLabel: 'Specification',
+    specLabel: 'At a glance',
     backLabel: 'All work',
     nextLabel: 'Next case study',
   },
@@ -428,8 +398,8 @@ export const en: SiteContent = {
   },
 
   notFound: {
-    title: 'Sheet not found',
-    body: 'This page does not exist in the workbook. The drawing may have been revised or moved.',
-    link: 'Back to sheet 01',
+    title: 'This page wandered off',
+    body: 'The page you were looking for doesn’t exist — maybe it moved, maybe it never was. Let’s get you back on the path.',
+    link: 'Back home',
   },
 };

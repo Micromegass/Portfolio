@@ -1,40 +1,28 @@
 ---
-import { href, type Locale, type PageKey } from '@/lib/i18n';
+import { href, type Locale } from '@/lib/i18n';
 import { t } from '@/data';
 
 interface Props {
   locale: Locale;
-  page: PageKey;
-  /** Sheet number shown in the title block, e.g. "01" for home */
-  sheet: string;
 }
 
-const { locale, page, sheet } = Astro.props;
+const { locale } = Astro.props;
 const f = t(locale).footer;
 const c = t(locale).contact;
-
-const rev = new Date().toISOString().slice(0, 10);
 ---
 
-<!-- Footer designed as a DIN drawing title block (Zeichnungsschriftfeld) -->
-<footer class="footer sheet">
-  <div class="block" role="contentinfo">
-    <div class="cell cell--name">
-      <span class="anno cell__label">{f.drawnBy}</span>
-      <span class="cell__value cell__value--big">Axel Braunschweiger</span>
-      <span class="cell__sub">{f.role}</span>
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__who">
+      <p class="footer__name">Axel Braunschweiger</p>
+      <p class="footer__role">{f.role}</p>
+      <p class="footer__meta">{f.locations}</p>
     </div>
 
-    <div class="cell">
-      <span class="anno cell__label">{f.contactLabel}</span>
-      <a class="cell__value" href={`mailto:${c.email}`}>{c.email}</a>
-      <span class="cell__sub">{f.locations}</span>
-    </div>
-
-    <div class="cell">
-      <span class="anno cell__label">{f.languagesLabel}</span>
-      <span class="cell__value">{f.languages}</span>
-      <span class="cell__sub">
+    <div class="footer__col">
+      <p class="footer__label">{f.contactLabel}</p>
+      <a href={`mailto:${c.email}`}>{c.email}</a>
+      <p class="footer__meta">
         <a href="https://github.com/Micromegass" rel="me noopener" target="_blank">GitHub</a>
         {' · '}
         <a
@@ -42,136 +30,77 @@ const rev = new Date().toISOString().slice(0, 10);
           rel="me noopener"
           target="_blank">LinkedIn</a
         >
-      </span>
+      </p>
     </div>
 
-    <div class="cell cell--meta">
-      <div class="meta__row">
-        <span class="anno cell__label">{f.sheetLabel}</span>
-        <span class="cell__value cell__value--mono">{sheet}</span>
-      </div>
-      <div class="meta__row">
-        <span class="anno cell__label">{f.revisionLabel}</span>
-        <span class="cell__value cell__value--mono">{rev}</span>
-      </div>
-      <div class="meta__row meta__row--legal">
+    <div class="footer__col">
+      <p class="footer__label">{f.languagesLabel}</p>
+      <p class="footer__meta">{f.languages}</p>
+      <p class="footer__meta footer__legal">
         <a href={href('imprint', locale)}>{f.legalImprint}</a>
+        {' · '}
         <a href={href('privacy', locale)}>{f.legalPrivacy}</a>
-      </div>
+      </p>
     </div>
   </div>
 
-  <p class="colophon anno">{f.colophon}</p>
+  <p class="wrap footer__colophon">{f.colophon}</p>
 </footer>
 
 <style>
   .footer {
     margin-top: var(--space-8);
-    padding-bottom: var(--space-4);
+    border-top: 1.5px solid var(--line);
+    padding: var(--space-6) 0 var(--space-5);
   }
 
-  .block {
+  .footer__inner {
     display: grid;
-    grid-template-columns: 1.4fr 1.2fr 1fr 0.8fr;
-    border: 1.5px solid var(--ink);
-    background: var(--paper-raised);
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: var(--space-5);
   }
 
-  .cell {
-    padding: var(--space-3);
-    border-left: 1px solid var(--hairline-strong);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    min-width: 0;
-  }
-
-  .cell:first-child {
-    border-left: 0;
-  }
-
-  .cell__label {
-    color: var(--ink-faint);
-  }
-
-  .cell__value {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    color: var(--ink);
-    overflow-wrap: anywhere;
-  }
-
-  .cell__value--big {
+  .footer__name {
     font-family: var(--font-display);
-    font-variation-settings: 'wdth' 118, 'wght' 640;
+    font-variation-settings: var(--display-settings);
+    font-weight: 600;
     font-size: var(--text-md);
-    line-height: 1.1;
+    margin: 0 0 var(--space-1);
   }
 
-  .cell__value--mono {
-    font-family: var(--font-anno);
-  }
-
-  .cell__sub {
-    font-size: var(--text-sm);
-    color: var(--ink-soft);
-  }
-
-  .cell--meta {
-    gap: var(--space-2);
-  }
-
-  .meta__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: var(--space-2);
-  }
-
-  .meta__row--legal {
-    margin-top: auto;
-    gap: var(--space-3);
-    justify-content: flex-start;
+  .footer__role {
+    color: var(--text-soft);
+    margin: 0 0 var(--space-1);
     font-size: var(--text-sm);
   }
 
-  .colophon {
+  .footer__label {
+    font-weight: 700;
+    font-size: var(--text-sm);
+    margin: 0 0 var(--space-2);
+  }
+
+  .footer__meta {
+    color: var(--text-soft);
+    font-size: var(--text-sm);
+    margin: var(--space-1) 0 0;
+  }
+
+  .footer__legal {
     margin-top: var(--space-3);
-    color: var(--ink-faint);
-    text-transform: none;
-    letter-spacing: 0.04em;
+  }
+
+  .footer__colophon {
+    margin-top: var(--space-5);
+    color: var(--text-faint);
+    font-size: var(--text-sm);
     max-width: none;
   }
 
-  @media (max-width: 800px) {
-    .block {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .cell {
-      border-top: 1px solid var(--hairline-strong);
-    }
-
-    .cell:nth-child(-n + 2) {
-      border-top: 0;
-    }
-
-    .cell:nth-child(odd) {
-      border-left: 0;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .block {
+  @media (max-width: 720px) {
+    .footer__inner {
       grid-template-columns: 1fr;
-    }
-
-    .cell {
-      border-left: 0;
-    }
-
-    .cell:first-child {
-      border-top: 0;
+      gap: var(--space-4);
     }
   }
 </style>

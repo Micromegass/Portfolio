@@ -11,22 +11,17 @@ const { locale } = Astro.props;
 const c = t(locale).contact;
 ---
 
-<Base locale={locale} page="contact" sheet="05">
-  <section class="sheet contact">
-    <span class="anno anno--mark" data-reveal>{c.kicker}</span>
+<Base locale={locale} page="contact">
+  <section class="wrap contact">
+    <span class="eyebrow" data-reveal>{c.kicker}</span>
     <h1 class="contact__title" data-reveal>{c.title}</h1>
     <p class="lead contact__body" data-reveal>{c.body}</p>
 
-    <div class="email-block" data-reveal>
-      <span class="anno email-block__label">{c.emailLabel}</span>
-      <a class="email-block__address" href={`mailto:${c.email}`}>{c.email}</a>
-      <svg class="email-block__line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" data-draw>
-        <line x1="1" y1="1" x2="1" y2="9"></line>
-        <line x1="1" y1="5" x2="99" y2="5"></line>
-        <line x1="99" y1="1" x2="99" y2="9"></line>
-      </svg>
-      <p class="email-block__meta anno">
-        <span class="email-block__pulse" aria-hidden="true"></span>
+    <div class="email-card" data-reveal>
+      <p class="email-card__label">{c.emailLabel}</p>
+      <a class="email-card__address" href={`mailto:${c.email}`}>{c.email}</a>
+      <p class="email-card__meta">
+        <span class="email-card__pulse" aria-hidden="true"></span>
         {c.availability}
       </p>
     </div>
@@ -37,76 +32,68 @@ const c = t(locale).contact;
 
 <style>
   .contact {
-    padding-top: var(--space-7);
+    padding-top: var(--space-6);
     min-height: 55vh;
+    text-align: center;
   }
 
   .contact__title {
-    max-width: 16ch;
-    margin-top: var(--space-3);
+    max-width: 18ch;
+    margin: var(--space-2) auto var(--space-4);
   }
 
   .contact__body {
-    color: var(--ink-soft);
-    max-width: 36rem;
+    max-width: 34rem;
+    margin-inline: auto;
   }
 
-  .email-block {
-    margin-top: var(--space-6);
-    display: inline-flex;
-    flex-direction: column;
-    min-width: min(34rem, 100%);
+  .email-card {
+    margin: var(--space-6) auto 0;
+    max-width: 34rem;
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6) var(--space-5);
+    box-shadow: var(--shadow-soft);
   }
 
-  .email-block__label {
-    color: var(--ink-faint);
+  .email-card__label {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--text-faint);
+    margin: 0 0 var(--space-2);
   }
 
-  .email-block__address {
+  .email-card__address {
     font-family: var(--font-display);
-    font-variation-settings: 'wdth' 110, 'wght' 600;
+    font-variation-settings: var(--display-settings);
+    font-weight: 600;
     font-size: var(--text-lg);
-    color: var(--ink);
     text-decoration: none;
-    margin-top: var(--space-2);
     overflow-wrap: anywhere;
   }
 
-  .email-block__address:hover {
-    color: var(--accent-text);
-  }
-
-  .email-block__line {
-    width: 100%;
-    height: 10px;
-    margin-top: var(--space-2);
-    overflow: visible;
-  }
-
-  .email-block__line line {
-    stroke: var(--mark);
-    stroke-width: 1.5;
-    vector-effect: non-scaling-stroke;
-  }
-
-  .email-block__meta {
-    margin-top: var(--space-3);
+  .email-card__meta {
+    margin: var(--space-4) 0 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-2);
-    color: var(--ink-soft);
+    color: var(--text-soft);
+    font-size: var(--text-sm);
+    font-weight: 600;
   }
 
-  .email-block__pulse {
-    width: 8px;
-    height: 8px;
+  .email-card__pulse {
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
-    background: #1a7f37;
+    background: var(--green);
   }
 
   .contact__langs {
-    margin-top: var(--space-5);
-    color: var(--ink-soft);
+    margin: var(--space-5) auto 0;
+    color: var(--text-soft);
     font-style: italic;
   }
 </style>

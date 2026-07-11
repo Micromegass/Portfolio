@@ -61,9 +61,6 @@ export const de: SiteContent = {
     locations: 'Fürth, Deutschland ↔ Medellín, Kolumbien',
     languagesLabel: 'Sprachen',
     languages: 'DE · EN · ES',
-    drawnBy: 'Gezeichnet von',
-    sheetLabel: 'Blatt',
-    revisionLabel: 'Rev.',
     contactLabel: 'Kontakt',
     legalImprint: 'Impressum',
     legalPrivacy: 'Datenschutz',
@@ -81,33 +78,12 @@ export const de: SiteContent = {
       { value: '02', label: 'Heimatkontinente' },
     ],
     cta: { primary: 'Projekt starten', secondary: 'Arbeiten ansehen' },
-    scale: {
-      kicker: 'Micromegas — eine Notiz über Maßstäbe',
-      title: 'Ich arbeite in jedem Maßstab.',
-      outro:
-        'Benannt nach Voltaires Micromégas — einer Geschichte darüber, dieselbe Welt aus sehr unterschiedlichen Entfernungen zu sehen. Gute Software braucht genau das: Sorgfalt bei 1:1, Urteilsvermögen bei 1:1000.',
-      frames: [
-        {
-          scale: '1:1',
-          title: 'Eine Zeile Code',
-          body: 'Auf diesem Maßstab ruht alles. Lesbarer, getesteter, ehrlicher Code — die Gewohnheiten aus Jahren Produktionsentwicklung.',
-        },
-        {
-          scale: '1:10',
-          title: 'Eine Oberfläche',
-          body: 'Interfaces, die Menschen wirklich verstehen. Als ehemaliger Lehrer gestalte ich Oberflächen so, wie ich Ideen erklärt habe: klar.',
-        },
-        {
-          scale: '1:100',
-          title: 'Ein Produkt',
-          body: 'Architektur, Performance, Deployment — die unglamourösen Entscheidungen, die darüber entscheiden, ob Software den Kontakt mit der Realität übersteht.',
-        },
-        {
-          scale: '1:1000',
-          title: 'Ein Unternehmen',
-          body: 'Ich habe zwei Firmen gegründet und ihren digitalen Auftritt gebaut. Ich weiß, was Software kostet, was sie einbringt — und wann sie sich lohnt.',
-        },
-      ],
+    journey: {
+      kicker: 'Mein Weg',
+      title: 'Es war ein ziemlicher Weg bis hierher.',
+      intro:
+        'Lehrer, Universitätsdozent, Entwickler, Gründer — jede Station hat mich etwas gelehrt, das meinen Kunden bis heute nützt. Hier ist er, der Reihe nach.',
+      link: 'Mehr über mich',
     },
     services: {
       kicker: 'Leistungen',
@@ -132,12 +108,6 @@ export const de: SiteContent = {
       kicker: 'Ausgewählte Arbeiten',
       title: 'Belege statt Versprechen',
       link: 'Alle Projekte',
-    },
-    story: {
-      kicker: 'Über mich',
-      title: 'Lehrer. Gründer. Entwickler.',
-      body: 'Ich habe an einer Universität in Medellín gelehrt, wurde Entwickler in Deutschland, gründete zwei Unternehmen — und baue heute Software mit KI als täglichem Partner. Der rote Faden: komplizierte Dinge verständlich machen.',
-      link: 'Die ganze Geschichte',
     },
     testimonial: {
       kicker: 'Zusammenarbeit',
@@ -339,7 +309,7 @@ export const de: SiteContent = {
 
   caseMeta: {
     kicker: 'Fallstudie',
-    specLabel: 'Spezifikation',
+    specLabel: 'Auf einen Blick',
     backLabel: 'Alle Projekte',
     nextLabel: 'Nächste Fallstudie',
   },
@@ -429,8 +399,8 @@ export const de: SiteContent = {
   },
 
   notFound: {
-    title: 'Blatt nicht gefunden',
-    body: 'Diese Seite existiert nicht im Werkbuch. Die Zeichnung wurde möglicherweise überarbeitet oder verschoben.',
-    link: 'Zurück zu Blatt 01',
+    title: 'Diese Seite ist verloren gegangen',
+    body: 'Die gesuchte Seite gibt es nicht — vielleicht wurde sie verschoben, vielleicht gab es sie nie. Bringen wir Sie zurück auf den Weg.',
+    link: 'Zur Startseite',
   },
 };

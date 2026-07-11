@@ -18,7 +18,6 @@ const links: { key: PageKey; label: string }[] = [
   { key: 'contact', label: nav.contact },
 ];
 
-// The language switcher links to THIS page in the other languages
 const langLinks = alternates(page).map(({ locale: l, path }) => ({
   locale: l,
   url: base + path,
@@ -26,132 +25,122 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
 }));
 ---
 
-<header class="header">
-  <div class="sheet header__row">
-    <a class="wordmark" href={href('home', locale)} title={nav.homeAria}>
-      <span class="wordmark__initial">AB</span>
-      <span class="wordmark__name">Axel Braunschweiger</span>
-    </a>
+<header class="header wrap">
+  <a class="wordmark" href={href('home', locale)} title={nav.homeAria}>Axel Braunschweiger</a>
 
-    <nav class="nav" aria-label={nav.menuLabel}>
-      {links.map(({ key, label }) => (
-        <a class:list={['nav__link', { 'nav__link--active': key === page }]} href={href(key, locale)}
-          >{label}</a
-        >
-      ))}
-    </nav>
+  <nav class="nav" aria-label={nav.menuLabel}>
+    {links.map(({ key, label }) => (
+      <a class:list={['nav__link', { 'nav__link--active': key === page }]} href={href(key, locale)}
+        >{label}</a
+      >
+    ))}
+  </nav>
 
-    <nav class="langs anno" aria-label="Language">
-      {langLinks.map(({ locale: l, url, active }) =>
-        active ? (
-          <span class="langs__item langs__item--active" aria-current="true">
-            {l.toUpperCase()}
-          </span>
-        ) : (
-          <a class="langs__item" href={url} lang={l} hreflang={l}>
-            {l.toUpperCase()}
-          </a>
-        )
-      )}
-    </nav>
-  </div>
-  <hr class="rule sheet" aria-hidden="true" />
+  <nav class="langs" aria-label="Language">
+    {langLinks.map(({ locale: l, url, active }) =>
+      active ? (
+        <span class="langs__item langs__item--active" aria-current="true">{l.toUpperCase()}</span>
+      ) : (
+        <a class="langs__item" href={url} lang={l} hreflang={l}>{l.toUpperCase()}</a>
+      )
+    )}
+  </nav>
 </header>
 
 <style>
   .header {
-    padding-top: var(--space-3);
-    position: relative;
-    z-index: 10;
-  }
-
-  .header__row {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: var(--space-4);
     flex-wrap: wrap;
+    padding-top: var(--space-4);
     padding-bottom: var(--space-3);
   }
 
   .wordmark {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-variation-settings: var(--display-settings);
+    font-weight: 600;
+    font-size: 1.35rem;
+    color: var(--text);
     text-decoration: none;
-    color: var(--ink);
     margin-right: auto;
   }
 
-  .wordmark__initial {
-    font-family: var(--font-display);
-    font-variation-settings: 'wdth' 125, 'wght' 800;
-    font-size: 1.2rem;
-    letter-spacing: 0.02em;
-    border: 1.5px solid var(--ink);
-    padding: 0.05em 0.3em;
-    line-height: 1.2;
-  }
-
-  .wordmark__name {
-    font-family: var(--font-anno);
-    font-size: var(--text-sm);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .wordmark:hover {
+    color: var(--green-dark);
   }
 
   .nav {
     display: flex;
-    gap: var(--space-4);
+    gap: var(--space-1);
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 4px;
   }
 
   .nav__link {
-    font-family: var(--font-anno);
     font-size: var(--text-sm);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-soft);
     text-decoration: none;
-    color: var(--ink-soft);
-    padding-bottom: 2px;
-    border-bottom: 1.5px solid transparent;
+    padding: 0.45em 1em;
+    border-radius: 999px;
+    transition:
+      background var(--dur-quick) var(--ease-calm),
+      color var(--dur-quick) var(--ease-calm);
   }
 
   .nav__link:hover {
-    color: var(--ink);
-    border-bottom-color: var(--hairline-strong);
+    color: var(--green-dark);
+    background: var(--bg-soft);
   }
 
   .nav__link--active {
-    color: var(--ink);
-    border-bottom-color: var(--mark);
+    background: var(--green);
+    color: #fff;
+  }
+
+  .nav__link--active:hover {
+    background: var(--green-dark);
+    color: #fff;
   }
 
   .langs {
     display: flex;
-    gap: var(--space-2);
+    gap: 2px;
   }
 
   .langs__item {
-    color: var(--ink-faint);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-soft);
     text-decoration: none;
-    padding: 0.1em 0.25em;
+    padding: 0.35em 0.6em;
+    border-radius: 999px;
   }
 
   a.langs__item:hover {
-    color: var(--ink);
+    color: var(--green-dark);
+    background: var(--bg-soft);
   }
 
   .langs__item--active {
-    color: var(--paper);
-    background: var(--ink);
+    background: var(--bg-soft);
+    color: var(--text);
   }
 
-  @media (max-width: 640px) {
-    .wordmark__name {
-      display: none;
+  @media (max-width: 720px) {
+    .header {
+      justify-content: center;
     }
 
-    .nav {
-      gap: var(--space-3);
+    .wordmark {
+      margin-right: 0;
+      width: 100%;
+      text-align: center;
     }
   }
 </style>

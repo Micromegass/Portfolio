@@ -10,9 +10,9 @@ const { locale } = Astro.props;
 const cta = t(locale).cta;
 ---
 
-<section class="cta sheet" data-reveal>
+<section class="cta wrap" data-reveal>
   <div class="cta__box">
-    <span class="anno anno--mark">{cta.kicker}</span>
+    <span class="cta__kicker">{cta.kicker}</span>
     <h2 class="cta__title">{cta.title}</h2>
     <p class="cta__body">{cta.body}</p>
     <a class="cta__button" href={href('contact', locale)}>{cta.button} →</a>
@@ -25,62 +25,50 @@ const cta = t(locale).cta;
   }
 
   .cta__box {
-    border: 1.5px solid var(--ink);
-    background: var(--paper-raised);
-    padding: var(--space-6) var(--space-5);
-    position: relative;
+    background: var(--green-deep);
+    color: var(--cream-on-deep);
+    border-radius: var(--radius-lg);
+    padding: var(--space-7) var(--space-5);
+    text-align: center;
   }
 
-  /* Drawing corner ticks */
-  .cta__box::before,
-  .cta__box::after {
-    content: '+';
-    position: absolute;
-    font-family: var(--font-anno);
-    color: var(--mark);
-    font-size: 1rem;
-    line-height: 1;
-  }
-
-  .cta__box::before {
-    top: -0.55em;
-    left: -0.38em;
-  }
-
-  .cta__box::after {
-    bottom: -0.55em;
-    right: -0.38em;
+  .cta__kicker {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber-soft);
   }
 
   .cta__title {
-    margin-top: var(--space-3);
-    max-width: 18ch;
+    color: #fff;
+    margin: var(--space-3) auto var(--space-3);
+    max-width: 20ch;
   }
 
   .cta__body {
-    color: var(--ink-soft);
+    color: var(--cream-on-deep);
+    margin-inline: auto;
+    max-width: 34rem;
   }
 
   .cta__button {
     display: inline-block;
-    margin-top: var(--space-3);
-    font-family: var(--font-anno);
-    font-size: var(--text-sm);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    margin-top: var(--space-4);
+    font-weight: 700;
     text-decoration: none;
-    color: var(--paper);
-    background: var(--ink);
-    padding: var(--space-3) var(--space-4);
-    border: 1.5px solid var(--ink);
+    color: var(--text);
+    background: #fff;
+    border-radius: 999px;
+    padding: 0.8em 1.8em;
     transition:
-      background var(--dur-quick) var(--ease-draft),
-      color var(--dur-quick) var(--ease-draft);
+      background var(--dur-quick) var(--ease-calm),
+      transform var(--dur-quick) var(--ease-calm);
   }
 
   .cta__button:hover {
-    background: var(--mark);
-    border-color: var(--mark);
-    color: var(--paper);
+    background: var(--bg-soft);
+    transform: translateY(-2px);
+    color: var(--text);
   }
 </style>

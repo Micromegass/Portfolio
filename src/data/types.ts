@@ -12,14 +12,10 @@ export interface SiteContent {
     homeAria: string;
   };
   footer: {
-    /** DIN title-block cells */
     role: string;
     locations: string;
     languagesLabel: string;
     languages: string;
-    drawnBy: string;
-    sheetLabel: string;
-    revisionLabel: string;
     contactLabel: string;
     legalImprint: string;
     legalPrivacy: string;
@@ -31,12 +27,8 @@ export interface SiteContent {
     sub: string;
     dims: { value: string; label: string }[];
     cta: { primary: string; secondary: string };
-    scale: {
-      kicker: string;
-      title: string;
-      outro: string;
-      frames: { scale: string; title: string; body: string }[];
-    };
+    /** Chronological story on the homepage; chapters come from about.chapters */
+    journey: { kicker: string; title: string; intro: string; link: string };
     services: {
       kicker: string;
       title: string;
@@ -44,7 +36,6 @@ export interface SiteContent {
       link: string;
     };
     work: { kicker: string; title: string; link: string };
-    story: { kicker: string; title: string; body: string; link: string };
     testimonial: { kicker: string; quote: string; attribution: string };
   };
   services: {

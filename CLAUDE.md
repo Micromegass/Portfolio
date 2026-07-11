@@ -9,14 +9,15 @@ Trilingual (EN/DE/ES) static portfolio for Axel Braunschweiger: AI-first enginee
 - Voice: **warm expert**. Approachable, plain verbs, active voice, no jargon, no hype. Copy explains; it never sells hard.
 - Tech ability in the foreground; teacher/founder story as evidence of versatility, never the headline.
 
-## Design system — "Das Werkbuch"
+## Design system — "Camino"
 
-Light, editorial-precision design inspired by German technical drawings (Werkbuch = engineer's workbook), warmed by Latin American type design.
+Warm, human, calm, professional — and chronological. (Replaced the earlier "Das Werkbuch" technical-drawing concept, which Axel rejected as too robotic on 2026-07-10.)
 
-- **Signature:** annotation/dimension lines that point at real proof; case studies rendered as annotated blueprints. One bold moment only: the Micromegas zoom hero on Home (Micromegas = Axel's GitHub handle, from Voltaire — scale/perspective). Everything else stays quiet and precise.
-- **Color:** paper white ground, ink blue-black text, one warm accent. Tokens in `src/styles/tokens.css` are the single source of truth. Never introduce colors outside tokens. Avoid cream+terracotta AI-default look.
-- **Type:** characterful grotesk display, humanist body, mono/utility face for annotations and dimension labels. Self-hosted + subsetted only (GDPR — never load Google Fonts CDN).
-- **Motion:** GSAP + ScrollTrigger; annotation lines draw in on scroll; Lenis smooth scroll. Every animation must have a `prefers-reduced-motion` fallback. Motion enhances usability, never distracts.
+- **Signature:** the chronological journey — Axel's path (teacher → EAFIT Medellín → heatbeat → founder ×2 → AI-first engineer) told in order along a gently curving dotted trail (`PathTimeline.astro`) that draws itself in on scroll. The homepage is story-first; the portrait appears in the hero.
+- **Color:** warm linen ground (#FBF7F2), espresso text, deep green accent (#3E6B54 family) + soft amber highlights; full-bleed deep-green CTA band. Tokens in `src/styles/tokens.css` are the single source of truth; every text/ground pair is contrast-validated ≥4.5:1 — re-validate before changing any color.
+- **Shape:** soft and human — rounded cards (10–28px radii), pill buttons/nav, arched portrait frame, soft shadows. No hairlines, no mono annotations, no drafting metaphors anywhere (incl. copy).
+- **Type:** Fraunces Variable for display (soft optical serif; italic + SOFT axis for warm emphasis), Plus Jakarta Sans Variable for body. Self-hosted only (GDPR — never load Google Fonts CDN).
+- **Motion:** calm — gentle GSAP fade/rise reveals, slow eases, scroll-scrubbed trail drawing, Lenis smooth scroll. No pinned sections. Every animation must have a `prefers-reduced-motion` fallback (motion system disables itself entirely).
 
 ## Stack & conventions
 
@@ -34,6 +35,7 @@ Light, editorial-precision design inspired by German technical drawings (Werkbuc
 - SEO targets future domain `axelbraunschweiger.com`; until it exists, deploys go to GitHub Pages (account Micromegass) with **noindex** — do not remove noindex before the real domain is live.
 - German legal pages (Impressum, Datenschutzerklärung) are required — site serves a German commercial purpose.
 - Analytics: none until domain time; privacy-friendly only if added.
+- 2026-07-10 (later): Complete redesign. Axel rejected "Das Werkbuch" (too robotic); replaced with "Camino" — warm/human/calm/chronological. Journey timeline is the signature; Micromegas scale story removed.
 - 2026-07-10: Deployed. Source lives on the `main` branch of github.com/Micromegass/Portfolio (old portfolio remains on `master` for history). CI (`.github/workflows/deploy.yml`) builds with `GITHUB_PAGES=true` and force-publishes `dist/` to `gh-pages` on every push to `main` → live at micromegass.github.io/Portfolio/ (noindexed). Live Lighthouse: perf 100 / a11y 100 / BP 100 (SEO intentionally suppressed by noindex; local prod build scores SEO 100).
 
 ## Roadmap

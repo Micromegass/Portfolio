@@ -10,11 +10,10 @@ interface Props {
 
 const { locale, kind } = Astro.props;
 const l = t(locale).legal[kind];
-const sheet = kind === 'imprint' ? 'A1' : 'A2';
 ---
 
-<Base locale={locale} page={kind} sheet={sheet}>
-  <section class="sheet legal">
+<Base locale={locale} page={kind}>
+  <section class="wrap legal">
     <h1 class="legal__title">{l.title}</h1>
     {l.body.map((para) => <p class="legal__para">{para}</p>)}
   </section>
@@ -22,7 +21,7 @@ const sheet = kind === 'imprint' ? 'A1' : 'A2';
 
 <style>
   .legal {
-    padding-top: var(--space-7);
+    padding-top: var(--space-6);
     min-height: 50vh;
   }
 
@@ -31,6 +30,6 @@ const sheet = kind === 'imprint' ? 'A1' : 'A2';
   }
 
   .legal__para {
-    color: var(--ink-soft);
+    color: var(--text-soft);
   }
 </style>

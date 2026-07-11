@@ -1,8 +1,6 @@
 ---
-import '@fontsource-variable/archivo/wdth.css';
-import '@fontsource-variable/source-serif-4/opsz.css';
-import '@fontsource/ibm-plex-mono/latin-400.css';
-import '@fontsource/ibm-plex-mono/latin-500.css';
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/plus-jakarta-sans/index.css';
 import '@/styles/global.css';
 
 import type { Locale, PageKey } from '@/lib/i18n';
@@ -13,11 +11,9 @@ import Footer from '@/components/Footer.astro';
 interface Props {
   locale: Locale;
   page: PageKey;
-  /** Sheet number in the footer title block */
-  sheet?: string;
 }
 
-const { locale, page, sheet = '01' } = Astro.props;
+const { locale, page } = Astro.props;
 const skipLabel = { en: 'Skip to content', de: 'Zum Inhalt springen', es: 'Saltar al contenido' }[
   locale
 ];
@@ -42,7 +38,7 @@ const skipLabel = { en: 'Skip to content', de: 'Zum Inhalt springen', es: 'Salta
     <main id="main">
       <slot />
     </main>
-    <Footer locale={locale} page={page} sheet={sheet} />
+    <Footer locale={locale} />
     <script>
       import { initMotion } from '@/scripts/motion';
       initMotion();
