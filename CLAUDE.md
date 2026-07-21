@@ -19,9 +19,21 @@ Trilingual (EN/DE/ES) static marketing site for **RENOVO**, a one-person AI-firs
 
 - **Signature (the "wow"):** the hero **transformer** — an outdated 2011-style business website dissolving into its modern relaunch, draggable and auto-sweeping. `Transformer.astro` + `scripts/transformer.ts` + `scripts/siteRender.ts`. Both mock sites are drawn procedurally on canvas (no image assets) and localized via `data/renderLabels.ts`. The spectacle *is* the sales pitch — keep it on-message.
 - **Progressive enhancement, in this order:** canvas 2D composite paints first → Three.js shader morph (noise dissolve, chromatic seam, magenta glow) upgrades it after `load` + idle + in-viewport → `prefers-reduced-motion` stays on a static split. A canvas can hold only one context type, hence two stacked canvases (`#tx-canvas` WebGL, `#tx-fallback` 2D).
-- **Color:** dark canvas `#0B0A0C` with light content bands (`#FAF8FA`), one vivid magenta accent `#FF3D77`. Buttons are magenta with **near-black text** (5.8:1 — white on magenta fails). Sections declare `data-tone="dark|light"` and everything styles through the resolved `--bg/--fg/--line/--accent-text` tokens in `src/styles/tokens.css`. Re-validate contrast before changing any color.
+- **Color & themes:** two themes, one vivid magenta accent `#FF3D77`. Sections declare `data-tone="dark" | "light" | "contrast"` and style **only** through the resolved `--bg/--fg/--fg-mute/--line/--surface/--accent-text` tokens. In dark theme `tone=dark` is near-black and `tone=light` is off-white; in light theme both are light (white vs. soft grey) and `tone=contrast` stays near-black in both (CTA band, footer). `:root` carries the canvas tone as a default — without it, text outside a toned section falls back to black and vanishes on the dark canvas. Buttons are magenta with **near-black text** (`--on-accent`, 5.8:1 — white on magenta fails). Light-theme status colours are darkened to clear 4.5:1. Theme choice persists in `localStorage` and is applied by an inline `<head>` script; no stored choice follows the OS. Re-validate contrast before changing any colour.
 - **Type:** one family, Hanken Grotesk Variable. Hierarchy from weight (780 display) and tight tracking (-0.038em). Self-hosted only (GDPR — never load Google Fonts CDN).
 - **Motion:** hero entrance is **pure CSS** (`[data-hero-seq]`, see global.css) so above-the-fold text never waits on JS. Scroll reveals use IntersectionObserver + `.is-in` classes, armed by an inline `<head>` script that removes itself after 3.5s if the bundle never initialises. Never gate content behind scroll-position maths — it desynced with smooth scroll and left sections invisible.
+
+## Free website check (lead magnet)
+
+`/website-check/` runs Google PageSpeed Insights **from the visitor's browser** (`scripts/websiteCheck.ts`) — the site is static, and CORS makes fetching a stranger's site impossible otherwise. It is the homepage's primary CTA.
+
+- Without an API key Google applies a low anonymous quota that is often already exhausted (a 429 is shown as a friendly "try later" message). Set `PUBLIC_PSI_KEY` (see `.env.example`) to make it reliable; such a key is public by design and must be restricted by HTTP referrer.
+- The results markup is injected with `innerHTML`, so it never receives Astro's scoping attribute — **its CSS must stay inside `:global(...)`**, or the score rings render as black discs.
+- Sending a visitor's URL to Google is a third-country transfer and is disclosed in the privacy policy under consent (Art. 6(1)(a)); nothing is stored on our side. If this tool changes, the privacy policy must change with it.
+
+## Legal pages
+
+Written to current German law: Impressum cites **§ 5 DDG** and **§ 18(2) MStV** (TMG and RStV are repealed — do not reintroduce them), plus ODR/VSBG, liability and copyright sections. The privacy policy covers hosting logs, email contact, self-hosted fonts, the absence of cookies/analytics, the PageSpeed Insights transfer, data-subject rights and the supervisory authority. **Not legal advice** — a German lawyer should review before launch, and the `TODO-CONTENT` placeholders (address, phone, VAT, hosting provider) are legally required fields that must be filled first.
 
 ## Stack & conventions
 
@@ -41,6 +53,7 @@ The local Lighthouse CLI returns `NO_FCP` for every URL including `example.com` 
 - 2026-07-10: Design v1 "Das Werkbuch" (technical-drawing) rejected as too robotic. v2 "Camino" (warm, chronological) — structure liked, Fraunces serif rejected as too playful and green/amber palette rejected. v3 "Camino v2" — clean neutrals + dark pink, Hanken Grotesk.
 - 2026-07-21: **Repositioned from personal portfolio to studio site.** Axel: focus on the work (relaunches, AI chatbots in new sites, web apps), not on himself; story moves to a Studio tab; wanted more "wow" and Three.js. New IA: Home, three service pages, Work + 2 case studies, Studio, Contact, legal. New dark studio design with the WebGL transformer hero. Studio named **RENOVO** (Latin "I renew"; reads as renewal in DE/EN/ES) — chosen because Axel asked for a studio name without his surname.
 - 2026-07-21: Case studies presented as client projects (founder role mentioned only in the Studio timeline).
+- 2026-07-21 (later): Added light mode, real client photographs, the free website check, and rewrote the legal pages. **Corrected a false claim**: the physiotherapy case previously said the practice takes bookings online with "no phone calls" — untrue; we only built the website. Invented metrics on both cases were replaced with factual scope. Never state client outcomes that have not been confirmed.
 - **Open:** `renovostudio.com` is a placeholder — confirm availability/trademark, then update `studio.domain` and `astro.config.mjs` together. Keep `GITHUB_PAGES=true` noindex until the real domain is live.
 
 ## Roadmap
