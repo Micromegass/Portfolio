@@ -1,5 +1,5 @@
 ---
-import { alternates, ogLocale, studio, type Locale, type PageKey } from '@/lib/i18n';
+import { alternates, ogLocale, routes, studio, type Locale, type PageKey } from '@/lib/i18n';
 import { t } from '@/data';
 
 interface Props {
@@ -62,10 +62,63 @@ const faqJsonLd = serviceKey && {
   })),
 };
 
+// Social preview card, localized
+const ogImage = `${site}${base}/og${locale === 'en' ? '' : `-${locale}`}.png`;
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': site + base + '/#website',
+  name: studio.name,
+  url: site + base + '/',
+  inLanguage: locale,
+  publisher: { '@id': site + base + '/#studio' },
+};
+
+// Breadcrumbs help Google render the path in results and give LLMs hierarchy
+const trail: { name: string; page: PageKey }[] = [{ name: studio.name, page: 'home' }];
+if (page === 'case-physio' || page === 'case-ikuna') trail.push({ name: c.work.eyebrow, page: 'work' });
+if (page !== 'home') trail.push({ name: c.meta[page].title.split(/[—|]/)[0].trim(), page });
+
+const breadcrumbJsonLd = page !== 'home' && {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((t, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: t.name,
+    item: site + base + routes[t.page][locale],
+  })),
+};
+
+// Case studies: describe the project as a work the studio created, so search
+// engines and answer engines can attribute it correctly.
+const caseKey = page === 'case-physio' ? 'physio' : page === 'case-ikuna' ? 'ikuna' : null;
+const caseJsonLd = caseKey && {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: c.cases[caseKey].title,
+  headline: c.cases[caseKey].title,
+  description: meta.description,
+  inLanguage: locale,
+  url: canonical,
+  image: ogImage,
+  creator: { '@id': site + base + '/#studio' },
+  about: {
+    '@type': 'Organization',
+    name: c.cases[caseKey].client,
+    url: c.cases[caseKey].url,
+  },
+  keywords: c.cases[caseKey].specs.map((s) => s.value).join(', '),
+};
+
 const blocks = [
   page === 'home' || page === 'about' ? orgJsonLd : null,
+  page === 'home' ? websiteJsonLd : null,
+  breadcrumbJsonLd,
   serviceJsonLd,
   faqJsonLd,
+  caseJsonLd,
 ].filter(Boolean);
 ---
 
@@ -87,7 +140,12 @@ const blocks = [
 <meta property="og:url" content={canonical} />
 <meta property="og:locale" content={ogLocale[locale]} />
 <meta property="og:site_name" content={studio.name} />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={`${studio.name} — ${studio.tagline[locale]}`} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content={ogImage} />
 <meta name="theme-color" content="#0b0a0c" />
 
 {blocks.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}

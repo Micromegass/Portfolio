@@ -3,19 +3,19 @@ import type { SiteContent } from './types';
 export const de: SiteContent = {
   meta: {
     home: {
-      title: 'RENOVO — AI Web Studio | Website-Relaunch, KI-Assistenten, Web-Apps',
+      title: 'RENOVO — AI Web Studio für Relaunch & KI',
       description:
-        'Wir modernisieren veraltete Firmenwebsites, bauen Websites mit integriertem KI-Assistenten und entwickeln Web-Apps mit echtem Backend. Mehrsprachig, schnell, in Wochen live.',
+        'Wir modernisieren veraltete Firmenwebsites, bauen Seiten mit integriertem KI-Assistenten und entwickeln Web-Apps mit echtem Backend. In Wochen live.',
     },
     relaunch: {
       title: 'Website-Relaunch & Modernisierung | RENOVO',
       description:
-        'Ihre Website sieht aus und lädt, als wäre sie vor Jahren gebaut worden. Wir bauen sie neu — schnell, mobile-first, suchmaschinenfreundlich, mehrsprachig. Meist in drei bis fünf Wochen.',
+        'Ihre Website lädt und wirkt wie vor Jahren gebaut. Wir bauen sie neu — schnell, mobile-first und mehrsprachig, meist in drei bis fünf Wochen.',
     },
     ai: {
       title: 'Websites mit integriertem KI-Assistenten | RENOVO',
       description:
-        'Wir bauen Websites mit einem Chat-Assistenten, der auf Ihren eigenen Inhalten basiert und Kundenfragen zu Leistungen, Preisen und Öffnungszeiten rund um die Uhr beantwortet.',
+        'Wir bauen Websites mit Chat-Assistent auf Basis Ihrer eigenen Inhalte: Er beantwortet Fragen zu Leistungen, Preisen und Öffnungszeiten rund um die Uhr.',
     },
     apps: {
       title: 'Web-Apps mit echtem Backend | RENOVO',
@@ -30,12 +30,12 @@ export const de: SiteContent = {
     'case-physio': {
       title: 'Fallstudie: Website für eine Physiotherapiepraxis | RENOVO',
       description:
-        'Website-Design und -Entwicklung für eine Physio- und Ergotherapiepraxis in Fürth — jede Behandlung und jedes Teammitglied verständlich erklärt, mobile-first gebaut.',
+        'Website-Design und -Entwicklung für eine Physiotherapiepraxis in Fürth — jede Behandlung verständlich erklärt, konsequent mobile-first gebaut.',
     },
     'case-ikuna': {
-      title: 'Fallstudie: Ikuna Glamping — Marke und Buchungsseite | RENOVO',
+      title: 'Fallstudie: Ikuna Glamping — Marke & Website',
       description:
-        'Marke und bildstarke Website für ein Glamping-Refugium in Antioquia, Kolumbien — schnell auf ländlichen Mobilverbindungen, atmosphärisch genug, um das Erlebnis zu verkaufen.',
+        'Marke und bildstarke Website für ein Glamping-Refugium in Antioquia — schnell auf ländlichen Mobilverbindungen und atmosphärisch genug zum Buchen.',
     },
     about: {
       title: 'Das Studio — so arbeitet RENOVO',
@@ -48,14 +48,17 @@ export const de: SiteContent = {
         'Schicken Sie uns Ihre Website und erhalten Sie eine ehrliche Einschätzung, was sie ausbremst. Wir antworten persönlich, auf Deutsch, Englisch oder Spanisch.',
     },
     check: {
-      title: 'Kostenloser Website-Check — Tempo, SEO & Barrierefreiheit | RENOVO',
+      title: 'Kostenloser Website-Check — Tempo & SEO',
       description:
-        'Testen Sie Ihre Website kostenlos: Ladegeschwindigkeit, Barrierefreiheit, technische Qualität und Suchmaschinen-Tauglichkeit, gemessen von Google PageSpeed Insights und verständlich erklärt.',
+        'Testen Sie Ihre Website kostenlos: Ladezeit, Barrierefreiheit, Technik und SEO, gemessen von Google PageSpeed Insights und verständlich erklärt.',
     },
-    imprint: { title: 'Impressum | RENOVO', description: 'Impressum des RENOVO AI Web Studio.' },
+    imprint: {
+      title: 'Impressum — Angaben gemäß § 5 DDG | RENOVO',
+      description:
+        'Impressum des RENOVO AI Web Studio nach § 5 DDG: Diensteanbieter, Kontaktdaten, Umsatzsteuerangaben und redaktionelle Verantwortung.' },
     privacy: {
-      title: 'Datenschutzerklärung | RENOVO',
-      description: 'Datenschutzerklärung des RENOVO AI Web Studio. Keine Cookies, kein Tracking.',
+      title: 'Datenschutzerklärung — ohne Cookies | RENOVO',
+      description: 'Wie RENOVO mit Daten umgeht: keine Cookies, keine Analyse-Tools, eigene Schriften — und was der Website-Check an Google übermittelt. Ihre DSGVO-Rechte.',
     },
   },
 
@@ -81,7 +84,7 @@ export const de: SiteContent = {
     servicesLabel: 'Leistungen',
     studioLabel: 'Studio',
     contactLabel: 'Kontakt',
-    locations: 'Fürth, Deutschland ↔ Medellín, Kolumbien',
+    locations: 'Fürth · Nürnberg und Metropolregion ↔ Medellín, Kolumbien',
     legalImprint: 'Impressum',
     legalPrivacy: 'Datenschutz',
     colophon: 'Von Hand gebaut, mit AI-first-Workflow. Keine Tracker, keine Cookies.',
@@ -150,7 +153,7 @@ export const de: SiteContent = {
         'Ihre Seite sieht aus wie 2014 und lädt auch so. Wir bauen sie neu — gleiches Unternehmen, aktueller Stand.',
       eyebrow: 'Leistung 01',
       title: 'Eine Website, die endlich zu Ihrem Unternehmen passt.',
-      lead: 'Die meisten Firmenwebsites wurden vor Jahren gebaut, von jemandem, der längst weitergezogen ist. Sie laden langsam, brechen auf dem Handy und schicken Kunden still und leise zur Konkurrenz. Wir bauen sie von Grund auf neu.',
+      lead: 'Die meisten Firmenwebsites wurden vor Jahren gebaut, von jemandem, der längst weitergezogen ist. Sie laden langsam, brechen auf dem Handy und schicken Kunden still und leise zur Konkurrenz. Wir bauen sie von Grund auf neu — für Praxen, Handwerksbetriebe, Kanzleien und Einzelhandel in Fürth, Nürnberg und der Metropolregion, und remote für Kunden überall.',
       problem: {
         title: 'Was eine veraltete Website kostet',
         body: 'Besucher entscheiden in Sekunden. Eine langsame, überladene oder auf dem Handy kaputte Seite signalisiert, dass Ihr Unternehmen hinterherhinkt — ob das stimmt oder nicht. Suchmaschinen bewerten sie schlechter, also finden Sie ohnehin weniger Leute. Und jede Anfrage, die nicht kommt, bleibt unsichtbar: Den Kunden, der wieder gegangen ist, sehen Sie nie.',
@@ -204,7 +207,7 @@ export const de: SiteContent = {
         'Ihre neue Website kann mit einem Chat-Assistenten kommen, der Kundenfragen aus Ihren eigenen Inhalten beantwortet — Tag und Nacht.',
       eyebrow: 'Leistung 02',
       title: 'Eine Website, die Fragen beantwortet, während Sie schlafen.',
-      lead: 'Dieselben Fragen kommen immer wieder: Was bieten Sie an, was kostet das, wann haben Sie geöffnet, nehmen Sie meine Kasse. Wir bauen Websites mit einem Chat-Assistenten, der genau das aus Ihren eigenen Inhalten beantwortet — Ihre Kunden bekommen sofort eine Antwort, und Sie bekommen Ihre Abende zurück.',
+      lead: 'Dieselben Fragen kommen immer wieder: Was bieten Sie an, was kostet das, wann haben Sie geöffnet, nehmen Sie meine Kasse. Wir bauen Websites mit einem Chat-Assistenten, der genau das aus Ihren eigenen Inhalten beantwortet — Ihre Kunden bekommen sofort eine Antwort, und Sie bekommen Ihre Abende zurück. Manche nennen es KI-Chatbot; wir nennen es einen Assistenten, der Ihr Unternehmen wirklich kennt.',
       problem: {
         title: 'Die Fragen hören nie auf',
         body: 'Jede Anfrage, die die Website hätte beantworten können, landet als Anruf, als E-Mail oder als verlorener Kunde, der keine Lust hatte zu fragen. Außerhalb der Öffnungszeiten ist es schlimmer: Wer sich abends um neun Ihre Seite ansieht, geht einfach wieder — und Sie erfahren nie davon.',
@@ -509,6 +512,29 @@ export const de: SiteContent = {
     reviewTitle: 'Was der kostenlose Check abdeckt',
     reviewBody:
       'Geschwindigkeit und Verhalten auf dem Handy, Ihre Sichtbarkeit in der Suche, wie klar die Seite erklärt, was Sie tun — und die zwei bis drei Änderungen mit dem größten Effekt. Wenn sich ein Relaunch für Sie nicht lohnt, sagen wir das.',
+    includeTitle: 'Was in die erste E-Mail gehört',
+    include: [
+      'Die Adresse Ihrer aktuellen Website, falls vorhanden',
+      'Was Ihr Unternehmen macht, in ein bis zwei Sätzen',
+      'Was Sie an der Seite heute stört',
+      'Wann die neue Seite ungefähr live gehen soll',
+      'Ob Sie mehr als eine Sprache brauchen',
+    ],
+    nextTitle: 'Wie es dann weitergeht',
+    next: [
+      {
+        title: 'Antwort meist innerhalb eines Werktags',
+        body: 'Von der Person, die das Projekt auch bauen würde — nicht aus einem Vertriebspostfach. Wenn wir nicht passen, sagen wir das früh und verweisen Sie weiter.',
+      },
+      {
+        title: 'Ein kurzes Gespräch, wenn es sinnvoll ist',
+        body: 'Dreißig Minuten, um das Unternehmen hinter der Website zu verstehen. Ohne Präsentation, ohne Druck, ohne Kosten.',
+      },
+      {
+        title: 'Ein schriftliches Angebot zum Festpreis',
+        body: 'Umfang, Preis und Launch-Termin in Klartext, damit Sie mit allen Fakten entscheiden können.',
+      },
+    ],
   },
 
   cta: {
@@ -558,6 +584,25 @@ export const de: SiteContent = {
         'Google konnte diese Adresse nicht laden. Prüfen Sie die Schreibweise und ob die Seite öffentlich erreichbar ist.',
     },
     resultFor: 'Ergebnisse für',
+    explainTitle: 'Was die vier Werte tatsächlich bedeuten',
+    explain: [
+      {
+        term: 'Tempo',
+        body: 'Wie schnell die Seite auf einem Mittelklasse-Handy bei normaler Mobilverbindung benutzbar wird. Unter 50 warten Besucher so lange, dass ein messbarer Teil abspringt, bevor überhaupt etwas zu sehen ist. Google wertet die Seitenerfahrung seit 2021 als Ranking-Signal — langsame Seiten verlieren also doppelt: Weniger Besucher bleiben, und weniger kommen überhaupt an.',
+      },
+      {
+        term: 'Barrierefreiheit',
+        body: 'Ob Menschen mit Screenreader, Tastatur oder starker Vergrößerung die Seite wirklich nutzen können. Typische Mängel sind Bilder ohne Alternativtext, Formularfelder ohne Beschriftung und zu geringe Kontraste. In Deutschland ist das zunehmend auch eine Rechtsfrage: Das Barrierefreiheitsstärkungsgesetz nimmt seit Juni 2025 viele private Unternehmen in die Pflicht.',
+      },
+      {
+        term: 'Technische Qualität',
+        body: 'Technische Hygiene: gültiges HTTPS-Zertifikat, keine Konsolenfehler, richtig dimensionierte Bilder, keine veralteten Schnittstellen. Ein schwacher Wert kostet selten allein Rankings, ist aber ein verlässliches Zeichen dafür, dass eine Seite länger nicht gepflegt wurde.',
+      },
+      {
+        term: 'Suchmaschinen',
+        body: 'Ob eine Suchmaschine die Seite crawlen, verstehen und sauber anzeigen kann: Titel, Meta-Beschreibung, Indexierbarkeit, funktionierende Links, lesbare Schriftgrößen. Geprüft wird, ob die Grundlagen stimmen — nicht, ob Ihre Inhalte ein gutes Ranking verdienen. Das muss ein Mensch beurteilen.',
+      },
+    ],
     afterTitle: 'Zahlen sind nur die halbe Wahrheit.',
     afterBody:
       'Eine Punktzahl sagt nicht, ob Ihre Website Ihr Unternehmen gut erklärt, ob die richtigen Leute sie finden oder ob sie aus Besuchern Kunden macht. Schicken Sie uns die Adresse — wir sehen sie uns richtig an, kostenlos und in Klartext.',

@@ -61,8 +61,11 @@ const h = c.home;
               <span class="svc__num">{String(i + 1).padStart(2, '0')}</span>
               <h3 class="svc__title">{c.services[key].cardTitle}</h3>
               <p class="svc__desc">{c.services[key].cardDesc}</p>
+              {/* Anchor text names the service for search engines and screen
+                  readers; the visible label stays short. */}
               <a class="arrow-link svc__link" href={href(key, locale)}>
-                {h.services.more} <span>→</span>
+                {h.services.more}
+                <span class="sr-only">: {c.services[key].cardTitle}</span> <span>→</span>
               </a>
             </article>
           ))

@@ -3,19 +3,19 @@ import type { SiteContent } from './types';
 export const en: SiteContent = {
   meta: {
     home: {
-      title: 'RENOVO — AI Web Studio | Website relaunch, AI assistants, web apps',
+      title: 'RENOVO — AI Web Studio for relaunch & AI',
       description:
-        'We modernise outdated business websites, build sites with a built-in AI assistant, and develop web apps with real backends. Multilingual, fast, launched in weeks.',
+        'We modernise outdated business websites, build sites with a built-in AI assistant, and develop web apps with real backends. Launched in weeks.',
     },
     relaunch: {
       title: 'Website relaunch & modernisation | RENOVO',
       description:
-        'Your website looks and loads like it was built years ago. We rebuild it on current standards — fast, mobile-first, search-friendly, multilingual — usually in three to five weeks.',
+        'Your website looks and loads like it was built years ago. We rebuild it on current standards — fast, mobile-first and multilingual, usually in 3–5 weeks.',
     },
     ai: {
       title: 'Websites with a built-in AI assistant | RENOVO',
       description:
-        'We build websites that ship with a chat assistant trained on your own content — answering customer questions about services, prices and opening hours, day and night.',
+        'We build websites that ship with a chat assistant trained on your own content, answering customer questions about services, prices and hours.',
     },
     apps: {
       title: 'Web apps with real backends | RENOVO',
@@ -30,7 +30,7 @@ export const en: SiteContent = {
     'case-physio': {
       title: 'Case study: website for a physiotherapy practice | RENOVO',
       description:
-        'Website design and development for a physiotherapy and occupational therapy practice in Fürth, Germany — every treatment and therapist explained in plain language, built mobile-first.',
+        'Website design and development for a physiotherapy practice in Fürth, Germany — every treatment and therapist explained in plain language, mobile-first.',
     },
     'case-ikuna': {
       title: 'Case study: Ikuna Glamping — brand and booking site | RENOVO',
@@ -50,12 +50,15 @@ export const en: SiteContent = {
     check: {
       title: 'Free website check — speed, SEO & accessibility | RENOVO',
       description:
-        'Test your website for free: loading speed, accessibility, technical quality and search readiness, measured by Google PageSpeed Insights and explained in plain language.',
+        'Test your website free: speed, accessibility, technical quality and search readiness, measured by Google PageSpeed Insights and explained plainly.',
     },
-    imprint: { title: 'Imprint | RENOVO', description: 'Legal notice for RENOVO AI Web Studio.' },
+    imprint: {
+      title: 'Imprint — legal notice | RENOVO AI Web Studio',
+      description:
+        'Legal notice for RENOVO AI Web Studio under § 5 DDG: service provider, contact details, VAT information and responsibility for editorial content.' },
     privacy: {
-      title: 'Privacy policy | RENOVO',
-      description: 'Privacy policy for RENOVO AI Web Studio. No cookies, no tracking.',
+      title: 'Privacy policy — no cookies, no tracking | RENOVO',
+      description: 'How RENOVO handles data: no cookies, no analytics, self-hosted fonts, and exactly what the free website check sends to Google. Your rights under GDPR.',
     },
   },
 
@@ -81,7 +84,7 @@ export const en: SiteContent = {
     servicesLabel: 'Services',
     studioLabel: 'Studio',
     contactLabel: 'Contact',
-    locations: 'Fürth, Germany ↔ Medellín, Colombia',
+    locations: 'Fürth · Nürnberg metro area, Germany ↔ Medellín, Colombia',
     legalImprint: 'Imprint',
     legalPrivacy: 'Privacy',
     colophon: 'Built by hand with an AI-first workflow. No trackers, no cookies.',
@@ -153,7 +156,7 @@ export const en: SiteContent = {
         'Your site looks like 2014 and loads like it too. We rebuild it — same business, current standards.',
       eyebrow: 'Service 01',
       title: 'A website that finally matches your business.',
-      lead: 'Most business websites were built years ago, by someone who has since moved on. They load slowly, break on phones, and quietly send customers to competitors. We rebuild them from the ground up.',
+      lead: 'Most business websites were built years ago, by someone who has since moved on. They load slowly, break on phones, and quietly send customers to competitors. We rebuild them from the ground up — for practices, trades, law firms and shops in Fürth, Nürnberg and the wider region, and remotely for clients anywhere.',
       problem: {
         title: 'What an outdated website costs you',
         body: 'Visitors decide in seconds. A slow, cluttered or mobile-broken site tells them your business is behind the times, whether that is true or not. Search engines rank it lower, so fewer people find you at all. And every enquiry that does not happen is invisible — you never see the customer who left.',
@@ -512,6 +515,29 @@ export const en: SiteContent = {
     reviewTitle: 'What the free review covers',
     reviewBody:
       'Speed and mobile behaviour, how you appear in search, how clearly the site explains what you do, and the two or three changes that would make the biggest difference. If a relaunch is not worth it for you, we will say so.',
+    includeTitle: 'What to put in your first email',
+    include: [
+      'Your current website address, if you have one',
+      'What your business does, in a sentence or two',
+      'What is bothering you about the site today',
+      'Roughly when you would like to launch',
+      'Whether you need more than one language',
+    ],
+    nextTitle: 'What happens next',
+    next: [
+      {
+        title: 'You get a reply, usually within one working day',
+        body: 'From the person who would build the project, not a sales inbox. If we are not the right fit, we say so early and point you somewhere better.',
+      },
+      {
+        title: 'A short call if it makes sense',
+        body: 'Thirty minutes to understand the business behind the website. No presentation, no pressure, and no charge.',
+      },
+      {
+        title: 'A written proposal with a fixed price',
+        body: 'Scope, price and launch date in plain language, so you can decide with everything in front of you.',
+      },
+    ],
   },
 
   cta: {
@@ -559,6 +585,25 @@ export const en: SiteContent = {
         'Google could not load that address. Check the spelling, and make sure the site is publicly reachable.',
     },
     resultFor: 'Results for',
+    explainTitle: 'What the four scores actually mean',
+    explain: [
+      {
+        term: 'Speed',
+        body: 'How quickly the page becomes usable on a mid-range phone over a normal mobile connection. Below 50 means visitors are waiting long enough that a measurable share of them leave before the page appears. Google has used page experience as a ranking signal since 2021, so slow pages lose twice: fewer visitors stay, and fewer arrive in the first place.',
+      },
+      {
+        term: 'Accessibility',
+        body: 'Whether people using a screen reader, keyboard or high zoom can actually use the site. Common failures are images without alternative text, form fields without labels, and text with too little contrast. In Germany this is increasingly a legal question too, not only a courtesy: the Barrierefreiheitsstärkungsgesetz extends accessibility duties to many private businesses from June 2025.',
+      },
+      {
+        term: 'Best practices',
+        body: 'Technical hygiene: a valid HTTPS certificate, no console errors, correctly sized images, no deprecated APIs. A low score here rarely costs rankings on its own, but it is a reliable sign that a site has not been maintained for a while.',
+      },
+      {
+        term: 'Search readiness',
+        body: 'Whether a search engine can crawl the page, understand what it is about, and show it properly: title, meta description, indexability, working links and readable font sizes. It checks that the basics are present — not whether your content deserves to rank, which is the part a human has to judge.',
+      },
+    ],
     afterTitle: 'Numbers are only half the story.',
     afterBody:
       'A score does not tell you whether your website explains your business well, whether the right people find it, or whether it turns visitors into customers. Send us the address and we will look at it properly — for free, in plain language.',

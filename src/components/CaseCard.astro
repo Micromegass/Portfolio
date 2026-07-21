@@ -7,9 +7,11 @@ import { caseImages } from '@/data/caseImages';
 interface Props {
   locale: Locale;
   caseKey: 'physio' | 'ikuna';
+  /** Heading level, so the card slots into each page's outline without a jump */
+  as?: 'h2' | 'h3';
 }
 
-const { locale, caseKey } = Astro.props;
+const { locale, caseKey, as: Heading = 'h3' } = Astro.props as Props;
 const c = t(locale).cases[caseKey];
 const w = t(locale).work;
 const page: PageKey = caseKey === 'physio' ? 'case-physio' : 'case-ikuna';
@@ -24,7 +26,7 @@ const shot = caseImages[caseKey];
     </div>
     <div class="case__body">
       <span class="eyebrow">{c.sector}</span>
-      <h3 class="case__title">{c.cardTitle}</h3>
+      <Heading class="case__title">{c.cardTitle}</Heading>
       <p class="case__desc">{c.cardDesc}</p>
       <dl class="case__metrics">
         {

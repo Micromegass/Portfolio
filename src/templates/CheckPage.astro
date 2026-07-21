@@ -89,6 +89,21 @@ const k = c.check;
           }
         </ol>
       </div>
+
+      <!-- Always visible: what the numbers mean, in plain language -->
+      <section class="explain" data-reveal>
+        <h2 class="explain__title">{k.explainTitle}</h2>
+        <dl class="explain__list">
+          {
+            k.explain.map((e) => (
+              <div class="explain__item">
+                <dt class="explain__term">{e.term}</dt>
+                <dd class="explain__body">{e.body}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
     </div>
   </section>
 </Base>
@@ -489,6 +504,41 @@ const k = c.check;
     margin-bottom: var(--space-4);
   }
 
+  /* ---- explainer ---- */
+  .explain {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--line);
+  }
+
+  .explain__title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+    max-width: 24ch;
+  }
+
+  .explain__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4) var(--space-5);
+    margin: 0;
+  }
+
+  .explain__term {
+    font-family: var(--font-display);
+    font-weight: 780;
+    letter-spacing: -0.02em;
+    font-size: var(--text-md);
+    color: var(--accent-text);
+  }
+
+  .explain__body {
+    margin: var(--space-2) 0 0;
+    color: var(--fg-mute);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
   /* ---- placeholder ---- */
   .steps {
     display: grid;
@@ -529,7 +579,8 @@ const k = c.check;
       grid-template-columns: 1fr 1fr;
     }
 
-    .steps {
+    .steps,
+    .explain__list {
       grid-template-columns: 1fr;
     }
   }

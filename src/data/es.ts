@@ -3,14 +3,14 @@ import type { SiteContent } from './types';
 export const es: SiteContent = {
   meta: {
     home: {
-      title: 'RENOVO — AI Web Studio | Rediseño web, asistentes de IA, aplicaciones',
+      title: 'RENOVO — AI Web Studio: rediseño e IA',
       description:
-        'Modernizamos sitios web de empresas, creamos webs con asistente de IA integrado y desarrollamos aplicaciones web con backend real. Multilingüe, rápido, en semanas.',
+        'Modernizamos sitios web desactualizados, creamos webs con asistente de IA integrado y desarrollamos aplicaciones con backend real. En semanas.',
     },
     relaunch: {
-      title: 'Rediseño y modernización de sitios web | RENOVO',
+      title: 'Rediseño y modernización web | RENOVO',
       description:
-        'Su web se ve y carga como si la hubieran hecho hace años. La reconstruimos con estándares actuales — rápida, mobile-first, optimizada para buscadores y multilingüe. Normalmente en tres a cinco semanas.',
+        'Su web se ve y carga como si fuera de hace años. La reconstruimos con estándares actuales: rápida, mobile-first y multilingüe, en tres a cinco semanas.',
     },
     ai: {
       title: 'Sitios web con asistente de IA integrado | RENOVO',
@@ -20,27 +20,27 @@ export const es: SiteContent = {
     apps: {
       title: 'Aplicaciones web con backend real | RENOVO',
       description:
-        'Sistemas de reservas, portales de clientes, dashboards y MVPs. Aplicaciones full-stack con base de datos, API y autenticación — software de producción, no prototipos.',
+        'Sistemas de reservas, portales, dashboards y MVPs. Aplicaciones full-stack con base de datos, API y autenticación: software de producción, no prototipos.',
     },
     work: {
-      title: 'Proyectos — sitios web y aplicaciones del estudio | RENOVO',
+      title: 'Proyectos — sitios web del estudio | RENOVO',
       description:
-        'Proyectos seleccionados: la web de una clínica con reservas en línea, una marca de hospitalidad con su sitio de reservas, y lo que el estudio construye actualmente.',
+        'Proyectos seleccionados: la web de una clínica de fisioterapia, una marca de hospitalidad en Antioquia, y lo que el estudio construye actualmente.',
     },
     'case-physio': {
       title: 'Caso: web para una clínica de fisioterapia | RENOVO',
       description:
-        'Diseño y desarrollo web para una clínica de fisioterapia y terapia ocupacional en Fürth, Alemania — cada tratamiento y terapeuta explicado en lenguaje claro, construido mobile-first.',
+        'Diseño y desarrollo web para una clínica de fisioterapia en Fürth, Alemania — cada tratamiento explicado con claridad y construido mobile-first.',
     },
     'case-ikuna': {
-      title: 'Caso: Ikuna Glamping — marca y sitio de reservas | RENOVO',
+      title: 'Caso: Ikuna Glamping — marca y web',
       description:
-        'Marca y sitio web visual para un refugio de glamping en Antioquia, Colombia — rápido en conexiones móviles rurales y con la atmósfera suficiente para vender la experiencia.',
+        'Marca y sitio web visual para un refugio de glamping en Antioquia — rápido en conexiones móviles rurales y con la atmósfera para vender la experiencia.',
     },
     about: {
-      title: 'El estudio — así trabaja RENOVO',
+      title: 'El estudio — así trabaja RENOVO | AI Web Studio',
       description:
-        'Un estudio web AI-first, pequeño a propósito, entre Alemania y Colombia. Cómo trabajamos, en qué creemos al construir sitios web y quién está detrás del estudio.',
+        'Un estudio web AI-first entre Alemania y Colombia. Cómo trabajamos, en qué creemos al construir sitios web y quién está detrás del estudio.',
     },
     contact: {
       title: 'Iniciar un proyecto — revisión web gratuita | RENOVO',
@@ -48,14 +48,17 @@ export const es: SiteContent = {
         'Envíenos su sitio web actual y reciba una valoración honesta de qué lo está frenando. Respondemos personalmente en español, inglés o alemán.',
     },
     check: {
-      title: 'Análisis web gratuito — velocidad, SEO y accesibilidad | RENOVO',
+      title: 'Análisis web gratuito — velocidad y SEO',
       description:
-        'Analice su web gratis: velocidad de carga, accesibilidad, calidad técnica y preparación para buscadores, medido por Google PageSpeed Insights y explicado en lenguaje claro.',
+        'Analice su web gratis: velocidad, accesibilidad, calidad técnica y preparación para buscadores, medido por Google PageSpeed Insights y explicado claro.',
     },
-    imprint: { title: 'Aviso legal | RENOVO', description: 'Aviso legal de RENOVO AI Web Studio.' },
+    imprint: {
+      title: 'Aviso legal — información según § 5 DDG | RENOVO',
+      description:
+        'Aviso legal de RENOVO AI Web Studio conforme al § 5 DDG: prestador del servicio, datos de contacto, información fiscal y responsabilidad editorial.' },
     privacy: {
-      title: 'Política de privacidad | RENOVO',
-      description: 'Política de privacidad de RENOVO AI Web Studio. Sin cookies, sin rastreo.',
+      title: 'Política de privacidad — sin cookies | RENOVO',
+      description: 'Cómo trata los datos RENOVO: sin cookies, sin analítica, fuentes propias, y qué envía a Google el análisis web gratuito. Sus derechos bajo el RGPD.',
     },
   },
 
@@ -81,7 +84,7 @@ export const es: SiteContent = {
     servicesLabel: 'Servicios',
     studioLabel: 'Estudio',
     contactLabel: 'Contacto',
-    locations: 'Fürth, Alemania ↔ Medellín, Colombia',
+    locations: 'Fürth · área metropolitana de Núremberg ↔ Medellín, Colombia',
     legalImprint: 'Aviso legal',
     legalPrivacy: 'Privacidad',
     colophon: 'Hecho a mano con un flujo de trabajo AI-first. Sin rastreadores, sin cookies.',
@@ -150,7 +153,7 @@ export const es: SiteContent = {
         'Su sitio parece de 2014 y carga igual. Lo reconstruimos — el mismo negocio, con estándares actuales.',
       eyebrow: 'Servicio 01',
       title: 'Un sitio web que por fin está a la altura de su negocio.',
-      lead: 'La mayoría de los sitios web de empresa se hicieron hace años, por alguien que ya no está. Cargan lento, se rompen en el móvil y mandan clientes a la competencia sin que usted se entere. Los reconstruimos desde cero.',
+      lead: 'La mayoría de los sitios web de empresa se hicieron hace años, por alguien que ya no está. Cargan lento, se rompen en el móvil y mandan clientes a la competencia sin que usted se entere. Los reconstruimos desde cero — para clínicas, oficios, despachos y comercios en Fürth, Núremberg y su área metropolitana, y en remoto para clientes de cualquier lugar.',
       problem: {
         title: 'Lo que le cuesta una web desactualizada',
         body: 'Los visitantes deciden en segundos. Un sitio lento, recargado o roto en el móvil dice que su negocio se quedó atrás, sea verdad o no. Los buscadores lo posicionan más abajo, así que menos gente lo encuentra. Y cada consulta que no llega es invisible: al cliente que se fue nunca lo ve.',
@@ -509,6 +512,29 @@ export const es: SiteContent = {
     reviewTitle: 'Qué cubre la revisión gratuita',
     reviewBody:
       'Velocidad y comportamiento en el móvil, cómo aparece en las búsquedas, qué tan claro explica el sitio lo que usted hace, y los dos o tres cambios que más diferencia harían. Si un rediseño no le conviene, se lo diremos.',
+    includeTitle: 'Qué incluir en su primer correo',
+    include: [
+      'La dirección de su web actual, si la tiene',
+      'Qué hace su negocio, en una o dos frases',
+      'Qué le molesta hoy del sitio',
+      'Más o menos cuándo querría lanzarlo',
+      'Si necesita más de un idioma',
+    ],
+    nextTitle: 'Qué pasa después',
+    next: [
+      {
+        title: 'Respuesta, normalmente en un día hábil',
+        body: 'De la persona que construiría el proyecto, no de un buzón comercial. Si no somos lo que necesita, se lo decimos pronto y le indicamos otra opción.',
+      },
+      {
+        title: 'Una llamada corta si tiene sentido',
+        body: 'Treinta minutos para entender el negocio detrás de la web. Sin presentación, sin presión y sin coste.',
+      },
+      {
+        title: 'Una propuesta escrita con precio cerrado',
+        body: 'Alcance, precio y fecha de lanzamiento en lenguaje claro, para que decida con todo delante.',
+      },
+    ],
   },
 
   cta: {
@@ -558,6 +584,25 @@ export const es: SiteContent = {
         'Google no pudo cargar esa dirección. Revise la ortografía y compruebe que el sitio sea accesible públicamente.',
     },
     resultFor: 'Resultados para',
+    explainTitle: 'Qué significan realmente las cuatro puntuaciones',
+    explain: [
+      {
+        term: 'Velocidad',
+        body: 'Con qué rapidez la página se vuelve utilizable en un móvil de gama media con una conexión normal. Por debajo de 50, los visitantes esperan lo suficiente como para que una parte medible se marche antes de ver nada. Google usa la experiencia de página como señal de posicionamiento desde 2021: las páginas lentas pierden dos veces, porque se quedan menos visitantes y llegan menos.',
+      },
+      {
+        term: 'Accesibilidad',
+        body: 'Si las personas que usan lector de pantalla, teclado o mucho zoom pueden usar el sitio de verdad. Los fallos habituales son imágenes sin texto alternativo, campos de formulario sin etiqueta y textos con poco contraste. Cada vez es más una cuestión legal además de una cortesía, tanto en la UE como en Latinoamérica.',
+      },
+      {
+        term: 'Calidad técnica',
+        body: 'Higiene técnica: certificado HTTPS válido, sin errores de consola, imágenes bien dimensionadas, sin APIs obsoletas. Una puntuación baja rara vez cuesta posiciones por sí sola, pero es una señal fiable de que el sitio lleva tiempo sin mantenimiento.',
+      },
+      {
+        term: 'Buscadores',
+        body: 'Si un buscador puede rastrear la página, entender de qué trata y mostrarla bien: título, meta descripción, indexabilidad, enlaces que funcionan y tamaños de letra legibles. Comprueba que están los fundamentos, no si su contenido merece posicionar — eso lo tiene que juzgar una persona.',
+      },
+    ],
     afterTitle: 'Los números son solo la mitad de la historia.',
     afterBody:
       'Una puntuación no dice si su web explica bien su negocio, si la encuentra la gente adecuada o si convierte visitantes en clientes. Envíenos la dirección y la miramos en serio — gratis y en lenguaje claro.',

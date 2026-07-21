@@ -125,6 +125,11 @@ export interface SiteContent {
     languagesNote: string;
     reviewTitle: string;
     reviewBody: string;
+    /** What to put in the first email, so the reply is useful straight away */
+    includeTitle: string;
+    include: string[];
+    nextTitle: string;
+    next: { title: string; body: string }[];
   };
 
   cta: { eyebrow: string; title: string; body: string; button: string };
@@ -151,6 +156,9 @@ export interface SiteContent {
     scale: { good: string; ok: string; poor: string };
     errors: { invalid: string; failed: string; quota: string; unreachable: string };
     resultFor: string;
+    /** Plain-language explainer of what each score means */
+    explainTitle: string;
+    explain: { term: string; body: string }[];
     afterTitle: string;
     afterBody: string;
     afterButton: string;
