@@ -93,6 +93,7 @@ export const de: SiteContent = {
     sub: 'Wir modernisieren veraltete Firmenwebsites, bauen Seiten mit einem KI-Assistenten, der Ihre Kunden rund um die Uhr beantwortet, und entwickeln Web-Apps mit echtem Backend — in Wochen statt Quartalen.',
     ctaPrimary: 'Kostenlosen Website-Check anfordern',
     ctaSecondary: 'Projekte ansehen',
+    checkNote: 'Kostenlos, ohne Anmeldung. Googles eigene Messwerte in etwa 30 Sekunden.',
     facts: [
       { value: '3–5 Wochen', label: 'von Kickoff bis Launch' },
       { value: '100/100', label: 'typischer Lighthouse-Score' },

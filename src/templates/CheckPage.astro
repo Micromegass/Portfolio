@@ -190,6 +190,14 @@ const k = c.check;
       submitLabel && (submitLabel.textContent = strings.submit);
     }
   });
+
+  // Handoff from the homepage hero: ?url=… prefills and runs straight away,
+  // so a visitor who typed on the landing page never types twice.
+  const handoff = new URLSearchParams(window.location.search).get('url');
+  if (handoff && input && form) {
+    input.value = handoff;
+    form.requestSubmit();
+  }
 </script>
 
 <style>

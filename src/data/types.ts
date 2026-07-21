@@ -30,6 +30,8 @@ export interface SiteContent {
     sub: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    /** Reassurance under the hero's check field */
+    checkNote: string;
     facts: { value: string; label: string }[];
     transformer: { before: string; after: string; hint: string };
     services: { eyebrow: string; title: string; intro: string; more: string };

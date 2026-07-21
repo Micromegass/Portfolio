@@ -93,6 +93,7 @@ export const en: SiteContent = {
     sub: 'We modernise outdated business websites, build sites with an AI assistant that answers your customers around the clock, and develop web apps with real backends — in weeks, not quarters.',
     ctaPrimary: 'Get a free website review',
     ctaSecondary: 'See the work',
+    checkNote: 'Free, no sign-up. Google’s own measurements in about 30 seconds.',
     facts: [
       { value: '3–5 weeks', label: 'from kickoff to launch' },
       { value: '100/100', label: 'typical Lighthouse score' },

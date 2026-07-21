@@ -93,6 +93,7 @@ export const es: SiteContent = {
     sub: 'Modernizamos sitios web desactualizados, creamos webs con un asistente de IA que responde a sus clientes a toda hora, y desarrollamos aplicaciones con backend real — en semanas, no en trimestres.',
     ctaPrimary: 'Pedir una revisión gratuita',
     ctaSecondary: 'Ver proyectos',
+    checkNote: 'Gratis, sin registro. Las mediciones de Google en unos 30 segundos.',
     facts: [
       { value: '3–5 semanas', label: 'del inicio al lanzamiento' },
       { value: '100/100', label: 'puntuación Lighthouse habitual' },
