@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 const c = t(locale);
 ---
 
-<footer class="site-footer" data-tone="dark">
+<footer class="site-footer" data-tone="contrast">
   <div class="wrap footer__grid">
     <div class="footer__brand">
       <span class="mark__name">{studio.name}</span>
@@ -51,9 +51,9 @@ const c = t(locale);
 
 <style>
   .site-footer {
-    background: var(--ink);
-    color: var(--on-ink);
-    border-top: 1px solid var(--line-dark);
+    background: var(--bg);
+    color: var(--fg);
+    border-top: 1px solid var(--line);
     padding-top: var(--space-6);
     padding-bottom: var(--space-4);
   }
@@ -72,14 +72,14 @@ const c = t(locale);
   }
 
   .footer__blurb {
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     font-size: var(--text-sm);
     margin: var(--space-3) 0 var(--space-2);
     max-width: 26rem;
   }
 
   .footer__loc {
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     font-size: var(--text-sm);
     margin: 0;
   }
@@ -96,12 +96,12 @@ const c = t(locale);
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     margin: 0 0 var(--space-1);
   }
 
   .footer__col a {
-    color: var(--on-ink);
+    color: var(--fg);
     text-decoration: none;
     font-size: var(--text-sm);
   }
@@ -117,12 +117,12 @@ const c = t(locale);
     flex-wrap: wrap;
     margin-top: var(--space-6);
     padding-top: var(--space-3);
-    border-top: 1px solid var(--line-dark);
+    border-top: 1px solid var(--line);
   }
 
   .footer__base p {
     margin: 0;
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     font-size: var(--text-xs);
     max-width: none;
   }

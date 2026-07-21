@@ -28,9 +28,9 @@ export const de: SiteContent = {
         'Ausgewählte Projekte: eine Praxis-Website mit Online-Buchung, eine Hospitality-Marke mit Buchungsseite, dazu aktuelle Entwicklungen aus dem Studio-Labor.',
     },
     'case-physio': {
-      title: 'Fallstudie: Praxis-Website mit Online-Buchung | RENOVO',
+      title: 'Fallstudie: Website für eine Physiotherapiepraxis | RENOVO',
       description:
-        'Website, Marke und Online-Terminbuchung für eine Physio- und Ergotherapiepraxis in Fürth — Termine entstehen heute ohne einen einzigen Anruf.',
+        'Website-Design und -Entwicklung für eine Physio- und Ergotherapiepraxis in Fürth — jede Behandlung und jedes Teammitglied verständlich erklärt, mobile-first gebaut.',
     },
     'case-ikuna': {
       title: 'Fallstudie: Ikuna Glamping — Marke und Buchungsseite | RENOVO',
@@ -47,6 +47,11 @@ export const de: SiteContent = {
       description:
         'Schicken Sie uns Ihre Website und erhalten Sie eine ehrliche Einschätzung, was sie ausbremst. Wir antworten persönlich, auf Deutsch, Englisch oder Spanisch.',
     },
+    check: {
+      title: 'Kostenloser Website-Check — Tempo, SEO & Barrierefreiheit | RENOVO',
+      description:
+        'Testen Sie Ihre Website kostenlos: Ladegeschwindigkeit, Barrierefreiheit, technische Qualität und Suchmaschinen-Tauglichkeit, gemessen von Google PageSpeed Insights und verständlich erklärt.',
+    },
     imprint: { title: 'Impressum | RENOVO', description: 'Impressum des RENOVO AI Web Studio.' },
     privacy: {
       title: 'Datenschutzerklärung | RENOVO',
@@ -61,6 +66,7 @@ export const de: SiteContent = {
       { page: 'apps', label: 'Web-Apps' },
       { page: 'work', label: 'Projekte' },
       { page: 'about', label: 'Studio' },
+      { page: 'check', label: 'Website-Check' },
     ],
     cta: 'Projekt starten',
     menuLabel: 'Hauptnavigation',
@@ -107,7 +113,7 @@ export const de: SiteContent = {
     work: {
       eyebrow: 'Ausgewählte Projekte',
       title: 'Echte Unternehmen. Echte Ergebnisse.',
-      intro: 'Websites und Buchungssysteme, auf denen Firmen jeden Tag arbeiten.',
+      intro: 'Websites, auf die sich echte Unternehmen jeden Tag verlassen.',
       more: 'Alle Projekte',
     },
     process: {
@@ -301,7 +307,7 @@ export const de: SiteContent = {
     eyebrow: 'Projekte',
     title: 'Websites, auf denen Unternehmen täglich arbeiten.',
     intro:
-      'Zwei laufende Unternehmen, komplett gebaut — Marke, Website, Buchung — dazu das, was im Studio gerade entsteht.',
+      'Zwei laufende Unternehmen, deren digitalen Auftritt wir gestaltet und gebaut haben — dazu das, was im Studio gerade entsteht.',
     visitLabel: 'Website ansehen',
     readLabel: 'Fallstudie lesen',
     labEyebrow: 'Studio-Labor',
@@ -338,41 +344,42 @@ export const de: SiteContent = {
       sector: 'Gesundheitswesen · Deutschland',
       url: 'https://www.physio-und-ergo-fuerth.de',
       urlLabel: 'physio-und-ergo-fuerth.de',
-      cardTitle: 'Eine Praxis, die ihren Kalender selbst füllt',
+      imageAlt: 'Behandlungsraum der Physiotherapiepraxis in Fürth',
+      cardTitle: 'Eine Praxis, die sich klar erklärt',
       cardDesc:
-        'Website, Marke und Online-Buchung für eine Physio- und Ergotherapiepraxis — Termine entstehen heute ohne einen einzigen Anruf.',
+        'Website und digitaler Auftritt für eine Physio- und Ergotherapiepraxis in Fürth — jede Behandlung und jedes Teammitglied verständlich erklärt.',
       metrics: [
-        { value: '24/7', label: 'Online-Buchung' },
-        { value: '0', label: 'Telefon-Pingpong' },
+        { value: 'Website', label: 'Design & Umsetzung' },
+        { value: 'Mobile-first', label: 'fürs Handy gebaut' },
       ],
-      title: 'Eine Praxis, die ihren Kalender selbst füllt',
+      title: 'Eine Praxis, die sich klar erklärt',
       summary:
-        'Eine Physio- und Ergotherapiepraxis am Fürther Hauptbahnhof brauchte mehr als eine Visitenkarte im Netz: Patienten sollten die Behandlungen verstehen, das Team kennenlernen und buchen können, ohne zum Hörer zu greifen.',
+        'Eine Physio- und Ergotherapiepraxis am Fürther Hauptbahnhof brauchte mehr als eine Visitenkarte im Netz. Wir haben die Website gestaltet und gebaut: das gesamte Behandlungsangebot in klarer Sprache, das Team persönlich vorgestellt, alles auf dem Handy schnell zu finden.',
       specs: [
         { label: 'Branche', value: 'Gesundheitswesen · Deutschland' },
-        { label: 'Umfang', value: 'Marke · Website · Online-Buchung' },
+        { label: 'Umfang', value: 'Website-Design & -Entwicklung' },
         { label: 'Sprachen', value: 'Deutsch' },
-        { label: 'Status', value: 'Live und in Betrieb' },
+        { label: 'Status', value: 'Live' },
       ],
       sections: [
         {
           heading: 'Die Aufgabe',
-          body: 'Deutsche Therapiepraxen laufen über Telefonate und Wartelisten. Patienten wollen drei Dinge schnell wissen: Was behandeln Sie, wer behandelt es, und wann komme ich dran. Die meisten Praxis-Websites beantworten keine davon, und jede offene Frage wird zum Anruf mitten in der Behandlungszeit.',
+          body: 'Wer eine Therapiepraxis sucht, will drei Dinge schnell wissen: Was behandelt ihr, wer behandelt es, und wie erreiche ich euch. Die meisten Praxis-Websites verstecken alle drei. Die Seite sollte sie sofort beantworten — in der Sprache, die Patienten tatsächlich benutzen, nicht in Fachkürzeln.',
         },
         {
           heading: 'Was wir gebaut haben',
-          body: 'Eine schnelle, warme, mobile-first Website: das gesamte Physio- und Ergo-Angebot in klarer Sprache erklärt, das Team persönlich vorgestellt und die Online-Buchung im Mittelpunkt. Termine entstehen ohne einen einzigen Anruf — genau das erlaubt der Praxis, kurze Wartezeiten zu versprechen.',
+          body: 'Eine schnelle, warme, mobile-first Website mit dem gesamten Physio- und Ergo-Angebot, dem Team persönlich vorgestellt und den Kontaktwegen immer in Reichweite. Die meisten Patienten kommen über das Handy — Layout, Tap-Flächen und Ladeverhalten wurden zuerst dafür entworfen.',
         },
         {
           heading: 'Warum es funktioniert',
-          body: 'Jede Entscheidung kam von der Geschäftsseite, nicht von der Designseite: welche Behandlungen im Fokus stehen, wie Kassenfragen formuliert werden, wo Buchungsreibung leise einen Patienten kostet. Die Seite ist so aufgebaut, dass die Praxis Behandlungen und Teammitglieder ohne Entwickler ergänzen kann.',
+          body: 'Jede Entscheidung kam aus der Praxis heraus, nicht aus dem Design: welche Behandlungen im Fokus stehen, wie Fragen zu Kasse und Rezept formuliert werden, was neue Patienten vor der Kontaktaufnahme wissen müssen. Die Seite ist so aufgebaut, dass die Praxis Behandlungen und Teammitglieder später ohne Entwickler ergänzen kann.',
         },
       ],
-      outcomeLabel: 'Was es dem Unternehmen bringt',
+      outcomeLabel: 'Was die Website leistet',
       outcomes: [
-        'Termine werden rund um die Uhr online gebucht, ohne Telefon-Pingpong',
-        'Das ganze Team und jede Spezialisierung werden klar präsentiert',
-        'Auf dieser Website läuft jeden Tag eine echte Praxis',
+        'Erklärt jede Behandlung in verständlicher Sprache',
+        'Stellt das ganze Team und jeden Schwerpunkt klar vor',
+        'Funktioniert sauber auf den Handys, über die Patienten kommen',
       ],
     },
     ikuna: {
@@ -380,12 +387,13 @@ export const de: SiteContent = {
       sector: 'Hospitality · Kolumbien',
       url: 'https://ikunaglamping.com',
       urlLabel: 'ikunaglamping.com',
+      imageAlt: 'Geodätisches Glamping-Dome an einem bewaldeten Berghang in Antioquia',
       cardTitle: 'Ein Bergrefugium mit digitaler Eingangstür',
       cardDesc:
         'Marke und bildstarke Buchungsseite für ein Glamping-Refugium in Antioquia — schnell genug fürs Land, atmosphärisch genug, um das Gefühl zu verkaufen.',
       metrics: [
-        { value: '<1s', label: 'Ladezeit mobil' },
-        { value: 'ES', label: 'Spanisch zuerst' },
+        { value: 'Marke + Web', label: 'unser Umfang' },
+        { value: 'Spanisch', label: 'für seinen Markt gebaut' },
       ],
       title: 'Ein Bergrefugium mit digitaler Eingangstür',
       summary:
@@ -509,24 +517,191 @@ export const de: SiteContent = {
     button: 'Projekt starten',
   },
 
+  check: {
+    eyebrow: 'Kostenloser Website-Check',
+    title: 'Wie gesund ist Ihre Website wirklich?',
+    lead: 'Adresse eingeben und in etwa einer halben Minute Googles eigene Messwerte erhalten: Ladegeschwindigkeit, Barrierefreiheit, technische Qualität und Suchmaschinen-Tauglichkeit — mit den größten Problemen in verständlicher Sprache benannt.',
+    inputLabel: 'Ihre Website-Adresse',
+    placeholder: 'ihre-firma.de',
+    submit: 'Check starten',
+    running: 'Analysiere…',
+    runningNote:
+      'Google lädt Ihre Seite gerade auf einem simulierten Mobilgerät. Das dauert meist 20–40 Sekunden.',
+    privacyNote:
+      'Die eingegebene Adresse wird zur Analyse an die Google-PageSpeed-Insights-API übermittelt. Wir speichern sie nicht.',
+    privacyLink: 'Wie wir mit Ihren Daten umgehen',
+    scoresLabel: 'Bewertungen',
+    categories: {
+      performance: 'Tempo',
+      accessibility: 'Barrierefreiheit',
+      bestPractices: 'Technische Qualität',
+      seo: 'Suchmaschinen',
+    },
+    vitalsLabel: 'Was Besucher erleben',
+    vitals: {
+      lcp: 'Größter Inhalt sichtbar',
+      cls: 'Layout-Stabilität',
+      tbt: 'Blockierte Bedienzeit',
+      si: 'Optisch fertig',
+    },
+    opportunitiesLabel: 'Größte Hebel',
+    opportunitiesNone: 'Keine größeren technischen Probleme gefunden — eine gute Ausgangslage.',
+    savingsLabel: 'mögliche Ersparnis',
+    scale: { good: 'Gut', ok: 'Ausbaufähig', poor: 'Schwach' },
+    errors: {
+      invalid: 'Das sieht nicht nach einer gültigen Adresse aus. Versuchen Sie es mit ihre-firma.de.',
+      failed: 'Der Check konnte nicht abgeschlossen werden. Bitte versuchen Sie es gleich noch einmal.',
+      quota:
+        'Das kostenlose Analyse-Kontingent ist gerade erschöpft. Versuchen Sie es später noch einmal — oder schreiben Sie uns, wir führen den Check für Sie durch.',
+      unreachable:
+        'Google konnte diese Adresse nicht laden. Prüfen Sie die Schreibweise und ob die Seite öffentlich erreichbar ist.',
+    },
+    resultFor: 'Ergebnisse für',
+    afterTitle: 'Zahlen sind nur die halbe Wahrheit.',
+    afterBody:
+      'Eine Punktzahl sagt nicht, ob Ihre Website Ihr Unternehmen gut erklärt, ob die richtigen Leute sie finden oder ob sie aus Besuchern Kunden macht. Schicken Sie uns die Adresse — wir sehen sie uns richtig an, kostenlos und in Klartext.',
+    afterButton: 'Menschliche Einschätzung anfordern',
+    disclaimer:
+      'Gemessen von Google PageSpeed Insights auf einem simulierten Mittelklasse-Smartphone. Die Werte schwanken zwischen einzelnen Durchläufen.',
+  },
+
   legal: {
     imprint: {
       title: 'Impressum',
-      body: [
-        'Angaben gemäß § 5 TMG.',
-        'RENOVO — AI Web Studio', // TODO-CONTENT: vollständige Firmierung, Anschrift, USt-IdNr.
-        'Inhaber: Axel Braunschweiger',
-        'Kontakt: axelbraunschweiger@gmail.com',
-        'Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Axel Braunschweiger.',
+      intro: 'Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz).',
+      sections: [
+        {
+          heading: 'Diensteanbieter',
+          body: [
+            'RENOVO — AI Web Studio', // TODO-CONTENT: exakte Firmierung, falls abweichend
+            'Inhaber: Axel Braunschweiger', // TODO-CONTENT: vollständige Anschrift ist gesetzlich Pflicht
+            '[Straße und Hausnummer]',
+            '[PLZ] Fürth',
+          ],
+        },
+        {
+          heading: 'Kontakt',
+          body: [
+            'E-Mail: axelbraunschweiger@gmail.com', // TODO-CONTENT: geschäftliche E-Mail + Telefonnummer
+            'Telefon: [erforderlich — eine Telefonnummer oder ein gleichwertig unmittelbarer Kontaktweg muss angegeben werden]',
+          ],
+        },
+        {
+          heading: 'Umsatzsteuer',
+          body: [
+            'Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: [USt-IdNr.]', // TODO-CONTENT
+            'Falls die Kleinunternehmerregelung nach § 19 UStG gilt, wird keine Umsatzsteuer ausgewiesen; dann sollte hier stattdessen ein entsprechender Hinweis stehen.',
+          ],
+        },
+        {
+          heading: 'Redaktionell verantwortlich',
+          body: ['Axel Braunschweiger, Anschrift wie oben (§ 18 Abs. 2 MStV).'],
+        },
+        {
+          heading: 'Streitschlichtung',
+          body: [
+            'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: https://ec.europa.eu/consumers/odr',
+            'Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).',
+          ],
+        },
+        {
+          heading: 'Haftung für Inhalte',
+          body: [
+            'Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.',
+            'Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.',
+          ],
+        },
+        {
+          heading: 'Haftung für Links',
+          body: [
+            'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.',
+            'Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft; rechtswidrige Inhalte waren nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.',
+          ],
+        },
+        {
+          heading: 'Urheberrecht',
+          body: [
+            'Die durch uns erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen unserer schriftlichen Zustimmung.',
+            'Projektbilder werden mit Erlaubnis der jeweiligen Unternehmen veröffentlicht und bleiben deren Eigentum.',
+          ],
+        },
       ],
     },
     privacy: {
       title: 'Datenschutzerklärung',
-      body: [
-        'Diese Website ist bewusst datensparsam gestaltet: Sie setzt keine Cookies, nutzt keine Analyse-Tools und lädt keine Ressourcen von Drittanbietern. Alle Schriften und Assets werden vom eigenen Server ausgeliefert.',
-        'Server-Logfiles: Der Hosting-Anbieter kann technische Zugriffsdaten (z. B. IP-Adresse, Datum und Uhrzeit, Browsertyp) automatisch zu Sicherheits- und Betriebszwecken speichern. Diese Daten werden nicht mit anderen Quellen zusammengeführt und nach den Aufbewahrungsrichtlinien des Anbieters gelöscht.',
-        'Kontakt per E-Mail: Wenn Sie uns schreiben, werden Ihre Nachricht und Adresse ausschließlich zur Beantwortung verwendet. Verantwortlicher: Axel Braunschweiger.', // TODO-CONTENT
-        'Sie haben das Recht auf Auskunft, Berichtigung und Löschung Sie betreffender personenbezogener Daten (Art. 15–17 DSGVO).',
+      intro:
+        'Diese Website ist so gebaut, dass so wenig Daten wie möglich anfallen. Sie setzt keine Cookies, nutzt keine Analyse- oder Tracking-Werkzeuge und lädt weder Schriften noch Skripte von fremden Servern. Die einzige Ausnahme ist der Website-Check, der unten ausführlich beschrieben wird und ausschließlich dann läuft, wenn Sie ihn aktiv starten.',
+      updated: 'Stand: Juli 2026',
+      sections: [
+        {
+          heading: '1. Verantwortlicher',
+          body: [
+            'Axel Braunschweiger, RENOVO — AI Web Studio, [Anschrift wie im Impressum], Deutschland.', // TODO-CONTENT
+            'E-Mail: axelbraunschweiger@gmail.com',
+            'Ein Datenschutzbeauftragter wurde nicht bestellt; eine gesetzliche Pflicht hierzu besteht in diesem Fall nicht.',
+          ],
+        },
+        {
+          heading: '2. Hosting und Server-Logfiles',
+          body: [
+            'Diese Website wird gehostet bei [Hosting-Anbieter, Anschrift].', // TODO-CONTENT: Hoster benennen; Auftragsverarbeitungsvertrag nach Art. 28 DSGVO erforderlich
+            'Beim Aufruf der Website erfasst der Hosting-Anbieter automatisch technische Zugriffsdaten in Server-Logfiles: Ihre IP-Adresse, Datum und Uhrzeit der Anfrage, die aufgerufene Seite, die verweisende Seite sowie Angaben zu Browser und Betriebssystem.',
+            'Zweck und Rechtsgrundlage: Diese Verarbeitung ist erforderlich, um die Website zuverlässig auszuliefern sowie Angriffe zu erkennen und abzuwehren. Rechtsgrundlage ist unser berechtigtes Interesse am sicheren und stabilen Betrieb der Website, Art. 6 Abs. 1 lit. f DSGVO.',
+            'Speicherdauer: Logdaten werden nach dem Löschkonzept des Hosting-Anbieters gelöscht, in der Regel nach spätestens 30 Tagen. Sie werden nicht mit anderen Datenquellen zusammengeführt und nicht dazu verwendet, Sie persönlich zu identifizieren.',
+          ],
+        },
+        {
+          heading: '3. Website-Check (Google PageSpeed Insights)',
+          body: [
+            'Auf unserer Seite „Website-Check" können Sie die Adresse einer Website eingeben und analysieren lassen. Die Analyse führen nicht wir durch: Mit dem Klick auf den Button sendet Ihr Browser die eingegebene Adresse unmittelbar an die Google-PageSpeed-Insights-API der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.',
+            'Dabei werden Ihre IP-Adresse sowie die technischen Angaben Ihrer Browseranfrage an Google übermittelt und können auf Server in den USA übertragen werden. Google verarbeitet diese Daten nach seiner eigenen Datenschutzerklärung: https://policies.google.com/privacy',
+            'Zweck und Rechtsgrundlage: Die Analyse erfolgt ausschließlich auf Ihre ausdrückliche Veranlassung hin. Rechtsgrundlage ist daher Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch das aktive Starten des Checks erteilen. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie das Werkzeug nicht nutzen. Ohne gestarteten Check werden keine Daten an Google übermittelt.',
+            'Drittlandübermittlung: Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert, für das die Europäische Kommission mit Angemessenheitsbeschluss vom 10. Juli 2023 ein angemessenes Schutzniveau festgestellt hat. Ergänzend stützt sich Google auf die Standardvertragsklauseln der Europäischen Kommission.',
+            'Wir selbst speichern und werten die von Ihnen eingegebenen Adressen und die Analyseergebnisse nicht aus. Auf unserer Seite wird nichts gespeichert.',
+          ],
+        },
+        {
+          heading: '4. Kontaktaufnahme per E-Mail',
+          body: [
+            'Wenn Sie uns schreiben, werden die von Ihnen mitgeteilten Daten — Ihre E-Mail-Adresse, gegebenenfalls Ihr Name und der Inhalt Ihrer Nachricht — ausschließlich zur Bearbeitung Ihrer Anfrage verarbeitet.',
+            'Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Nachricht der Anbahnung oder Erfüllung eines Vertrags dient, andernfalls unser berechtigtes Interesse an der Beantwortung an uns gerichteter Anfragen, Art. 6 Abs. 1 lit. f DSGVO.',
+            'Speicherdauer: Anfragen werden gelöscht, sobald sie abschließend bearbeitet sind und keine gesetzlichen Aufbewahrungspflichten, insbesondere aus Handels- und Steuerrecht, entgegenstehen.',
+            'Bitte beachten Sie, dass E-Mails standardmäßig nicht verschlüsselt übertragen werden. Für vertrauliche Informationen fragen Sie uns gern nach einem anderen Weg.',
+          ],
+        },
+        {
+          heading: '5. Schriften und weitere Ressourcen',
+          body: [
+            'Sämtliche Schriften, Bilder, Skripte und Stylesheets werden vom eigenen Server dieser Website ausgeliefert. Insbesondere kommen kein Google-Fonts-CDN, kein Content Delivery Network und keine Social-Media-Plugins zum Einsatz. Beim bloßen Betrachten der Seiten wird keine Verbindung zu Servern Dritter aufgebaut.',
+          ],
+        },
+        {
+          heading: '6. Cookies, Analyse und Tracking',
+          body: [
+            'Diese Website setzt keine Cookies und verwendet keine Analyse-, Tracking-, Remarketing- oder Profiling-Technologien. Ihre Sprach- und Farbschema-Einstellung wird, sofern Sie sie ändern, ausschließlich lokal in Ihrem Browser gespeichert und nicht an uns übermittelt.',
+          ],
+        },
+        {
+          heading: '7. Ihre Rechte',
+          body: [
+            'Sie haben das Recht auf Auskunft über die zu Ihrer Person verarbeiteten Daten (Art. 15 DSGVO), auf Berichtigung unrichtiger Daten (Art. 16), auf Löschung (Art. 17), auf Einschränkung der Verarbeitung (Art. 18), auf Datenübertragbarkeit (Art. 20) sowie auf jederzeitigen Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3).',
+            'Widerspruchsrecht: Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen eine Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO Widerspruch einzulegen (Art. 21 DSGVO).',
+            'Für die Ausübung dieser Rechte genügt eine formlose E-Mail an die oben genannte Adresse.',
+          ],
+        },
+        {
+          heading: '8. Beschwerderecht',
+          body: [
+            'Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere im Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes (Art. 77 DSGVO).',
+            'Die für uns zuständige Behörde ist das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach.', // TODO-CONTENT: anpassen, falls der Sitz außerhalb Bayerns liegt
+          ],
+        },
+        {
+          heading: '9. Änderungen dieser Erklärung',
+          body: [
+            'Wir passen diese Datenschutzerklärung an, wenn Änderungen an der Website oder der Rechtslage dies erforderlich machen. Es gilt jeweils die hier veröffentlichte Fassung.',
+          ],
+        },
       ],
     },
   },

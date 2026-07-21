@@ -9,32 +9,73 @@ interface Props {
 }
 
 const { locale, kind } = Astro.props;
-const l = t(locale).legal[kind];
+const legal = t(locale).legal;
+const l = legal[kind];
+const updated = kind === 'privacy' ? legal.privacy.updated : null;
 ---
 
 <Base locale={locale} page={kind}>
   <section class="legal" data-tone="dark">
     <div class="wrap">
       <h1 class="legal__title">{l.title}</h1>
-      {l.body.map((para) => <p class="legal__para">{para}</p>)}
+      <p class="lead legal__intro">{l.intro}</p>
+      {updated && <p class="legal__updated">{updated}</p>}
+
+      <div class="legal__body">
+        {
+          l.sections.map((s) => (
+            <section class="legal__section">
+              <h2 class="legal__heading">{s.heading}</h2>
+              {s.body.map((p) => (
+                <p class="legal__para">{p}</p>
+              ))}
+            </section>
+          ))
+        }
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
   .legal {
-    background: var(--ink);
+    background: var(--bg);
     padding: var(--space-7) 0 var(--space-8);
     min-height: 60vh;
   }
 
   .legal__title {
     font-size: var(--text-xl);
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-4);
+  }
+
+  .legal__intro {
+    max-width: 44rem;
+  }
+
+  .legal__updated {
+    font-size: var(--text-sm);
+    color: var(--fg-mute);
+  }
+
+  .legal__body {
+    margin-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 46rem;
+  }
+
+  .legal__heading {
+    font-size: var(--text-md);
+    margin: 0 0 var(--space-2);
   }
 
   .legal__para {
-    color: var(--on-ink-mute);
-    max-width: 44rem;
+    color: var(--fg-mute);
+    font-size: var(--text-sm);
+    line-height: 1.75;
+    max-width: none;
+    overflow-wrap: anywhere;
   }
 </style>

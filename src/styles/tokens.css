@@ -1,38 +1,60 @@
 /* ============================================================
    RENOVO — design tokens (single source of truth)
-   Dark studio canvas, light content sections, one vivid magenta.
-   Contrast-validated: see CLAUDE.md before changing any value.
+
+   Two themes. Sections declare data-tone="dark" | "light" |
+   "contrast"; components style through the resolved
+   --bg / --fg / --fg-mute / --line / --accent-text / --surface.
+
+   In dark theme  : tone=dark is near-black, tone=light is off-white.
+   In light theme : both are light (white vs. soft grey) and the
+                    rhythm comes from that contrast instead.
+   tone=contrast  : always near-black in both themes (CTA, footer).
+
+   All text/ground pairs contrast-validated — see CLAUDE.md.
    ============================================================ */
 
 :root {
-  /* Dark canvas */
-  --ink: #0b0a0c;
-  --ink-2: #141118;
-  --ink-3: #1e1a24;
-  --on-ink: #f5f2f6;
-  --on-ink-mute: #a79fae;
-  --line-dark: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
 
-  /* Light sections */
-  --paper: #faf8fa;
-  --paper-2: #f1edf2;
-  --card: #ffffff;
-  --on-paper: #16131a;
-  --on-paper-mute: #5c5464;
-  --line-light: rgba(22, 19, 26, 0.1);
+  /* Canvas — hero, nav, dark bands */
+  --canvas: #0b0a0c;
+  --on-canvas: #f5f2f6;
+  --on-canvas-mute: #a79fae;
+  --canvas-line: rgba(255, 255, 255, 0.12);
+  --canvas-surface: #141118;
+  --accent-on-canvas: #ff3d77;
 
-  /* Accent — vivid on dark, deepened for text on light */
+  /* Panel — content bands */
+  --panel: #faf8fa;
+  --on-panel: #16131a;
+  --on-panel-mute: #5c5464;
+  --panel-line: rgba(22, 19, 26, 0.1);
+  --panel-surface: #ffffff;
+  --accent-on-panel: #a81a49;
+
+  /* Contrast band — identical in both themes */
+  --contrast: #0b0a0c;
+  --on-contrast: #f5f2f6;
+  --on-contrast-mute: #a79fae;
+  --contrast-line: rgba(255, 255, 255, 0.12);
+
+  /* Accent family. --on-accent is the text colour that sits on --accent
+     (validated 5.8:1) and stays constant across themes. */
   --accent: #ff3d77;
+  --on-accent: #0b0a0c;
   --accent-hot: #ff6d97;
   --accent-deep: #c7215a;
   --accent-ink: #a81a49;
 
-  /* Semantic aliases resolved per section via [data-tone] */
-  --bg: var(--ink);
-  --fg: var(--on-ink);
-  --fg-mute: var(--on-ink-mute);
-  --line: var(--line-dark);
-  --accent-text: var(--accent);
+  /* Semantic status (checker) — never colour alone, always paired with text.
+     Light-theme values are darkened so the score numerals clear 4.5:1 on
+     both white and the panel grey. */
+  --good: #0f7a43;
+  --warn: #8a5a0e;
+  --bad: #b52539;
+  --good-on-dark: #4ad38c;
+  --warn-on-dark: #f0b04c;
+  --bad-on-dark: #ff6b7f;
 
   /* Type */
   --font-display: 'Hanken Grotesk Variable', system-ui, -apple-system, sans-serif;
@@ -70,31 +92,103 @@
   --radius-lg: 22px;
   --radius-xl: 34px;
 
-  --shadow-dark: 0 40px 90px -45px rgba(0, 0, 0, 0.9);
-  --shadow-light: 0 24px 50px -32px rgba(22, 19, 26, 0.5);
+  --shadow-canvas: 0 40px 90px -45px rgba(0, 0, 0, 0.9);
+  --shadow-panel: 0 24px 50px -32px rgba(22, 19, 26, 0.5);
 
   /* Motion */
   --ease: cubic-bezier(0.33, 1, 0.68, 1);
   --dur: 260ms;
 }
 
-/* Section tone switches — components never hardcode dark/light colors */
+/* ---------- light theme ---------- */
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --canvas: #ffffff;
+  --on-canvas: #16131a;
+  --on-canvas-mute: #5c5464;
+  --canvas-line: rgba(22, 19, 26, 0.12);
+  --canvas-surface: #f7f4f7;
+  --accent-on-canvas: #a81a49;
+
+  --panel: #f4f1f4;
+  --on-panel: #16131a;
+  --on-panel-mute: #5c5464;
+  --panel-line: rgba(22, 19, 26, 0.11);
+  --panel-surface: #ffffff;
+  --accent-on-panel: #a81a49;
+
+  --shadow-canvas: 0 24px 50px -32px rgba(22, 19, 26, 0.35);
+}
+
+/* Follow the system when the visitor has not chosen explicitly */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+
+    --canvas: #ffffff;
+    --on-canvas: #16131a;
+    --on-canvas-mute: #5c5464;
+    --canvas-line: rgba(22, 19, 26, 0.12);
+    --canvas-surface: #f7f4f7;
+    --accent-on-canvas: #a81a49;
+
+    --panel: #f4f1f4;
+    --on-panel: #16131a;
+    --on-panel-mute: #5c5464;
+    --panel-line: rgba(22, 19, 26, 0.11);
+    --panel-surface: #ffffff;
+    --accent-on-panel: #a81a49;
+
+    --shadow-canvas: 0 24px 50px -32px rgba(22, 19, 26, 0.35);
+  }
+}
+
+/* ---------- tone resolution ----------
+   :root carries the canvas tone as a default so that any element outside a
+   toned section still resolves --fg/--bg. Without this, text on <body>
+   falls back to initial black and disappears on the dark canvas. */
+
+:root,
 [data-tone='dark'] {
-  --bg: var(--ink);
-  --fg: var(--on-ink);
-  --fg-mute: var(--on-ink-mute);
-  --line: var(--line-dark);
-  --accent-text: var(--accent);
-  --surface: var(--ink-2);
-  --shadow: var(--shadow-dark);
+  --bg: var(--canvas);
+  --fg: var(--on-canvas);
+  --fg-mute: var(--on-canvas-mute);
+  --line: var(--canvas-line);
+  --surface: var(--canvas-surface);
+  --accent-text: var(--accent-on-canvas);
+  --shadow: var(--shadow-canvas);
+  --status-good: var(--good-on-dark);
+  --status-warn: var(--warn-on-dark);
+  --status-bad: var(--bad-on-dark);
 }
 
 [data-tone='light'] {
-  --bg: var(--paper);
-  --fg: var(--on-paper);
-  --fg-mute: var(--on-paper-mute);
-  --line: var(--line-light);
-  --accent-text: var(--accent-ink);
-  --surface: var(--card);
-  --shadow: var(--shadow-light);
+  --bg: var(--panel);
+  --fg: var(--on-panel);
+  --fg-mute: var(--on-panel-mute);
+  --line: var(--panel-line);
+  --surface: var(--panel-surface);
+  --accent-text: var(--accent-on-panel);
+  --shadow: var(--shadow-panel);
+  --status-good: var(--good);
+  --status-warn: var(--warn);
+  --status-bad: var(--bad);
 }
+
+[data-tone='contrast'] {
+  --bg: var(--contrast);
+  --fg: var(--on-contrast);
+  --fg-mute: var(--on-contrast-mute);
+  --line: var(--contrast-line);
+  --surface: #141118;
+  --accent-text: var(--accent);
+  --shadow: 0 40px 90px -45px rgba(0, 0, 0, 0.9);
+  --status-good: var(--good-on-dark);
+  --status-warn: var(--warn-on-dark);
+  --status-bad: var(--bad-on-dark);
+}
+
+/* In light theme a "dark" tone section sits on white; status colours and
+   accents already resolve through the light-theme variables above. */

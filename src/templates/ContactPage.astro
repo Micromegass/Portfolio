@@ -41,7 +41,7 @@ const c = t(locale).contact;
 
 <style>
   .contact {
-    background: var(--ink);
+    background: var(--bg);
     position: relative;
     overflow: hidden;
     padding: clamp(3rem, 8vw, 6rem) 0 var(--space-8);
@@ -87,7 +87,7 @@ const c = t(locale).contact;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
   }
 
   .mailto__address {
@@ -95,7 +95,7 @@ const c = t(locale).contact;
     font-weight: 780;
     letter-spacing: -0.03em;
     font-size: var(--text-lg);
-    color: var(--on-ink);
+    color: var(--fg);
     overflow-wrap: anywhere;
   }
 
@@ -108,7 +108,7 @@ const c = t(locale).contact;
     align-items: center;
     gap: 0.6em;
     margin-top: var(--space-5);
-    color: var(--on-ink);
+    color: var(--fg);
     font-weight: 600;
     font-size: var(--text-sm);
   }
@@ -121,13 +121,13 @@ const c = t(locale).contact;
   }
 
   .langs {
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     font-size: var(--text-sm);
   }
 
   .review {
-    background: var(--ink-2);
-    border-color: var(--line-dark);
+    background: var(--surface);
+    border-color: var(--line);
     padding: var(--space-5);
   }
 
@@ -137,7 +137,7 @@ const c = t(locale).contact;
   }
 
   .review__body {
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     font-size: var(--text-sm);
     line-height: 1.7;
     margin: 0;

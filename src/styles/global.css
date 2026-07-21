@@ -14,13 +14,13 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--ink);
+  background: var(--canvas);
 }
 
 body {
   margin: 0;
-  background: var(--ink);
-  color: var(--on-ink);
+  background: var(--canvas);
+  color: var(--on-canvas);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.65;
@@ -59,7 +59,7 @@ a:hover { text-decoration-color: currentColor; }
   border-radius: 4px;
 }
 
-::selection { background: var(--accent); color: var(--ink); }
+::selection { background: var(--accent); color: var(--on-accent); }
 
 img { max-width: 100%; height: auto; display: block; }
 
@@ -130,12 +130,12 @@ img { max-width: 100%; height: auto; display: block; }
 /* Vivid pink with near-black text — validated 5.8:1 */
 .button--primary {
   background: var(--accent);
-  color: var(--ink);
+  color: var(--on-accent);
 }
 
 .button--primary:hover {
   background: var(--accent-hot);
-  color: var(--ink);
+  color: var(--on-accent);
 }
 
 .button--ghost {
@@ -199,7 +199,7 @@ img { max-width: 100%; height: auto; display: block; }
   top: -100%;
   z-index: 100;
   background: var(--accent);
-  color: var(--ink);
+  color: var(--on-accent);
   font-weight: 700;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);

@@ -1,6 +1,7 @@
 ---
 import { href, alternates, studio, type Locale, type PageKey } from '@/lib/i18n';
 import { t } from '@/data';
+import ThemeToggle from '@/components/ThemeToggle.astro';
 
 interface Props {
   locale: Locale;
@@ -56,6 +57,8 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
         }
       </nav>
 
+      <ThemeToggle locale={locale} />
+
       <a class="button button--primary header__cta" href={href('contact', locale)}>{c.nav.cta}</a>
 
       <button
@@ -97,15 +100,15 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     position: sticky;
     top: 0;
     z-index: 60;
-    background: color-mix(in srgb, var(--ink) 72%, transparent);
+    background: color-mix(in srgb, var(--canvas) 72%, transparent);
     border-bottom: 1px solid transparent;
     transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
   }
 
   .site-header--stuck {
-    background: color-mix(in srgb, var(--ink) 92%, transparent);
+    background: color-mix(in srgb, var(--canvas) 92%, transparent);
     backdrop-filter: blur(14px);
-    border-bottom-color: var(--line-dark);
+    border-bottom-color: var(--line);
   }
 
   .header__row {
@@ -120,7 +123,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     flex-direction: column;
     line-height: 1;
     text-decoration: none;
-    color: var(--on-ink);
+    color: var(--fg);
     margin-right: auto;
   }
 
@@ -135,7 +138,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     font-size: 0.6rem;
     letter-spacing: 0.26em;
     text-transform: uppercase;
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     margin-top: 5px;
   }
 
@@ -145,7 +148,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
   }
 
   .nav__link {
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     text-decoration: none;
     font-size: 0.92rem;
     font-weight: 550;
@@ -155,11 +158,11 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
   }
 
   .nav__link:hover {
-    color: var(--on-ink);
+    color: var(--fg);
   }
 
   .nav__link--active {
-    color: var(--on-ink);
+    color: var(--fg);
     border-bottom-color: var(--accent);
   }
 
@@ -178,20 +181,20 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     text-decoration: none;
     padding: 0.35em 0.55em;
     border-radius: 999px;
   }
 
   a.langs__item:hover {
-    color: var(--on-ink);
-    background: rgba(255, 255, 255, 0.08);
+    color: var(--fg);
+    background: color-mix(in srgb, var(--fg) 8%, transparent);
   }
 
   .langs__item--active {
-    background: rgba(255, 255, 255, 0.12);
-    color: var(--on-ink);
+    background: color-mix(in srgb, var(--fg) 12%, transparent);
+    color: var(--fg);
   }
 
   .header__cta {
@@ -208,7 +211,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     height: 42px;
     padding: 0 9px;
     background: transparent;
-    border: 1.5px solid var(--line-dark);
+    border: 1.5px solid var(--line);
     border-radius: 999px;
     cursor: pointer;
   }
@@ -216,7 +219,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
   .burger span {
     display: block;
     height: 1.5px;
-    background: var(--on-ink);
+    background: var(--fg);
     transition: transform var(--dur) var(--ease);
   }
 
@@ -249,7 +252,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
 
     .nav__link {
       padding: 0.75em 0;
-      border-bottom: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line);
       font-size: 1.05rem;
     }
 

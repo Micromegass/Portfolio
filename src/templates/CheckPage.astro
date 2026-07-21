@@ -1,0 +1,528 @@
+---
+import Base from '@/layouts/Base.astro';
+import { href, studio, type Locale } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = t(locale);
+const k = c.check;
+---
+
+<Base locale={locale} page="check">
+  <section class="intro" data-tone="dark">
+    <div class="wrap" data-hero-seq>
+      <span class="eyebrow">{k.eyebrow}</span>
+      <h1 class="intro__title">{k.title}</h1>
+      <p class="lead intro__lead">{k.lead}</p>
+
+      <form class="checker" id="check-form" novalidate>
+        <label class="checker__label" for="check-url">{k.inputLabel}</label>
+        <div class="checker__row">
+          <input
+            class="checker__input"
+            id="check-url"
+            name="url"
+            type="text"
+            inputmode="url"
+            autocomplete="url"
+            spellcheck="false"
+            placeholder={k.placeholder}
+            required
+          />
+          <button class="button button--primary checker__submit" type="submit">
+            <span data-submit-label>{k.submit}</span>
+          </button>
+        </div>
+        <p class="checker__privacy">
+          {k.privacyNote}{' '}
+          <a href={href('privacy', locale)}>{k.privacyLink}</a>
+        </p>
+      </form>
+
+      <!-- Status region: announced to screen readers as it changes -->
+      <p class="checker__status" id="check-status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="band band--curve" data-tone="light">
+    <div class="wrap">
+      <div class="results" id="check-results" hidden>
+        <p class="results__for">
+          {k.resultFor} <span id="result-url"></span>
+        </p>
+
+        <h2 class="results__head">{k.scoresLabel}</h2>
+        <div class="scores" id="result-scores"></div>
+
+        <h2 class="results__head">{k.vitalsLabel}</h2>
+        <dl class="vitals" id="result-vitals"></dl>
+
+        <h2 class="results__head">{k.opportunitiesLabel}</h2>
+        <ul class="opps" id="result-opps"></ul>
+
+        <p class="results__disclaimer">{k.disclaimer}</p>
+
+        <aside class="after">
+          <h2 class="after__title">{k.afterTitle}</h2>
+          <p class="after__body">{k.afterBody}</p>
+          <a class="button button--primary" href={`mailto:${studio.email}`}>
+            {k.afterButton} <span>→</span>
+          </a>
+        </aside>
+      </div>
+
+      <!-- Shown before the first run so the section is never empty -->
+      <div class="placeholder" id="check-placeholder">
+        <ol class="steps">
+          {
+            c.home.process.steps.slice(0, 3).map((s, i) => (
+              <li class="step">
+                <span class="step__num">{String(i + 1).padStart(2, '0')}</span>
+                <h3 class="step__title">{s.title}</h3>
+                <p class="step__body">{s.body}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script define:vars={{ strings: t(Astro.props.locale).check }}>
+  window.__CHECK_STRINGS__ = strings;
+</script>
+
+<script>
+  import { runCheck, band, CheckError } from '@/scripts/websiteCheck';
+
+  const strings = (window as any).__CHECK_STRINGS__;
+  const form = document.getElementById('check-form') as HTMLFormElement | null;
+  const input = document.getElementById('check-url') as HTMLInputElement | null;
+  const status = document.getElementById('check-status');
+  const results = document.getElementById('check-results');
+  const placeholder = document.getElementById('check-placeholder');
+  const submitLabel = document.querySelector('[data-submit-label]');
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+
+  const apiKey = import.meta.env.PUBLIC_PSI_KEY as string | undefined;
+
+  const CATS = [
+    ['performance', 'performance'],
+    ['accessibility', 'accessibility'],
+    ['bestPractices', 'bestPractices'],
+    ['seo', 'seo'],
+  ] as const;
+
+  function ring(score: number, label: string) {
+    const b = band(score);
+    const circumference = 2 * Math.PI * 26;
+    const offset = circumference * (1 - score / 100);
+    return `
+      <div class="score score--${b}">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="score__track" cx="30" cy="30" r="26"></circle>
+          <circle class="score__value" cx="30" cy="30" r="26"
+            stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"></circle>
+        </svg>
+        <span class="score__num">${score}</span>
+        <span class="score__label">${label}</span>
+        <span class="score__band">${strings.scale[b === 'good' ? 'good' : b === 'ok' ? 'ok' : 'poor']}</span>
+      </div>`;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!input || !status) return;
+
+    submitBtn && (submitBtn.disabled = true);
+    submitLabel && (submitLabel.textContent = strings.running);
+    status.textContent = strings.runningNote;
+    status.dataset.state = 'busy';
+
+    try {
+      const r = await runCheck(input.value, apiKey);
+
+      (document.getElementById('result-url') as HTMLElement).textContent = r.finalUrl;
+
+      document.getElementById('result-scores')!.innerHTML = CATS.map(([key, labelKey]) =>
+        ring(r.scores[key], strings.categories[labelKey])
+      ).join('');
+
+      document.getElementById('result-vitals')!.innerHTML = r.vitals
+        .map(
+          (v) => `
+          <div class="vital vital--${band(Math.round(v.score * 100))}">
+            <dt class="vital__label">${strings.vitals[v.id]}</dt>
+            <dd class="vital__value">${v.display}</dd>
+          </div>`
+        )
+        .join('');
+
+      const opps = document.getElementById('result-opps')!;
+      opps.innerHTML = r.opportunities.length
+        ? r.opportunities
+            .map(
+              (o) => `
+              <li class="opp">
+                <span class="opp__title">${o.title}</span>
+                <span class="opp__saving">${(o.savingsMs / 1000).toFixed(1)}s ${strings.savingsLabel}</span>
+              </li>`
+            )
+            .join('')
+        : `<li class="opp opp--none">${strings.opportunitiesNone}</li>`;
+
+      results!.hidden = false;
+      placeholder!.hidden = true;
+      status.textContent = '';
+      delete status.dataset.state;
+      results!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      const kind = err instanceof CheckError ? err.kind : 'failed';
+      status.textContent = strings.errors[kind];
+      status.dataset.state = 'error';
+    } finally {
+      submitBtn && (submitBtn.disabled = false);
+      submitLabel && (submitLabel.textContent = strings.submit);
+    }
+  });
+</script>
+
+<style>
+  .intro {
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 8vw, 6rem) 0 var(--space-8);
+  }
+
+  .intro::before {
+    content: '';
+    position: absolute;
+    width: 52rem;
+    height: 52rem;
+    top: -30rem;
+    right: -16rem;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%);
+    pointer-events: none;
+  }
+
+  .intro .wrap {
+    position: relative;
+  }
+
+  .intro__title {
+    max-width: 17ch;
+    margin: 0 0 var(--space-4);
+  }
+
+  .intro__lead {
+    max-width: 42rem;
+  }
+
+  /* ---- form ---- */
+  .checker {
+    margin-top: var(--space-6);
+    max-width: 40rem;
+  }
+
+  .checker__label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+    margin-bottom: var(--space-2);
+  }
+
+  .checker__row {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .checker__input {
+    flex: 1 1 16rem;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--fg);
+    background: color-mix(in srgb, var(--fg) 6%, transparent);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.8em 1.3em;
+    min-width: 0;
+  }
+
+  .checker__input::placeholder {
+    color: var(--fg-mute);
+  }
+
+  .checker__input:focus-visible {
+    border-color: var(--accent);
+  }
+
+  .checker__submit[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+    transform: none;
+  }
+
+  .checker__privacy {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--fg-mute);
+    max-width: 38rem;
+  }
+
+  .checker__status {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--fg-mute);
+    max-width: 38rem;
+    min-height: 1.5em;
+  }
+
+  .checker__status[data-state='busy'] {
+    color: var(--accent-text);
+  }
+
+  .checker__status[data-state='error'] {
+    color: var(--status-bad);
+    font-weight: 600;
+  }
+
+  /* ---- results ---- */
+  .results__for {
+    font-size: var(--text-sm);
+    color: var(--fg-mute);
+    overflow-wrap: anywhere;
+  }
+
+  .results__for span {
+    font-weight: 700;
+    color: var(--fg);
+  }
+
+  .results__head {
+    font-size: var(--text-lg);
+    margin: var(--space-6) 0 var(--space-4);
+  }
+
+  .results__head:first-of-type {
+    margin-top: var(--space-4);
+  }
+
+  .scores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+
+  :global(.score) {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-2);
+    position: relative;
+  }
+
+  :global(.score svg) {
+    width: 76px;
+    height: 76px;
+    transform: rotate(-90deg);
+    grid-area: 1 / 1;
+  }
+
+  :global(.score__track) {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 5;
+  }
+
+  :global(.score__value) {
+    fill: none;
+    stroke-width: 5;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 900ms var(--ease);
+  }
+
+  :global(.score--good .score__value) { stroke: var(--status-good); }
+  :global(.score--ok .score__value) { stroke: var(--status-warn); }
+  :global(.score--poor .score__value) { stroke: var(--status-bad); }
+
+  :global(.score__num) {
+    grid-area: 1 / 1;
+    align-self: center;
+    font-family: var(--font-display);
+    font-weight: 780;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  :global(.score--good .score__num) { color: var(--status-good); }
+  :global(.score--ok .score__num) { color: var(--status-warn); }
+  :global(.score--poor .score__num) { color: var(--status-bad); }
+
+  :global(.score__label) {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 650;
+  }
+
+  :global(.score__band) {
+    font-size: var(--text-xs);
+    color: var(--fg-mute);
+    margin-top: 2px;
+  }
+
+  .vitals {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  :global(.vital) {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  :global(.vital--good) { border-left-color: var(--status-good); }
+  :global(.vital--ok) { border-left-color: var(--status-warn); }
+  :global(.vital--poor) { border-left-color: var(--status-bad); }
+
+  :global(.vital__label) {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+  }
+
+  :global(.vital__value) {
+    margin: var(--space-1) 0 0;
+    font-family: var(--font-display);
+    font-weight: 780;
+    letter-spacing: -0.02em;
+    font-size: 1.25rem;
+  }
+
+  .opps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 46rem;
+  }
+
+  :global(.opp) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--line);
+  }
+
+  :global(.opp:last-child) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  :global(.opp__title) {
+    font-weight: 600;
+  }
+
+  :global(.opp__saving) {
+    flex: none;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--accent-text);
+    white-space: nowrap;
+  }
+
+  :global(.opp--none) {
+    color: var(--fg-mute);
+    justify-content: flex-start;
+  }
+
+  .results__disclaimer {
+    margin-top: var(--space-4);
+    font-size: var(--text-xs);
+    color: var(--fg-mute);
+    max-width: 44rem;
+  }
+
+  .after {
+    margin-top: var(--space-6);
+    background: var(--contrast);
+    color: var(--on-contrast);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+  }
+
+  .after__title {
+    font-size: var(--text-lg);
+    margin: 0 0 var(--space-3);
+    color: var(--on-contrast);
+  }
+
+  .after__body {
+    color: var(--on-contrast-mute);
+    margin-bottom: var(--space-4);
+  }
+
+  /* ---- placeholder ---- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .step {
+    border-top: 2px solid var(--accent);
+    padding-top: var(--space-3);
+  }
+
+  .step__num {
+    font-size: var(--text-xs);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--accent-text);
+  }
+
+  .step__title {
+    font-size: var(--text-md);
+    margin: var(--space-2) 0;
+  }
+
+  .step__body {
+    font-size: var(--text-sm);
+    color: var(--fg-mute);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .scores,
+    .vitals {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

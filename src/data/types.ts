@@ -84,6 +84,7 @@ export interface SiteContent {
       sector: string;
       url: string;
       urlLabel: string;
+      imageAlt: string;
       cardTitle: string;
       cardDesc: string;
       metrics: { value: string; label: string }[];
@@ -126,9 +127,42 @@ export interface SiteContent {
 
   cta: { eyebrow: string; title: string; body: string; button: string };
 
+  /** Free website check — client-side PageSpeed Insights lead magnet */
+  check: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    inputLabel: string;
+    placeholder: string;
+    submit: string;
+    running: string;
+    runningNote: string;
+    privacyNote: string;
+    privacyLink: string;
+    scoresLabel: string;
+    categories: { performance: string; accessibility: string; bestPractices: string; seo: string };
+    vitalsLabel: string;
+    vitals: { lcp: string; cls: string; tbt: string; si: string };
+    opportunitiesLabel: string;
+    opportunitiesNone: string;
+    savingsLabel: string;
+    scale: { good: string; ok: string; poor: string };
+    errors: { invalid: string; failed: string; quota: string; unreachable: string };
+    resultFor: string;
+    afterTitle: string;
+    afterBody: string;
+    afterButton: string;
+    disclaimer: string;
+  };
+
   legal: {
-    imprint: { title: string; body: string[] };
-    privacy: { title: string; body: string[] };
+    imprint: { title: string; intro: string; sections: { heading: string; body: string[] }[] };
+    privacy: {
+      title: string;
+      intro: string;
+      updated: string;
+      sections: { heading: string; body: string[] }[];
+    };
   };
 
   notFound: { title: string; body: string; link: string };

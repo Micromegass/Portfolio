@@ -28,9 +28,9 @@ export const en: SiteContent = {
         'Selected projects: a healthcare practice website with online booking, a hospitality brand and booking site, plus current builds from the studio lab.',
     },
     'case-physio': {
-      title: 'Case study: practice website with online booking | RENOVO',
+      title: 'Case study: website for a physiotherapy practice | RENOVO',
       description:
-        'Website, brand and online booking for a physiotherapy and occupational therapy practice in Fürth, Germany — appointments now arrive without a single phone call.',
+        'Website design and development for a physiotherapy and occupational therapy practice in Fürth, Germany — every treatment and therapist explained in plain language, built mobile-first.',
     },
     'case-ikuna': {
       title: 'Case study: Ikuna Glamping — brand and booking site | RENOVO',
@@ -47,6 +47,11 @@ export const en: SiteContent = {
       description:
         'Send us your current website and get an honest review of what is holding it back. We reply personally in German, English or Spanish.',
     },
+    check: {
+      title: 'Free website check — speed, SEO & accessibility | RENOVO',
+      description:
+        'Test your website for free: loading speed, accessibility, technical quality and search readiness, measured by Google PageSpeed Insights and explained in plain language.',
+    },
     imprint: { title: 'Imprint | RENOVO', description: 'Legal notice for RENOVO AI Web Studio.' },
     privacy: {
       title: 'Privacy policy | RENOVO',
@@ -61,6 +66,7 @@ export const en: SiteContent = {
       { page: 'apps', label: 'Web apps' },
       { page: 'work', label: 'Work' },
       { page: 'about', label: 'Studio' },
+      { page: 'check', label: 'Free check' },
     ],
     cta: 'Start a project',
     menuLabel: 'Main navigation',
@@ -107,7 +113,7 @@ export const en: SiteContent = {
     work: {
       eyebrow: 'Selected work',
       title: 'Real businesses. Real results.',
-      intro: 'Websites and booking systems that companies run on every day.',
+      intro: 'Websites that real businesses rely on every day.',
       more: 'All work',
     },
     process: {
@@ -304,7 +310,7 @@ export const en: SiteContent = {
     eyebrow: 'Work',
     title: 'Websites businesses run on every day.',
     intro:
-      'Two live businesses, built end to end — brand, website, booking — plus what the studio is building right now.',
+      'Two live businesses whose digital presence we designed and built — plus what the studio is working on right now.',
     visitLabel: 'Visit live site',
     readLabel: 'Read case study',
     labEyebrow: 'Studio lab',
@@ -341,41 +347,42 @@ export const en: SiteContent = {
       sector: 'Healthcare · Germany',
       url: 'https://www.physio-und-ergo-fuerth.de',
       urlLabel: 'physio-und-ergo-fuerth.de',
-      cardTitle: 'A practice that fills its own schedule',
+      imageAlt: 'Treatment room at the physiotherapy practice in Fürth',
+      cardTitle: 'A practice that explains itself clearly',
       cardDesc:
-        'Website, brand and online booking for a physiotherapy and occupational therapy practice — appointments now arrive without a single phone call.',
+        'Website and digital presence for a physiotherapy and occupational therapy practice in Fürth — every treatment and every therapist, in plain language.',
       metrics: [
-        { value: '24/7', label: 'online booking' },
-        { value: '0', label: 'phone tag' },
+        { value: 'Website', label: 'design & build' },
+        { value: 'Mobile-first', label: 'built for phones' },
       ],
-      title: 'A practice that fills its own schedule',
+      title: 'A practice that explains itself clearly',
       summary:
-        'A physiotherapy and occupational therapy practice at Fürth central station needed more than a business card on the web: patients had to understand the treatments, meet the team, and book without picking up the phone.',
+        'A physiotherapy and occupational therapy practice at Fürth central station needed more than a business card on the web. We designed and built the website: the full treatment range explained in plain language, the team introduced personally, and everything easy to find on a phone.',
       specs: [
         { label: 'Sector', value: 'Healthcare · Germany' },
-        { label: 'Scope', value: 'Brand · Website · Online booking' },
+        { label: 'Scope', value: 'Website design & development' },
         { label: 'Languages', value: 'German' },
-        { label: 'Status', value: 'Live and operating' },
+        { label: 'Status', value: 'Live' },
       ],
       sections: [
         {
           heading: 'The challenge',
-          body: 'German therapy practices run on phone calls and waiting lists. Patients want three things fast: what do you treat, who treats it, and when can I come in. Most practice websites answer none of them, and every unanswered question becomes a phone call during treatment hours.',
+          body: 'Patients looking for a therapy practice want three things fast: what do you treat, who treats it, and how do I reach you. Most practice websites bury all three. The site had to answer them immediately, in language a patient actually uses rather than clinical shorthand.',
         },
         {
           heading: 'What we built',
-          body: 'A fast, warm, mobile-first website with the full range of physiotherapy and occupational therapy services explained in plain language, the team introduced personally, and online booking front and centre. Appointments now happen without a single phone call, which is what lets the practice promise short waiting times.',
+          body: 'A fast, warm, mobile-first website covering the full range of physiotherapy and occupational therapy services, with the team introduced personally and contact details always within reach. Most patients arrive on a phone, so the layout, tap targets and loading behaviour were designed for that first.',
         },
         {
           heading: 'Why it works',
-          body: 'Every decision was made from the business side rather than the design side: which treatments to feature, how to phrase insurance questions, where booking friction quietly loses a patient. The site is structured so the practice can add treatments and team members without calling a developer.',
+          body: 'Every decision came from the practice side rather than the design side: which treatments to feature, how to phrase questions about insurance and prescriptions, what a new patient needs to know before getting in touch. The site is structured so the practice can add treatments and team members later without calling a developer.',
         },
       ],
-      outcomeLabel: 'What it does for the business',
+      outcomeLabel: 'What the website does',
       outcomes: [
-        'Appointments are booked online, around the clock, without phone tag',
-        'The full team and every specialty are presented clearly',
-        'A real practice runs on this site every day',
+        'Explains every treatment in language patients understand',
+        'Introduces the full team and each specialty clearly',
+        'Works properly on the phones most patients arrive on',
       ],
     },
     ikuna: {
@@ -383,12 +390,13 @@ export const en: SiteContent = {
       sector: 'Hospitality · Colombia',
       url: 'https://ikunaglamping.com',
       urlLabel: 'ikunaglamping.com',
+      imageAlt: 'Geodesic glamping dome on a forested mountainside in Antioquia',
       cardTitle: 'A mountain refuge with a digital front door',
       cardDesc:
         'Brand and image-led booking site for a glamping refuge in Antioquia — fast enough for rural mobile, atmospheric enough to sell the feeling.',
       metrics: [
-        { value: '<1s', label: 'load on mobile' },
-        { value: 'ES', label: 'Spanish-first' },
+        { value: 'Brand + Web', label: 'our scope' },
+        { value: 'Spanish', label: 'built for its market' },
       ],
       title: 'A mountain refuge with a digital front door',
       summary:
@@ -512,24 +520,189 @@ export const en: SiteContent = {
     button: 'Start a project',
   },
 
+  check: {
+    eyebrow: 'Free website check',
+    title: 'How healthy is your website, really?',
+    lead: 'Enter your address and get Google’s own measurements in about half a minute: loading speed, accessibility, technical quality and search readiness — with the biggest problems named in plain language.',
+    inputLabel: 'Your website address',
+    placeholder: 'your-company.com',
+    submit: 'Run the check',
+    running: 'Analysing…',
+    runningNote: 'Google is loading your site on a simulated mobile device. This usually takes 20–40 seconds.',
+    privacyNote:
+      'The address you enter is sent to the Google PageSpeed Insights API to run the analysis. We do not store it.',
+    privacyLink: 'How we handle your data',
+    scoresLabel: 'Scores',
+    categories: {
+      performance: 'Speed',
+      accessibility: 'Accessibility',
+      bestPractices: 'Best practices',
+      seo: 'Search readiness',
+    },
+    vitalsLabel: 'What visitors experience',
+    vitals: {
+      lcp: 'Largest content visible',
+      cls: 'Layout stability',
+      tbt: 'Blocked interaction time',
+      si: 'Visually complete',
+    },
+    opportunitiesLabel: 'Biggest opportunities',
+    opportunitiesNone: 'No major technical issues found — a good starting point.',
+    savingsLabel: 'potential saving',
+    scale: { good: 'Good', ok: 'Needs work', poor: 'Poor' },
+    errors: {
+      invalid: 'That does not look like a valid website address. Try something like your-company.com.',
+      failed: 'The check could not be completed. Please try again in a moment.',
+      quota: 'The free analysis quota is exhausted right now. Please try again later, or email us and we will run it for you.',
+      unreachable:
+        'Google could not load that address. Check the spelling, and make sure the site is publicly reachable.',
+    },
+    resultFor: 'Results for',
+    afterTitle: 'Numbers are only half the story.',
+    afterBody:
+      'A score does not tell you whether your website explains your business well, whether the right people find it, or whether it turns visitors into customers. Send us the address and we will look at it properly — for free, in plain language.',
+    afterButton: 'Get the human review',
+    disclaimer:
+      'Measured by Google PageSpeed Insights on a simulated mid-range mobile device. Results vary between runs.',
+  },
+
   legal: {
     imprint: {
       title: 'Imprint',
-      body: [
-        'Information according to § 5 TMG (German Telemedia Act).',
-        'RENOVO — AI Web Studio', // TODO-CONTENT: full legal name, address, VAT ID
-        'Owner: Axel Braunschweiger',
-        'Contact: axelbraunschweiger@gmail.com',
-        'Responsible for content according to § 55 Abs. 2 RStV: Axel Braunschweiger.',
+      intro: 'Legal information according to § 5 DDG (German Digital Services Act).',
+      sections: [
+        {
+          heading: 'Service provider',
+          body: [
+            'RENOVO — AI Web Studio', // TODO-CONTENT: registered business name if different
+            'Owner: Axel Braunschweiger', // TODO-CONTENT: full street address, postal code and city — legally required
+            '[Street and number]',
+            '[Postcode] Fürth, Germany',
+          ],
+        },
+        {
+          heading: 'Contact',
+          body: [
+            'Email: axelbraunschweiger@gmail.com', // TODO-CONTENT: business email + telephone number
+            'Telephone: [required — a phone number or an equally direct channel must be given]',
+          ],
+        },
+        {
+          heading: 'VAT',
+          body: [
+            'VAT identification number according to § 27a UStG: [VAT ID]', // TODO-CONTENT
+            'If the small-business rule under § 19 UStG applies, no VAT is shown on invoices and this line should say so instead.',
+          ],
+        },
+        {
+          heading: 'Responsible for editorial content',
+          body: ['Axel Braunschweiger, address as above (§ 18 para. 2 MStV).'],
+        },
+        {
+          heading: 'Online dispute resolution and consumer arbitration',
+          body: [
+            'The European Commission provides a platform for online dispute resolution: https://ec.europa.eu/consumers/odr',
+            'We are neither obliged nor willing to take part in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG).',
+          ],
+        },
+        {
+          heading: 'Liability for content',
+          body: [
+            'As a service provider we are responsible for our own content on these pages under § 7 para. 1 DDG and general law. Under §§ 8 to 10 DDG we are not obliged to monitor transmitted or stored third-party information, or to investigate circumstances indicating unlawful activity.',
+            'Obligations to remove or block the use of information under general law remain unaffected. Liability in this respect is only possible from the point in time at which a specific infringement becomes known. If we become aware of such infringements, we will remove the content immediately.',
+          ],
+        },
+        {
+          heading: 'Liability for links',
+          body: [
+            'Our website contains links to external websites over whose content we have no influence. We therefore cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for their content.',
+            'The linked pages were checked for possible legal violations at the time of linking; unlawful content was not identifiable. Permanent monitoring of linked pages is not reasonable without concrete evidence of an infringement. If we become aware of legal violations, we will remove such links immediately.',
+          ],
+        },
+        {
+          heading: 'Copyright',
+          body: [
+            'The content and works created by us on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of use beyond the limits of copyright require our written consent.',
+            'Project images are published with the permission of the businesses concerned and remain their property.',
+          ],
+        },
       ],
     },
     privacy: {
       title: 'Privacy policy',
-      body: [
-        'This website is private by design: it sets no cookies, uses no analytics and loads no third-party resources. All fonts and assets are served from this site’s own server.',
-        'Server log files: the hosting provider may automatically store technical access data (such as IP address, date and time, browser type) for security and operation. This data is not merged with other sources and is deleted according to the provider’s retention policy.',
-        'Contact by email: if you write to us, your message and address are used solely to answer you. Data controller: Axel Braunschweiger.', // TODO-CONTENT
-        'You have the right to access, correct and delete personal data concerning you (Art. 15–17 GDPR).',
+      intro:
+        'This website is built to collect as little data as possible. It sets no cookies, runs no analytics or tracking, and loads no fonts or scripts from third-party servers. The one exception is the website check tool, which is described in detail below and only ever runs when you actively start it.',
+      updated: 'Last updated: July 2026',
+      sections: [
+        {
+          heading: '1. Controller',
+          body: [
+            'Axel Braunschweiger, RENOVO — AI Web Studio, [address as in the imprint], Germany.', // TODO-CONTENT
+            'Email: axelbraunschweiger@gmail.com',
+            'No data protection officer has been appointed; there is no legal obligation to do so in this case.',
+          ],
+        },
+        {
+          heading: '2. Hosting and server log files',
+          body: [
+            'This website is hosted by [hosting provider, address].', // TODO-CONTENT: name the host; a processing agreement (Art. 28 GDPR) is required
+            'When you visit the site, the hosting provider automatically records technical access data in server log files: your IP address, the date and time of the request, the page requested, the referring page, and information about your browser and operating system.',
+            'Purpose and legal basis: this processing is necessary to deliver the website reliably and to detect and defend against attacks. The legal basis is our legitimate interest in the secure and stable operation of the site, Art. 6 para. 1 lit. f GDPR.',
+            'Retention: log data is deleted according to the hosting provider’s retention schedule, as a rule after no more than 30 days. It is not merged with other data sources and is not used to identify you personally.',
+          ],
+        },
+        {
+          heading: '3. Website check tool (Google PageSpeed Insights)',
+          body: [
+            'On our website check page you can enter the address of a website and have it analysed. The analysis is not performed by us: when you press the button, your browser sends the address you entered directly to the Google PageSpeed Insights API, operated by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.',
+            'In doing so, your IP address and the technical details of your browser request are transmitted to Google and may be transferred to servers in the United States. Google may process this data according to its own privacy policy: https://policies.google.com/privacy',
+            'Purpose and legal basis: the analysis is only carried out at your explicit request, so the legal basis is your consent under Art. 6 para. 1 lit. a GDPR, given by actively starting the check. You can withdraw your consent at any time with effect for the future simply by not using the tool. Without starting a check, no data is sent to Google.',
+            'Third-country transfer: Google LLC is certified under the EU-US Data Privacy Framework, which the European Commission has recognised as providing an adequate level of protection (adequacy decision of 10 July 2023). Google additionally relies on the European Commission’s standard contractual clauses.',
+            'We ourselves neither store nor evaluate the addresses you enter or the results of the analysis. Nothing is saved on our side.',
+          ],
+        },
+        {
+          heading: '4. Contact by email',
+          body: [
+            'If you write to us, the data you provide — your email address, your name where given, and the content of your message — is processed solely in order to deal with your enquiry.',
+            'Legal basis: Art. 6 para. 1 lit. b GDPR where your message concerns the initiation or performance of a contract, otherwise our legitimate interest in answering enquiries addressed to us, Art. 6 para. 1 lit. f GDPR.',
+            'Retention: enquiries are deleted once they have been dealt with conclusively and no statutory retention obligations, in particular under commercial and tax law, prevent deletion.',
+            'Please note that email is not an encrypted means of transport by default. For confidential information, please ask us for an alternative channel.',
+          ],
+        },
+        {
+          heading: '5. Fonts and other assets',
+          body: [
+            'All fonts, images, scripts and stylesheets are served from this website’s own server. In particular, no Google Fonts CDN, no content delivery network and no social media plugins are used. No connection to third-party servers is established when you simply browse the site.',
+          ],
+        },
+        {
+          heading: '6. Cookies, analytics and tracking',
+          body: [
+            'This website sets no cookies and uses no analytics, tracking, remarketing or profiling technologies. Your language preference and colour theme, if you change them, are stored locally in your browser and never transmitted to us.',
+          ],
+        },
+        {
+          heading: '7. Your rights',
+          body: [
+            'You have the right to obtain information about the personal data we process concerning you (Art. 15 GDPR), to have inaccurate data corrected (Art. 16), to have data erased (Art. 17), to have processing restricted (Art. 18), to receive your data in a portable format (Art. 20) and to withdraw consent you have given at any time with effect for the future (Art. 7 para. 3).',
+            'Right to object: you have the right to object at any time, on grounds relating to your particular situation, to processing based on Art. 6 para. 1 lit. f GDPR (Art. 21 GDPR).',
+            'To exercise any of these rights, an informal email to the address above is sufficient.',
+          ],
+        },
+        {
+          heading: '8. Right to lodge a complaint',
+          body: [
+            'You have the right to lodge a complaint with a data protection supervisory authority, in particular in the member state of your habitual residence, place of work or the place of the alleged infringement (Art. 77 GDPR).',
+            'The authority responsible for us is the Bavarian State Office for Data Protection Supervision (Bayerisches Landesamt für Datenschutzaufsicht), Promenade 18, 91522 Ansbach, Germany.', // TODO-CONTENT: adjust if the business is registered outside Bavaria
+          ],
+        },
+        {
+          heading: '9. Changes to this policy',
+          body: [
+            'We update this privacy policy when changes to the website or to the law make it necessary. The version published here always applies.',
+          ],
+        },
       ],
     },
   },

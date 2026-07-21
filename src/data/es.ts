@@ -28,9 +28,9 @@ export const es: SiteContent = {
         'Proyectos seleccionados: la web de una clínica con reservas en línea, una marca de hospitalidad con su sitio de reservas, y lo que el estudio construye actualmente.',
     },
     'case-physio': {
-      title: 'Caso: web de clínica con reservas en línea | RENOVO',
+      title: 'Caso: web para una clínica de fisioterapia | RENOVO',
       description:
-        'Web, marca y reservas en línea para una clínica de fisioterapia y terapia ocupacional en Fürth, Alemania — hoy las citas llegan sin una sola llamada.',
+        'Diseño y desarrollo web para una clínica de fisioterapia y terapia ocupacional en Fürth, Alemania — cada tratamiento y terapeuta explicado en lenguaje claro, construido mobile-first.',
     },
     'case-ikuna': {
       title: 'Caso: Ikuna Glamping — marca y sitio de reservas | RENOVO',
@@ -47,6 +47,11 @@ export const es: SiteContent = {
       description:
         'Envíenos su sitio web actual y reciba una valoración honesta de qué lo está frenando. Respondemos personalmente en español, inglés o alemán.',
     },
+    check: {
+      title: 'Análisis web gratuito — velocidad, SEO y accesibilidad | RENOVO',
+      description:
+        'Analice su web gratis: velocidad de carga, accesibilidad, calidad técnica y preparación para buscadores, medido por Google PageSpeed Insights y explicado en lenguaje claro.',
+    },
     imprint: { title: 'Aviso legal | RENOVO', description: 'Aviso legal de RENOVO AI Web Studio.' },
     privacy: {
       title: 'Política de privacidad | RENOVO',
@@ -61,6 +66,7 @@ export const es: SiteContent = {
       { page: 'apps', label: 'Aplicaciones' },
       { page: 'work', label: 'Proyectos' },
       { page: 'about', label: 'Estudio' },
+      { page: 'check', label: 'Análisis gratis' },
     ],
     cta: 'Iniciar un proyecto',
     menuLabel: 'Navegación principal',
@@ -107,7 +113,7 @@ export const es: SiteContent = {
     work: {
       eyebrow: 'Proyectos seleccionados',
       title: 'Negocios reales. Resultados reales.',
-      intro: 'Sitios web y sistemas de reservas con los que las empresas trabajan cada día.',
+      intro: 'Sitios web en los que negocios reales confían todos los días.',
       more: 'Todos los proyectos',
     },
     process: {
@@ -301,7 +307,7 @@ export const es: SiteContent = {
     eyebrow: 'Proyectos',
     title: 'Sitios web con los que las empresas trabajan cada día.',
     intro:
-      'Dos negocios en marcha, construidos de principio a fin — marca, web, reservas — y lo que el estudio está construyendo ahora.',
+      'Dos negocios en marcha cuya presencia digital diseñamos y construimos — y lo que el estudio está construyendo ahora.',
     visitLabel: 'Ver sitio en vivo',
     readLabel: 'Leer el caso',
     labEyebrow: 'Laboratorio del estudio',
@@ -338,41 +344,42 @@ export const es: SiteContent = {
       sector: 'Salud · Alemania',
       url: 'https://www.physio-und-ergo-fuerth.de',
       urlLabel: 'physio-und-ergo-fuerth.de',
-      cardTitle: 'Una clínica que llena su propia agenda',
+      imageAlt: 'Sala de tratamiento de la clínica de fisioterapia en Fürth',
+      cardTitle: 'Una clínica que se explica con claridad',
       cardDesc:
-        'Web, marca y reservas en línea para una clínica de fisioterapia y terapia ocupacional — hoy las citas llegan sin una sola llamada.',
+        'Web y presencia digital para una clínica de fisioterapia y terapia ocupacional en Fürth — cada tratamiento y cada terapeuta, en lenguaje claro.',
       metrics: [
-        { value: '24/7', label: 'reservas en línea' },
-        { value: '0', label: 'llamadas de ida y vuelta' },
+        { value: 'Web', label: 'diseño y desarrollo' },
+        { value: 'Mobile-first', label: 'pensada para el móvil' },
       ],
-      title: 'Una clínica que llena su propia agenda',
+      title: 'Una clínica que se explica con claridad',
       summary:
-        'Una clínica de fisioterapia y terapia ocupacional junto a la estación central de Fürth necesitaba más que una tarjeta de presentación en línea: los pacientes tenían que entender los tratamientos, conocer al equipo y reservar sin levantar el teléfono.',
+        'Una clínica de fisioterapia y terapia ocupacional junto a la estación central de Fürth necesitaba más que una tarjeta de presentación en línea. Diseñamos y construimos la web: toda la oferta de tratamientos explicada en lenguaje claro, el equipo presentado de forma personal y todo fácil de encontrar en el móvil.',
       specs: [
         { label: 'Sector', value: 'Salud · Alemania' },
-        { label: 'Alcance', value: 'Marca · Web · Reservas en línea' },
+        { label: 'Alcance', value: 'Diseño y desarrollo web' },
         { label: 'Idiomas', value: 'Alemán' },
-        { label: 'Estado', value: 'En vivo y operando' },
+        { label: 'Estado', value: 'En vivo' },
       ],
       sections: [
         {
           heading: 'El reto',
-          body: 'Las clínicas de terapia en Alemania funcionan a base de llamadas y listas de espera. Los pacientes quieren saber tres cosas rápido: qué tratan, quién lo trata y cuándo hay cita. La mayoría de webs de clínicas no responde ninguna, y cada pregunta sin responder se convierte en una llamada en plena consulta.',
+          body: 'Quien busca una clínica de terapia quiere saber tres cosas rápido: qué tratan, quién lo trata y cómo contactarlos. La mayoría de webs de clínicas entierra las tres. El sitio tenía que responderlas de inmediato, en el lenguaje que usa un paciente y no en abreviaturas clínicas.',
         },
         {
           heading: 'Qué construimos',
-          body: 'Una web rápida, cálida y mobile-first: toda la oferta de fisioterapia y terapia ocupacional explicada en lenguaje claro, el equipo presentado de forma personal y la reserva en línea al centro. Las citas ocurren sin una sola llamada, que es justo lo que permite a la clínica prometer tiempos de espera cortos.',
+          body: 'Una web rápida, cálida y mobile-first con toda la oferta de fisioterapia y terapia ocupacional, el equipo presentado de forma personal y los datos de contacto siempre a mano. La mayoría de pacientes llega desde el móvil, así que el diseño, las áreas táctiles y la carga se pensaron primero para eso.',
         },
         {
           heading: 'Por qué funciona',
-          body: 'Cada decisión se tomó desde el negocio, no desde el diseño: qué tratamientos destacar, cómo formular las preguntas de seguros, dónde la fricción de reserva pierde un paciente en silencio. El sitio está estructurado para que la clínica añada tratamientos y personas sin llamar a un desarrollador.',
+          body: 'Cada decisión vino del lado de la clínica, no del diseño: qué tratamientos destacar, cómo formular las preguntas sobre seguros y prescripciones, qué necesita saber un paciente nuevo antes de escribir. El sitio está estructurado para que la clínica añada tratamientos y personas más adelante sin llamar a un desarrollador.',
         },
       ],
-      outcomeLabel: 'Lo que aporta al negocio',
+      outcomeLabel: 'Lo que hace la web',
       outcomes: [
-        'Las citas se reservan en línea a toda hora, sin ping-pong telefónico',
-        'Todo el equipo y cada especialidad se presentan con claridad',
-        'Una clínica real funciona sobre este sitio todos los días',
+        'Explica cada tratamiento en un lenguaje que los pacientes entienden',
+        'Presenta a todo el equipo y cada especialidad con claridad',
+        'Funciona bien en los móviles desde los que llegan los pacientes',
       ],
     },
     ikuna: {
@@ -380,12 +387,13 @@ export const es: SiteContent = {
       sector: 'Hospitalidad · Colombia',
       url: 'https://ikunaglamping.com',
       urlLabel: 'ikunaglamping.com',
+      imageAlt: 'Domo geodésico de glamping en una ladera boscosa de Antioquia',
       cardTitle: 'Un refugio de montaña con puerta digital',
       cardDesc:
         'Marca y sitio de reservas visual para un refugio de glamping en Antioquia — rápido para el campo, con la atmósfera suficiente para vender la sensación.',
       metrics: [
-        { value: '<1s', label: 'carga en móvil' },
-        { value: 'ES', label: 'español primero' },
+        { value: 'Marca + Web', label: 'nuestro alcance' },
+        { value: 'Español', label: 'hecho para su mercado' },
       ],
       title: 'Un refugio de montaña con puerta digital',
       summary:
@@ -509,24 +517,191 @@ export const es: SiteContent = {
     button: 'Iniciar un proyecto',
   },
 
+  check: {
+    eyebrow: 'Análisis web gratuito',
+    title: '¿Qué tan sana está su web, de verdad?',
+    lead: 'Escriba su dirección y reciba en medio minuto las mediciones de Google: velocidad de carga, accesibilidad, calidad técnica y preparación para buscadores — con los mayores problemas explicados en lenguaje claro.',
+    inputLabel: 'La dirección de su web',
+    placeholder: 'su-empresa.com',
+    submit: 'Analizar',
+    running: 'Analizando…',
+    runningNote:
+      'Google está cargando su sitio en un móvil simulado. Suele tardar entre 20 y 40 segundos.',
+    privacyNote:
+      'La dirección que escriba se envía a la API de Google PageSpeed Insights para realizar el análisis. Nosotros no la guardamos.',
+    privacyLink: 'Cómo tratamos sus datos',
+    scoresLabel: 'Puntuaciones',
+    categories: {
+      performance: 'Velocidad',
+      accessibility: 'Accesibilidad',
+      bestPractices: 'Calidad técnica',
+      seo: 'Buscadores',
+    },
+    vitalsLabel: 'Lo que experimentan los visitantes',
+    vitals: {
+      lcp: 'Contenido principal visible',
+      cls: 'Estabilidad del diseño',
+      tbt: 'Tiempo de interacción bloqueado',
+      si: 'Visualmente completo',
+    },
+    opportunitiesLabel: 'Mayores oportunidades',
+    opportunitiesNone: 'No se encontraron problemas técnicos importantes — buen punto de partida.',
+    savingsLabel: 'de ahorro potencial',
+    scale: { good: 'Bien', ok: 'Mejorable', poor: 'Deficiente' },
+    errors: {
+      invalid: 'Eso no parece una dirección válida. Pruebe con algo como su-empresa.com.',
+      failed: 'No se pudo completar el análisis. Inténtelo de nuevo en un momento.',
+      quota:
+        'La cuota gratuita de análisis está agotada en este momento. Inténtelo más tarde o escríbanos y lo hacemos por usted.',
+      unreachable:
+        'Google no pudo cargar esa dirección. Revise la ortografía y compruebe que el sitio sea accesible públicamente.',
+    },
+    resultFor: 'Resultados para',
+    afterTitle: 'Los números son solo la mitad de la historia.',
+    afterBody:
+      'Una puntuación no dice si su web explica bien su negocio, si la encuentra la gente adecuada o si convierte visitantes en clientes. Envíenos la dirección y la miramos en serio — gratis y en lenguaje claro.',
+    afterButton: 'Pedir la revisión humana',
+    disclaimer:
+      'Medido por Google PageSpeed Insights en un móvil de gama media simulado. Los resultados varían entre ejecuciones.',
+  },
+
   legal: {
     imprint: {
       title: 'Aviso legal',
-      body: [
-        'Información según § 5 TMG (ley alemana de telemedios).',
-        'RENOVO — AI Web Studio', // TODO-CONTENT: datos legales completos
-        'Titular: Axel Braunschweiger',
-        'Contacto: axelbraunschweiger@gmail.com',
-        'Responsable del contenido según § 55 Abs. 2 RStV: Axel Braunschweiger.',
+      intro: 'Información legal según § 5 DDG (Ley alemana de Servicios Digitales).',
+      sections: [
+        {
+          heading: 'Prestador del servicio',
+          body: [
+            'RENOVO — AI Web Studio', // TODO-CONTENT: denominación exacta si difiere
+            'Titular: Axel Braunschweiger', // TODO-CONTENT: la dirección postal completa es obligatoria por ley
+            '[Calle y número]',
+            '[Código postal] Fürth, Alemania',
+          ],
+        },
+        {
+          heading: 'Contacto',
+          body: [
+            'Correo: axelbraunschweiger@gmail.com', // TODO-CONTENT: correo profesional + teléfono
+            'Teléfono: [obligatorio — debe indicarse un teléfono u otro canal igual de directo]',
+          ],
+        },
+        {
+          heading: 'IVA',
+          body: [
+            'Número de identificación fiscal según § 27a UStG: [NIF-IVA]', // TODO-CONTENT
+            'Si aplica el régimen de pequeño empresario del § 19 UStG, no se repercute IVA y aquí debería figurar esa indicación.',
+          ],
+        },
+        {
+          heading: 'Responsable editorial',
+          body: ['Axel Braunschweiger, dirección indicada arriba (§ 18 párr. 2 MStV).'],
+        },
+        {
+          heading: 'Resolución de litigios',
+          body: [
+            'La Comisión Europea facilita una plataforma de resolución de litigios en línea: https://ec.europa.eu/consumers/odr',
+            'No estamos obligados ni dispuestos a participar en procedimientos de resolución de litigios ante una junta de arbitraje de consumo (§ 36 VSBG).',
+          ],
+        },
+        {
+          heading: 'Responsabilidad por los contenidos',
+          body: [
+            'Como prestador de servicios somos responsables de los contenidos propios de estas páginas conforme al § 7 párr. 1 DDG y a la legislación general. Según los §§ 8 a 10 DDG no estamos obligados a supervisar la información de terceros transmitida o almacenada, ni a investigar circunstancias que apunten a una actividad ilícita.',
+            'Las obligaciones de retirar o bloquear el uso de información conforme a la legislación general no se ven afectadas. Una responsabilidad al respecto solo es posible desde el momento en que se conoce una infracción concreta. Al tener conocimiento de tales infracciones, retiraremos los contenidos de inmediato.',
+          ],
+        },
+        {
+          heading: 'Responsabilidad por los enlaces',
+          body: [
+            'Nuestro sitio contiene enlaces a webs externas sobre cuyo contenido no tenemos influencia, por lo que no podemos asumir responsabilidad alguna sobre esos contenidos ajenos. Del contenido de las páginas enlazadas responde siempre su respectivo prestador u operador.',
+            'Las páginas enlazadas se revisaron en busca de posibles infracciones en el momento de enlazarlas; no se detectaron contenidos ilícitos. Un control permanente de las páginas enlazadas no es exigible sin indicios concretos de infracción. Al conocer infracciones, retiraremos dichos enlaces de inmediato.',
+          ],
+        },
+        {
+          heading: 'Derechos de autor',
+          body: [
+            'Los contenidos y obras creados por nosotros en estas páginas están sujetos a la ley alemana de derechos de autor. La reproducción, edición, distribución y cualquier forma de explotación fuera de los límites del derecho de autor requieren nuestro consentimiento por escrito.',
+            'Las imágenes de proyectos se publican con permiso de las empresas correspondientes y siguen siendo de su propiedad.',
+          ],
+        },
       ],
     },
     privacy: {
       title: 'Política de privacidad',
-      body: [
-        'Este sitio web es privado por diseño: no usa cookies, no tiene analítica y no carga recursos de terceros. Todas las fuentes y archivos se sirven desde el propio servidor del sitio.',
-        'Archivos de registro del servidor: el proveedor de hosting puede almacenar automáticamente datos técnicos de acceso (dirección IP, fecha y hora, tipo de navegador) por seguridad y operación. Estos datos no se cruzan con otras fuentes y se eliminan según la política de retención del proveedor.',
-        'Contacto por correo: si nos escribe, su mensaje y dirección se usan únicamente para responderle. Responsable: Axel Braunschweiger.', // TODO-CONTENT
-        'Tiene derecho a acceder, corregir y eliminar los datos personales que le conciernen (art. 15–17 RGPD).',
+      intro:
+        'Este sitio está construido para recoger la menor cantidad de datos posible. No usa cookies, no ejecuta analítica ni rastreo, y no carga fuentes ni scripts desde servidores de terceros. La única excepción es la herramienta de análisis web, descrita en detalle más abajo, que solo se ejecuta cuando usted la inicia activamente.',
+      updated: 'Última actualización: julio de 2026',
+      sections: [
+        {
+          heading: '1. Responsable del tratamiento',
+          body: [
+            'Axel Braunschweiger, RENOVO — AI Web Studio, [dirección como en el aviso legal], Alemania.', // TODO-CONTENT
+            'Correo: axelbraunschweiger@gmail.com',
+            'No se ha designado un delegado de protección de datos; en este caso no existe obligación legal de hacerlo.',
+          ],
+        },
+        {
+          heading: '2. Alojamiento y archivos de registro',
+          body: [
+            'Este sitio está alojado en [proveedor de hosting, dirección].', // TODO-CONTENT
+            'Al visitar el sitio, el proveedor registra automáticamente datos técnicos de acceso: su dirección IP, la fecha y hora de la solicitud, la página solicitada, la página de referencia e información sobre su navegador y sistema operativo.',
+            'Finalidad y base jurídica: este tratamiento es necesario para entregar el sitio de forma fiable y para detectar y repeler ataques. La base jurídica es nuestro interés legítimo en el funcionamiento seguro y estable del sitio, art. 6 apdo. 1 lit. f RGPD.',
+            'Conservación: los registros se eliminan según el calendario del proveedor de hosting, por regla general tras un máximo de 30 días. No se cruzan con otras fuentes ni se utilizan para identificarle personalmente.',
+          ],
+        },
+        {
+          heading: '3. Herramienta de análisis web (Google PageSpeed Insights)',
+          body: [
+            'En nuestra página de análisis web puede introducir la dirección de un sitio y hacer que se analice. El análisis no lo realizamos nosotros: al pulsar el botón, su navegador envía la dirección introducida directamente a la API de Google PageSpeed Insights, operada por Google Ireland Limited, Gordon House, Barrow Street, Dublín 4, Irlanda.',
+            'En ese proceso, su dirección IP y los datos técnicos de la solicitud de su navegador se transmiten a Google y pueden transferirse a servidores en Estados Unidos. Google trata estos datos conforme a su propia política de privacidad: https://policies.google.com/privacy',
+            'Finalidad y base jurídica: el análisis se realiza únicamente a petición expresa suya, por lo que la base jurídica es su consentimiento conforme al art. 6 apdo. 1 lit. a RGPD, otorgado al iniciar activamente el análisis. Puede retirar su consentimiento en cualquier momento con efectos para el futuro simplemente no utilizando la herramienta. Sin iniciar un análisis, no se envía ningún dato a Google.',
+            'Transferencia internacional: Google LLC está certificada bajo el Marco de Privacidad de Datos UE-EE. UU., para el que la Comisión Europea reconoció un nivel adecuado de protección mediante decisión de adecuación de 10 de julio de 2023. Google se apoya además en las cláusulas contractuales tipo de la Comisión Europea.',
+            'Nosotros no almacenamos ni evaluamos las direcciones que introduce ni los resultados del análisis. En nuestro lado no se guarda nada.',
+          ],
+        },
+        {
+          heading: '4. Contacto por correo electrónico',
+          body: [
+            'Si nos escribe, los datos que facilite — su dirección de correo, su nombre si lo indica y el contenido de su mensaje — se tratan exclusivamente para atender su consulta.',
+            'Base jurídica: art. 6 apdo. 1 lit. b RGPD cuando su mensaje se refiera al inicio o la ejecución de un contrato; en caso contrario, nuestro interés legítimo en responder a las consultas que se nos dirigen, art. 6 apdo. 1 lit. f RGPD.',
+            'Conservación: las consultas se eliminan una vez atendidas de forma concluyente, siempre que no existan obligaciones legales de conservación, en particular de derecho mercantil y fiscal.',
+            'Tenga en cuenta que el correo electrónico no viaja cifrado de forma predeterminada. Para información confidencial, pídanos un canal alternativo.',
+          ],
+        },
+        {
+          heading: '5. Fuentes y otros recursos',
+          body: [
+            'Todas las fuentes, imágenes, scripts y hojas de estilo se sirven desde el propio servidor de este sitio. En particular, no se utiliza el CDN de Google Fonts, ninguna red de distribución de contenidos ni complementos de redes sociales. Al navegar por el sitio no se establece ninguna conexión con servidores de terceros.',
+          ],
+        },
+        {
+          heading: '6. Cookies, analítica y rastreo',
+          body: [
+            'Este sitio no utiliza cookies ni tecnologías de analítica, rastreo, remarketing o elaboración de perfiles. Su preferencia de idioma y de tema de color, si las cambia, se guardan localmente en su navegador y nunca se nos transmiten.',
+          ],
+        },
+        {
+          heading: '7. Sus derechos',
+          body: [
+            'Tiene derecho a obtener información sobre los datos personales que tratamos sobre usted (art. 15 RGPD), a la rectificación de datos inexactos (art. 16), a la supresión (art. 17), a la limitación del tratamiento (art. 18), a la portabilidad (art. 20) y a retirar en cualquier momento el consentimiento otorgado con efectos para el futuro (art. 7 apdo. 3).',
+            'Derecho de oposición: tiene derecho a oponerse en cualquier momento, por motivos relacionados con su situación particular, al tratamiento basado en el art. 6 apdo. 1 lit. f RGPD (art. 21 RGPD).',
+            'Para ejercer cualquiera de estos derechos basta con un correo informal a la dirección indicada arriba.',
+          ],
+        },
+        {
+          heading: '8. Derecho a presentar una reclamación',
+          body: [
+            'Tiene derecho a presentar una reclamación ante una autoridad de control de protección de datos, en particular en el Estado miembro de su residencia habitual, lugar de trabajo o del lugar de la supuesta infracción (art. 77 RGPD).',
+            'La autoridad competente para nosotros es la Oficina Estatal Bávara de Supervisión de Protección de Datos (Bayerisches Landesamt für Datenschutzaufsicht), Promenade 18, 91522 Ansbach, Alemania.', // TODO-CONTENT
+          ],
+        },
+        {
+          heading: '9. Cambios en esta política',
+          body: [
+            'Actualizamos esta política cuando los cambios en el sitio o en la legislación lo hacen necesario. Siempre rige la versión publicada aquí.',
+          ],
+        },
       ],
     },
   },

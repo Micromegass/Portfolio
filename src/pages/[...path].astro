@@ -2,6 +2,7 @@
 import { routes, locales, type Locale, type PageKey } from '@/lib/i18n';
 import HomePage from '@/templates/HomePage.astro';
 import ServicePage from '@/templates/ServicePage.astro';
+import CheckPage from '@/templates/CheckPage.astro';
 import WorkPage from '@/templates/WorkPage.astro';
 import CaseStudyPage from '@/templates/CaseStudyPage.astro';
 import AboutPage from '@/templates/AboutPage.astro';
@@ -36,6 +37,7 @@ const { page, locale } = Astro.props;
 {page === 'relaunch' && <ServicePage locale={locale} service="relaunch" />}
 {page === 'ai' && <ServicePage locale={locale} service="ai" />}
 {page === 'apps' && <ServicePage locale={locale} service="apps" />}
+{page === 'check' && <CheckPage locale={locale} />}
 {page === 'work' && <WorkPage locale={locale} />}
 {page === 'case-physio' && <CaseStudyPage locale={locale} caseKey="physio" />}
 {page === 'case-ikuna' && <CaseStudyPage locale={locale} caseKey="ikuna" />}

@@ -18,6 +18,7 @@ export type PageKey =
   | 'relaunch'
   | 'ai'
   | 'apps'
+  | 'check'
   | 'work'
   | 'case-physio'
   | 'case-ikuna'
@@ -43,6 +44,11 @@ export const routes: Record<PageKey, Record<Locale, string>> = {
     en: '/web-apps/',
     de: '/de/web-apps/',
     es: '/es/aplicaciones-web/',
+  },
+  check: {
+    en: '/website-check/',
+    de: '/de/website-check/',
+    es: '/es/analisis-web/',
   },
   work: { en: '/work/', de: '/de/projekte/', es: '/es/proyectos/' },
   'case-physio': {

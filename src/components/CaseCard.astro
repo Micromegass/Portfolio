@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { href, type Locale, type PageKey } from '@/lib/i18n';
 import { t } from '@/data';
+import { caseImages } from '@/data/caseImages';
 
 interface Props {
   locale: Locale;
@@ -11,11 +13,13 @@ const { locale, caseKey } = Astro.props;
 const c = t(locale).cases[caseKey];
 const w = t(locale).work;
 const page: PageKey = caseKey === 'physio' ? 'case-physio' : 'case-ikuna';
+const shot = caseImages[caseKey];
 ---
 
 <article class:list={['case card card--hover', `case--${caseKey}`]}>
   <a class="case__link" href={href(page, locale)}>
-    <div class="case__shot" aria-hidden="true">
+    <div class="case__shot">
+      <Image src={shot} alt={c.imageAlt} width={760} densities={[1, 2]} loading="lazy" />
       <span class="case__url">{c.urlLabel}</span>
     </div>
     <div class="case__body">
@@ -49,13 +53,21 @@ const page: PageKey = caseKey === 'physio' ? 'case-physio' : 'case-ikuna';
   }
 
   .case__shot {
-    height: 200px;
     position: relative;
-    background: linear-gradient(135deg, #2b2431, #4a3c4f);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface);
   }
 
-  .case--ikuna .case__shot {
-    background: linear-gradient(135deg, #1f3a34, #3f6f5c);
+  .case__shot :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms var(--ease);
+  }
+
+  .case:hover .case__shot :global(img) {
+    transform: scale(1.03);
   }
 
   .case__url {

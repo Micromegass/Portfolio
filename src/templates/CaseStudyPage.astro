@@ -1,8 +1,10 @@
 ---
 import Base from '@/layouts/Base.astro';
 import CtaBand from '@/components/CtaBand.astro';
+import { Image } from 'astro:assets';
 import { href, type Locale, type PageKey } from '@/lib/i18n';
 import { t } from '@/data';
+import { caseImages } from '@/data/caseImages';
 
 interface Props {
   locale: Locale;
@@ -34,6 +36,18 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
         </div>
       </div>
     </section>
+
+    <figure class="shot" data-reveal>
+      <div class="wrap">
+        <Image
+          src={caseImages[caseKey]}
+          alt={c.imageAlt}
+          width={1400}
+          densities={[1, 1.5]}
+          loading="eager"
+        />
+      </div>
+    </figure>
 
     <section class="band band--curve" data-tone="light">
       <div class="wrap">
@@ -83,7 +97,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
 <style>
   .intro {
-    background: var(--ink);
+    background: var(--bg);
     position: relative;
     overflow: hidden;
     padding: var(--space-5) 0 var(--space-8);
@@ -106,7 +120,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
   .back {
     display: inline-block;
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
     text-decoration: none;
     font-size: var(--text-sm);
     font-weight: 600;
@@ -114,7 +128,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
   }
 
   .back:hover {
-    color: var(--on-ink);
+    color: var(--fg);
   }
 
   .intro__title {
@@ -128,6 +142,21 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
   .intro__actions {
     margin-top: var(--space-5);
+  }
+
+  /* Project photograph bridging the dark intro and the light body */
+  .shot {
+    margin: 0;
+    background: linear-gradient(to bottom, var(--canvas) 55%, var(--panel) 55%);
+  }
+
+  .shot :global(img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-canvas);
   }
 
   .glance {
@@ -186,8 +215,8 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
   .outcomes {
     margin-top: var(--space-7);
-    background: var(--ink);
-    color: var(--on-ink);
+    background: var(--contrast);
+    color: var(--on-contrast);
     border-radius: var(--radius-lg);
     padding: var(--space-5);
   }
@@ -210,7 +239,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
   .outcomes__list li {
     position: relative;
     padding-left: 1.7em;
-    color: var(--on-ink-mute);
+    color: var(--fg-mute);
   }
 
   .outcomes__list li::before {
