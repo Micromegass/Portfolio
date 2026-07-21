@@ -140,4 +140,16 @@ const c = t(locale);
       grid-column: 1 / -1;
     }
   }
+
+  /* Two columns cannot hold long German and Spanish labels on a 320px screen —
+     they push the grid wider than the viewport. */
+  @media (max-width: 420px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer__col a {
+      overflow-wrap: anywhere;
+    }
+  }
 </style>

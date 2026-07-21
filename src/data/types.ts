@@ -165,6 +165,35 @@ export interface SiteContent {
     disclaimer: string;
   };
 
+  /** Site assistant — the chat widget, talking to the RENOVO worker */
+  chat: {
+    launch: string;
+    launchAria: string;
+    title: string;
+    subtitle: string;
+    /** The assistant's opening line, rendered client-side (not model output) */
+    intro: string;
+    suggestionsLabel: string;
+    suggestions: string[];
+    inputLabel: string;
+    placeholder: string;
+    send: string;
+    close: string;
+    thinking: string;
+    /** Announced to screen readers when a reply finishes */
+    replyReady: string;
+    privacyNote: string;
+    privacyLink: string;
+    disclaimer: string;
+    errors: {
+      failed: string;
+      busy: string;
+      rateLimited: string;
+      tooLong: string;
+      offline: string;
+    };
+  };
+
   legal: {
     imprint: { title: string; intro: string; sections: { heading: string; body: string[] }[] };
     privacy: {

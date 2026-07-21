@@ -3,4 +3,12 @@ dist/
 .astro/
 .DS_Store
 npm-debug.log*
-node_modules
+
+# Local build-time config (endpoints, public keys) — see .env.example
+.env
+.env.local
+
+# Worker build artefacts
+backend/node_modules/
+backend/.wrangler/
+backend/.dev.vars

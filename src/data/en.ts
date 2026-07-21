@@ -58,7 +58,7 @@ export const en: SiteContent = {
         'Legal notice for RENOVO AI Web Studio under § 5 DDG: service provider, contact details, VAT information and responsibility for editorial content.' },
     privacy: {
       title: 'Privacy policy — no cookies, no tracking | RENOVO',
-      description: 'How RENOVO handles data: no cookies, no analytics, self-hosted fonts, and exactly what the free website check sends to Google. Your rights under GDPR.',
+      description: 'How RENOVO handles data: no cookies, no analytics, self-hosted fonts, and exactly what the website check and the chat assistant transmit. Your GDPR rights.',
     },
   },
 
@@ -612,6 +612,37 @@ export const en: SiteContent = {
       'Measured by Google PageSpeed Insights on a simulated mid-range mobile device. Results vary between runs.',
   },
 
+  chat: {
+    launch: 'Ask the studio',
+    launchAria: 'Open the studio assistant',
+    title: 'Studio assistant',
+    subtitle: 'The same kind of assistant we build into client sites.',
+    intro:
+      'Hello — I answer questions about what the studio builds, how a project runs and what we have shipped. Ask away, or write to Axel directly for anything about your own project.',
+    suggestionsLabel: 'Try one of these',
+    suggestions: [
+      'What would a relaunch of my site involve?',
+      'How does the built-in AI assistant work?',
+      'How long does a project usually take?',
+    ],
+    inputLabel: 'Your question',
+    placeholder: 'Ask a question…',
+    send: 'Send',
+    close: 'Close the assistant',
+    thinking: 'Thinking…',
+    replyReady: 'The assistant has replied.',
+    privacyNote: 'Your messages go to Anthropic in the US to generate the reply.',
+    privacyLink: 'What that means',
+    disclaimer: 'The assistant can get things wrong. Nothing here is binding.',
+    errors: {
+      failed: 'Something went wrong on our side. Please try again, or write to us by email.',
+      busy: 'The assistant is busy right now. Please try again in a moment.',
+      rateLimited: 'That is a lot of questions for one hour. Please write to us by email instead.',
+      tooLong: 'This conversation has grown long. Please start a new one, or write to us by email.',
+      offline: 'The assistant is not reachable. Please write to us by email.',
+    },
+  },
+
   legal: {
     imprint: {
       title: 'Imprint',
@@ -677,7 +708,7 @@ export const en: SiteContent = {
     privacy: {
       title: 'Privacy policy',
       intro:
-        'This website is built to collect as little data as possible. It sets no cookies, runs no analytics or tracking, and loads no fonts or scripts from third-party servers. The one exception is the website check tool, which is described in detail below and only ever runs when you actively start it.',
+        'This website is built to collect as little data as possible. It sets no cookies, runs no analytics or tracking, and loads no fonts or scripts from third-party servers. There are two exceptions, both described in detail below: the website check tool and the chat assistant. Neither sends anything anywhere until you actively start it.',
       updated: 'Last updated: July 2026',
       sections: [
         {
@@ -708,7 +739,19 @@ export const en: SiteContent = {
           ],
         },
         {
-          heading: '4. Contact by email',
+          heading: '4. Studio assistant (chat)',
+          body: [
+            'Our website offers a chat assistant that answers questions about the studio. It only starts when you actively open it; nothing is sent until you send a message.',
+            'When you send a message, the message and the previous course of the conversation are transmitted to our own server function and from there to Anthropic PBC, 548 Market St, PMB 90375, San Francisco, CA 94104, USA, which generates the reply using the Claude language model. Your IP address is processed by our server function to prevent misuse; it is not passed on to Anthropic.',
+            'Purpose and legal basis: the assistant only runs at your explicit request, so the legal basis is your consent under Art. 6 para. 1 lit. a GDPR, given by actively sending a message. You can withdraw your consent at any time with effect for the future simply by not using the assistant. In addition, we have a legitimate interest in the abuse prevention described above, Art. 6 para. 1 lit. f GDPR.',
+            'Third-country transfer: Anthropic PBC is certified under the EU-US Data Privacy Framework, which the European Commission has recognised as providing an adequate level of protection (adequacy decision of 10 July 2023). A processing agreement under Art. 28 GDPR is in place with Anthropic.',
+            'Retention: we do not store the conversation. It exists in your browser for as long as the chat window is open and is gone when you close or reload the page. Anthropic stores inputs and outputs for a limited period for abuse detection and does not use them to train its models. Our server function stores a counter per IP address for a maximum of 65 minutes, solely to enforce a rate limit.',
+            'Please do not enter any special categories of personal data (for example health data) or other confidential information into the chat. For anything sensitive, please write to us by email.',
+            'The assistant generates its answers automatically and can be wrong. Its replies are not legally binding and no decision with legal effect for you is made on the basis of the conversation.',
+          ],
+        },
+        {
+          heading: '5. Contact by email',
           body: [
             'If you write to us, the data you provide — your email address, your name where given, and the content of your message — is processed solely in order to deal with your enquiry.',
             'Legal basis: Art. 6 para. 1 lit. b GDPR where your message concerns the initiation or performance of a contract, otherwise our legitimate interest in answering enquiries addressed to us, Art. 6 para. 1 lit. f GDPR.',
@@ -717,19 +760,19 @@ export const en: SiteContent = {
           ],
         },
         {
-          heading: '5. Fonts and other assets',
+          heading: '6. Fonts and other assets',
           body: [
             'All fonts, images, scripts and stylesheets are served from this website’s own server. In particular, no Google Fonts CDN, no content delivery network and no social media plugins are used. No connection to third-party servers is established when you simply browse the site.',
           ],
         },
         {
-          heading: '6. Cookies, analytics and tracking',
+          heading: '7. Cookies, analytics and tracking',
           body: [
             'This website sets no cookies and uses no analytics, tracking, remarketing or profiling technologies. Your language preference and colour theme, if you change them, are stored locally in your browser and never transmitted to us.',
           ],
         },
         {
-          heading: '7. Your rights',
+          heading: '8. Your rights',
           body: [
             'You have the right to obtain information about the personal data we process concerning you (Art. 15 GDPR), to have inaccurate data corrected (Art. 16), to have data erased (Art. 17), to have processing restricted (Art. 18), to receive your data in a portable format (Art. 20) and to withdraw consent you have given at any time with effect for the future (Art. 7 para. 3).',
             'Right to object: you have the right to object at any time, on grounds relating to your particular situation, to processing based on Art. 6 para. 1 lit. f GDPR (Art. 21 GDPR).',
@@ -737,14 +780,14 @@ export const en: SiteContent = {
           ],
         },
         {
-          heading: '8. Right to lodge a complaint',
+          heading: '9. Right to lodge a complaint',
           body: [
             'You have the right to lodge a complaint with a data protection supervisory authority, in particular in the member state of your habitual residence, place of work or the place of the alleged infringement (Art. 77 GDPR).',
             'The authority responsible for us is the Bavarian State Office for Data Protection Supervision (Bayerisches Landesamt für Datenschutzaufsicht), Promenade 18, 91522 Ansbach, Germany.', // TODO-CONTENT: adjust if the business is registered outside Bavaria
           ],
         },
         {
-          heading: '9. Changes to this policy',
+          heading: '10. Changes to this policy',
           body: [
             'We update this privacy policy when changes to the website or to the law make it necessary. The version published here always applies.',
           ],

@@ -58,7 +58,7 @@ export const de: SiteContent = {
         'Impressum des RENOVO AI Web Studio nach § 5 DDG: Diensteanbieter, Kontaktdaten, Umsatzsteuerangaben und redaktionelle Verantwortung.' },
     privacy: {
       title: 'Datenschutzerklärung — ohne Cookies | RENOVO',
-      description: 'Wie RENOVO mit Daten umgeht: keine Cookies, keine Analyse-Tools, eigene Schriften — und was der Website-Check an Google übermittelt. Ihre DSGVO-Rechte.',
+      description: 'Wie RENOVO mit Daten umgeht: keine Cookies, keine Analyse-Tools, eigene Schriften — und was Website-Check und Chat-Assistent übermitteln. Ihre DSGVO-Rechte.',
     },
   },
 
@@ -611,6 +611,40 @@ export const de: SiteContent = {
       'Gemessen von Google PageSpeed Insights auf einem simulierten Mittelklasse-Smartphone. Die Werte schwanken zwischen einzelnen Durchläufen.',
   },
 
+  chat: {
+    launch: 'Studio fragen',
+    launchAria: 'Studio-Assistenten öffnen',
+    title: 'Studio-Assistent',
+    subtitle: 'Genau die Art Assistent, die wir in Kundenseiten einbauen.',
+    intro:
+      'Hallo — ich beantworte Fragen dazu, was das Studio baut, wie ein Projekt abläuft und was wir schon umgesetzt haben. Fragen Sie einfach, oder schreiben Sie Axel direkt, wenn es um Ihr eigenes Projekt geht.',
+    suggestionsLabel: 'Zum Einstieg',
+    suggestions: [
+      'Was gehört zu einem Relaunch meiner Website?',
+      'Wie funktioniert der eingebaute KI-Assistent?',
+      'Wie lange dauert ein Projekt üblicherweise?',
+    ],
+    inputLabel: 'Ihre Frage',
+    placeholder: 'Frage stellen …',
+    send: 'Senden',
+    close: 'Assistenten schließen',
+    thinking: 'Denkt nach …',
+    replyReady: 'Der Assistent hat geantwortet.',
+    privacyNote: 'Ihre Nachrichten gehen zur Beantwortung an Anthropic in den USA.',
+    privacyLink: 'Was das bedeutet',
+    disclaimer: 'Der Assistent kann sich irren. Nichts davon ist verbindlich.',
+    errors: {
+      failed:
+        'Bei uns ist etwas schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns eine E-Mail.',
+      busy: 'Der Assistent ist gerade ausgelastet. Bitte versuchen Sie es gleich noch einmal.',
+      rateLimited:
+        'Das sind viele Fragen in einer Stunde. Schreiben Sie uns bitte stattdessen eine E-Mail.',
+      tooLong:
+        'Dieses Gespräch ist lang geworden. Bitte beginnen Sie ein neues oder schreiben Sie uns eine E-Mail.',
+      offline: 'Der Assistent ist nicht erreichbar. Bitte schreiben Sie uns eine E-Mail.',
+    },
+  },
+
   legal: {
     imprint: {
       title: 'Impressum',
@@ -676,7 +710,7 @@ export const de: SiteContent = {
     privacy: {
       title: 'Datenschutzerklärung',
       intro:
-        'Diese Website ist so gebaut, dass so wenig Daten wie möglich anfallen. Sie setzt keine Cookies, nutzt keine Analyse- oder Tracking-Werkzeuge und lädt weder Schriften noch Skripte von fremden Servern. Die einzige Ausnahme ist der Website-Check, der unten ausführlich beschrieben wird und ausschließlich dann läuft, wenn Sie ihn aktiv starten.',
+        'Diese Website ist so gebaut, dass so wenig Daten wie möglich anfallen. Sie setzt keine Cookies, nutzt keine Analyse- oder Tracking-Werkzeuge und lädt weder Schriften noch Skripte von fremden Servern. Es gibt zwei Ausnahmen, die unten ausführlich beschrieben werden: den Website-Check und den Chat-Assistenten. Beide übermitteln erst dann Daten, wenn Sie sie aktiv starten.',
       updated: 'Stand: Juli 2026',
       sections: [
         {
@@ -707,7 +741,19 @@ export const de: SiteContent = {
           ],
         },
         {
-          heading: '4. Kontaktaufnahme per E-Mail',
+          heading: '4. Studio-Assistent (Chat)',
+          body: [
+            'Auf unserer Website steht ein Chat-Assistent zur Verfügung, der Fragen zum Studio beantwortet. Er startet erst, wenn Sie ihn aktiv öffnen; vor dem Absenden einer Nachricht werden keine Daten übertragen.',
+            'Wenn Sie eine Nachricht senden, werden diese Nachricht und der bisherige Gesprächsverlauf an unsere eigene Serverfunktion und von dort an die Anthropic PBC, 548 Market St, PMB 90375, San Francisco, CA 94104, USA, übermittelt, die die Antwort mit dem Sprachmodell Claude erzeugt. Ihre IP-Adresse wird von unserer Serverfunktion zur Missbrauchsvermeidung verarbeitet und nicht an Anthropic weitergegeben.',
+            'Zweck und Rechtsgrundlage: Der Assistent läuft ausschließlich auf Ihre ausdrückliche Veranlassung. Rechtsgrundlage ist daher Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch das aktive Absenden einer Nachricht erteilen. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie den Assistenten nicht weiter nutzen. Daneben besteht unser berechtigtes Interesse an der beschriebenen Missbrauchsvermeidung, Art. 6 Abs. 1 lit. f DSGVO.',
+            'Drittlandübermittlung: Die Anthropic PBC ist unter dem EU-US Data Privacy Framework zertifiziert, für das die Europäische Kommission ein angemessenes Schutzniveau festgestellt hat (Angemessenheitsbeschluss vom 10. Juli 2023). Mit Anthropic besteht zusätzlich ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO.',
+            'Speicherdauer: Wir speichern das Gespräch nicht. Es besteht in Ihrem Browser, solange das Chatfenster geöffnet ist, und ist nach dem Schließen oder Neuladen der Seite verloren. Anthropic speichert Ein- und Ausgaben befristet zur Missbrauchserkennung und nutzt sie nicht zum Training der Modelle. Unsere Serverfunktion speichert für maximal 65 Minuten einen Zähler pro IP-Adresse, ausschließlich zur Durchsetzung einer Nutzungsgrenze.',
+            'Bitte geben Sie im Chat keine besonderen Kategorien personenbezogener Daten (etwa Gesundheitsdaten) und keine vertraulichen Informationen ein. Für sensible Anliegen schreiben Sie uns bitte eine E-Mail.',
+            'Der Assistent erzeugt seine Antworten automatisiert und kann sich irren. Seine Antworten sind rechtlich nicht verbindlich; auf Grundlage des Gesprächs wird keine Entscheidung mit rechtlicher Wirkung Ihnen gegenüber getroffen.',
+          ],
+        },
+        {
+          heading: '5. Kontaktaufnahme per E-Mail',
           body: [
             'Wenn Sie uns schreiben, werden die von Ihnen mitgeteilten Daten — Ihre E-Mail-Adresse, gegebenenfalls Ihr Name und der Inhalt Ihrer Nachricht — ausschließlich zur Bearbeitung Ihrer Anfrage verarbeitet.',
             'Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Nachricht der Anbahnung oder Erfüllung eines Vertrags dient, andernfalls unser berechtigtes Interesse an der Beantwortung an uns gerichteter Anfragen, Art. 6 Abs. 1 lit. f DSGVO.',
@@ -716,19 +762,19 @@ export const de: SiteContent = {
           ],
         },
         {
-          heading: '5. Schriften und weitere Ressourcen',
+          heading: '6. Schriften und weitere Ressourcen',
           body: [
             'Sämtliche Schriften, Bilder, Skripte und Stylesheets werden vom eigenen Server dieser Website ausgeliefert. Insbesondere kommen kein Google-Fonts-CDN, kein Content Delivery Network und keine Social-Media-Plugins zum Einsatz. Beim bloßen Betrachten der Seiten wird keine Verbindung zu Servern Dritter aufgebaut.',
           ],
         },
         {
-          heading: '6. Cookies, Analyse und Tracking',
+          heading: '7. Cookies, Analyse und Tracking',
           body: [
             'Diese Website setzt keine Cookies und verwendet keine Analyse-, Tracking-, Remarketing- oder Profiling-Technologien. Ihre Sprach- und Farbschema-Einstellung wird, sofern Sie sie ändern, ausschließlich lokal in Ihrem Browser gespeichert und nicht an uns übermittelt.',
           ],
         },
         {
-          heading: '7. Ihre Rechte',
+          heading: '8. Ihre Rechte',
           body: [
             'Sie haben das Recht auf Auskunft über die zu Ihrer Person verarbeiteten Daten (Art. 15 DSGVO), auf Berichtigung unrichtiger Daten (Art. 16), auf Löschung (Art. 17), auf Einschränkung der Verarbeitung (Art. 18), auf Datenübertragbarkeit (Art. 20) sowie auf jederzeitigen Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3).',
             'Widerspruchsrecht: Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen eine Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO Widerspruch einzulegen (Art. 21 DSGVO).',
@@ -736,14 +782,14 @@ export const de: SiteContent = {
           ],
         },
         {
-          heading: '8. Beschwerderecht',
+          heading: '9. Beschwerderecht',
           body: [
             'Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere im Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes (Art. 77 DSGVO).',
             'Die für uns zuständige Behörde ist das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach.', // TODO-CONTENT: anpassen, falls der Sitz außerhalb Bayerns liegt
           ],
         },
         {
-          heading: '9. Änderungen dieser Erklärung',
+          heading: '10. Änderungen dieser Erklärung',
           body: [
             'Wir passen diese Datenschutzerklärung an, wenn Änderungen an der Website oder der Rechtslage dies erforderlich machen. Es gilt jeweils die hier veröffentlichte Fassung.',
           ],

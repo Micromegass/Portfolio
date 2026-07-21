@@ -1,0 +1,21 @@
+name = "renovo-assistant"
+main = "src/index.ts"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Public settings only. The API key is a secret:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+[vars]
+ALLOWED_ORIGINS = "https://renovostudio.com,https://www.renovostudio.com,https://micromegass.github.io,http://127.0.0.1:4990,http://localhost:4990"
+CHAT_MODEL = "claude-opus-4-8"
+RATE_PER_HOUR = "30"
+
+# Rate limiting is off until a KV namespace is bound. To enable:
+#   npx wrangler kv namespace create RATE
+# then paste the returned id below and uncomment.
+# [[kv_namespaces]]
+# binding = "RATE"
+# id = "<paste-id-here>"
+
+[observability]
+enabled = true

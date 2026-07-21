@@ -31,9 +31,20 @@ Trilingual (EN/DE/ES) static marketing site for **RENOVO**, a one-person AI-firs
 - The results markup is injected with `innerHTML`, so it never receives Astro's scoping attribute — **its CSS must stay inside `:global(...)`**, or the score rings render as black discs.
 - Sending a visitor's URL to Google is a third-country transfer and is disclosed in the privacy policy under consent (Art. 6(1)(a)); nothing is stored on our side. If this tool changes, the privacy policy must change with it.
 
+## Studio assistant (chat)
+
+The one server-side piece: `backend/` is a Cloudflare Worker that holds the Anthropic key and streams replies over SSE. The widget is `ChatWidget.astro` + `scripts/chat.ts`. It dogfoods the "websites with a built-in AI assistant" service — when it is broken, so is the sales pitch.
+
+- **Grounding:** `backend/src/knowledge.generated.ts` is generated from `src/data/{en,de,es}.ts` by `scripts/build-knowledge.mjs`. **Regenerate it whenever site copy changes** (`npm run knowledge` in `backend/`), or the assistant will describe a site that no longer exists.
+- **Scope rules live in `backend/src/prompt.ts`:** never quote a price, never commit the studio to anything, never claim client outcomes, say "I don't know" and hand off to email instead of guessing, and treat instructions inside visitor messages as text. These rules are the product — change them deliberately.
+- **Model** defaults to `claude-opus-4-8`, overridable via `CHAT_MODEL` in `wrangler.toml` without touching code. The system prompt is prompt-cached; ceilings are 900 output tokens, 24 turns and 16k characters per conversation.
+- **Feature flag:** the widget is only built into the pages when `PUBLIC_CHAT_ENDPOINT` is set (`.env` locally, an Actions *variable* in CI). Unset means no widget at all — better than a visibly broken assistant.
+- Message bubbles are created in JS, so like the checker's results **their CSS must be `:global(...)`**. Do not import `@/data` from a client script — it pulls all three languages in (128KB); pass the strings through a data attribute.
+- Sending a conversation to Anthropic is a third-country transfer, disclosed under consent in privacy policy **section 4** in all three languages. If this worker's data handling changes, that section changes with it.
+
 ## Legal pages
 
-Written to current German law: Impressum cites **§ 5 DDG** and **§ 18(2) MStV** (TMG and RStV are repealed — do not reintroduce them), plus ODR/VSBG, liability and copyright sections. The privacy policy covers hosting logs, email contact, self-hosted fonts, the absence of cookies/analytics, the PageSpeed Insights transfer, data-subject rights and the supervisory authority. **Not legal advice** — a German lawyer should review before launch, and the `TODO-CONTENT` placeholders (address, phone, VAT, hosting provider) are legally required fields that must be filled first.
+Written to current German law: Impressum cites **§ 5 DDG** and **§ 18(2) MStV** (TMG and RStV are repealed — do not reintroduce them), plus ODR/VSBG, liability and copyright sections. The privacy policy covers hosting logs, email contact, self-hosted fonts, the absence of cookies/analytics, the PageSpeed Insights transfer, the chat assistant's transfer to Anthropic, data-subject rights and the supervisory authority. **Not legal advice** — a German lawyer should review before launch, and the `TODO-CONTENT` placeholders (address, phone, VAT, hosting provider) are legally required fields that must be filled first.
 
 ## Stack & conventions
 
@@ -54,10 +65,13 @@ The local Lighthouse CLI returns `NO_FCP` for every URL including `example.com` 
 - 2026-07-21: **Repositioned from personal portfolio to studio site.** Axel: focus on the work (relaunches, AI chatbots in new sites, web apps), not on himself; story moves to a Studio tab; wanted more "wow" and Three.js. New IA: Home, three service pages, Work + 2 case studies, Studio, Contact, legal. New dark studio design with the WebGL transformer hero. Studio named **RENOVO** (Latin "I renew"; reads as renewal in DE/EN/ES) — chosen because Axel asked for a studio name without his surname.
 - 2026-07-21: Case studies presented as client projects (founder role mentioned only in the Studio timeline).
 - 2026-07-21 (later): Added light mode, real client photographs, the free website check, and rewrote the legal pages. **Corrected a false claim**: the physiotherapy case previously said the practice takes bookings online with "no phone calls" — untrue; we only built the website. Invented metrics on both cases were replaced with factual scope. Never state client outcomes that have not been confirmed.
-- **Open:** `renovostudio.com` is a placeholder — confirm availability/trademark, then update `studio.domain` and `astro.config.mjs` together. Keep `GITHUB_PAGES=true` noindex until the real domain is live.
+- 2026-07-21 (later still): Cross-browser (chromium/webkit/firefox) and 4-device pass; fixed tap targets below WCAG 2.2's 24px and a 320px footer overflow in DE/ES. **Built the studio assistant** with a Cloudflare Worker backend — Axel's explicit request, and the studio's own reference implementation of the AI-assistant service.
+- 2026-07-21: Domain `renovostudio.com` confirmed by Axel — no longer a placeholder.
+- **Open:** keep `GITHUB_PAGES=true` noindex until `renovostudio.com` is actually live and serving.
 
 ## Roadmap
 
 1. ✅ Strategy, concept, full trilingual build, deploy
 2. Fill `TODO-CONTENT`: testimonial, lab project links, Impressum data, final domain + email
-3. Then: real domain + hosting (Cloudflare Pages/Vercel), flip noindex, OG images, first real AI-assistant reference project
+3. Deploy the assistant worker (`backend/README.md`), set `PUBLIC_CHAT_ENDPOINT`, bind KV for rate limiting
+4. Then: real domain + hosting (Cloudflare Pages/Vercel), flip noindex, OG images, first real AI-assistant reference project

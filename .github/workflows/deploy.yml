@@ -17,6 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: 'true'
+      # Repository variables. Both are public by design; the assistant's API key
+      # lives in the worker (backend/), never here. Unset simply means the
+      # feature is left out of the build.
+      PUBLIC_CHAT_ENDPOINT: ${{ vars.PUBLIC_CHAT_ENDPOINT }}
+      PUBLIC_PSI_KEY: ${{ vars.PUBLIC_PSI_KEY }}
     steps:
       - uses: actions/checkout@v4
 

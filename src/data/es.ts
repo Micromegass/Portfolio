@@ -58,7 +58,7 @@ export const es: SiteContent = {
         'Aviso legal de RENOVO AI Web Studio conforme al § 5 DDG: prestador del servicio, datos de contacto, información fiscal y responsabilidad editorial.' },
     privacy: {
       title: 'Política de privacidad — sin cookies | RENOVO',
-      description: 'Cómo trata los datos RENOVO: sin cookies, sin analítica, fuentes propias, y qué envía a Google el análisis web gratuito. Sus derechos bajo el RGPD.',
+      description: 'Cómo trata los datos RENOVO: sin cookies, sin analítica, fuentes propias, y qué transmiten el análisis web y el asistente de chat. Sus derechos bajo el RGPD.',
     },
   },
 
@@ -611,6 +611,37 @@ export const es: SiteContent = {
       'Medido por Google PageSpeed Insights en un móvil de gama media simulado. Los resultados varían entre ejecuciones.',
   },
 
+  chat: {
+    launch: 'Pregunte al estudio',
+    launchAria: 'Abrir el asistente del estudio',
+    title: 'Asistente del estudio',
+    subtitle: 'El mismo tipo de asistente que integramos en los sitios de clientes.',
+    intro:
+      'Hola: respondo preguntas sobre lo que hace el estudio, cómo funciona un proyecto y qué hemos construido. Pregunte lo que quiera, o escriba directamente a Axel si se trata de su propio proyecto.',
+    suggestionsLabel: 'Para empezar',
+    suggestions: [
+      '¿Qué incluye el rediseño de mi sitio web?',
+      '¿Cómo funciona el asistente de IA integrado?',
+      '¿Cuánto suele durar un proyecto?',
+    ],
+    inputLabel: 'Su pregunta',
+    placeholder: 'Escriba su pregunta…',
+    send: 'Enviar',
+    close: 'Cerrar el asistente',
+    thinking: 'Pensando…',
+    replyReady: 'El asistente ha respondido.',
+    privacyNote: 'Sus mensajes se envían a Anthropic en EE. UU. para generar la respuesta.',
+    privacyLink: 'Qué significa esto',
+    disclaimer: 'El asistente puede equivocarse. Nada de esto es vinculante.',
+    errors: {
+      failed: 'Algo ha fallado de nuestro lado. Inténtelo de nuevo o escríbanos un correo.',
+      busy: 'El asistente está ocupado ahora mismo. Inténtelo de nuevo en un momento.',
+      rateLimited: 'Son muchas preguntas en una hora. Escríbanos un correo, por favor.',
+      tooLong: 'Esta conversación se ha alargado. Empiece una nueva o escríbanos un correo.',
+      offline: 'No se puede contactar con el asistente. Escríbanos un correo, por favor.',
+    },
+  },
+
   legal: {
     imprint: {
       title: 'Aviso legal',
@@ -676,7 +707,7 @@ export const es: SiteContent = {
     privacy: {
       title: 'Política de privacidad',
       intro:
-        'Este sitio está construido para recoger la menor cantidad de datos posible. No usa cookies, no ejecuta analítica ni rastreo, y no carga fuentes ni scripts desde servidores de terceros. La única excepción es la herramienta de análisis web, descrita en detalle más abajo, que solo se ejecuta cuando usted la inicia activamente.',
+        'Este sitio está construido para recoger la menor cantidad de datos posible. No usa cookies, no ejecuta analítica ni rastreo, y no carga fuentes ni scripts desde servidores de terceros. Hay dos excepciones, ambas descritas en detalle más abajo: la herramienta de análisis web y el asistente de chat. Ninguna transmite nada hasta que usted la inicia activamente.',
       updated: 'Última actualización: julio de 2026',
       sections: [
         {
@@ -707,7 +738,19 @@ export const es: SiteContent = {
           ],
         },
         {
-          heading: '4. Contacto por correo electrónico',
+          heading: '4. Asistente del estudio (chat)',
+          body: [
+            'Nuestro sitio web ofrece un asistente de chat que responde preguntas sobre el estudio. Solo se inicia cuando usted lo abre activamente; no se envía nada hasta que usted manda un mensaje.',
+            'Al enviar un mensaje, ese mensaje y el desarrollo previo de la conversación se transmiten a nuestra propia función de servidor y, desde allí, a Anthropic PBC, 548 Market St, PMB 90375, San Francisco, CA 94104, EE. UU., que genera la respuesta con el modelo de lenguaje Claude. Su dirección IP la procesa nuestra función de servidor para prevenir abusos y no se comunica a Anthropic.',
+            'Finalidad y base jurídica: el asistente solo funciona a petición expresa suya, por lo que la base jurídica es su consentimiento conforme al art. 6.1.a RGPD, otorgado al enviar activamente un mensaje. Puede retirar su consentimiento en cualquier momento con efectos para el futuro simplemente dejando de usar el asistente. Además, existe nuestro interés legítimo en la prevención de abusos descrita, art. 6.1.f RGPD.',
+            'Transferencia a terceros países: Anthropic PBC está certificada en el marco EU-US Data Privacy Framework, respecto del cual la Comisión Europea ha reconocido un nivel de protección adecuado (decisión de adecuación de 10 de julio de 2023). Con Anthropic existe además un contrato de encargo de tratamiento conforme al art. 28 RGPD.',
+            'Conservación: nosotros no almacenamos la conversación. Existe en su navegador mientras la ventana de chat está abierta y desaparece al cerrar o recargar la página. Anthropic conserva entradas y salidas durante un tiempo limitado para detectar abusos y no las utiliza para entrenar sus modelos. Nuestra función de servidor guarda un contador por dirección IP durante un máximo de 65 minutos, únicamente para aplicar un límite de uso.',
+            'Le rogamos que no introduzca en el chat categorías especiales de datos personales (por ejemplo, datos de salud) ni información confidencial. Para asuntos sensibles, escríbanos por correo electrónico.',
+            'El asistente genera sus respuestas de forma automatizada y puede equivocarse. Sus respuestas no son jurídicamente vinculantes y no se adopta ninguna decisión con efectos jurídicos para usted sobre la base de la conversación.',
+          ],
+        },
+        {
+          heading: '5. Contacto por correo electrónico',
           body: [
             'Si nos escribe, los datos que facilite — su dirección de correo, su nombre si lo indica y el contenido de su mensaje — se tratan exclusivamente para atender su consulta.',
             'Base jurídica: art. 6 apdo. 1 lit. b RGPD cuando su mensaje se refiera al inicio o la ejecución de un contrato; en caso contrario, nuestro interés legítimo en responder a las consultas que se nos dirigen, art. 6 apdo. 1 lit. f RGPD.',
@@ -716,19 +759,19 @@ export const es: SiteContent = {
           ],
         },
         {
-          heading: '5. Fuentes y otros recursos',
+          heading: '6. Fuentes y otros recursos',
           body: [
             'Todas las fuentes, imágenes, scripts y hojas de estilo se sirven desde el propio servidor de este sitio. En particular, no se utiliza el CDN de Google Fonts, ninguna red de distribución de contenidos ni complementos de redes sociales. Al navegar por el sitio no se establece ninguna conexión con servidores de terceros.',
           ],
         },
         {
-          heading: '6. Cookies, analítica y rastreo',
+          heading: '7. Cookies, analítica y rastreo',
           body: [
             'Este sitio no utiliza cookies ni tecnologías de analítica, rastreo, remarketing o elaboración de perfiles. Su preferencia de idioma y de tema de color, si las cambia, se guardan localmente en su navegador y nunca se nos transmiten.',
           ],
         },
         {
-          heading: '7. Sus derechos',
+          heading: '8. Sus derechos',
           body: [
             'Tiene derecho a obtener información sobre los datos personales que tratamos sobre usted (art. 15 RGPD), a la rectificación de datos inexactos (art. 16), a la supresión (art. 17), a la limitación del tratamiento (art. 18), a la portabilidad (art. 20) y a retirar en cualquier momento el consentimiento otorgado con efectos para el futuro (art. 7 apdo. 3).',
             'Derecho de oposición: tiene derecho a oponerse en cualquier momento, por motivos relacionados con su situación particular, al tratamiento basado en el art. 6 apdo. 1 lit. f RGPD (art. 21 RGPD).',
@@ -736,14 +779,14 @@ export const es: SiteContent = {
           ],
         },
         {
-          heading: '8. Derecho a presentar una reclamación',
+          heading: '9. Derecho a presentar una reclamación',
           body: [
             'Tiene derecho a presentar una reclamación ante una autoridad de control de protección de datos, en particular en el Estado miembro de su residencia habitual, lugar de trabajo o del lugar de la supuesta infracción (art. 77 RGPD).',
             'La autoridad competente para nosotros es la Oficina Estatal Bávara de Supervisión de Protección de Datos (Bayerisches Landesamt für Datenschutzaufsicht), Promenade 18, 91522 Ansbach, Alemania.', // TODO-CONTENT
           ],
         },
         {
-          heading: '9. Cambios en esta política',
+          heading: '10. Cambios en esta política',
           body: [
             'Actualizamos esta política cuando los cambios en el sitio o en la legislación lo hacen necesario. Siempre rige la versión publicada aquí.',
           ],

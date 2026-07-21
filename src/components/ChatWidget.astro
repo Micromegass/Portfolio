@@ -1,0 +1,433 @@
+---
+import { href, type Locale } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const c = t(locale).chat;
+
+/* The widget only exists when a backend is configured — an assistant that
+   cannot answer is worse than no assistant. See backend/README.md. */
+const endpoint = import.meta.env.PUBLIC_CHAT_ENDPOINT ?? '';
+
+/* Only the handful of strings the script needs, handed over as data. Importing
+   the content module client-side would pull all three languages into the
+   bundle (128KB) for the sake of six sentences. */
+const strings = JSON.stringify({
+  thinking: c.thinking,
+  replyReady: c.replyReady,
+  errors: c.errors,
+});
+---
+
+{
+  endpoint && (
+    <div
+      class="chat"
+      data-tone="dark"
+      data-chat-endpoint={endpoint}
+      data-chat-locale={locale}
+      data-chat-strings={strings}
+    >
+      <button class="chat__launch" type="button" data-chat-launch aria-expanded="false" aria-controls="chat-panel" aria-label={c.launchAria}>
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" fill="none">
+          <path
+            d="M2 4.5A2.5 2.5 0 0 1 4.5 2h9A2.5 2.5 0 0 1 16 4.5v6a2.5 2.5 0 0 1-2.5 2.5H7l-4 3v-3H4.5A2.5 2.5 0 0 1 2 10.5v-6Z"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span class="chat__launch-label">{c.launch}</span>
+      </button>
+
+      <section
+        class="chat__panel"
+        id="chat-panel"
+        data-chat-panel
+        hidden
+        role="dialog"
+        aria-modal="false"
+        aria-label={c.title}
+      >
+        <header class="chat__head">
+          <div>
+            <h2 class="chat__title">{c.title}</h2>
+            <p class="chat__sub">{c.subtitle}</p>
+          </div>
+          <button class="chat__close" type="button" data-chat-close aria-label={c.close}>
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </button>
+        </header>
+
+        <div class="chat__log" data-chat-log tabindex="0">
+          <div class="chat__msg chat__msg--assistant">{c.intro}</div>
+          <div class="chat__suggest" data-chat-suggestions>
+            <p class="chat__suggest-label">{c.suggestionsLabel}</p>
+            {c.suggestions.map((s) => (
+              <button class="chat__chip" type="button" data-suggestion>
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <p class="sr-only" role="status" aria-live="polite" data-chat-status />
+
+        <form class="chat__form" data-chat-form>
+          <label class="sr-only" for="chat-input">
+            {c.inputLabel}
+          </label>
+          <textarea
+            id="chat-input"
+            class="chat__input"
+            data-chat-input
+            rows="1"
+            maxlength="2000"
+            placeholder={c.placeholder}
+            autocomplete="off"
+          />
+          <button class="chat__send" type="submit" data-chat-send aria-label={c.send}>
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M2 9h13M9.5 3.5 15 9l-5.5 5.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </form>
+
+        <footer class="chat__foot">
+          <p>
+            {c.privacyNote} <a href={href('privacy', locale)}>{c.privacyLink}</a>
+          </p>
+          <p>{c.disclaimer}</p>
+        </footer>
+      </section>
+    </div>
+  )
+}
+
+<script>
+  import { initChat, type ChatStrings } from '@/scripts/chat';
+
+  const root = document.querySelector<HTMLElement>('.chat');
+  const endpoint = root?.dataset.chatEndpoint;
+  const raw = root?.dataset.chatStrings;
+
+  if (root && endpoint && raw) {
+    initChat({
+      root,
+      endpoint,
+      locale: (root.dataset.chatLocale ?? 'en') as 'en' | 'de' | 'es',
+      strings: JSON.parse(raw) as ChatStrings,
+    });
+  }
+</script>
+
+<style>
+  .chat {
+    position: fixed;
+    right: clamp(0.75rem, 3vw, 1.5rem);
+    bottom: clamp(0.75rem, 3vw, 1.5rem);
+    /* Above the sticky header (60) so the panel is never clipped by it */
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-2);
+    color: var(--fg);
+  }
+
+  /* ---------- launcher ---------- */
+
+  .chat__launch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1;
+    padding: 0.8em 1.15em;
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--on-accent);
+    cursor: pointer;
+    box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.7);
+    transition:
+      transform var(--dur) var(--ease),
+      background var(--dur) var(--ease);
+  }
+
+  .chat__launch:hover {
+    transform: translateY(-2px);
+    background: var(--accent-hot);
+  }
+
+  .chat--open .chat__launch {
+    background: var(--surface);
+    color: var(--fg);
+    border-color: var(--line);
+  }
+
+  /* ---------- panel ---------- */
+
+  /* display:flex below would otherwise beat the UA rule for [hidden],
+     leaving the panel permanently open. */
+  .chat__panel[hidden] {
+    display: none;
+  }
+
+  .chat__panel {
+    display: flex;
+    flex-direction: column;
+    width: min(23rem, calc(100vw - 1.5rem));
+    max-height: min(32rem, calc(100dvh - 7rem));
+    background: var(--surface);
+    color: var(--fg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+    animation: chat-in 260ms var(--ease) both;
+  }
+
+  @keyframes chat-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+    }
+  }
+
+  .chat__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .chat__title {
+    font-size: 1rem;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .chat__sub {
+    font-size: var(--text-xs);
+    color: var(--fg-mute);
+    margin: 0.2rem 0 0;
+    max-width: 18rem;
+  }
+
+  .chat__close {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--fg-mute);
+    cursor: pointer;
+  }
+
+  .chat__close:hover {
+    color: var(--fg);
+  }
+
+  /* ---------- log ---------- */
+
+  .chat__log {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    scroll-behavior: smooth;
+  }
+
+  /* Bubbles are created by the script, so they carry no scope attribute —
+     these rules have to be global to reach them. */
+  :global(.chat__msg) {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    padding: 0.7em 0.9em;
+    border-radius: var(--radius);
+    max-width: 92%;
+    white-space: pre-wrap;
+  }
+
+  :global(.chat__msg--assistant) {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    align-self: flex-start;
+    border-bottom-left-radius: 6px;
+  }
+
+  :global(.chat__msg--user) {
+    background: var(--accent);
+    color: var(--on-accent);
+    align-self: flex-end;
+    border-bottom-right-radius: 6px;
+  }
+
+  :global(.chat__msg--error) {
+    background: transparent;
+    border: 1px dashed var(--line);
+    color: var(--status-bad);
+    align-self: flex-start;
+    max-width: 100%;
+  }
+
+  /* Empty assistant bubble while the first token is on its way */
+  :global(.chat__msg--pending) {
+    min-width: 3.2rem;
+    min-height: 2.4rem;
+    background-image: radial-gradient(circle at 0.9rem 50%, var(--fg-mute) 2.5px, transparent 3px),
+      radial-gradient(circle at 1.6rem 50%, var(--fg-mute) 2.5px, transparent 3px),
+      radial-gradient(circle at 2.3rem 50%, var(--fg-mute) 2.5px, transparent 3px);
+    animation: chat-pulse 1.4s ease-in-out infinite;
+  }
+
+  @keyframes chat-pulse {
+    0%, 100% { opacity: 0.45; }
+    50% { opacity: 1; }
+  }
+
+  /* ---------- suggestions ---------- */
+
+  .chat__suggest {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+  }
+
+  .chat__suggest-label {
+    flex: 1 0 100%;
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--fg-mute);
+    margin: 0;
+  }
+
+  .chat__chip {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    line-height: 1.3;
+    text-align: left;
+    padding: 0.5em 0.85em;
+    min-height: 24px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+    transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+
+  .chat__chip:hover {
+    border-color: var(--accent);
+    color: var(--accent-text);
+  }
+
+  /* ---------- composer ---------- */
+
+  .chat__form {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border-top: 1px solid var(--line);
+  }
+
+  .chat__input {
+    flex: 1;
+    resize: none;
+    font-family: var(--font-body);
+    /* 16px keeps iOS Safari from zooming the page on focus */
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0.55em 0.75em;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--fg);
+    max-height: 140px;
+  }
+
+  .chat__input::placeholder {
+    color: var(--fg-mute);
+  }
+
+  .chat__input:disabled {
+    opacity: 0.6;
+  }
+
+  .chat__send {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: var(--on-accent);
+    cursor: pointer;
+  }
+
+  .chat__send:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  /* ---------- foot ---------- */
+
+  .chat__foot {
+    padding: 0 var(--space-3) var(--space-3);
+  }
+
+  .chat__foot p {
+    margin: 0;
+    font-size: 0.7rem;
+    line-height: 1.45;
+    color: var(--fg-mute);
+    max-width: none;
+  }
+
+  .chat__foot p + p {
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 480px) {
+    .chat {
+      left: clamp(0.75rem, 3vw, 1.5rem);
+      align-items: stretch;
+    }
+
+    .chat__launch {
+      align-self: flex-end;
+    }
+
+    .chat__panel {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat__log {
+      scroll-behavior: auto;
+    }
+  }
+</style>
