@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
-import type { Locale } from '@/lib/i18n';
+import { studio, type Locale } from '@/lib/i18n';
 import { t } from '@/data';
 
 interface Props {
@@ -12,88 +12,140 @@ const c = t(locale).contact;
 ---
 
 <Base locale={locale} page="contact">
-  <section class="wrap contact">
-    <span class="eyebrow" data-reveal>{c.kicker}</span>
-    <h1 class="contact__title" data-reveal>{c.title}</h1>
-    <p class="lead contact__body" data-reveal>{c.body}</p>
+  <section class="contact" data-tone="dark">
+    <div class="wrap contact__grid">
+      <div data-hero-seq>
+        <span class="eyebrow">{c.eyebrow}</span>
+        <h1 class="contact__title">{c.title}</h1>
+        <p class="lead">{c.body}</p>
 
-    <div class="email-card" data-reveal>
-      <p class="email-card__label">{c.emailLabel}</p>
-      <a class="email-card__address" href={`mailto:${c.email}`}>{c.email}</a>
-      <p class="email-card__meta">
-        <span class="email-card__pulse" aria-hidden="true"></span>
-        {c.availability}
-      </p>
+        <a class="mailto" href={`mailto:${studio.email}`}>
+          <span class="mailto__label">{c.emailLabel}</span>
+          <span class="mailto__address">{studio.email}</span>
+        </a>
+
+        <p class="status">
+          <span class="status__dot" aria-hidden="true"></span>
+          {c.availability}
+        </p>
+        <p class="langs">{c.languagesNote}</p>
+      </div>
+
+      <aside class="review card" data-reveal>
+        <h2 class="review__title">{c.reviewTitle}</h2>
+        <p class="review__body">{c.reviewBody}</p>
+      </aside>
     </div>
-
-    <p class="contact__langs" data-reveal>{c.languagesNote}</p>
   </section>
 </Base>
 
 <style>
   .contact {
-    padding-top: var(--space-6);
-    min-height: 55vh;
-    text-align: center;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 8vw, 6rem) 0 var(--space-8);
+    min-height: 70vh;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    width: 52rem;
+    height: 52rem;
+    top: -28rem;
+    right: -16rem;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 20%, transparent), transparent 62%);
+    pointer-events: none;
+  }
+
+  .contact__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
   }
 
   .contact__title {
-    max-width: 18ch;
-    margin: var(--space-2) auto var(--space-4);
+    max-width: 16ch;
+    margin: 0 0 var(--space-4);
   }
 
-  .contact__body {
-    max-width: 34rem;
-    margin-inline: auto;
-  }
-
-  .email-card {
-    margin: var(--space-6) auto 0;
-    max-width: 34rem;
-    background: var(--card);
-    border: 1.5px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6) var(--space-5);
-    box-shadow: var(--shadow-soft);
-  }
-
-  .email-card__label {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--text-faint);
-    margin: 0 0 var(--space-2);
-  }
-
-  .email-card__address {
-    font-family: var(--font-display);
-    font-variation-settings: var(--display-settings);
-    font-weight: 600;
-    font-size: var(--text-lg);
+  .mailto {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-top: var(--space-6);
     text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: var(--space-2);
+  }
+
+  .mailto__label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--on-ink-mute);
+  }
+
+  .mailto__address {
+    font-family: var(--font-display);
+    font-weight: 780;
+    letter-spacing: -0.03em;
+    font-size: var(--text-lg);
+    color: var(--on-ink);
     overflow-wrap: anywhere;
   }
 
-  .email-card__meta {
-    margin: var(--space-4) 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    color: var(--text-soft);
-    font-size: var(--text-sm);
-    font-weight: 600;
+  .mailto:hover .mailto__address {
+    color: var(--accent);
   }
 
-  .email-card__pulse {
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-top: var(--space-5);
+    color: var(--on-ink);
+    font-weight: 600;
+    font-size: var(--text-sm);
+  }
+
+  .status__dot {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: var(--accent);
+    background: #46d67f;
   }
 
-  .contact__langs {
-    margin: var(--space-5) auto 0;
-    color: var(--text-soft);
-    font-style: italic;
+  .langs {
+    color: var(--on-ink-mute);
+    font-size: var(--text-sm);
+  }
+
+  .review {
+    background: var(--ink-2);
+    border-color: var(--line-dark);
+    padding: var(--space-5);
+  }
+
+  .review__title {
+    font-size: var(--text-md);
+    margin: 0 0 var(--space-3);
+  }
+
+  .review__body {
+    color: var(--on-ink-mute);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .contact__grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

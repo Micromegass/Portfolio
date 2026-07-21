@@ -1,126 +1,135 @@
-import type { PageKey } from '@/lib/i18n';
+import type { PageKey, ServiceKey } from '@/lib/i18n';
 
 /** One typed shape for all three languages — translations cannot drift. */
 export interface SiteContent {
   meta: Record<PageKey, { title: string; description: string }>;
+
   nav: {
-    services: string;
-    work: string;
-    about: string;
-    contact: string;
+    items: { page: PageKey; label: string }[];
+    cta: string;
     menuLabel: string;
     homeAria: string;
+    openMenu: string;
+    closeMenu: string;
   };
+
   footer: {
-    role: string;
-    locations: string;
-    languagesLabel: string;
-    languages: string;
+    blurb: string;
+    servicesLabel: string;
+    studioLabel: string;
     contactLabel: string;
+    locations: string;
     legalImprint: string;
     legalPrivacy: string;
     colophon: string;
   };
+
   home: {
-    kicker: string;
-    headline: [string, string];
+    eyebrow: string;
+    headline: [string, string, string];
     sub: string;
-    dims: { value: string; label: string }[];
-    cta: { primary: string; secondary: string };
-    /** Chronological story on the homepage; chapters come from about.chapters */
-    journey: { kicker: string; title: string; intro: string; link: string };
-    services: {
-      kicker: string;
-      title: string;
-      items: { title: string; desc: string }[];
-      link: string;
-    };
-    work: { kicker: string; title: string; link: string };
-    testimonial: { kicker: string; quote: string; attribution: string };
-  };
-  services: {
-    kicker: string;
-    title: string;
-    intro: string;
-    items: {
-      id: string;
-      title: string;
-      desc: string;
-      deliverables: string[];
-    }[];
-    deliverablesLabel: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    facts: { value: string; label: string }[];
+    transformer: { before: string; after: string; hint: string };
+    services: { eyebrow: string; title: string; intro: string; more: string };
+    work: { eyebrow: string; title: string; intro: string; more: string };
     process: {
-      kicker: string;
+      eyebrow: string;
       title: string;
-      intro: string;
       steps: { title: string; body: string }[];
     };
+    testimonial: { quote: string; attribution: string };
   };
+
+  /** The three service offerings — used on the homepage and as full pages. */
+  services: Record<
+    ServiceKey,
+    {
+      /** Short label for nav and cards */
+      navLabel: string;
+      cardTitle: string;
+      cardDesc: string;
+      /** Full page */
+      eyebrow: string;
+      title: string;
+      lead: string;
+      problem: { title: string; body: string };
+      solution: { title: string; body: string };
+      includesLabel: string;
+      includes: string[];
+      forWhomLabel: string;
+      forWhom: string[];
+      faqLabel: string;
+      faq: { q: string; a: string }[];
+    }
+  >;
+
   work: {
-    kicker: string;
+    eyebrow: string;
     title: string;
     intro: string;
-    caseLabel: string;
     visitLabel: string;
     readLabel: string;
-    employment: {
-      kicker: string;
-      title: string;
-      body: string;
-      stack: string[];
-      stackLabel: string;
-    };
-    lab: {
-      kicker: string;
-      title: string;
-      intro: string;
-      statusLabel: string;
-      items: { title: string; desc: string; status: string }[];
-    };
+    labEyebrow: string;
+    labTitle: string;
+    labIntro: string;
+    lab: { title: string; desc: string; tag: string }[];
   };
+
   cases: Record<
     'physio' | 'ikuna',
     {
       client: string;
-      role: string;
+      sector: string;
       url: string;
       urlLabel: string;
+      cardTitle: string;
+      cardDesc: string;
+      metrics: { value: string; label: string }[];
       title: string;
       summary: string;
       specs: { label: string; value: string }[];
       sections: { heading: string; body: string }[];
-      outcomeKicker: string;
+      outcomeLabel: string;
       outcomes: string[];
     }
   >;
-  caseMeta: {
-    kicker: string;
-    specLabel: string;
-    backLabel: string;
-    nextLabel: string;
-  };
+
+  caseMeta: { eyebrow: string; specLabel: string; backLabel: string; nextLabel: string };
+
   about: {
-    kicker: string;
+    eyebrow: string;
     title: string;
-    intro: string;
+    lead: string;
+    principlesLabel: string;
+    principles: { title: string; body: string }[];
+    personEyebrow: string;
+    personTitle: string;
+    personLead: string;
     portraitAlt: string;
-    chapters: { period: string; title: string; body: string }[];
-    now: { kicker: string; title: string; body: string };
+    timelineLabel: string;
+    timeline: { period: string; title: string; body: string }[];
     facts: { label: string; value: string }[];
   };
+
   contact: {
-    kicker: string;
+    eyebrow: string;
     title: string;
     body: string;
     emailLabel: string;
-    email: string;
     availability: string;
     languagesNote: string;
+    reviewTitle: string;
+    reviewBody: string;
   };
-  cta: { kicker: string; title: string; body: string; button: string };
+
+  cta: { eyebrow: string; title: string; body: string; button: string };
+
   legal: {
     imprint: { title: string; body: string[] };
     privacy: { title: string; body: string[] };
   };
+
   notFound: { title: string; body: string; link: string };
 }

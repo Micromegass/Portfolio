@@ -16,6 +16,7 @@ const { locale, page } = Astro.props;
 const skipLabel = { en: 'Skip to content', de: 'Zum Inhalt springen', es: 'Saltar al contenido' }[
   locale
 ];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -24,13 +25,22 @@ const skipLabel = { en: 'Skip to content', de: 'Zum Inhalt springen', es: 'Salta
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <Seo locale={locale} page={page} />
   </head>
   <body>
     <script is:inline>
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches)
-        document.documentElement.classList.add('js');
+      // Arm scroll reveals before first paint so nothing flashes, but drop the
+      // class if the motion bundle never initialises — content must never be
+      // trapped behind JavaScript.
+      (function () {
+        var d = document.documentElement;
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        d.classList.add('motion');
+        setTimeout(function () {
+          if (!d.dataset.motionReady) d.classList.remove('motion');
+        }, 3500);
+      })();
     </script>
     <a class="skip-link" href="#main">{skipLabel}</a>
     <Header locale={locale} page={page} />

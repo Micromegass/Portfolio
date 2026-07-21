@@ -1,5 +1,5 @@
 ---
-import { href, type Locale } from '@/lib/i18n';
+import { href, studio, servicePages, type Locale } from '@/lib/i18n';
 import { t } from '@/data';
 
 interface Props {
@@ -7,100 +7,133 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const f = t(locale).footer;
-const c = t(locale).contact;
+const c = t(locale);
 ---
 
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <div class="footer__who">
-      <p class="footer__name">Axel Braunschweiger</p>
-      <p class="footer__role">{f.role}</p>
-      <p class="footer__meta">{f.locations}</p>
+<footer class="site-footer" data-tone="dark">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <span class="mark__name">{studio.name}</span>
+      <p class="footer__blurb">{c.footer.blurb}</p>
+      <p class="footer__loc">{c.footer.locations}</p>
     </div>
 
-    <div class="footer__col">
-      <p class="footer__label">{f.contactLabel}</p>
-      <a href={`mailto:${c.email}`}>{c.email}</a>
-      <p class="footer__meta">
-        <a href="https://github.com/Micromegass" rel="me noopener" target="_blank">GitHub</a>
-        {' · '}
-        <a
-          href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/"
-          rel="me noopener"
-          target="_blank">LinkedIn</a
-        >
-      </p>
-    </div>
+    <nav class="footer__col" aria-label={c.footer.servicesLabel}>
+      <h2 class="footer__head">{c.footer.servicesLabel}</h2>
+      {servicePages.map((key) => <a href={href(key, locale)}>{c.services[key].navLabel}</a>)}
+    </nav>
+
+    <nav class="footer__col" aria-label={c.footer.studioLabel}>
+      <h2 class="footer__head">{c.footer.studioLabel}</h2>
+      <a href={href('work', locale)}>{c.work.eyebrow}</a>
+      <a href={href('about', locale)}>{c.about.eyebrow}</a>
+      <a href={href('imprint', locale)}>{c.footer.legalImprint}</a>
+      <a href={href('privacy', locale)}>{c.footer.legalPrivacy}</a>
+    </nav>
 
     <div class="footer__col">
-      <p class="footer__label">{f.languagesLabel}</p>
-      <p class="footer__meta">{f.languages}</p>
-      <p class="footer__meta footer__legal">
-        <a href={href('imprint', locale)}>{f.legalImprint}</a>
-        {' · '}
-        <a href={href('privacy', locale)}>{f.legalPrivacy}</a>
-      </p>
+      <h2 class="footer__head">{c.footer.contactLabel}</h2>
+      <a href={`mailto:${studio.email}`}>{studio.email}</a>
+      <a href="https://github.com/Micromegass" rel="me noopener" target="_blank">GitHub</a>
+      <a
+        href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/"
+        rel="me noopener"
+        target="_blank">LinkedIn</a
+      >
     </div>
   </div>
 
-  <p class="wrap footer__colophon">{f.colophon}</p>
+  <div class="wrap footer__base">
+    <p>© {new Date().getFullYear()} {studio.name} · {studio.person}</p>
+    <p>{c.footer.colophon}</p>
+  </div>
 </footer>
 
 <style>
-  .footer {
-    margin-top: var(--space-8);
-    border-top: 1.5px solid var(--line);
-    padding: var(--space-6) 0 var(--space-5);
+  .site-footer {
+    background: var(--ink);
+    color: var(--on-ink);
+    border-top: 1px solid var(--line-dark);
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-4);
   }
 
-  .footer__inner {
+  .footer__grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
     gap: var(--space-5);
   }
 
-  .footer__name {
+  .mark__name {
     font-family: var(--font-display);
-    font-variation-settings: var(--display-settings);
-    font-weight: 600;
-    font-size: var(--text-md);
-    margin: 0 0 var(--space-1);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-size: 1.1rem;
   }
 
-  .footer__role {
-    color: var(--text-soft);
-    margin: 0 0 var(--space-1);
+  .footer__blurb {
+    color: var(--on-ink-mute);
     font-size: var(--text-sm);
+    margin: var(--space-3) 0 var(--space-2);
+    max-width: 26rem;
   }
 
-  .footer__label {
+  .footer__loc {
+    color: var(--on-ink-mute);
+    font-size: var(--text-sm);
+    margin: 0;
+  }
+
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer__head {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
     font-weight: 700;
-    font-size: var(--text-sm);
-    margin: 0 0 var(--space-2);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--on-ink-mute);
+    margin: 0 0 var(--space-1);
   }
 
-  .footer__meta {
-    color: var(--text-soft);
+  .footer__col a {
+    color: var(--on-ink);
+    text-decoration: none;
     font-size: var(--text-sm);
-    margin: var(--space-1) 0 0;
   }
 
-  .footer__legal {
-    margin-top: var(--space-3);
+  .footer__col a:hover {
+    color: var(--accent);
   }
 
-  .footer__colophon {
-    margin-top: var(--space-5);
-    color: var(--text-faint);
-    font-size: var(--text-sm);
+  .footer__base {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .footer__base p {
+    margin: 0;
+    color: var(--on-ink-mute);
+    font-size: var(--text-xs);
     max-width: none;
   }
 
-  @media (max-width: 720px) {
-    .footer__inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
+  @media (max-width: 820px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer__brand {
+      grid-column: 1 / -1;
     }
   }
 </style>

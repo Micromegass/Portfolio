@@ -8,9 +8,9 @@ import sitemap from '@astrojs/sitemap';
 const onGitHubPages = process.env.GITHUB_PAGES === 'true';
 
 export default defineConfig({
-  site: onGitHubPages
-    ? 'https://micromegass.github.io'
-    : 'https://axelbraunschweiger.com',
+  // TODO-CONTENT: confirm the studio domain before launch (see studio.domain
+  // in src/lib/i18n.ts — both must match).
+  site: onGitHubPages ? 'https://micromegass.github.io' : 'https://renovostudio.com',
   base: onGitHubPages ? '/Portfolio' : '/',
   trailingSlash: 'ignore',
   output: 'static',

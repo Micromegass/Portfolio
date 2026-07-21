@@ -1,44 +1,53 @@
 /* ============================================================
-   Camino v2 — design tokens (single source of truth)
-   Clean, stylish, professional: neutral ground, one dark-pink
-   accent. All text/ground pairs contrast-validated ≥ 4.6:1.
+   RENOVO — design tokens (single source of truth)
+   Dark studio canvas, light content sections, one vivid magenta.
+   Contrast-validated: see CLAUDE.md before changing any value.
    ============================================================ */
 
 :root {
-  /* Color — clean neutral ground */
-  --bg: #fbfaf9;
+  /* Dark canvas */
+  --ink: #0b0a0c;
+  --ink-2: #141118;
+  --ink-3: #1e1a24;
+  --on-ink: #f5f2f6;
+  --on-ink-mute: #a79fae;
+  --line-dark: rgba(255, 255, 255, 0.12);
+
+  /* Light sections */
+  --paper: #faf8fa;
+  --paper-2: #f1edf2;
   --card: #ffffff;
-  --bg-soft: #f3f0ee;          /* recessed neutral panel */
-  --text: #1b181a;             /* near-black, plum undertone */
-  --text-soft: #5d5660;
-  --text-faint: #6e6770;
+  --on-paper: #16131a;
+  --on-paper-mute: #5c5464;
+  --line-light: rgba(22, 19, 26, 0.1);
 
-  /* Color — the touch of dark pink */
-  --accent: #a62655;           /* links, buttons, eyebrows (6.7:1) */
-  --accent-strong: #831c42;    /* hover (9.1:1) */
-  --accent-soft: #e9bacd;      /* decorative: trail, kickers on band */
-  --tint: #f7e9ef;             /* pink wash for chips/pills */
+  /* Accent — vivid on dark, deepened for text on light */
+  --accent: #ff3d77;
+  --accent-hot: #ff6d97;
+  --accent-deep: #c7215a;
+  --accent-ink: #a81a49;
 
-  /* Color — dark band (CTA) */
-  --band: #211a1f;             /* plum-black */
-  --on-band: #f5f0f3;          /* 15.1:1 on band */
+  /* Semantic aliases resolved per section via [data-tone] */
+  --bg: var(--ink);
+  --fg: var(--on-ink);
+  --fg-mute: var(--on-ink-mute);
+  --line: var(--line-dark);
+  --accent-text: var(--accent);
 
-  --line: rgba(27, 24, 26, 0.1);
-
-  /* Type — one clean grotesk, contrast via weight & size */
-  --font-display: 'Hanken Grotesk Variable', system-ui, sans-serif;
-  --font-body: 'Hanken Grotesk Variable', system-ui, sans-serif;
+  /* Type */
+  --font-display: 'Hanken Grotesk Variable', system-ui, -apple-system, sans-serif;
+  --font-body: 'Hanken Grotesk Variable', system-ui, -apple-system, sans-serif;
 
   --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
-  --text-md: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
-  --text-lg: clamp(1.55rem, 1.3rem + 1.3vw, 2.15rem);
-  --text-xl: clamp(2rem, 1.55rem + 2.4vw, 3.4rem);
-  --text-2xl: clamp(2.6rem, 1.8rem + 4.2vw, 5rem);
+  --text-sm: 0.9rem;
+  --text-base: clamp(1.0625rem, 1rem + 0.25vw, 1.125rem);
+  --text-md: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);
+  --text-lg: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+  --text-xl: clamp(2.05rem, 1.6rem + 2.3vw, 3.5rem);
+  --text-2xl: clamp(2.8rem, 1.9rem + 4.6vw, 6rem);
 
-  --display-settings: normal;
-  --display-weight: 730;
+  --display-weight: 780;
+  --display-track: -0.038em;
 
   /* Space */
   --space-1: 0.25rem;
@@ -48,22 +57,44 @@
   --space-5: 2.5rem;
   --space-6: 4rem;
   --space-7: 6rem;
-  --space-8: clamp(4.5rem, 3.5rem + 5vw, 8.5rem);
+  --space-8: clamp(4.5rem, 3.5rem + 5vw, 8rem);
 
   /* Layout */
-  --wrap-max: 71rem;
+  --wrap-max: 75rem;
   --wrap-pad: clamp(1.25rem, 4vw, 3rem);
-  --content-max: 42rem;
+  --content-max: 40rem;
 
-  /* Shape — soft but disciplined */
+  /* Shape */
   --radius-sm: 10px;
   --radius: 16px;
-  --radius-lg: 24px;
-  --radius-arch: 24px; /* legacy alias; portraits now use clean radius */
+  --radius-lg: 22px;
+  --radius-xl: 34px;
 
-  --shadow-soft: 0 12px 32px -14px rgba(27, 24, 26, 0.16);
+  --shadow-dark: 0 40px 90px -45px rgba(0, 0, 0, 0.9);
+  --shadow-light: 0 24px 50px -32px rgba(22, 19, 26, 0.5);
 
-  /* Motion — calm */
-  --ease-calm: cubic-bezier(0.33, 1, 0.68, 1);
-  --dur-quick: 200ms;
+  /* Motion */
+  --ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --dur: 260ms;
+}
+
+/* Section tone switches — components never hardcode dark/light colors */
+[data-tone='dark'] {
+  --bg: var(--ink);
+  --fg: var(--on-ink);
+  --fg-mute: var(--on-ink-mute);
+  --line: var(--line-dark);
+  --accent-text: var(--accent);
+  --surface: var(--ink-2);
+  --shadow: var(--shadow-dark);
+}
+
+[data-tone='light'] {
+  --bg: var(--paper);
+  --fg: var(--on-paper);
+  --fg-mute: var(--on-paper-mute);
+  --line: var(--line-light);
+  --accent-text: var(--accent-ink);
+  --surface: var(--card);
+  --shadow: var(--shadow-light);
 }

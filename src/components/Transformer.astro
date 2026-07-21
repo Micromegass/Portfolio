@@ -1,0 +1,179 @@
+---
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/data';
+import { renderLabels } from '@/data/renderLabels';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const tr = t(locale).home.transformer;
+const labels = renderLabels[locale];
+---
+
+<figure class="transformer" data-reveal>
+  <div class="transformer__frame" id="tx-frame">
+    <!-- Two canvases: 2D paints immediately, WebGL takes over on upgrade.
+         A canvas can only ever hold one context type, so they cannot share. -->
+    <canvas id="tx-canvas" width="1600" height="900" role="img" aria-label={`${tr.before} / ${tr.after}`}
+    ></canvas>
+    <canvas id="tx-fallback" width="1600" height="900" aria-hidden="true"></canvas>
+    <div class="transformer__tags" aria-hidden="true">
+      <span class="tag">{tr.before}</span>
+      <span class="tag tag--after">{tr.after}</span>
+    </div>
+  </div>
+
+  <label class="transformer__control">
+    <span class="sr-only">{`${tr.before} / ${tr.after}`}</span>
+    <input id="tx-slider" type="range" min="3" max="97" value="50" />
+  </label>
+
+  <figcaption class="transformer__hint">{tr.hint}</figcaption>
+</figure>
+
+<script>
+  import { initTransformer } from '@/scripts/transformer';
+  import { renderLabels } from '@/data/renderLabels';
+
+  const canvas = document.getElementById('tx-canvas') as HTMLCanvasElement | null;
+  const fallback = document.getElementById('tx-fallback') as HTMLCanvasElement | null;
+  const frame = document.getElementById('tx-frame');
+  const slider = document.getElementById('tx-slider') as HTMLInputElement | null;
+  const locale = (document.documentElement.lang || 'en') as keyof typeof renderLabels;
+
+  if (canvas && fallback && frame && slider) {
+    initTransformer({
+      canvas,
+      fallback,
+      frame,
+      slider,
+      labels: renderLabels[locale] ?? renderLabels.en,
+    });
+  }
+</script>
+
+<style>
+  .transformer {
+    margin: clamp(2.5rem, 6vw, 4.5rem) 0 0;
+  }
+
+  .transformer__frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--line-dark);
+    box-shadow:
+      var(--shadow-dark),
+      0 0 90px -50px var(--accent);
+    background: #000;
+    cursor: ew-resize;
+    touch-action: pan-y;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #tx-fallback {
+    position: absolute;
+    inset: 0;
+    transition: opacity 400ms var(--ease);
+  }
+
+  /* Set once the WebGL layer is live */
+  .transformer__frame--gl #tx-fallback {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .transformer__tags {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(0.6rem, 2vw, 1.1rem);
+    pointer-events: none;
+  }
+
+  .tag {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    color: var(--on-ink);
+    padding: 0.45em 0.9em;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .tag--after {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+
+  /* Real range input: keyboard + screen-reader control of the comparison.
+     Visually minimal — the canvas is the interface for pointer users. */
+  .transformer__control {
+    display: block;
+    margin-top: var(--space-3);
+  }
+
+  .transformer__control input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 22px;
+    background: transparent;
+    cursor: ew-resize;
+  }
+
+  .transformer__control input::-webkit-slider-runnable-track {
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--accent) 70%, transparent),
+      var(--line-dark)
+    );
+  }
+
+  .transformer__control input::-moz-range-track {
+    height: 3px;
+    border-radius: 999px;
+    background: var(--line-dark);
+  }
+
+  .transformer__control input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-top: -7.5px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--ink);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+
+  .transformer__control input::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--ink);
+  }
+
+  .transformer__hint {
+    text-align: center;
+    color: var(--on-ink-mute);
+    font-size: var(--text-sm);
+    margin-top: var(--space-2);
+  }
+</style>

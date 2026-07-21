@@ -1,7 +1,7 @@
 ---
 import { routes, locales, type Locale, type PageKey } from '@/lib/i18n';
 import HomePage from '@/templates/HomePage.astro';
-import ServicesPage from '@/templates/ServicesPage.astro';
+import ServicePage from '@/templates/ServicePage.astro';
 import WorkPage from '@/templates/WorkPage.astro';
 import CaseStudyPage from '@/templates/CaseStudyPage.astro';
 import AboutPage from '@/templates/AboutPage.astro';
@@ -9,8 +9,8 @@ import ContactPage from '@/templates/ContactPage.astro';
 import LegalPage from '@/templates/LegalPage.astro';
 
 /**
- * Every localized route on the site is generated from the route map in
- * src/lib/i18n.ts — one place to add or rename pages for all languages.
+ * Every localized route is generated from the route map in src/lib/i18n.ts —
+ * one place to add or rename a page across all three languages.
  */
 export function getStaticPaths() {
   return (Object.keys(routes) as PageKey[]).flatMap((page) =>
@@ -33,7 +33,9 @@ const { page, locale } = Astro.props;
 ---
 
 {page === 'home' && <HomePage locale={locale} />}
-{page === 'services' && <ServicesPage locale={locale} />}
+{page === 'relaunch' && <ServicePage locale={locale} service="relaunch" />}
+{page === 'ai' && <ServicePage locale={locale} service="ai" />}
+{page === 'apps' && <ServicePage locale={locale} service="apps" />}
 {page === 'work' && <WorkPage locale={locale} />}
 {page === 'case-physio' && <CaseStudyPage locale={locale} caseKey="physio" />}
 {page === 'case-ikuna' && <CaseStudyPage locale={locale} caseKey="ikuna" />}

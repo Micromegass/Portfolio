@@ -1,75 +1,47 @@
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
 /**
- * Camino motion system — calm by design.
+ * RENOVO motion — restrained and, above all, robust.
  *
- * Conventions (used declaratively in markup):
- *   data-reveal          — element rises/fades in gently on scroll
- *   data-reveal-group    — children stagger in
- *   data-draw            — SVG paths draw themselves (the journey trail)
+ *   data-hero-seq      hero entrance (pure CSS — see global.css, no JS needed)
+ *   data-reveal        rises in when scrolled into view
+ *   data-reveal-group  children stagger in
  *
- * Reduced motion: nothing is hidden, no smooth scroll, no animation.
+ * Reveals use IntersectionObserver + CSS classes rather than scroll-position
+ * maths, so smooth scrolling can never desync them. The `motion` class is set
+ * inline in <head> and dropped again if this module never runs, so content is
+ * never trapped behind JavaScript.
  */
 export function initMotion(): void {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) return;
 
-  gsap.registerPlugin(ScrollTrigger);
+  const root = document.documentElement;
+  root.dataset.motionReady = '1';
 
-  // Gentle smooth scroll, synced with ScrollTrigger
-  const lenis = new Lenis({ lerp: 0.09 });
-  lenis.on('scroll', ScrollTrigger.update);
+  // Smooth scroll purely for feel — nothing depends on its position
+  const lenis = new Lenis({ lerp: 0.11 });
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
 
-  document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 22 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.1,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
       }
-    );
-  });
+    },
+    { rootMargin: '0px 0px -8% 0px' }
+  );
+
+  document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => io.observe(el));
 
   document.querySelectorAll<HTMLElement>('[data-reveal-group]').forEach((group) => {
-    gsap.fromTo(
-      Array.from(group.children),
-      { opacity: 0, y: 18 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power2.out',
-        stagger: 0.14,
-        scrollTrigger: { trigger: group, start: 'top 86%', once: true },
-      }
-    );
-  });
-
-  // The journey trail draws itself in as you walk down the page
-  document.querySelectorAll<SVGElement>('[data-draw]').forEach((svg) => {
-    const strokes = svg.querySelectorAll<SVGGeometryElement>('[data-draw-stroke]');
-    strokes.forEach((s) => {
-      const len = s.getTotalLength ? s.getTotalLength() : 100;
-      s.style.strokeDasharray = `${len}`;
-      s.style.strokeDashoffset = `${len}`;
-      gsap.to(s, {
-        strokeDashoffset: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: svg,
-          start: 'top 75%',
-          end: 'bottom 60%',
-          scrub: 0.8,
-        },
-      });
+    Array.from(group.children).forEach((child, i) => {
+      (child as HTMLElement).style.transitionDelay = `${i * 90}ms`;
     });
+    io.observe(group);
   });
 }

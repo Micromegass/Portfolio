@@ -1,5 +1,5 @@
 ---
-import { alternates, ogLocale, type Locale, type PageKey } from '@/lib/i18n';
+import { alternates, ogLocale, studio, type Locale, type PageKey } from '@/lib/i18n';
 import { t } from '@/data';
 
 interface Props {
@@ -13,45 +13,60 @@ const site = Astro.site!.toString().replace(/\/$/, '');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const canonical = site + base + (Astro.url.pathname.replace(base, '') || '/');
 
-// Interim GitHub Pages deploys must never be indexed (real domain comes later)
+// The interim GitHub Pages deploy must never be indexed
 const noindex = import.meta.env.GITHUB_PAGES === 'true';
 
-const personJsonLd = {
+const orgJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Axel Braunschweiger',
-  jobTitle: 'AI-first Engineer & Web Developer',
+  '@type': 'ProfessionalService',
+  '@id': site + base + '/#studio',
+  name: studio.name,
+  description: t(locale).footer.blurb,
   url: site + base + '/',
-  sameAs: [
-    'https://github.com/Micromegass',
-    'https://www.linkedin.com/in/axel-braunschweiger-17b5609b/',
+  founder: { '@type': 'Person', name: studio.person },
+  email: studio.email,
+  areaServed: ['DE', 'AT', 'CH', 'CO', 'Remote'],
+  availableLanguage: ['German', 'English', 'Spanish'],
+  knowsAbout: [
+    'Website relaunch',
+    'Website modernisation',
+    'AI chat assistants',
+    'Web application development',
+    'MVP development',
   ],
-  knowsLanguage: ['de', 'en', 'es'],
   address: [
     { '@type': 'PostalAddress', addressLocality: 'Fürth', addressCountry: 'DE' },
     { '@type': 'PostalAddress', addressLocality: 'Medellín', addressCountry: 'CO' },
   ],
 };
 
-const serviceJsonLd = {
+const c = t(locale);
+const serviceKey = page === 'relaunch' || page === 'ai' || page === 'apps' ? page : null;
+
+const serviceJsonLd = serviceKey && {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Axel Braunschweiger — Web Development & AI Integration',
-  url: site + base + '/',
-  founder: { '@type': 'Person', name: 'Axel Braunschweiger' },
+  '@type': 'Service',
+  name: c.services[serviceKey].cardTitle,
+  description: meta.description,
+  provider: { '@type': 'ProfessionalService', name: studio.name },
   areaServed: ['DE', 'CO', 'Remote'],
-  availableLanguage: ['German', 'English', 'Spanish'],
-  serviceType: [
-    'Website development',
-    'Website redesign',
-    'Web application development',
-    'MVP development',
-    'AI integration',
-    'Business process automation',
-  ],
 };
 
-const withJsonLd = page === 'home' || page === 'services' || page === 'about';
+const faqJsonLd = serviceKey && {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: c.services[serviceKey].faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const blocks = [
+  page === 'home' || page === 'about' ? orgJsonLd : null,
+  serviceJsonLd,
+  faqJsonLd,
+].filter(Boolean);
 ---
 
 <title>{meta.title}</title>
@@ -71,12 +86,8 @@ const withJsonLd = page === 'home' || page === 'services' || page === 'about';
 <meta property="og:description" content={meta.description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:locale" content={ogLocale[locale]} />
-<meta property="og:site_name" content="Axel Braunschweiger" />
+<meta property="og:site_name" content={studio.name} />
 <meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#0b0a0c" />
 
-{withJsonLd && (
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(page === 'services' ? serviceJsonLd : personJsonLd)}
-  />
-)}
+{blocks.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}

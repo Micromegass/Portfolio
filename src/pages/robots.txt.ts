@@ -9,7 +9,7 @@ export const GET: APIRoute = () => {
 
   const body = onGitHubPages
     ? `User-agent: *\nDisallow: /\n`
-    : `User-agent: *\nAllow: /\n\nSitemap: https://axelbraunschweiger.com/sitemap-index.xml\n`;
+    : `User-agent: *\nAllow: /\n\nSitemap: https://renovostudio.com/sitemap-index.xml\n`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },

@@ -1,0 +1,319 @@
+---
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import CaseCard from '@/components/CaseCard.astro';
+import { href, servicePages, type Locale, type ServiceKey } from '@/lib/i18n';
+import { t } from '@/data';
+
+interface Props {
+  locale: Locale;
+  service: ServiceKey;
+}
+
+const { locale, service } = Astro.props;
+const c = t(locale);
+const s = c.services[service];
+const others = servicePages.filter((k) => k !== service);
+---
+
+<Base locale={locale} page={service}>
+  <!-- Statement -->
+  <section class="intro" data-tone="dark">
+    <div class="wrap" data-hero-seq>
+      <span class="eyebrow">{s.eyebrow}</span>
+      <h1 class="intro__title">{s.title}</h1>
+      <p class="lead intro__lead">{s.lead}</p>
+      <div class="intro__actions">
+        <a class="button button--primary" href={href('contact', locale)}
+          >{c.home.ctaPrimary} <span>→</span></a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / solution -->
+  <section class="band band--curve" data-tone="light">
+    <div class="wrap">
+      <div class="argument">
+        <article data-reveal>
+          <h2 class="argument__title">{s.problem.title}</h2>
+          <p class="argument__body">{s.problem.body}</p>
+        </article>
+        <article data-reveal>
+          <h2 class="argument__title argument__title--accent">{s.solution.title}</h2>
+          <p class="argument__body">{s.solution.body}</p>
+        </article>
+      </div>
+
+      <div class="lists">
+        <div class="list card" data-reveal>
+          <h3 class="list__head">{s.includesLabel}</h3>
+          <ul class="list__items">
+            {s.includes.map((i) => <li>{i}</li>)}
+          </ul>
+        </div>
+        <div class="list card list--accent" data-reveal>
+          <h3 class="list__head">{s.forWhomLabel}</h3>
+          <ul class="list__items">
+            {s.forWhom.map((i) => <li>{i}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band" data-tone="light">
+    <div class="wrap">
+      <h2 class="faq__title" data-reveal>{s.faqLabel}</h2>
+      <div class="faq" data-reveal-group>
+        {
+          s.faq.map((f) => (
+            <details class="qa">
+              <summary class="qa__q">{f.q}</summary>
+              <p class="qa__a">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="band" data-tone="light">
+    <div class="wrap">
+      <h2 class="proof__title" data-reveal>{c.home.work.title}</h2>
+      <div class="cases" data-reveal-group>
+        <CaseCard locale={locale} caseKey="physio" />
+        <CaseCard locale={locale} caseKey="ikuna" />
+      </div>
+
+      <nav class="next-services" data-reveal aria-label={c.home.services.eyebrow}>
+        {
+          others.map((k) => (
+            <a class="next-service card card--hover" href={href(k, locale)}>
+              <span class="eyebrow">{c.home.services.more}</span>
+              <span class="next-service__title">{c.services[k].cardTitle}</span>
+              <span class="arrow-link">
+                <span>→</span>
+              </span>
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>
+
+<style>
+  .intro {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 8vw, 6rem) 0 var(--space-8);
+  }
+
+  .intro::before {
+    content: '';
+    position: absolute;
+    width: 52rem;
+    height: 52rem;
+    top: -30rem;
+    right: -16rem;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%);
+    pointer-events: none;
+  }
+
+  .intro .wrap {
+    position: relative;
+  }
+
+  .intro__title {
+    max-width: 18ch;
+    margin: 0 0 var(--space-4);
+  }
+
+  .intro__lead {
+    max-width: 42rem;
+  }
+
+  .intro__actions {
+    margin-top: var(--space-5);
+  }
+
+  .argument {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-7);
+  }
+
+  .argument__title {
+    font-size: var(--text-lg);
+    margin: 0 0 var(--space-3);
+  }
+
+  .argument__title--accent {
+    color: var(--accent-text);
+  }
+
+  .argument__body {
+    color: var(--fg-mute);
+    font-size: var(--text-md);
+    line-height: 1.65;
+    margin: 0;
+    max-width: none;
+  }
+
+  .lists {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .list {
+    padding: var(--space-5);
+  }
+
+  .list--accent {
+    background: var(--ink);
+    color: var(--on-ink);
+    border-color: transparent;
+  }
+
+  .list__head {
+    font-size: var(--text-md);
+    margin: 0 0 var(--space-3);
+  }
+
+  .list__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .list__items li {
+    position: relative;
+    padding-left: 1.6em;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .list__items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .list--accent .list__items li {
+    color: var(--on-ink-mute);
+  }
+
+  .faq__title,
+  .proof__title {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-5);
+    max-width: 20ch;
+  }
+
+  .faq {
+    display: flex;
+    flex-direction: column;
+    max-width: 52rem;
+  }
+
+  .qa {
+    border-top: 1px solid var(--line);
+  }
+
+  .qa:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .qa__q {
+    cursor: pointer;
+    list-style: none;
+    padding: var(--space-4) 2.5rem var(--space-4) 0;
+    font-weight: 650;
+    font-size: var(--text-md);
+    position: relative;
+  }
+
+  .qa__q::-webkit-details-marker {
+    display: none;
+  }
+
+  .qa__q::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--accent-text);
+    transition: transform var(--dur) var(--ease);
+  }
+
+  .qa[open] .qa__q::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .qa__a {
+    color: var(--fg-mute);
+    margin: 0 0 var(--space-4);
+    max-width: 44rem;
+  }
+
+  .cases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .next-services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .next-service {
+    padding: var(--space-4);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .next-service__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-md);
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 900px) {
+    .argument,
+    .lists,
+    .cases,
+    .next-services {
+      grid-template-columns: 1fr;
+    }
+
+    .argument {
+      gap: var(--space-5);
+    }
+  }
+</style>

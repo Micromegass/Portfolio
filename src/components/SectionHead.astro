@@ -1,33 +1,36 @@
 ---
 interface Props {
-  kicker: string;
+  eyebrow: string;
   title: string;
+  intro?: string;
   centered?: boolean;
 }
 
-const { kicker, title, centered = false } = Astro.props;
+const { eyebrow, title, intro, centered = false } = Astro.props;
 ---
 
-<div class:list={['section-head', { 'section-head--centered': centered }]} data-reveal>
-  <span class="eyebrow">{kicker}</span>
+<div class:list={['section-head', { 'section-head--center': centered }]} data-reveal>
+  <span class="eyebrow">{eyebrow}</span>
   <h2>{title}</h2>
+  {intro && <p class="lead">{intro}</p>}
 </div>
 
 <style>
   .section-head {
-    margin-bottom: var(--space-5);
+    max-width: 44rem;
+    margin-bottom: var(--space-6);
   }
 
   .section-head h2 {
-    margin: var(--space-2) 0 0;
-    max-width: 24ch;
+    margin: 0 0 var(--space-3);
   }
 
-  .section-head--centered {
+  .section-head--center {
+    margin-inline: auto;
     text-align: center;
   }
 
-  .section-head--centered h2 {
+  .section-head--center .lead {
     margin-inline: auto;
   }
 </style>

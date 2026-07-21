@@ -13,23 +13,28 @@ const l = t(locale).legal[kind];
 ---
 
 <Base locale={locale} page={kind}>
-  <section class="wrap legal">
-    <h1 class="legal__title">{l.title}</h1>
-    {l.body.map((para) => <p class="legal__para">{para}</p>)}
+  <section class="legal" data-tone="dark">
+    <div class="wrap">
+      <h1 class="legal__title">{l.title}</h1>
+      {l.body.map((para) => <p class="legal__para">{para}</p>)}
+    </div>
   </section>
 </Base>
 
 <style>
   .legal {
-    padding-top: var(--space-6);
-    min-height: 50vh;
+    background: var(--ink);
+    padding: var(--space-7) 0 var(--space-8);
+    min-height: 60vh;
   }
 
   .legal__title {
     font-size: var(--text-xl);
+    margin-bottom: var(--space-5);
   }
 
   .legal__para {
-    color: var(--text-soft);
+    color: var(--on-ink-mute);
+    max-width: 44rem;
   }
 </style>

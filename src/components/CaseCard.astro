@@ -13,77 +13,107 @@ const w = t(locale).work;
 const page: PageKey = caseKey === 'physio' ? 'case-physio' : 'case-ikuna';
 ---
 
-<article class="case-card">
-  <span class="case-card__url">{c.urlLabel}</span>
-  <h3 class="case-card__title">
-    <a href={href(page, locale)}>{c.title}</a>
-  </h3>
-  <p class="case-card__client">{c.client}</p>
-  <p class="case-card__summary">{c.summary}</p>
-  <p class="case-card__link">
-    <a href={href(page, locale)}>{w.readLabel} →</a>
-  </p>
+<article class:list={['case card card--hover', `case--${caseKey}`]}>
+  <a class="case__link" href={href(page, locale)}>
+    <div class="case__shot" aria-hidden="true">
+      <span class="case__url">{c.urlLabel}</span>
+    </div>
+    <div class="case__body">
+      <span class="eyebrow">{c.sector}</span>
+      <h3 class="case__title">{c.cardTitle}</h3>
+      <p class="case__desc">{c.cardDesc}</p>
+      <dl class="case__metrics">
+        {
+          c.metrics.map((m) => (
+            <div>
+              <dt class="case__metric-label">{m.label}</dt>
+              <dd class="case__metric-value">{m.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <span class="arrow-link case__cta">{w.readLabel} <span>→</span></span>
+    </div>
+  </a>
 </article>
 
 <style>
-  .case-card {
-    background: var(--card);
-    border: 1.5px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: var(--space-5);
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    transition: transform var(--dur-quick) var(--ease-calm);
+  .case {
+    overflow: hidden;
   }
 
-  .case-card:hover {
-    transform: translateY(-3px);
+  .case__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
 
-  .case-card__url {
-    align-self: flex-start;
+  .case__shot {
+    height: 200px;
+    position: relative;
+    background: linear-gradient(135deg, #2b2431, #4a3c4f);
+  }
+
+  .case--ikuna .case__shot {
+    background: linear-gradient(135deg, #1f3a34, #3f6f5c);
+  }
+
+  .case__url {
+    position: absolute;
+    left: var(--space-3);
+    bottom: var(--space-3);
     font-size: var(--text-xs);
     font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--accent-strong);
-    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    letter-spacing: 0.08em;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.4em 0.85em;
     border-radius: 999px;
-    padding: 0.35em 0.9em;
-    margin-bottom: var(--space-2);
   }
 
-  .case-card__title {
-    margin: 0;
-    font-size: var(--text-lg);
+  .case__body {
+    padding: var(--space-4) var(--space-4) var(--space-5);
   }
 
-  .case-card__title a {
-    color: var(--text);
-    text-decoration: none;
+  .case__title {
+    margin: 0 0 var(--space-2);
   }
 
-  .case-card__title a:hover {
-    color: var(--accent-strong);
-  }
-
-  .case-card__client {
-    color: var(--text-faint);
+  .case__desc {
+    color: var(--fg-mute);
     font-size: var(--text-sm);
-    font-weight: 600;
+    line-height: 1.65;
     margin: 0;
   }
 
-  .case-card__summary {
-    color: var(--text-soft);
-    font-size: var(--text-sm);
-    line-height: 1.7;
+  .case__metrics {
+    display: flex;
+    gap: var(--space-5);
+    margin: var(--space-4) 0 0;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--line);
+  }
+
+  .case__metric-value {
+    font-family: var(--font-display);
+    font-weight: 780;
+    letter-spacing: -0.03em;
+    font-size: 1.3rem;
     margin: 0;
   }
 
-  .case-card__link {
-    margin: var(--space-2) 0 0;
-    font-weight: 600;
+  .case__metric-label {
+    font-size: var(--text-xs);
+    color: var(--fg-mute);
+    order: 2;
+  }
+
+  .case__metrics div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .case__cta {
+    margin-top: var(--space-4);
   }
 </style>

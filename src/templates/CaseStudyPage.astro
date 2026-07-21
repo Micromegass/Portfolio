@@ -21,59 +21,61 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
 <Base locale={locale} page={page}>
   <article>
-    <header class="wrap intro">
-      <p data-reveal>
-        <a class="intro__back" href={href('work', locale)}>← {m.backLabel}</a>
-      </p>
-      <span class="eyebrow" data-reveal>{m.kicker} · {c.client}</span>
-      <h1 class="intro__title" data-reveal>{c.title}</h1>
-      <p class="lead intro__lead" data-reveal>{c.summary}</p>
-      <p data-reveal>
-        <a class="button" href={c.url} target="_blank" rel="noopener"
-          >{w.visitLabel}: {c.urlLabel} ↗</a
-        >
-      </p>
-    </header>
+    <section class="intro" data-tone="dark">
+      <div class="wrap" data-hero-seq>
+        <a class="back" href={href('work', locale)}>← {m.backLabel}</a>
+        <span class="eyebrow">{m.eyebrow} · {c.sector}</span>
+        <h1 class="intro__title">{c.title}</h1>
+        <p class="lead intro__lead">{c.summary}</p>
+        <div class="intro__actions">
+          <a class="button button--primary" href={c.url} target="_blank" rel="noopener"
+            >{w.visitLabel} <span>↗</span></a
+          >
+        </div>
+      </div>
+    </section>
 
-    <section class="wrap" data-reveal>
-      <div class="glance">
-        <p class="glance__head">{m.specLabel}</p>
-        <dl class="glance__grid">
+    <section class="band band--curve" data-tone="light">
+      <div class="wrap">
+        <div class="glance card" data-reveal>
+          <h2 class="glance__head">{m.specLabel}</h2>
+          <dl class="glance__grid">
+            {
+              c.specs.map((s) => (
+                <div>
+                  <dt class="glance__label">{s.label}</dt>
+                  <dd class="glance__value">{s.value}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+
+        <div class="body">
           {
-            c.specs.map(({ label, value }) => (
-              <div class="glance__row">
-                <dt class="glance__label">{label}</dt>
-                <dd class="glance__value">{value}</dd>
-              </div>
+            c.sections.map((s) => (
+              <section class="body__section" data-reveal>
+                <h2 class="body__heading">{s.heading}</h2>
+                <p class="body__text">{s.body}</p>
+              </section>
             ))
           }
-        </dl>
+        </div>
+
+        <section class="outcomes" data-reveal>
+          <h2 class="outcomes__head">{c.outcomeLabel}</h2>
+          <ul class="outcomes__list">
+            {c.outcomes.map((o) => <li>{o}</li>)}
+          </ul>
+        </section>
+
+        <p class="next" data-reveal>
+          <a class="arrow-link" href={href(nextPage, locale)}
+            >{m.nextLabel}: {t(locale).cases[nextKey].client} <span>→</span></a
+          >
+        </p>
       </div>
     </section>
-
-    <section class="wrap body">
-      {
-        c.sections.map((s) => (
-          <div class="body__section" data-reveal>
-            <h2 class="body__heading">{s.heading}</h2>
-            <p class="body__text">{s.body}</p>
-          </div>
-        ))
-      }
-    </section>
-
-    <section class="wrap outcomes" data-reveal>
-      <div class="outcomes__card">
-        <span class="eyebrow">{c.outcomeKicker}</span>
-        <ul class="outcomes__list">
-          {c.outcomes.map((o) => <li class="outcomes__item">{o}</li>)}
-        </ul>
-      </div>
-    </section>
-
-    <p class="wrap next" data-reveal>
-      <a href={href(nextPage, locale)}>{m.nextLabel}: {t(locale).cases[nextKey].client} →</a>
-    </p>
   </article>
 
   <CtaBand locale={locale} />
@@ -81,37 +83,64 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
 <style>
   .intro {
-    padding-top: var(--space-5);
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-5) 0 var(--space-8);
   }
 
-  .intro__back {
+  .intro::before {
+    content: '';
+    position: absolute;
+    width: 52rem;
+    height: 52rem;
+    top: -30rem;
+    right: -16rem;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%);
+    pointer-events: none;
+  }
+
+  .intro .wrap {
+    position: relative;
+  }
+
+  .back {
+    display: inline-block;
+    color: var(--on-ink-mute);
     text-decoration: none;
-    color: var(--text-soft);
-    font-weight: 600;
     font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+  }
+
+  .back:hover {
+    color: var(--on-ink);
   }
 
   .intro__title {
-    max-width: 20ch;
-    margin-top: var(--space-2);
+    max-width: 18ch;
+    margin: 0 0 var(--space-4);
   }
 
   .intro__lead {
-    max-width: 40rem;
+    max-width: 42rem;
+  }
+
+  .intro__actions {
+    margin-top: var(--space-5);
   }
 
   .glance {
-    margin-top: var(--space-4);
-    background: var(--card);
-    border: 1.5px solid var(--line);
-    border-radius: var(--radius-lg);
     padding: var(--space-4) var(--space-5);
-    box-shadow: var(--shadow-soft);
   }
 
   .glance__head {
+    font-size: var(--text-xs);
     font-weight: 700;
-    font-size: var(--text-sm);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    font-family: var(--font-body);
     margin: 0 0 var(--space-3);
   }
 
@@ -125,15 +154,14 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
   .glance__label {
     font-size: var(--text-xs);
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--text-faint);
+    color: var(--fg-mute);
   }
 
   .glance__value {
     margin: var(--space-1) 0 0;
     font-size: var(--text-sm);
-    color: var(--text-soft);
   }
 
   .body {
@@ -146,11 +174,11 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
   .body__heading {
     font-size: var(--text-lg);
     margin: 0 0 var(--space-3);
+    max-width: 24ch;
   }
 
   .body__text {
-    max-width: var(--content-max);
-    color: var(--text-soft);
+    color: var(--fg-mute);
     font-size: var(--text-md);
     line-height: 1.7;
     margin: 0;
@@ -158,28 +186,34 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
   .outcomes {
     margin-top: var(--space-7);
-  }
-
-  .outcomes__card {
-    background: var(--bg-soft);
+    background: var(--ink);
+    color: var(--on-ink);
     border-radius: var(--radius-lg);
     padding: var(--space-5);
+  }
+
+  .outcomes__head {
+    font-size: var(--text-md);
+    margin: 0 0 var(--space-3);
   }
 
   .outcomes__list {
     list-style: none;
     padding: 0;
-    margin: var(--space-3) 0 0;
-    max-width: var(--content-max);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 44rem;
   }
 
-  .outcomes__item {
-    padding: var(--space-2) 0 var(--space-2) 1.6em;
+  .outcomes__list li {
     position: relative;
-    font-size: var(--text-md);
+    padding-left: 1.7em;
+    color: var(--on-ink-mute);
   }
 
-  .outcomes__item::before {
+  .outcomes__list li::before {
     content: '✓';
     position: absolute;
     left: 0;
@@ -189,7 +223,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
   .next {
     margin-top: var(--space-6);
-    font-weight: 600;
+    max-width: none;
   }
 
   @media (max-width: 800px) {

@@ -1,46 +1,50 @@
-# Axel Braunschweiger — Portfolio
+# RENOVO — AI Web Studio
 
-Trilingual (EN/DE/ES) static portfolio for Axel Braunschweiger: AI-first engineer, freelance developer, founder of two companies. Goal: convert freelance clients (German SMEs first, startup founders second) for websites/redesigns and web apps/MVPs, while passively impressing recruiters. The approved strategy/design plan lives at `~/.claude/plans/personal-portfolio-project-temporal-bengio.md`.
+Trilingual (EN/DE/ES) static marketing site for **RENOVO**, a one-person AI-first web studio run by Axel Braunschweiger. The site sells services, not a personal story: website relaunches, websites with a built-in AI assistant, and web apps with real backends. Primary conversion goal is the **free website review** lead magnet. Approved plan: `~/.claude/plans/personal-portfolio-project-temporal-bengio.md`.
 
 ## Positioning & voice
 
-- Positioning: "I build websites and web apps the way an owner would — senior engineering fundamentals, AI-first workflow."
-- Messaging pillars: (1) builds like an owner (founded Physio & Ergo Fürth + Ikuna Glamping, built both sites), (2) engineering fundamentals × AI velocity (heatbeat engineering GmbH history, Claude-partnered workflow), (3) teacher-grade clarity in three languages.
-- Voice: **warm expert**. Approachable, plain verbs, active voice, no jargon, no hype. Copy explains; it never sells hard.
-- Tech ability in the foreground; teacher/founder story as evidence of versatility, never the headline.
+- Studio brand, not a personal portfolio. Wordmark `RENOVO` + `AI Web Studio`; Axel appears only on the Studio page (`/studio/`) and in legal pages.
+- Positioning: "Your website, rebuilt for the AI era." Modernise outdated business websites, add an AI assistant, build real web apps — in weeks, not quarters.
+- Lead offers in priority order: **1) relaunch/modernisation, 2) websites with a built-in AI assistant, 3) web apps with backends.**
+- Voice: studio voice, client's problem first. Plain language, no jargon, no hype, no hard sell. Speaks as "we" about the studio; avoids "I did X" biography on service pages.
+- Primary CTA everywhere: *Get a free website review* (send us your site, get an honest verdict).
 
-## Design system — "Camino v2"
+## Scope discipline — what we may promise
 
-Clean, stylish, professional, human, chronological. (v1 "Das Werkbuch" was rejected as too robotic; Camino v1's Fraunces serif was rejected as too playful and the green/amber palette wasn't Axel's taste. v2 keeps the human/chronological structure with a cleaner, more professional finish — Axel's own brief: "clean with a touch of dark pink, stylish but simple".)
+- **AI assistant claim is deliberately limited**: we build *new websites that ship with* a chat assistant trained on the client's own content. We do **not** promise retrofitting assistants into arbitrary existing sites, lead qualification, or booking automation. Do not inflate this claim — Axel set this boundary explicitly.
+- No pricing on the site. No blog. Contact is email only.
 
-- **Signature:** the chronological journey — Axel's path (teacher → EAFIT Medellín → heatbeat → founder ×2 → AI-first engineer) told in order along a dotted trail (`PathTimeline.astro`, white numbered markers) that draws itself in on scroll. Homepage is story-first; portrait in the hero on an offset pink tint plate.
-- **Color:** clean near-white ground (#FBFAF9), near-black plum-undertone text (#1B181A), ONE dark-pink accent (#A62655, hover #831C42) used with restraint (links, primary buttons, eyebrows, stat numbers, small pills), pink tint #F7E9EF for washes/plates, plum-black band #211A1F for the CTA. Tokens in `src/styles/tokens.css` are the single source of truth; every text/ground pair contrast-validated ≥4.6:1 — re-validate before changing any color.
-- **Shape:** disciplined-soft — 10–24px radii, pill buttons/nav, soft shadows, hairline dividers OK; one subtle radial pink wash top-right of each page (body::before).
-- **Type:** ONE family — Hanken Grotesk Variable for everything; hierarchy via weight (730 display / 400 body / 600–700 UI) and tight display tracking (-0.025em). No serifs, no mono, nothing playful. Self-hosted only (GDPR — never load Google Fonts CDN).
-- **Motion:** calm — gentle GSAP fade/rise reveals, scroll-scrubbed trail drawing, Lenis smooth scroll. No pinned sections. Every animation must have a `prefers-reduced-motion` fallback (motion system disables itself entirely).
+## Design system — dark studio
+
+- **Signature (the "wow"):** the hero **transformer** — an outdated 2011-style business website dissolving into its modern relaunch, draggable and auto-sweeping. `Transformer.astro` + `scripts/transformer.ts` + `scripts/siteRender.ts`. Both mock sites are drawn procedurally on canvas (no image assets) and localized via `data/renderLabels.ts`. The spectacle *is* the sales pitch — keep it on-message.
+- **Progressive enhancement, in this order:** canvas 2D composite paints first → Three.js shader morph (noise dissolve, chromatic seam, magenta glow) upgrades it after `load` + idle + in-viewport → `prefers-reduced-motion` stays on a static split. A canvas can hold only one context type, hence two stacked canvases (`#tx-canvas` WebGL, `#tx-fallback` 2D).
+- **Color:** dark canvas `#0B0A0C` with light content bands (`#FAF8FA`), one vivid magenta accent `#FF3D77`. Buttons are magenta with **near-black text** (5.8:1 — white on magenta fails). Sections declare `data-tone="dark|light"` and everything styles through the resolved `--bg/--fg/--line/--accent-text` tokens in `src/styles/tokens.css`. Re-validate contrast before changing any color.
+- **Type:** one family, Hanken Grotesk Variable. Hierarchy from weight (780 display) and tight tracking (-0.038em). Self-hosted only (GDPR — never load Google Fonts CDN).
+- **Motion:** hero entrance is **pure CSS** (`[data-hero-seq]`, see global.css) so above-the-fold text never waits on JS. Scroll reveals use IntersectionObserver + `.is-in` classes, armed by an inline `<head>` script that removes itself after 3.5s if the bundle never initialises. Never gate content behind scroll-position maths — it desynced with smooth scroll and left sections invisible.
 
 ## Stack & conventions
 
-- Astro 5 (static output, built-in i18n) + TypeScript. GSAP/ScrollTrigger, Lenis. Hand-written CSS with custom-property tokens — no Tailwind, no UI kits.
-- Content lives in per-language structured data (`src/data/{en,de,es}/`) sharing one schema; components never hardcode copy. Site is maintained via Claude Code sessions — keep content/data separation clean.
-- Root routes = English; `/de/` and `/es/` mirrors; hreflang triplets everywhere.
-- Performance is a feature: static output, `astro:assets` images, minimal JS islands, Lighthouse ≥95 target on every page.
-- Accessibility: semantic HTML, visible focus, token contrast checked, alt text everywhere.
-- Placeholder content pending from Axel is marked `TODO-CONTENT` (searchable).
+- Astro 7 (static, built-in i18n) + TypeScript, Three.js, GSAP ticker + Lenis, hand-written CSS tokens. No Tailwind, no UI kits.
+- Content lives in `src/data/{en,de,es}.ts` against one `SiteContent` type — translations cannot drift. Components never hardcode copy.
+- Routes are generated from the single map in `src/lib/i18n.ts` (`routes`), including localized slugs (`/de/ki-assistent/`, `/es/rediseno-web/`). Add a page there once and all three languages follow.
+- Studio identity (name, domain, email) is centralised in `studio` in `src/lib/i18n.ts`. `astro.config.mjs` `site` must match `studio.domain`.
+- Placeholders pending from Axel are marked `TODO-CONTENT`.
+
+## Verification (Lighthouse is currently unreliable here)
+
+The local Lighthouse CLI returns `NO_FCP` for every URL including `example.com` — the tool is broken in this environment, not the site. Verify with Playwright instead: CPU-throttle 4x via CDP, read `first-contentful-paint` / `layout-shift` / `longtask` from the performance timeline, and run `axe-core` for WCAG A/AA. Last run: FCP 48–172ms, CLS 0, zero long tasks, **0 axe violations** across 10 pages in 3 languages, no JS errors.
 
 ## Decisions log
 
-- 2026-07-10: Interview + analysis approved; concept "Das Werkbuch" chosen over Micromegas-full, Two Worlds, dark-tech "Signal".
-- Contact = email only (no form/booking). No pricing shown. No blog. Heatbeat named with role+stack, no internal detail.
-- SEO targets future domain `axelbraunschweiger.com`; until it exists, deploys go to GitHub Pages (account Micromegass) with **noindex** — do not remove noindex before the real domain is live.
-- German legal pages (Impressum, Datenschutzerklärung) are required — site serves a German commercial purpose.
-- Analytics: none until domain time; privacy-friendly only if added.
-- 2026-07-10 (later): Complete redesign. Axel rejected "Das Werkbuch" (too robotic); replaced with "Camino" — warm/human/calm/chronological. Journey timeline is the signature; Micromegas scale story removed.
-- 2026-07-10 (v2): Aesthetic refactor on Axel's feedback — Fraunces too playful, green/amber not his colors. Now: Hanken Grotesk only, clean neutrals + dark-pink accent (#A62655). Structure unchanged.
-- 2026-07-10: Deployed. Source lives on the `main` branch of github.com/Micromegass/Portfolio (old portfolio remains on `master` for history). CI (`.github/workflows/deploy.yml`) builds with `GITHUB_PAGES=true` and force-publishes `dist/` to `gh-pages` on every push to `main` → live at micromegass.github.io/Portfolio/ (noindexed). Live Lighthouse: perf 100 / a11y 100 / BP 100 (SEO intentionally suppressed by noindex; local prod build scores SEO 100).
+- 2026-07-10: Interview + strategy approved. Contact = email only; no pricing; no blog; German legal pages required; noindex until the real domain is live.
+- 2026-07-10: Design v1 "Das Werkbuch" (technical-drawing) rejected as too robotic. v2 "Camino" (warm, chronological) — structure liked, Fraunces serif rejected as too playful and green/amber palette rejected. v3 "Camino v2" — clean neutrals + dark pink, Hanken Grotesk.
+- 2026-07-21: **Repositioned from personal portfolio to studio site.** Axel: focus on the work (relaunches, AI chatbots in new sites, web apps), not on himself; story moves to a Studio tab; wanted more "wow" and Three.js. New IA: Home, three service pages, Work + 2 case studies, Studio, Contact, legal. New dark studio design with the WebGL transformer hero. Studio named **RENOVO** (Latin "I renew"; reads as renewal in DE/EN/ES) — chosen because Axel asked for a studio name without his surname.
+- 2026-07-21: Case studies presented as client projects (founder role mentioned only in the Studio timeline).
+- **Open:** `renovostudio.com` is a placeholder — confirm availability/trademark, then update `studio.domain` and `astro.config.mjs` together. Keep `GITHUB_PAGES=true` noindex until the real domain is live.
 
 ## Roadmap
 
-1. ✅ Strategy, concept (this file's basis)
-2. Build: scaffold → tokens/fonts → signature components → EN pages → DE/ES → motion → SEO/legal → deploy → audit
-3. Later: real domain + hosting switch (Cloudflare Pages/Vercel), flip noindex, add testimonial(s), fill WIP-project demos, OG-image refresh, possibly analytics
+1. ✅ Strategy, concept, full trilingual build, deploy
+2. Fill `TODO-CONTENT`: testimonial, lab project links, Impressum data, final domain + email
+3. Then: real domain + hosting (Cloudflare Pages/Vercel), flip noindex, OG images, first real AI-assistant reference project

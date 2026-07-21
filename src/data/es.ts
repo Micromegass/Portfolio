@@ -3,381 +3,509 @@ import type { SiteContent } from './types';
 export const es: SiteContent = {
   meta: {
     home: {
-      title: 'Axel Braunschweiger — Sitios web y aplicaciones, construidos como dueño',
+      title: 'RENOVO — AI Web Studio | Rediseño web, asistentes de IA, aplicaciones',
       description:
-        'Desarrollador web freelance e ingeniero AI-first entre Medellín y Alemania. Construyo sitios web, aplicaciones y MVPs para empresas — con el cuidado de alguien que ha fundado dos compañías propias.',
+        'Modernizamos sitios web de empresas, creamos webs con asistente de IA integrado y desarrollamos aplicaciones web con backend real. Multilingüe, rápido, en semanas.',
     },
-    services: {
-      title: 'Servicios — Sitios web, aplicaciones, integración de IA | Axel Braunschweiger',
+    relaunch: {
+      title: 'Rediseño y modernización de sitios web | RENOVO',
       description:
-        'Sitios web profesionales, rediseños, aplicaciones full-stack, MVPs, integraciones de IA y automatización. Proceso claro, asesoría honesta, calidad de producción.',
+        'Su web se ve y carga como si la hubieran hecho hace años. La reconstruimos con estándares actuales — rápida, mobile-first, optimizada para buscadores y multilingüe. Normalmente en tres a cinco semanas.',
+    },
+    ai: {
+      title: 'Sitios web con asistente de IA integrado | RENOVO',
+      description:
+        'Creamos sitios web que incluyen un asistente de chat basado en su propio contenido, que responde preguntas sobre servicios, precios y horarios las 24 horas.',
+    },
+    apps: {
+      title: 'Aplicaciones web con backend real | RENOVO',
+      description:
+        'Sistemas de reservas, portales de clientes, dashboards y MVPs. Aplicaciones full-stack con base de datos, API y autenticación — software de producción, no prototipos.',
     },
     work: {
-      title: 'Proyectos — Casos de estudio y trabajos actuales | Axel Braunschweiger',
+      title: 'Proyectos — sitios web y aplicaciones del estudio | RENOVO',
       description:
-        'Proyectos reales con riesgo real: dos empresas fundadas y sus sitios web, ingeniería de producción en heatbeat y un laboratorio de prototipos actuales.',
+        'Proyectos seleccionados: la web de una clínica con reservas en línea, una marca de hospitalidad con su sitio de reservas, y lo que el estudio construye actualmente.',
     },
     'case-physio': {
-      title: 'Caso de estudio: Physio & Ergo Fürth — sitio web y reservas',
+      title: 'Caso: web de clínica con reservas en línea | RENOVO',
       description:
-        'Cómo construí la presencia digital de mi propia clínica de fisioterapia y terapia ocupacional en Fürth, Alemania — de la marca a la reserva de citas.',
+        'Web, marca y reservas en línea para una clínica de fisioterapia y terapia ocupacional en Fürth, Alemania — hoy las citas llegan sin una sola llamada.',
     },
     'case-ikuna': {
-      title: 'Caso de estudio: Ikuna Glamping — marca y sitio web',
+      title: 'Caso: Ikuna Glamping — marca y sitio de reservas | RENOVO',
       description:
-        'Marca y sitio web para Ikuna Glamping, un refugio en las montañas de San Vicente Ferrer, Antioquia — diseñado y desarrollado por su cofundador.',
+        'Marca y sitio web visual para un refugio de glamping en Antioquia, Colombia — rápido en conexiones móviles rurales y con la atmósfera suficiente para vender la experiencia.',
     },
     about: {
-      title: 'Sobre mí — profesor, fundador, ingeniero AI-first | Axel Braunschweiger',
+      title: 'El estudio — así trabaja RENOVO',
       description:
-        'De enseñar en la Universidad EAFIT de Medellín a la ingeniería de producción en Alemania y la fundación de dos empresas. El camino detrás del trabajo.',
+        'Un estudio web AI-first, pequeño a propósito, entre Alemania y Colombia. Cómo trabajamos, en qué creemos al construir sitios web y quién está detrás del estudio.',
     },
     contact: {
-      title: 'Contacto — iniciar un proyecto | Axel Braunschweiger',
+      title: 'Iniciar un proyecto — revisión web gratuita | RENOVO',
       description:
-        'Cuénteme sobre su sitio web, aplicación o proyecto de automatización. Respondo personalmente, en español, inglés o alemán.',
+        'Envíenos su sitio web actual y reciba una valoración honesta de qué lo está frenando. Respondemos personalmente en español, inglés o alemán.',
     },
-    imprint: {
-      title: 'Aviso legal | Axel Braunschweiger',
-      description: 'Aviso legal de axelbraunschweiger.com.',
-    },
+    imprint: { title: 'Aviso legal | RENOVO', description: 'Aviso legal de RENOVO AI Web Studio.' },
     privacy: {
-      title: 'Política de privacidad | Axel Braunschweiger',
-      description: 'Política de privacidad de axelbraunschweiger.com.',
+      title: 'Política de privacidad | RENOVO',
+      description: 'Política de privacidad de RENOVO AI Web Studio. Sin cookies, sin rastreo.',
     },
   },
 
   nav: {
-    services: 'Servicios',
-    work: 'Proyectos',
-    about: 'Sobre mí',
-    contact: 'Contacto',
-    menuLabel: 'Menú',
-    homeAria: 'Axel Braunschweiger — inicio',
+    items: [
+      { page: 'relaunch', label: 'Rediseño' },
+      { page: 'ai', label: 'Asistente IA' },
+      { page: 'apps', label: 'Aplicaciones' },
+      { page: 'work', label: 'Proyectos' },
+      { page: 'about', label: 'Estudio' },
+    ],
+    cta: 'Iniciar un proyecto',
+    menuLabel: 'Navegación principal',
+    homeAria: 'RENOVO — inicio',
+    openMenu: 'Abrir menú',
+    closeMenu: 'Cerrar menú',
   },
 
   footer: {
-    role: 'Ingeniero AI-first · Desarrollador web',
-    locations: 'Fürth, Alemania ↔ Medellín, Colombia',
-    languagesLabel: 'Idiomas',
-    languages: 'ES · EN · DE',
+    blurb:
+      'Un estudio web AI-first. Reconstruimos sitios web desactualizados, integramos asistentes de IA y desarrollamos aplicaciones con backend real.',
+    servicesLabel: 'Servicios',
+    studioLabel: 'Estudio',
     contactLabel: 'Contacto',
+    locations: 'Fürth, Alemania ↔ Medellín, Colombia',
     legalImprint: 'Aviso legal',
     legalPrivacy: 'Privacidad',
-    colophon:
-      'Diseñado y construido a mano — con Claude como socio de desarrollo. Sin rastreadores, sin cookies.',
+    colophon: 'Hecho a mano con un flujo de trabajo AI-first. Sin rastreadores, sin cookies.',
   },
 
   home: {
-    kicker: 'Axel Braunschweiger · Ingeniero AI-first · Fürth ↔ Medellín',
-    headline: ['Software construido', 'como dueño.'],
-    sub: 'Diseño y construyo sitios web y aplicaciones para empresas — con el cuidado de alguien que ha fundado dos compañías propias. Fundamentos sólidos de ingeniería, un flujo de trabajo AI-first y cero jerga técnica en el camino.',
-    dims: [
-      { value: '02', label: 'empresas fundadas' },
-      { value: '03', label: 'idiomas de trabajo' },
-      { value: '02', label: 'continentes de casa' },
+    eyebrow: 'Rediseño web · Asistentes de IA · Aplicaciones web',
+    headline: ['Su sitio web,', 'reconstruido para', 'la era de la IA.'],
+    sub: 'Modernizamos sitios web desactualizados, creamos webs con un asistente de IA que responde a sus clientes a toda hora, y desarrollamos aplicaciones con backend real — en semanas, no en trimestres.',
+    ctaPrimary: 'Pedir una revisión gratuita',
+    ctaSecondary: 'Ver proyectos',
+    facts: [
+      { value: '3–5 semanas', label: 'del inicio al lanzamiento' },
+      { value: '100/100', label: 'puntuación Lighthouse habitual' },
+      { value: 'ES · EN · DE', label: 'multilingüe de fábrica' },
     ],
-    cta: { primary: 'Iniciar un proyecto', secondary: 'Ver el trabajo' },
-    journey: {
-      kicker: 'Mi camino',
-      title: 'Ha sido todo un camino.',
-      intro:
-        'Profesor, docente universitario, desarrollador, fundador — cada etapa me enseñó algo que mis clientes aprovechan hoy. Aquí está, en orden.',
-      link: 'Más sobre mí',
+    transformer: {
+      before: 'Antes',
+      after: 'Después',
+      hint: 'Arrastre para comparar — así se ve un rediseño.',
     },
     services: {
-      kicker: 'Servicios',
-      title: 'Lo que construyo',
-      items: [
-        {
-          title: 'Sitios web y rediseños',
-          desc: 'Sitios rápidos, precisos y amigables con los buscadores, que muestran un negocio como se merece.',
-        },
-        {
-          title: 'Aplicaciones y MVPs',
-          desc: 'Productos full-stack para fundadores — alcance honesto, entrega lista para producción.',
-        },
-        {
-          title: 'IA y automatización',
-          desc: 'Integraciones de IA, herramientas internas y flujos que eliminan horas de trabajo manual, silenciosamente.',
-        },
-      ],
-      link: 'Todos los servicios',
+      eyebrow: 'Qué hacemos',
+      title: 'Tres formas de modernizar su presencia web.',
+      intro:
+        'Cada proyecto empieza con la misma pregunta: ¿qué necesita realmente su negocio para ganar más clientes en línea?',
+      more: 'Saber más',
     },
     work: {
-      kicker: 'Trabajo seleccionado',
-      title: 'Pruebas, no promesas',
-      link: 'Todos los proyectos',
+      eyebrow: 'Proyectos seleccionados',
+      title: 'Negocios reales. Resultados reales.',
+      intro: 'Sitios web y sistemas de reservas con los que las empresas trabajan cada día.',
+      more: 'Todos los proyectos',
     },
-    testimonial: {
-      kicker: 'Trabajar juntos',
-      quote: '', // TODO-CONTENT: testimonio pendiente
-      attribution: '',
-    },
-  },
-
-  services: {
-    kicker: 'Servicios',
-    title: 'Alcance claro. Asesoría honesta. Calidad de producción.',
-    intro:
-      'Cada proyecto empieza con una conversación sobre lo que su negocio realmente necesita — a veces eso significa menos software del que esperaba. Esto es lo que construyo, y cómo.',
-    items: [
-      {
-        id: 'websites',
-        title: 'Sitios web y rediseños',
-        desc: 'Un sitio web es su empleado más paciente — debe ser rápido, preciso y persuasivo. Diseño y construyo sitios que cargan al instante, posicionan bien y se leen con claridad en cada idioma que hablan sus clientes. También tomo sitios existentes que se volvieron un desorden y les doy una base sólida.',
-        deliverables: [
-          'Diseño y desarrollo de una sola mano',
-          'Core Web Vitals y SEO excelentes',
-          'Multilingüe (ES / EN / DE)',
-          'Accesible y respetuoso de los datos',
-        ],
-      },
-      {
-        id: 'apps',
-        title: 'Aplicaciones web y MVPs',
-        desc: 'Para fundadores y equipos que necesitan software de verdad: sistemas de reservas, portales de clientes, dashboards, productos. Defino el alcance con honestidad, construyo con disciplina de producción y entrego algo que puede poner frente a usuarios — no un demo que reescribirá después.',
-        deliverables: [
-          'Desarrollo full-stack',
-          'Alcance honesto e hitos fijos',
-          'Listo para producción desde el día uno',
-          'Documentación y entrega',
-        ],
-      },
-      {
-        id: 'ai',
-        title: 'Integración de IA y automatización',
-        desc: 'Los proyectos de IA más valiosos rara vez son chatbots. Encuentro el trabajo repetitivo dentro de su negocio — documentos, correos, digitación, reportes — y construyo flujos de IA y herramientas internas que lo eliminan. Uso estos sistemas a diario en mis propias empresas.',
-        deliverables: [
-          'Flujos e integraciones de IA',
-          'Herramientas internas y dashboards',
-          'Automatización de procesos',
-          'Valor práctico y medible',
-        ],
-      },
-      {
-        id: 'consulting',
-        title: 'Consultoría y refactorización',
-        desc: 'Un segundo par de ojos senior: revisar una base de código existente, destrabar un proyecto estancado o asesorar sobre cómo la IA encaja realmente en su proceso de desarrollo. Directo, sin jerga, accionable.',
-        deliverables: [
-          'Revisión y refactorización de código',
-          'Estrategia técnica',
-          'Asesoría en flujos AI-first',
-        ],
-      },
-    ],
-    deliverablesLabel: 'Incluye',
     process: {
-      kicker: 'El proceso',
-      title: 'Así es trabajar conmigo',
-      intro: 'Sin agencias, sin intermediarios, sin sorpresas. Usted habla con la persona que lo construye.',
+      eyebrow: 'Cómo funciona',
+      title: 'Cuatro pasos. Sin sobrecoste de agencia.',
       steps: [
         {
-          title: 'Conversación',
-          body: 'Hablamos primero de su negocio, después del software. Gratis, directo, en español, inglés o alemán.',
+          title: 'Revisión gratuita',
+          body: 'Envíenos su sitio actual. Recibe una valoración honesta de qué vale la pena cambiar — y qué no.',
         },
         {
-          title: 'Propuesta',
-          body: 'Recibe un alcance por escrito en lenguaje claro: qué se construye, cuánto cuesta, cuándo se entrega.',
+          title: 'Propuesta cerrada',
+          body: 'Alcance, precio y fecha de lanzamiento en lenguaje claro. Sin facturación por horas ni sorpresas al final.',
         },
         {
           title: 'Construcción',
-          body: 'Ciclos cortos, progreso visible. Ve el producto real temprano y a menudo — nunca una sorpresa al final.',
+          body: 'Ve el resultado real desde la primera semana, y cada semana después. Sus comentarios entran de inmediato.',
         },
         {
-          title: 'Entrega',
-          body: 'Desplegado, documentado, explicado. Todo es suyo, y usted entiende lo que es suyo.',
+          title: 'Lanzamiento y entrega',
+          body: 'Desplegado, documentado y suyo. Seguimos disponibles para cambios si así lo quiere.',
+        },
+      ],
+    },
+    testimonial: { quote: '', attribution: '' }, // TODO-CONTENT
+  },
+
+  services: {
+    relaunch: {
+      navLabel: 'Rediseño',
+      cardTitle: 'Rediseño y modernización web',
+      cardDesc:
+        'Su sitio parece de 2014 y carga igual. Lo reconstruimos — el mismo negocio, con estándares actuales.',
+      eyebrow: 'Servicio 01',
+      title: 'Un sitio web que por fin está a la altura de su negocio.',
+      lead: 'La mayoría de los sitios web de empresa se hicieron hace años, por alguien que ya no está. Cargan lento, se rompen en el móvil y mandan clientes a la competencia sin que usted se entere. Los reconstruimos desde cero.',
+      problem: {
+        title: 'Lo que le cuesta una web desactualizada',
+        body: 'Los visitantes deciden en segundos. Un sitio lento, recargado o roto en el móvil dice que su negocio se quedó atrás, sea verdad o no. Los buscadores lo posicionan más abajo, así que menos gente lo encuentra. Y cada consulta que no llega es invisible: al cliente que se fue nunca lo ve.',
+      },
+      solution: {
+        title: 'Qué hacemos al respecto',
+        body: 'Conservamos lo que funciona de su negocio y reconstruimos todo lo demás: estructura clara, textos honestos, código moderno y rápido, y un diseño que se ve actual durante años, no meses. Su contenido se conserva, su posicionamiento queda protegido, y el nuevo sitio se construye para que alguien sin perfil técnico pueda mantenerlo.',
+      },
+      includesLabel: 'Qué incluye',
+      includes: [
+        'Diseño y desarrollo de una sola mano',
+        'Mobile-first, probado en dispositivos reales',
+        'Excelentes Core Web Vitals y SEO técnico',
+        'Multilingüe donde lo necesite (ES / EN / DE)',
+        'Contenido existente migrado, sin perder nada',
+        'Marcado accesible y hosting respetuoso con los datos',
+        'Despliegue, documentación y entrega',
+      ],
+      forWhomLabel: 'Encaja bien si',
+      forWhom: [
+        'Su sitio se rediseñó hace más de cuatro años',
+        'Se ve mal o es difícil de usar en el móvil',
+        'Le da reparo enviar el enlace a un cliente nuevo',
+        'Nadie en la empresa sabe cómo cambiar los textos',
+      ],
+      faqLabel: 'Preguntas frecuentes',
+      faq: [
+        {
+          q: '¿Cuánto tarda un rediseño?',
+          a: 'La mayoría de sitios de empresa pasan del inicio al lanzamiento en tres a cinco semanas. Los sitios grandes, con muchas páginas o varios idiomas, tardan más — en cualquier caso recibe una fecha cerrada en la propuesta.',
+        },
+        {
+          q: '¿Perderemos nuestro posicionamiento en Google?',
+          a: 'No. Las URLs existentes se mapean y redirigen, el contenido y los metadatos se conservan, y el sitio nuevo es técnicamente más sólido que el anterior. El posicionamiento suele mejorar, no caer.',
+        },
+        {
+          q: '¿Podemos editar el sitio nosotros mismos?',
+          a: 'Sí. Acordamos desde el principio qué partes quiere cambiar usted, preparamos el sitio en consecuencia y se lo explicamos en la entrega.',
+        },
+        {
+          q: '¿Cuánto cuesta?',
+          a: 'Cada proyecto se presupuesta individualmente y recibe un precio cerrado antes de empezar. La revisión gratuita le indica el rango aproximado, sin compromiso.',
+        },
+      ],
+    },
+
+    ai: {
+      navLabel: 'Asistente IA',
+      cardTitle: 'Sitios web con asistente de IA integrado',
+      cardDesc:
+        'Su nuevo sitio puede incluir un asistente de chat que responde preguntas de clientes desde su propio contenido, de día y de noche.',
+      eyebrow: 'Servicio 02',
+      title: 'Un sitio web que responde preguntas mientras usted duerme.',
+      lead: 'Las mismas preguntas llegan una y otra vez: qué ofrecen, cuánto cuesta, cuál es el horario, atienden mi seguro. Construimos sitios web con un asistente de chat que las responde desde su propio contenido — sus clientes reciben respuesta al instante y usted recupera sus noches.',
+      problem: {
+        title: 'Las preguntas no paran',
+        body: 'Cada consulta que la web podría haber respondido termina en una llamada, un correo o un cliente perdido que no tuvo ganas de preguntar. Fuera del horario es peor: quien mira su sitio a las nueve de la noche simplemente se va, y usted nunca se entera.',
+      },
+      solution: {
+        title: 'Un asistente que sí conoce su negocio',
+        body: 'Cuando construimos su sitio, podemos incluir un asistente de chat basado en su propio contenido: servicios, precios, horarios y preguntas frecuentes. Responde en el idioma del visitante, lo lleva a la página correcta y le indica cómo contactarles cuando una pregunta necesita una persona. Usted controla qué sabe y qué dice.',
+      },
+      includesLabel: 'Qué incluye',
+      includes: [
+        'Un asistente de chat integrado en el sitio que entregamos',
+        'Basado en sus servicios, precios y preguntas frecuentes',
+        'Responde en español, inglés y alemán',
+        'Deriva a correo o teléfono cuando corresponde',
+        'Usted define el tono y los límites',
+        'Fácil de actualizar cuando su negocio cambia',
+      ],
+      forWhomLabel: 'Encaja bien si',
+      forWhom: [
+        'Responde las mismas preguntas todas las semanas',
+        'Sus clientes visitan la web fuera del horario comercial',
+        'Sus servicios necesitan explicación antes de que alguien reserve',
+        'Atiende clientes en más de un idioma',
+      ],
+      faqLabel: 'Preguntas frecuentes',
+      faq: [
+        {
+          q: '¿Pueden añadir un asistente a nuestra web actual?',
+          a: 'Nos enfocamos en construir sitios nuevos que incluyen el asistente desde el principio — así encaja con el diseño, el contenido y la estructura. Si ya tiene un sitio, la recomendación honesta suele ser un rediseño con el asistente incluido.',
+        },
+        {
+          q: '¿Se inventa respuestas?',
+          a: 'Responde a partir del contenido que usted le da y está configurado para decir que no sabe y derivar a un contacto real, en lugar de inventar. Eso lo probamos juntos antes del lanzamiento.',
+        },
+        {
+          q: '¿Cumple con la protección de datos?',
+          a: 'La configuración se elige teniendo en cuenta los requisitos de protección de datos alemanes y europeos, se declara en su política de privacidad y se limita a los datos mínimos necesarios. Revisamos los detalles con usted antes de lanzar.',
+        },
+        {
+          q: '¿Cuánto cuesta mantenerlo?',
+          a: 'Hay un coste mensual reducido por el asistente, según cuántas conversaciones atienda. En la propuesta recibe una estimación realista.',
+        },
+      ],
+    },
+
+    apps: {
+      navLabel: 'Aplicaciones',
+      cardTitle: 'Aplicaciones web con backend real',
+      cardDesc:
+        'Sistemas de reservas, portales de clientes, dashboards, MVPs — software de producción con base de datos detrás, no prototipos.',
+      eyebrow: 'Servicio 03',
+      title: 'Cuando una web ya no alcanza.',
+      lead: 'Algunos negocios necesitan software, no páginas: algo que guarde datos, tenga usuarios, envíe correos y haga trabajo real. Construimos aplicaciones web full-stack — con base de datos, API y autenticación — y las llevamos a producción.',
+      problem: {
+        title: 'Las hojas de cálculo dejan de escalar',
+        body: 'Las reservas viven en el calendario de una sola persona. Los datos de clientes están en una hoja en la que nadie confía. Los procesos existen solo en la cabeza de alguien. Funciona hasta que deja de funcionar — y el software estándar o no encaja con su forma de trabajar, o cuesta más cada año a medida que crece.',
+      },
+      solution: {
+        title: 'Software hecho a la medida de su negocio',
+        body: 'Construimos la aplicación que su negocio realmente necesita: reservas y agenda, portales de clientes, dashboards internos, o la primera versión de un producto que quiere llevar al mercado. Un flujo de trabajo AI-first significa que lo que antes le tomaba un trimestre a un equipo ahora toma semanas — con los fundamentos de ingeniería intactos debajo: modelo de datos serio, autenticación, pruebas y un despliegue confiable.',
+      },
+      includesLabel: 'Qué incluye',
+      includes: [
+        'Desarrollo full-stack: frontend, API, base de datos',
+        'Cuentas de usuario y autenticación donde haga falta',
+        'Alcance honesto con hitos fijos',
+        'Despliegue en producción, monitoreo y copias de seguridad',
+        'Documentación y una entrega de verdad',
+        'Construido para crecer más allá de sus primeros cien clientes',
+      ],
+      forWhomLabel: 'Encaja bien si',
+      forWhom: [
+        'Lleva el negocio con hojas de cálculo y calendarios',
+        'El software estándar casi encaja, pero no del todo',
+        'Es fundador y necesita una primera versión frente a usuarios',
+        'Su equipo repite el mismo proceso manual todos los días',
+      ],
+      faqLabel: 'Preguntas frecuentes',
+      faq: [
+        {
+          q: '¿Cuánto tarda un MVP?',
+          a: 'Una primera versión enfocada suele tomar de cuatro a ocho semanas. Recortamos el alcance a propósito hasta lo más pequeño que sea genuinamente útil, y seguimos construyendo cuando usuarios reales ya lo han tocado.',
+        },
+        {
+          q: '¿De quién es el código?',
+          a: 'Suyo, por completo. Todo se entrega con documentación y nada queda atado a nosotros.',
+        },
+        {
+          q: '¿Qué tecnología usan?',
+          a: 'Herramientas probadas y sanamente aburridas: TypeScript, frameworks web modernos, PostgreSQL, despliegue en contenedores. El stack se elige según el proyecto y para que cualquier desarrollador competente pueda mantenerlo después.',
+        },
+        {
+          q: '¿Pueden retomar un proyecto existente?',
+          a: 'A menudo sí. Empezamos con una revisión breve del código y le decimos honestamente si continuar o reconstruir es la mejor inversión.',
         },
       ],
     },
   },
 
   work: {
-    kicker: 'Proyectos',
-    title: 'Proyectos reales, riesgo real',
+    eyebrow: 'Proyectos',
+    title: 'Sitios web con los que las empresas trabajan cada día.',
     intro:
-      'La prueba más fuerte que puedo ofrecer: fundé dos empresas y construí su presencia digital yo mismo. Cuando construyo para usted, construyo con el mismo sentido de dueño.',
-    caseLabel: 'Caso de estudio',
-    visitLabel: 'Visitar sitio en vivo',
-    readLabel: 'Leer caso de estudio',
-    employment: {
-      kicker: 'Trayectoria en ingeniería',
-      title: 'heatbeat engineering GmbH',
-      body: 'Antes de independizarme trabajé como desarrollador full-stack en heatbeat engineering, en Alemania — responsable del ciclo completo de desarrollo: arquitectura de backend, APIs, visualización de datos, frontend, despliegue. Esa disciplina de producción es la base sobre la que descansa todo lo demás.',
-      stack: ['Python', 'Django', 'PostgreSQL', 'React', 'Docker', 'D3.js', 'REST APIs', 'DevOps'],
-      stackLabel: 'Stack',
-    },
-    lab: {
-      kicker: 'Construyendo ahora',
-      title: 'El laboratorio',
-      intro:
-        'Prototipos funcionales que estoy construyendo en este momento — AI-first, de la idea al software usable en semanas. Pregúnteme por cualquiera.',
-      statusLabel: 'Estado',
-      items: [
-        {
-          title: 'App de recordatorios',
-          desc: 'Una herramienta de recordatorios calmada y con criterio, que trata la atención como un recurso escaso.', // TODO-CONTENT
-          status: 'Prototipo funcional',
-        },
-        {
-          title: 'Calculadora de precios de tatuajes',
-          desc: 'Estimaciones de precio instantáneas y transparentes para estudios de tatuaje y sus clientes.', // TODO-CONTENT
-          status: 'Prototipo funcional',
-        },
-        {
-          title: 'Buscador de vuelos',
-          desc: 'Una búsqueda de vuelos enfocada en rutas que las grandes plataformas manejan mal.', // TODO-CONTENT
-          status: 'Prototipo funcional',
-        },
-        {
-          title: 'Guía turística de Medellín',
-          desc: 'Una guía de Medellín hecha por alguien que de verdad vive allí.', // TODO-CONTENT
-          status: 'Prototipo funcional',
-        },
-      ],
-    },
+      'Dos negocios en marcha, construidos de principio a fin — marca, web, reservas — y lo que el estudio está construyendo ahora.',
+    visitLabel: 'Ver sitio en vivo',
+    readLabel: 'Leer el caso',
+    labEyebrow: 'Laboratorio del estudio',
+    labTitle: 'Lo que estamos construyendo ahora',
+    labIntro:
+      'Productos que el estudio desarrolla internamente para afinar las herramientas y el flujo de trabajo. Pregúntenos por cualquiera.',
+    lab: [
+      {
+        title: 'App de recordatorios',
+        desc: 'Una herramienta de recordatorios calmada que trata la atención como un recurso escaso.',
+        tag: 'Prototipo funcional',
+      },
+      {
+        title: 'Calculadora de precios de tatuajes',
+        desc: 'Estimaciones de precio instantáneas y transparentes para estudios de tatuaje y sus clientes.',
+        tag: 'Prototipo funcional',
+      },
+      {
+        title: 'Buscador de vuelos',
+        desc: 'Una búsqueda de vuelos enfocada en rutas que las grandes plataformas manejan mal.',
+        tag: 'Prototipo funcional',
+      },
+      {
+        title: 'Guía de Medellín',
+        desc: 'Una guía de la ciudad hecha por alguien que vive allí.',
+        tag: 'Prototipo funcional',
+      },
+    ],
   },
 
   cases: {
     physio: {
       client: 'Physio & Ergo am Fürther Hauptbahnhof',
-      role: 'Fundador · Diseño · Desarrollo',
+      sector: 'Salud · Alemania',
       url: 'https://www.physio-und-ergo-fuerth.de',
       urlLabel: 'physio-und-ergo-fuerth.de',
+      cardTitle: 'Una clínica que llena su propia agenda',
+      cardDesc:
+        'Web, marca y reservas en línea para una clínica de fisioterapia y terapia ocupacional — hoy las citas llegan sin una sola llamada.',
+      metrics: [
+        { value: '24/7', label: 'reservas en línea' },
+        { value: '0', label: 'llamadas de ida y vuelta' },
+      ],
       title: 'Una clínica que llena su propia agenda',
       summary:
-        'Fundé una clínica de fisioterapia y terapia ocupacional en la estación central de Fürth, Alemania — y construí su presencia digital: marca, sitio web y reservas en línea. Cuando el sitio web es la puerta de entrada de su propia empresa, uno aprende qué convierte de verdad.',
+        'Una clínica de fisioterapia y terapia ocupacional junto a la estación central de Fürth necesitaba más que una tarjeta de presentación en línea: los pacientes tenían que entender los tratamientos, conocer al equipo y reservar sin levantar el teléfono.',
       specs: [
         { label: 'Sector', value: 'Salud · Alemania' },
-        { label: 'Rol', value: 'Fundador, diseñador, desarrollador' },
-        { label: 'Alcance', value: 'Marca · Sitio web · Reservas en línea' },
+        { label: 'Alcance', value: 'Marca · Web · Reservas en línea' },
+        { label: 'Idiomas', value: 'Alemán' },
         { label: 'Estado', value: 'En vivo y operando' },
       ],
       sections: [
         {
-          heading: 'El problema',
-          body: 'Las clínicas de terapia en Alemania funcionan a punta de llamadas y listas de espera. Los pacientes quieren saber tres cosas rápido: qué tratan, quién lo trata y cuándo hay cita. La mayoría de los sitios de clínicas no responde ninguna.',
+          heading: 'El reto',
+          body: 'Las clínicas de terapia en Alemania funcionan a base de llamadas y listas de espera. Los pacientes quieren saber tres cosas rápido: qué tratan, quién lo trata y cuándo hay cita. La mayoría de webs de clínicas no responde ninguna, y cada pregunta sin responder se convierte en una llamada en plena consulta.',
         },
         {
-          heading: 'La construcción',
-          body: 'Un sitio rápido, cálido y mobile-first, con toda la oferta de fisioterapia y terapia ocupacional explicada con claridad, el equipo presentado personalmente y la reserva en línea al frente y al centro — las citas se agendan sin una sola llamada, y la clínica puede prometer tiempos de espera cortos.',
+          heading: 'Qué construimos',
+          body: 'Una web rápida, cálida y mobile-first: toda la oferta de fisioterapia y terapia ocupacional explicada en lenguaje claro, el equipo presentado de forma personal y la reserva en línea al centro. Las citas ocurren sin una sola llamada, que es justo lo que permite a la clínica prometer tiempos de espera cortos.',
         },
         {
-          heading: 'La perspectiva de dueño',
-          body: 'Como es mi propia empresa, cada decisión fue una decisión de negocio: qué tratamientos destacar, cómo formular las preguntas de seguros, dónde la fricción de reserva pierde un paciente. Esa perspectiva entra hoy en cada proyecto de cliente.',
+          heading: 'Por qué funciona',
+          body: 'Cada decisión se tomó desde el negocio, no desde el diseño: qué tratamientos destacar, cómo formular las preguntas de seguros, dónde la fricción de reserva pierde un paciente en silencio. El sitio está estructurado para que la clínica añada tratamientos y personas sin llamar a un desarrollador.',
         },
       ],
-      outcomeKicker: 'Lo que hace por el negocio',
+      outcomeLabel: 'Lo que aporta al negocio',
       outcomes: [
-        'Las citas se reservan en línea, a toda hora, sin ping-pong telefónico',
-        'La clínica presenta a todo su equipo y cada especialidad con claridad',
-        'Un negocio real funciona sobre este sitio todos los días',
+        'Las citas se reservan en línea a toda hora, sin ping-pong telefónico',
+        'Todo el equipo y cada especialidad se presentan con claridad',
+        'Una clínica real funciona sobre este sitio todos los días',
       ],
     },
     ikuna: {
       client: 'Ikuna Glamping',
-      role: 'Cofundador · Marca · Diseño · Desarrollo',
+      sector: 'Hospitalidad · Colombia',
       url: 'https://ikunaglamping.com',
       urlLabel: 'ikunaglamping.com',
+      cardTitle: 'Un refugio de montaña con puerta digital',
+      cardDesc:
+        'Marca y sitio de reservas visual para un refugio de glamping en Antioquia — rápido para el campo, con la atmósfera suficiente para vender la sensación.',
+      metrics: [
+        { value: '<1s', label: 'carga en móvil' },
+        { value: 'ES', label: 'español primero' },
+      ],
       title: 'Un refugio de montaña con puerta digital',
       summary:
-        'Ikuna es un refugio de glamping en las montañas de San Vicente Ferrer, Antioquia — a una hora de Medellín. Como cofundador construí la marca y el sitio web: una experiencia calmada y visual, en español, que convierte las ganas de escaparse en reservas.',
+        'Ikuna es un refugio de glamping en las montañas de San Vicente Ferrer, Antioquia, a una hora de Medellín. La marca y el sitio se construyeron juntos: una experiencia calmada y visual, en español, que convierte las ganas de escaparse en reservas.',
       specs: [
         { label: 'Sector', value: 'Hospitalidad · Colombia' },
-        { label: 'Rol', value: 'Cofundador, marca, desarrollador' },
-        { label: 'Alcance', value: 'Marca · Sitio web · Flujo de reservas' },
+        { label: 'Alcance', value: 'Marca · Web · Flujo de reservas' },
+        { label: 'Idiomas', value: 'Español' },
         { label: 'Estado', value: 'En vivo y operando' },
       ],
       sections: [
         {
-          heading: 'El problema',
-          body: 'El glamping vende una sensación. Un sitio lento y recargado mata esa sensación antes de que el huésped vea las montañas. El sitio tenía que ser atmosférico, rápido en conexiones móviles rurales e inconfundiblemente local.',
+          heading: 'El reto',
+          body: 'El glamping vende una sensación. Un sitio lento y recargado la destruye antes de que el huésped vea las montañas. El sitio tenía que ser atmosférico, rápido en las conexiones móviles rurales que la gente realmente usa, e inconfundiblemente local en vez de una plantilla genérica de reservas.',
         },
         {
-          heading: 'La construcción',
-          body: 'Un sitio visual, en español primero, construido para el rendimiento: primero la historia del lugar («conecta con lo esencial»), después los detalles prácticos, y la reserva siempre a un toque de distancia. Cada fotografía, palabra y sección sirve a la misma calma que el refugio mismo.',
+          heading: 'Qué construimos',
+          body: 'Un sitio visual, en español primero, construido para el rendimiento: primero la historia del lugar, después los detalles prácticos, y la reserva siempre a un toque. Cada fotografía, palabra y sección sirven a la misma calma que el refugio mismo.',
         },
         {
-          heading: 'La perspectiva de dueño',
-          body: 'La hospitalidad me enseñó honestidad de conversión: nadie reserva por una lista de características. Reservan porque la página les hizo sentir el lugar. Esa lección la llevo a cada sitio de marketing que construyo.',
+          heading: 'Por qué funciona',
+          body: 'Nadie reserva un retiro por una lista de características. Reservan porque la página les hizo sentir el lugar — así que el diseño gasta su presupuesto en atmósfera y velocidad, y elimina todo lo que compita con la decisión de venir.',
         },
       ],
-      outcomeKicker: 'Lo que hace por el negocio',
+      outcomeLabel: 'Lo que aporta al negocio',
       outcomes: [
-        'Los huéspedes llegan a la reserva ya convencidos de la experiencia',
+        'Los huéspedes llegan al paso de reserva ya convencidos',
         'Corre rápido en las conexiones móviles que los huéspedes realmente tienen',
-        'La marca — del nombre a la tipografía — nació junto con el sitio',
+        'La marca, del nombre a la tipografía, nació junto con el sitio',
       ],
     },
   },
 
   caseMeta: {
-    kicker: 'Caso de estudio',
-    specLabel: 'De un vistazo',
+    eyebrow: 'Caso de estudio',
+    specLabel: 'El proyecto de un vistazo',
     backLabel: 'Todos los proyectos',
     nextLabel: 'Siguiente caso',
   },
 
   about: {
-    kicker: 'Sobre mí',
-    title: 'Hacer entendible lo complicado',
-    intro:
-      'Esa frase ha sido mi descripción de trabajo tres veces: como profesor, como fundador y ahora como ingeniero. Solo cambió el material.',
-    portraitAlt: 'Retrato de Axel Braunschweiger',
-    chapters: [
+    eyebrow: 'El estudio',
+    title: 'Estudio pequeño. Trabajo senior. Flujo AI-first.',
+    lead: 'RENOVO es un estudio web deliberadamente pequeño que trabaja entre Alemania y Colombia. Pequeño significa que siempre habla con la persona que construye su proyecto. AI-first significa que lo que antes le tomaba un trimestre a un equipo ahora toma semanas — sin renunciar a los fundamentos de ingeniería que hay debajo.',
+    principlesLabel: 'Cómo trabajamos',
+    principles: [
+      {
+        title: 'Le decimos qué no construiríamos',
+        body: 'A veces la respuesta honesta es que necesita menos software del que esperaba, o algo distinto por completo. Esa respuesta llega antes que la factura.',
+      },
+      {
+        title: 'Ve el resultado real desde temprano',
+        body: 'Nada de presentaciones haciendo las veces de progreso. Desde la primera semana hay un sitio o una aplicación funcionando en una URL real, y mejora cada semana.',
+      },
+      {
+        title: 'Lenguaje claro, siempre',
+        body: 'Nunca debería necesitar un traductor para entender por qué está pagando. Cada propuesta, actualización y entrega se escribe para que un dueño sin perfil técnico la siga.',
+      },
+      {
+        title: 'La velocidad es una función',
+        body: 'Cada sitio que entregamos apunta a las mejores puntuaciones de Lighthouse. La velocidad no es vanidad: decide su posicionamiento, cuánto se quedan los visitantes y cuántos se vuelven clientes.',
+      },
+    ],
+    personEyebrow: 'Detrás del estudio',
+    personTitle: 'Axel Braunschweiger',
+    personLead:
+      'Profesor, docente universitario, desarrollador, fundador — el camino hasta aquí no fue una línea recta, y resulta que ese es justamente el punto. Dirigir dos negocios enseña qué tiene que rendir el software; enseñar enseña a explicarlo sin jerga.',
+    portraitAlt: 'Retrato de Axel Braunschweiger, fundador de RENOVO',
+    timelineLabel: 'El camino hasta aquí',
+    timeline: [
       {
         period: 'La base',
         title: 'Profesor de inglés, economía y filosofía',
-        body: 'Estudié inglés, economía y filosofía y me hice profesor. Pararse frente a un salón enseña algo que ningún bootcamp puede: tomar algo complejo y hacerlo aterrizar. Esa habilidad la uso todos los días — en revisiones de código, en propuestas, explicándole IA a empresarios escépticos.',
+        body: 'Estudió inglés, economía y filosofía, y luego enseñó. Pararse frente a un salón enseña algo que ningún bootcamp puede: cómo hacer que algo complejo aterrice de verdad. Esa habilidad aparece todos los días, en las propuestas y al explicar IA a empresarios escépticos.',
       },
       {
         period: 'Medellín',
-        title: 'Universidad EAFIT, Colombia',
-        body: 'Me mudé a Colombia y enseñé dos años en la Universidad EAFIT de Medellín. En algún punto entre clases empecé a escribir código — y me di cuenta de que no quería parar. Completé el bootcamp presencial de Make it Real: doce semanas intensas de Ruby, Rails, JavaScript y proyectos reales.',
+        title: 'Docente en la Universidad EAFIT, Colombia',
+        body: 'Dos años enseñando en la Universidad EAFIT de Medellín. En algún punto entre clases llegaron las primeras líneas de código — y después el bootcamp presencial de Make it Real: doce semanas intensivas de Ruby, Rails, JavaScript y proyectos reales.',
       },
       {
         period: 'Alemania',
         title: 'Desarrollador full-stack en heatbeat engineering',
-        body: 'De regreso en Alemania entré a heatbeat engineering como desarrollador full-stack: Python, Django, PostgreSQL, React, Docker. Fui responsable de funcionalidades a lo largo de todo el ciclo — arquitectura, APIs, visualización de datos, despliegue. Software de producción, responsabilidad de producción.',
+        body: 'Desarrollo full-stack en heatbeat engineering GmbH: Python, Django, PostgreSQL, React, Docker. Responsabilidad sobre funcionalidades en todo el ciclo — arquitectura, APIs, visualización de datos, despliegue. Software de producción, responsabilidad de producción.',
       },
       {
         period: 'Fundar',
-        title: 'Dos empresas propias',
-        body: 'Fundé una clínica de fisioterapia y terapia ocupacional en Fürth, y cofundé Ikuna Glamping en las montañas colombianas — y construí la presencia digital de ambas. Dirigir negocios cambió cómo construyo software: hoy pienso en ingresos, operaciones y confianza del cliente, no solo en funcionalidades.',
+        title: 'Dos empresas, dos sitios web',
+        body: 'Fundó una clínica de fisioterapia y terapia ocupacional en Fürth y cofundó Ikuna Glamping en las montañas colombianas, construyendo la presencia digital de ambas. Dirigir negocios cambia cómo se construye software: se empieza a pensar en ingresos, operaciones y confianza del cliente, no en funcionalidades.',
       },
       {
-        period: 'Ahora',
-        title: 'Ingeniero AI-first',
-        body: 'Hoy construyo con Claude como socio diario de desarrollo. No como atajo — como multiplicador sobre fundamentos sólidos de ingeniería. Cambió lo que una sola persona puede entregar: sitios de producción, aplicaciones y automatizaciones en semanas, con una calidad que firmo con mi nombre. Este portafolio está construido exactamente así.',
+        period: 'Hoy',
+        title: 'RENOVO',
+        body: 'El estudio junta las dos mitades: fundamentos sólidos de ingeniería con un flujo de trabajo AI-first, dirigido a negocios que necesitan que su presencia web por fin haga su trabajo. Este sitio está construido exactamente así.',
       },
     ],
-    now: {
-      kicker: 'Hoy',
-      title: 'Entre Fürth y Medellín',
-      body: 'Divido mi tiempo entre Alemania y Colombia y trabajo con clientes en ambos mundos — en español, inglés o alemán. Esté donde esté, usted habla directamente con la persona que diseña, construye y entrega su software.',
-    },
     facts: [
-      { label: 'Base', value: 'Fürth (DE) ↔ Medellín (CO)' },
-      { label: 'Idiomas', value: 'Español · Inglés · Alemán' },
-      { label: 'Enfoque', value: 'Sitios web · Aplicaciones · Flujos de IA' },
+      { label: 'Con base en', value: 'Fürth, Alemania ↔ Medellín, Colombia' },
+      { label: 'Idiomas de trabajo', value: 'Español · Inglés · Alemán' },
+      { label: 'Enfoque', value: 'Rediseños · Asistentes de IA · Aplicaciones' },
       { label: 'Método', value: 'AI-first, con base de ingeniería' },
     ],
   },
 
   contact: {
-    kicker: 'Contacto',
-    title: 'Cuénteme sobre su proyecto',
-    body: 'Un correo honesto es suficiente: qué hace su negocio, qué necesita y dónde le duele hoy. Leo todo yo mismo y respondo personalmente — normalmente dentro de un día hábil.',
+    eyebrow: 'Contacto',
+    title: 'Envíenos su sitio web. Reciba una valoración honesta.',
+    body: 'Basta un correo con la dirección de su sitio actual y qué le molesta de él. Recibe una revisión breve y gratuita de qué lo está frenando y qué implicaría realmente un rediseño — sin presentación de ventas, sin compromiso.',
     emailLabel: 'Escriba a',
-    email: 'axelbraunschweiger@gmail.com', // TODO-CONTENT: cambiar a correo del dominio cuando exista
     availability: 'Actualmente aceptando proyectos',
-    languagesNote: 'En español, inglés o alemán — el que le quede más fácil.',
+    languagesNote: 'En español, inglés o alemán — el que le resulte más fácil.',
+    reviewTitle: 'Qué cubre la revisión gratuita',
+    reviewBody:
+      'Velocidad y comportamiento en el móvil, cómo aparece en las búsquedas, qué tan claro explica el sitio lo que usted hace, y los dos o tres cambios que más diferencia harían. Si un rediseño no le conviene, se lo diremos.',
   },
 
   cta: {
-    kicker: 'Siguiente paso',
-    title: 'Construyamos algo que se pague solo.',
-    body: 'Un sitio web, una aplicación, una automatización — o simplemente una segunda opinión. La primera conversación es gratis y refrescantemente libre de jerga.',
+    eyebrow: 'Siguiente paso',
+    title: 'Averigüemos qué podría estar haciendo su web por usted.',
+    body: 'Un rediseño, un asistente de IA, una aplicación web — o simplemente una segunda opinión honesta. La primera conversación es gratis y refrescantemente libre de jerga.',
     button: 'Iniciar un proyecto',
   },
 
@@ -386,7 +514,8 @@ export const es: SiteContent = {
       title: 'Aviso legal',
       body: [
         'Información según § 5 TMG (ley alemana de telemedios).',
-        'Axel Braunschweiger', // TODO-CONTENT: datos completos del aviso legal
+        'RENOVO — AI Web Studio', // TODO-CONTENT: datos legales completos
+        'Titular: Axel Braunschweiger',
         'Contacto: axelbraunschweiger@gmail.com',
         'Responsable del contenido según § 55 Abs. 2 RStV: Axel Braunschweiger.',
       ],
@@ -394,17 +523,17 @@ export const es: SiteContent = {
     privacy: {
       title: 'Política de privacidad',
       body: [
-        'Este sitio web es privado por diseño: no usa cookies, no tiene herramientas de analítica y no carga recursos de terceros. Todas las fuentes y archivos se sirven desde el propio servidor del sitio.',
-        'Archivos de registro del servidor: el proveedor de hosting puede almacenar automáticamente datos técnicos de acceso (como dirección IP, fecha y hora, tipo de navegador) por seguridad y operación. Estos datos no se cruzan con otras fuentes y se eliminan según la política de retención del proveedor.',
-        'Contacto por correo: si me escribe, su mensaje y dirección se usan únicamente para responderle. Responsable: Axel Braunschweiger.', // TODO-CONTENT: completar cuando el aviso legal y el hosting sean finales
-        'Usted tiene derecho a acceder, corregir y eliminar los datos personales que le conciernen (art. 15–17 RGPD).',
+        'Este sitio web es privado por diseño: no usa cookies, no tiene analítica y no carga recursos de terceros. Todas las fuentes y archivos se sirven desde el propio servidor del sitio.',
+        'Archivos de registro del servidor: el proveedor de hosting puede almacenar automáticamente datos técnicos de acceso (dirección IP, fecha y hora, tipo de navegador) por seguridad y operación. Estos datos no se cruzan con otras fuentes y se eliminan según la política de retención del proveedor.',
+        'Contacto por correo: si nos escribe, su mensaje y dirección se usan únicamente para responderle. Responsable: Axel Braunschweiger.', // TODO-CONTENT
+        'Tiene derecho a acceder, corregir y eliminar los datos personales que le conciernen (art. 15–17 RGPD).',
       ],
     },
   },
 
   notFound: {
-    title: 'Esta página se perdió en el camino',
-    body: 'La página que busca no existe — quizás se movió, quizás nunca existió. Volvamos al sendero.',
+    title: 'Esta página se movió o nunca existió.',
+    body: 'Puede que el enlace esté desactualizado. Todo lo que hace el estudio está a un clic desde la página de inicio.',
     link: 'Volver al inicio',
   },
 };

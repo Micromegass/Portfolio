@@ -3,9 +3,21 @@ export type Locale = 'en' | 'de' | 'es';
 export const locales: Locale[] = ['en', 'de', 'es'];
 export const defaultLocale: Locale = 'en';
 
+/** Studio identity — change here to rename the studio everywhere structural. */
+export const studio = {
+  name: 'RENOVO',
+  tagline: { en: 'AI Web Studio', de: 'AI Web Studio', es: 'AI Web Studio' },
+  /** TODO-CONTENT: confirm before launch; drives canonicals + hreflang. */
+  domain: 'renovostudio.com',
+  email: 'axelbraunschweiger@gmail.com',
+  person: 'Axel Braunschweiger',
+};
+
 export type PageKey =
   | 'home'
-  | 'services'
+  | 'relaunch'
+  | 'ai'
+  | 'apps'
   | 'work'
   | 'case-physio'
   | 'case-ikuna'
@@ -14,13 +26,24 @@ export type PageKey =
   | 'imprint'
   | 'privacy';
 
-/**
- * Localized slugs per page. SEO: URLs speak the visitor's language.
- * English lives at the root (no /en prefix).
- */
+/** Localized slugs. English lives at the root (no /en prefix). */
 export const routes: Record<PageKey, Record<Locale, string>> = {
   home: { en: '/', de: '/de/', es: '/es/' },
-  services: { en: '/services/', de: '/de/leistungen/', es: '/es/servicios/' },
+  relaunch: {
+    en: '/website-relaunch/',
+    de: '/de/website-relaunch/',
+    es: '/es/rediseno-web/',
+  },
+  ai: {
+    en: '/ai-assistant/',
+    de: '/de/ki-assistent/',
+    es: '/es/asistente-ia/',
+  },
+  apps: {
+    en: '/web-apps/',
+    de: '/de/web-apps/',
+    es: '/es/aplicaciones-web/',
+  },
   work: { en: '/work/', de: '/de/projekte/', es: '/es/proyectos/' },
   'case-physio': {
     en: '/work/physio-ergo-fuerth/',
@@ -32,13 +55,13 @@ export const routes: Record<PageKey, Record<Locale, string>> = {
     de: '/de/projekte/ikuna-glamping/',
     es: '/es/proyectos/ikuna-glamping/',
   },
-  about: { en: '/about/', de: '/de/ueber-mich/', es: '/es/sobre-mi/' },
+  about: { en: '/studio/', de: '/de/studio/', es: '/es/estudio/' },
   contact: { en: '/contact/', de: '/de/kontakt/', es: '/es/contacto/' },
   imprint: { en: '/imprint/', de: '/de/impressum/', es: '/es/aviso-legal/' },
   privacy: { en: '/privacy/', de: '/de/datenschutz/', es: '/es/privacidad/' },
 };
 
-/** Prefix a localized route with Astro's base (GitHub Pages serves under /portfolio). */
+/** Prefix a localized route with Astro's base (GitHub Pages serves under /Portfolio). */
 export function href(page: PageKey, locale: Locale): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   return base + routes[page][locale];
@@ -55,9 +78,12 @@ export const localeLabels: Record<Locale, string> = {
   es: 'Español',
 };
 
-/** BCP47 for <html lang> and og:locale. */
 export const ogLocale: Record<Locale, string> = {
   en: 'en_US',
   de: 'de_DE',
   es: 'es_CO',
 };
+
+/** Service pages, in the order they appear in nav and on the homepage. */
+export const servicePages = ['relaunch', 'ai', 'apps'] as const;
+export type ServiceKey = (typeof servicePages)[number];

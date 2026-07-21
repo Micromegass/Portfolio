@@ -11,50 +11,45 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const w = t(locale).work;
+const c = t(locale);
+const w = c.work;
 ---
 
 <Base locale={locale} page="work">
-  <section class="wrap intro">
-    <span class="eyebrow" data-reveal>{w.kicker}</span>
-    <h1 class="intro__title" data-reveal>{w.title}</h1>
-    <p class="lead intro__lead" data-reveal>{w.intro}</p>
-  </section>
-
-  <section class="wrap cases">
-    <div class="work-grid" data-reveal-group>
-      <CaseCard locale={locale} caseKey="physio" />
-      <CaseCard locale={locale} caseKey="ikuna" />
+  <section class="intro" data-tone="dark">
+    <div class="wrap" data-hero-seq>
+      <span class="eyebrow">{w.eyebrow}</span>
+      <h1 class="intro__title">{w.title}</h1>
+      <p class="lead">{w.intro}</p>
     </div>
   </section>
 
-  <section class="wrap employment" data-reveal>
-    <div class="employment__card">
-      <span class="eyebrow">{w.employment.kicker}</span>
-      <h2 class="employment__title">{w.employment.title}</h2>
-      <p class="employment__body">{w.employment.body}</p>
-      <ul class="stack-list">
-        {w.employment.stack.map((tech) => <li class="stack-list__item">{tech}</li>)}
-      </ul>
+  <section class="band band--curve" data-tone="light">
+    <div class="wrap">
+      <div class="cases" data-reveal-group>
+        <CaseCard locale={locale} caseKey="physio" />
+        <CaseCard locale={locale} caseKey="ikuna" />
+      </div>
     </div>
   </section>
 
-  <section class="wrap lab">
-    <SectionHead centered kicker={w.lab.kicker} title={w.lab.title} />
-    <p class="lead lab__intro" data-reveal>{w.lab.intro}</p>
-    <div class="lab__grid" data-reveal-group>
-      {
-        w.lab.items.map((item) => (
-          <article class="lab-card">
-            <h3 class="lab-card__title">{item.title}</h3>
-            <p class="lab-card__desc">{item.desc}</p>
-            <p class="lab-card__status">
-              <span class="lab-card__pulse" aria-hidden="true" />
-              {item.status}
-            </p>
-          </article>
-        ))
-      }
+  <section class="band" data-tone="light">
+    <div class="wrap">
+      <SectionHead eyebrow={w.labEyebrow} title={w.labTitle} intro={w.labIntro} />
+      <div class="lab" data-reveal-group>
+        {
+          w.lab.map((item) => (
+            <article class="lab-card card">
+              <h3 class="lab-card__title">{item.title}</h3>
+              <p class="lab-card__desc">{item.desc}</p>
+              <span class="lab-card__tag">
+                <span class="dot" aria-hidden="true" />
+                {item.tag}
+              </span>
+            </article>
+          ))
+        }
+      </div>
     </div>
   </section>
 
@@ -63,119 +58,93 @@ const w = t(locale).work;
 
 <style>
   .intro {
-    padding-top: var(--space-6);
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 8vw, 6rem) 0 var(--space-8);
+  }
+
+  .intro::before {
+    content: '';
+    position: absolute;
+    width: 52rem;
+    height: 52rem;
+    top: -30rem;
+    right: -16rem;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 62%);
+    pointer-events: none;
+  }
+
+  .intro .wrap {
+    position: relative;
   }
 
   .intro__title {
-    max-width: 22ch;
-    margin-top: var(--space-2);
-  }
-
-  .intro__lead {
-    max-width: 38rem;
+    max-width: 18ch;
+    margin: 0 0 var(--space-4);
   }
 
   .cases {
-    margin-top: var(--space-6);
-  }
-
-  .work-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
-  }
-
-  .employment {
-    margin-top: var(--space-7);
-  }
-
-  .employment__card {
-    background: var(--bg-soft);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6) var(--space-5);
-  }
-
-  .employment__title {
-    margin: var(--space-2) 0 var(--space-3);
-  }
-
-  .employment__body {
-    color: var(--text-soft);
-    max-width: var(--content-max);
-  }
-
-  .stack-list {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-4) 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-  }
-
-  .stack-list__item {
-    background: var(--card);
-    border-radius: 999px;
-    padding: 0.35em 1em;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--text-soft);
+    gap: var(--space-3);
   }
 
   .lab {
-    margin-top: var(--space-8);
-  }
-
-  .lab__intro {
-    text-align: center;
-    margin: calc(-1 * var(--space-3)) auto var(--space-5);
-  }
-
-  .lab__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
   }
 
   .lab-card {
-    background: var(--card);
-    border: 1.5px dashed color-mix(in srgb, var(--accent) 35%, transparent);
-    border-radius: var(--radius);
     padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    border-style: dashed;
   }
 
   .lab-card__title {
     font-size: var(--text-md);
-    margin: 0 0 var(--space-2);
-  }
-
-  .lab-card__desc {
-    color: var(--text-soft);
-    font-size: var(--text-sm);
-    line-height: 1.7;
     margin: 0;
   }
 
-  .lab-card__status {
-    margin: var(--space-3) 0 0;
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
+  .lab-card__desc {
+    color: var(--fg-mute);
     font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-strong);
+    line-height: 1.6;
+    margin: 0;
   }
 
-  .lab-card__pulse {
-    width: 8px;
-    height: 8px;
+  .lab-card__tag {
+    margin-top: auto;
+    padding-top: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: var(--accent);
   }
 
-  @media (max-width: 800px) {
-    .work-grid,
-    .lab__grid {
+  @media (max-width: 1000px) {
+    .lab {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .cases,
+    .lab {
       grid-template-columns: 1fr;
     }
   }
