@@ -370,15 +370,15 @@ export const en: SiteContent = {
       ],
       sections: [
         {
-          heading: 'The challenge',
+          heading: 'What problem was the practice trying to solve?',
           body: 'Patients looking for a therapy practice want three things fast: what do you treat, who treats it, and how do I reach you. Most practice websites bury all three. The site had to answer them immediately, in language a patient actually uses rather than clinical shorthand.',
         },
         {
-          heading: 'What we built',
+          heading: 'What did RENOVO build for the practice?',
           body: 'A fast, warm, mobile-first website covering the full range of physiotherapy and occupational therapy services, with the team introduced personally and contact details always within reach. Most patients arrive on a phone, so the layout, tap targets and loading behaviour were designed for that first.',
         },
         {
-          heading: 'Why it works',
+          heading: 'Why does it work?',
           body: 'Every decision came from the practice side rather than the design side: which treatments to feature, how to phrase questions about insurance and prescriptions, what a new patient needs to know before getting in touch. The site is structured so the practice can add treatments and team members later without calling a developer.',
         },
       ],
@@ -413,15 +413,15 @@ export const en: SiteContent = {
       ],
       sections: [
         {
-          heading: 'The challenge',
+          heading: 'What problem was the refuge trying to solve?',
           body: 'Glamping sells a feeling. A slow, cluttered website kills that feeling before a guest has seen the mountains. The site had to be atmospheric, fast on the rural mobile connections guests actually use, and unmistakably local rather than a generic booking template.',
         },
         {
-          heading: 'What we built',
+          heading: 'What did RENOVO build for Ikuna?',
           body: 'An image-led, Spanish-first website built for performance: the story of the place first, practical details second, and booking never more than a tap away. Every photograph, word and section serves the same calm mood as the refuge itself.',
         },
         {
-          heading: 'Why it works',
+          heading: 'Why does it work?',
           body: 'Nobody books a retreat because of a feature list. They book because the page made them feel the place — so the design spends its budget on atmosphere and speed, and removes everything that competes with the decision to come.',
         },
       ],

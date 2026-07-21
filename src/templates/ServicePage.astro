@@ -70,7 +70,10 @@ const others = servicePages.filter((k) => k !== service);
         {
           s.faq.map((f) => (
             <details class="qa">
-              <summary class="qa__q">{f.q}</summary>
+              {/* The question lives in a real heading so it appears in the
+                  document outline that search and answer engines parse —
+                  heading content is valid inside <summary>. */}
+              <summary class="qa__q"><h3>{f.q}</h3></summary>
               <p class="qa__a">{f.a}</p>
             </details>
           ))
@@ -244,9 +247,16 @@ const others = servicePages.filter((k) => k !== service);
     cursor: pointer;
     list-style: none;
     padding: var(--space-4) 2.5rem var(--space-4) 0;
+    position: relative;
+  }
+
+  .qa__q h3 {
+    display: inline;
+    font-family: var(--font-body);
     font-weight: 650;
     font-size: var(--text-md);
-    position: relative;
+    letter-spacing: 0;
+    margin: 0;
   }
 
   .qa__q::-webkit-details-marker {

@@ -11,6 +11,11 @@ export const studio = {
   domain: 'renovostudio.com',
   email: 'axelbraunschweiger@gmail.com',
   person: 'Axel Braunschweiger',
+  /** Profiles search and answer engines can use to identify us (schema sameAs) */
+  profiles: [
+    'https://github.com/Micromegass',
+    'https://www.linkedin.com/in/axel-braunschweiger-17b5609b/',
+  ],
 };
 
 export type PageKey =

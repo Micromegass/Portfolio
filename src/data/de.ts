@@ -367,15 +367,15 @@ export const de: SiteContent = {
       ],
       sections: [
         {
-          heading: 'Die Aufgabe',
+          heading: 'Welches Problem sollte die Praxis lösen?',
           body: 'Wer eine Therapiepraxis sucht, will drei Dinge schnell wissen: Was behandelt ihr, wer behandelt es, und wie erreiche ich euch. Die meisten Praxis-Websites verstecken alle drei. Die Seite sollte sie sofort beantworten — in der Sprache, die Patienten tatsächlich benutzen, nicht in Fachkürzeln.',
         },
         {
-          heading: 'Was wir gebaut haben',
+          heading: 'Was hat RENOVO für die Praxis gebaut?',
           body: 'Eine schnelle, warme, mobile-first Website mit dem gesamten Physio- und Ergo-Angebot, dem Team persönlich vorgestellt und den Kontaktwegen immer in Reichweite. Die meisten Patienten kommen über das Handy — Layout, Tap-Flächen und Ladeverhalten wurden zuerst dafür entworfen.',
         },
         {
-          heading: 'Warum es funktioniert',
+          heading: 'Warum funktioniert es?',
           body: 'Jede Entscheidung kam aus der Praxis heraus, nicht aus dem Design: welche Behandlungen im Fokus stehen, wie Fragen zu Kasse und Rezept formuliert werden, was neue Patienten vor der Kontaktaufnahme wissen müssen. Die Seite ist so aufgebaut, dass die Praxis Behandlungen und Teammitglieder später ohne Entwickler ergänzen kann.',
         },
       ],
@@ -410,15 +410,15 @@ export const de: SiteContent = {
       ],
       sections: [
         {
-          heading: 'Die Aufgabe',
+          heading: 'Welches Problem sollte das Refugium lösen?',
           body: 'Glamping verkauft ein Gefühl. Eine langsame, überladene Website zerstört dieses Gefühl, bevor ein Gast die Berge gesehen hat. Die Seite musste atmosphärisch sein, schnell auf den ländlichen Mobilverbindungen, die Gäste wirklich nutzen — und unverkennbar lokal statt generische Buchungsvorlage.',
         },
         {
-          heading: 'Was wir gebaut haben',
+          heading: 'Was hat RENOVO für Ikuna gebaut?',
           body: 'Eine bildgeführte, spanischsprachige Website, gebaut für Performance: zuerst die Geschichte des Ortes, dann die praktischen Details, und die Buchung nie mehr als einen Fingertipp entfernt. Jedes Foto, jedes Wort und jeder Abschnitt dienen derselben ruhigen Stimmung wie das Refugium selbst.',
         },
         {
-          heading: 'Warum es funktioniert',
+          heading: 'Warum funktioniert es?',
           body: 'Niemand bucht eine Auszeit wegen einer Feature-Liste. Gebucht wird, weil die Seite den Ort fühlbar gemacht hat — also investiert das Design in Atmosphäre und Geschwindigkeit und entfernt alles, was mit der Entscheidung zu kommen konkurriert.',
         },
       ],

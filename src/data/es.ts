@@ -367,15 +367,15 @@ export const es: SiteContent = {
       ],
       sections: [
         {
-          heading: 'El reto',
+          heading: '¿Qué problema quería resolver la clínica?',
           body: 'Quien busca una clínica de terapia quiere saber tres cosas rápido: qué tratan, quién lo trata y cómo contactarlos. La mayoría de webs de clínicas entierra las tres. El sitio tenía que responderlas de inmediato, en el lenguaje que usa un paciente y no en abreviaturas clínicas.',
         },
         {
-          heading: 'Qué construimos',
+          heading: '¿Qué construyó RENOVO para la clínica?',
           body: 'Una web rápida, cálida y mobile-first con toda la oferta de fisioterapia y terapia ocupacional, el equipo presentado de forma personal y los datos de contacto siempre a mano. La mayoría de pacientes llega desde el móvil, así que el diseño, las áreas táctiles y la carga se pensaron primero para eso.',
         },
         {
-          heading: 'Por qué funciona',
+          heading: '¿Por qué funciona?',
           body: 'Cada decisión vino del lado de la clínica, no del diseño: qué tratamientos destacar, cómo formular las preguntas sobre seguros y prescripciones, qué necesita saber un paciente nuevo antes de escribir. El sitio está estructurado para que la clínica añada tratamientos y personas más adelante sin llamar a un desarrollador.',
         },
       ],
@@ -410,15 +410,15 @@ export const es: SiteContent = {
       ],
       sections: [
         {
-          heading: 'El reto',
+          heading: '¿Qué problema quería resolver el refugio?',
           body: 'El glamping vende una sensación. Un sitio lento y recargado la destruye antes de que el huésped vea las montañas. El sitio tenía que ser atmosférico, rápido en las conexiones móviles rurales que la gente realmente usa, e inconfundiblemente local en vez de una plantilla genérica de reservas.',
         },
         {
-          heading: 'Qué construimos',
+          heading: '¿Qué construyó RENOVO para Ikuna?',
           body: 'Un sitio visual, en español primero, construido para el rendimiento: primero la historia del lugar, después los detalles prácticos, y la reserva siempre a un toque. Cada fotografía, palabra y sección sirven a la misma calma que el refugio mismo.',
         },
         {
-          heading: 'Por qué funciona',
+          heading: '¿Por qué funciona?',
           body: 'Nadie reserva un retiro por una lista de características. Reservan porque la página les hizo sentir el lugar — así que el diseño gasta su presupuesto en atmósfera y velocidad, y elimina todo lo que compita con la decisión de venir.',
         },
       ],

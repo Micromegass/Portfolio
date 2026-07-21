@@ -23,7 +23,15 @@ const orgJsonLd = {
   name: studio.name,
   description: t(locale).footer.blurb,
   url: site + base + '/',
-  founder: { '@type': 'Person', name: studio.person },
+  // sameAs lets answer engines cross-reference the studio and its founder
+  // against profiles they already trust, instead of guessing who we are.
+  founder: {
+    '@type': 'Person',
+    name: studio.person,
+    url: site + base + routes.about[locale],
+    sameAs: studio.profiles,
+  },
+  sameAs: studio.profiles,
   email: studio.email,
   areaServed: ['DE', 'AT', 'CH', 'CO', 'Remote'],
   availableLanguage: ['German', 'English', 'Spanish'],
@@ -65,6 +73,9 @@ const faqJsonLd = serviceKey && {
 // Social preview card, localized
 const ogImage = `${site}${base}/og${locale === 'en' ? '' : `-${locale}`}.png`;
 
+/** Build timestamp — a truthful "last modified" for freshness signals. */
+const buildDate = new Date().toISOString().slice(0, 10);
+
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -73,6 +84,7 @@ const websiteJsonLd = {
   url: site + base + '/',
   inLanguage: locale,
   publisher: { '@id': site + base + '/#studio' },
+  dateModified: buildDate,
 };
 
 // Breadcrumbs help Google render the path in results and give LLMs hierarchy
@@ -104,6 +116,10 @@ const caseJsonLd = caseKey && {
   url: canonical,
   image: ogImage,
   creator: { '@id': site + base + '/#studio' },
+  author: { '@id': site + base + '/#studio' },
+  // Honest freshness signal: when this page was last built. No datePublished —
+  // the real launch dates are not recorded, and guessing them would be a lie.
+  dateModified: buildDate,
   about: {
     '@type': 'Organization',
     name: c.cases[caseKey].client,
