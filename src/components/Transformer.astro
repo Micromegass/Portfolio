@@ -127,7 +127,8 @@ const tr = t(locale).home.transformer;
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 22px;
+    /* WCAG 2.2 target size minimum */
+    height: 26px;
     background: transparent;
     cursor: ew-resize;
   }
@@ -153,7 +154,7 @@ const tr = t(locale).home.transformer;
     appearance: none;
     width: 18px;
     height: 18px;
-    margin-top: -7.5px;
+    margin-top: -9.5px;
     border-radius: 50%;
     background: var(--accent);
     border: 3px solid var(--canvas);

@@ -104,6 +104,10 @@ const c = t(locale);
     color: var(--fg);
     text-decoration: none;
     font-size: var(--text-sm);
+    /* WCAG 2.2 target size: keep every touch target at least 24px tall */
+    min-height: 24px;
+    display: flex;
+    align-items: center;
   }
 
   .footer__col a:hover {
