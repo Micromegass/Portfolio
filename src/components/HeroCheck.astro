@@ -44,7 +44,7 @@ const checkHref = href('check', locale);
   <p class="hero-check__error" id="hero-check-error" role="alert"></p>
 </form>
 
-<script define:vars={{ checkStrings: k }}>
+<script is:inline define:vars={{ checkStrings: k }}>
   // The hero needs the same error copy as the check page
   window.__CHECK_STRINGS__ = checkStrings;
 </script>

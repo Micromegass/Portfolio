@@ -1,7 +1,6 @@
 export type Locale = 'en' | 'de' | 'es';
 
 export const locales: Locale[] = ['en', 'de', 'es'];
-export const defaultLocale: Locale = 'en';
 
 /** Studio identity — change here to rename the studio everywhere structural. */
 export const studio = {

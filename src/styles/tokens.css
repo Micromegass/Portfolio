@@ -43,7 +43,6 @@
   --accent: #ff3d77;
   --on-accent: #0b0a0c;
   --accent-hot: #ff6d97;
-  --accent-deep: #c7215a;
   --accent-ink: #a81a49;
 
   /* Semantic status (checker) — never colour alone, always paired with text.
@@ -110,14 +109,14 @@
   --on-canvas-mute: #5c5464;
   --canvas-line: rgba(22, 19, 26, 0.12);
   --canvas-surface: #f7f4f7;
-  --accent-on-canvas: #a81a49;
+  --accent-on-canvas: var(--accent-ink);
 
   --panel: #f4f1f4;
   --on-panel: #16131a;
   --on-panel-mute: #5c5464;
   --panel-line: rgba(22, 19, 26, 0.11);
   --panel-surface: #ffffff;
-  --accent-on-panel: #a81a49;
+  --accent-on-panel: var(--accent-ink);
 
   --shadow-canvas: 0 24px 50px -32px rgba(22, 19, 26, 0.35);
 }
@@ -132,14 +131,14 @@
     --on-canvas-mute: #5c5464;
     --canvas-line: rgba(22, 19, 26, 0.12);
     --canvas-surface: #f7f4f7;
-    --accent-on-canvas: #a81a49;
+    --accent-on-canvas: var(--accent-ink);
 
     --panel: #f4f1f4;
     --on-panel: #16131a;
     --on-panel-mute: #5c5464;
     --panel-line: rgba(22, 19, 26, 0.11);
     --panel-surface: #ffffff;
-    --accent-on-panel: #a81a49;
+    --accent-on-panel: var(--accent-ink);
 
     --shadow-canvas: 0 24px 50px -32px rgba(22, 19, 26, 0.35);
   }
@@ -190,5 +189,24 @@
   --status-bad: var(--bad-on-dark);
 }
 
-/* In light theme a "dark" tone section sits on white; status colours and
-   accents already resolve through the light-theme variables above. */
+/* Status colours track the *background*, and a "dark" tone section is white in
+   the light theme — so it needs the darker, text-safe variants. Without this,
+   error text renders at 2.7:1 on white. Both the explicit choice and the
+   system-preference path have to be covered. */
+:root[data-theme='light'] [data-tone='dark'],
+:root[data-theme='light'] [data-tone='light'] {
+  --status-good: var(--good);
+  --status-warn: var(--warn);
+  --status-bad: var(--bad);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) [data-tone='dark'],
+  :root:not([data-theme='dark']) [data-tone='light'] {
+    --status-good: var(--good);
+    --status-warn: var(--warn);
+    --status-bad: var(--bad);
+  }
+}
+
+/* tone="contrast" is near-black in both themes, so it keeps the on-dark set. */

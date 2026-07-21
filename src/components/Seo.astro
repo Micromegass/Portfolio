@@ -164,4 +164,4 @@ const blocks = [
 <meta name="twitter:image" content={ogImage} />
 <meta name="theme-color" content="#0b0a0c" />
 
-{blocks.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}
+{blocks.map((b) => <script is:inline type="application/ld+json" set:html={JSON.stringify(b)} />)}

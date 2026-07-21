@@ -208,6 +208,13 @@ export function drawAfter(c: CanvasRenderingContext2D, W: number, H: number, L: 
   c.restore();
 }
 
+/* The two mock sites are authored against this fixed drawing surface. The
+   canvas the caller asks for may be smaller (it is redrawn every frame, so
+   resolution costs main-thread time), and the context is scaled to match —
+   otherwise the right third of the composition falls off the edge. */
+export const DESIGN_W = 2400;
+export const DESIGN_H = 1350;
+
 export function makeSiteCanvas(
   W: number,
   H: number,
@@ -217,6 +224,8 @@ export function makeSiteCanvas(
   const cv = document.createElement('canvas');
   cv.width = W;
   cv.height = H;
-  draw(cv.getContext('2d')!, W, H, labels);
+  const ctx = cv.getContext('2d')!;
+  ctx.scale(W / DESIGN_W, H / DESIGN_H);
+  draw(ctx, DESIGN_W, DESIGN_H, labels);
   return cv;
 }

@@ -14,10 +14,6 @@
 
 const ENDPOINT = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 
-export interface CheckStrings {
-  errors: { invalid: string; failed: string; quota: string; unreachable: string };
-}
-
 export interface CheckResult {
   finalUrl: string;
   scores: { performance: number; accessibility: number; bestPractices: number; seo: number };
@@ -64,15 +60,23 @@ export async function runCheck(rawUrl: string, apiKey?: string): Promise<CheckRe
   }
   if (apiKey) params.set('key', apiKey);
 
+  // A PageSpeed run normally takes 20–40s. Without a ceiling a stalled request
+  // would leave the button disabled and the visitor staring at "Analysing…".
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 90_000);
+
   let response: Response;
   try {
-    response = await fetch(`${ENDPOINT}?${params}`);
+    response = await fetch(`${ENDPOINT}?${params}`, { signal: controller.signal });
   } catch {
     throw new CheckError('failed');
+  } finally {
+    clearTimeout(timeout);
   }
 
   if (!response.ok) {
-    if (response.status === 429) throw new CheckError('quota');
+    // 429 = anonymous quota exhausted, 403 = key missing/restricted/over quota
+    if (response.status === 429 || response.status === 403) throw new CheckError('quota');
     // Google answers 400/500 when it could not load the target page
     if (response.status === 400 || response.status === 500) throw new CheckError('unreachable');
     throw new CheckError('failed');
@@ -116,4 +120,13 @@ export async function runCheck(rawUrl: string, apiKey?: string): Promise<CheckRe
 
 export function band(score: number): 'good' | 'ok' | 'poor' {
   return score >= 90 ? 'good' : score >= 50 ? 'ok' : 'poor';
+}
+
+/** Escape values that come back from the API before they go into innerHTML. */
+export function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }

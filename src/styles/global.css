@@ -79,8 +79,6 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
 }
 
-.band--flush-top { padding-top: 0; }
-
 /* Light bands curve into the dark canvas above them */
 .band--curve {
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;

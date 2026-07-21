@@ -108,12 +108,12 @@ const k = c.check;
   </section>
 </Base>
 
-<script define:vars={{ strings: t(Astro.props.locale).check }}>
+<script is:inline define:vars={{ strings: t(Astro.props.locale).check }}>
   window.__CHECK_STRINGS__ = strings;
 </script>
 
 <script>
-  import { runCheck, band, CheckError } from '@/scripts/websiteCheck';
+  import { runCheck, band, CheckError, escapeHtml } from '@/scripts/websiteCheck';
 
   const strings = (window as any).__CHECK_STRINGS__;
   const form = document.getElementById('check-form') as HTMLFormElement | null;
@@ -126,12 +126,7 @@ const k = c.check;
 
   const apiKey = import.meta.env.PUBLIC_PSI_KEY as string | undefined;
 
-  const CATS = [
-    ['performance', 'performance'],
-    ['accessibility', 'accessibility'],
-    ['bestPractices', 'bestPractices'],
-    ['seo', 'seo'],
-  ] as const;
+  const CATS = ['performance', 'accessibility', 'bestPractices', 'seo'] as const;
 
   function ring(score: number, label: string) {
     const b = band(score);
@@ -146,7 +141,7 @@ const k = c.check;
         </svg>
         <span class="score__num">${score}</span>
         <span class="score__label">${label}</span>
-        <span class="score__band">${strings.scale[b === 'good' ? 'good' : b === 'ok' ? 'ok' : 'poor']}</span>
+        <span class="score__band">${strings.scale[b]}</span>
       </div>`;
   }
 
@@ -164,8 +159,8 @@ const k = c.check;
 
       (document.getElementById('result-url') as HTMLElement).textContent = r.finalUrl;
 
-      document.getElementById('result-scores')!.innerHTML = CATS.map(([key, labelKey]) =>
-        ring(r.scores[key], strings.categories[labelKey])
+      document.getElementById('result-scores')!.innerHTML = CATS.map((key) =>
+        ring(r.scores[key], strings.categories[key])
       ).join('');
 
       document.getElementById('result-vitals')!.innerHTML = r.vitals
@@ -173,7 +168,7 @@ const k = c.check;
           (v) => `
           <div class="vital vital--${band(Math.round(v.score * 100))}">
             <dt class="vital__label">${strings.vitals[v.id]}</dt>
-            <dd class="vital__value">${v.display}</dd>
+            <dd class="vital__value">${escapeHtml(v.display)}</dd>
           </div>`
         )
         .join('');
@@ -184,7 +179,7 @@ const k = c.check;
             .map(
               (o) => `
               <li class="opp">
-                <span class="opp__title">${o.title}</span>
+                <span class="opp__title">${escapeHtml(o.title)}</span>
                 <span class="opp__saving">${(o.savingsMs / 1000).toFixed(1)}s ${strings.savingsLabel}</span>
               </li>`
             )

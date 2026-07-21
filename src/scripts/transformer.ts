@@ -29,19 +29,15 @@ interface Options {
 }
 
 export function initTransformer(options: Options): void {
-  // Never compete with first paint: build and animate only after load, and
-  // only once the hero is actually on screen.
-  const start = () => {
-    const io = new IntersectionObserver((entries) => {
-      if (!entries.some((e) => e.isIntersecting)) return;
-      io.disconnect();
-      run(options);
-    });
-    io.observe(options.frame);
-  };
+  // Draw as soon as the page has loaded — never gated on scrolling into view.
+  // The frame is often below the fold at common viewport heights, and an
+  // uninitialised frame is just a black rectangle where the centrepiece
+  // should be. First paint is still protected by waiting for `load`; the
+  // animation loop and the WebGL upgrade are what get deferred, inside run().
+  const start = () => requestAnimationFrame(() => run(options));
 
-  if (document.readyState === 'complete') requestAnimationFrame(() => start());
-  else window.addEventListener('load', () => requestAnimationFrame(() => start()), { once: true });
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start, { once: true });
 }
 
 function run({ canvas, fallback, frame, slider, labels }: Options): void {
@@ -84,11 +80,19 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
   paint2d(split);
 
   // ---- interaction ------------------------------------------------
+  /** With reduced motion there is no animation loop, so repaint on the spot. */
+  function applyIfStatic() {
+    if (!reduced) return;
+    split = target;
+    paint2d(split);
+  }
+
   function setFromClientX(clientX: number) {
     const r = frame.getBoundingClientRect();
     const v = (clientX - r.left) / r.width;
     target = Math.max(0.03, Math.min(0.97, v));
     slider.value = String(Math.round(target * 100));
+    applyIfStatic();
   }
 
   frame.addEventListener('pointerdown', (e: PointerEvent) => {
@@ -122,14 +126,19 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
   slider.addEventListener('input', () => {
     auto = false;
     target = Number(slider.value) / 100;
+    applyIfStatic();
   });
 
   // ---- loop --------------------------------------------------------
-  // Pause entirely when the hero scrolls away — no background CPU burn.
-  let onScreen = true;
-  const visIo = new IntersectionObserver((entries) => {
-    for (const e of entries) onScreen = e.isIntersecting;
-  });
+  // Animate only while the hero is on screen — no background CPU burn. The
+  // margin starts it just before it scrolls in, so it is never caught static.
+  let onScreen = false;
+  const visIo = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) onScreen = e.isIntersecting;
+    },
+    { rootMargin: '200px' }
+  );
   visIo.observe(frame);
 
   if (!reduced) {
@@ -281,15 +290,32 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
       webgl.render(split);
       frame.classList.add('transformer__frame--gl');
 
-      window.addEventListener('pagehide', () => webgl?.dispose(), { once: true });
+      // Drop the reference as well as the GPU resources: with bfcache the page
+      // can come back and the loop would otherwise render into a dead context.
+      window.addEventListener('pagehide', () => {
+        webgl?.dispose();
+        webgl = null;
+        frame.classList.remove('transformer__frame--gl');
+      });
     } catch {
       // WebGL unavailable or chunk failed — canvas 2D keeps running
       webgl = null;
     }
   };
 
+  // Upgrade to WebGL once the browser is idle and the hero is actually near
+  // the viewport — no point compiling shaders for a frame nobody will see.
   const idle =
     (window as unknown as { requestIdleCallback?: (cb: () => void) => void }).requestIdleCallback ??
     ((cb: () => void) => setTimeout(cb, 900));
-  idle(() => void upgrade());
+
+  const upgradeIo = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      upgradeIo.disconnect();
+      idle(() => void upgrade());
+    },
+    { rootMargin: '200px' }
+  );
+  upgradeIo.observe(frame);
 }

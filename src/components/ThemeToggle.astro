@@ -78,15 +78,16 @@ const labels = {
     stroke-linecap: round;
   }
 
-  /* Show the icon of the theme you would switch *to* */
-  .theme-toggle__icon--sun { display: none; }
-  .theme-toggle__icon--moon { display: block; }
+  /* Show the icon of the theme the button switches *to*: a sun while the
+     dark theme is active, a moon while the light theme is active. */
+  .theme-toggle__icon--sun { display: block; }
+  .theme-toggle__icon--moon { display: none; }
 
-  :global(:root[data-theme='light']) .theme-toggle__icon--sun { display: block; }
-  :global(:root[data-theme='light']) .theme-toggle__icon--moon { display: none; }
+  :global(:root[data-theme='light']) .theme-toggle__icon--sun { display: none; }
+  :global(:root[data-theme='light']) .theme-toggle__icon--moon { display: block; }
 
   @media (prefers-color-scheme: light) {
-    :global(:root:not([data-theme='dark'])) .theme-toggle__icon--sun { display: block; }
-    :global(:root:not([data-theme='dark'])) .theme-toggle__icon--moon { display: none; }
+    :global(:root:not([data-theme='dark'])) .theme-toggle__icon--sun { display: none; }
+    :global(:root:not([data-theme='dark'])) .theme-toggle__icon--moon { display: block; }
   }
 </style>
