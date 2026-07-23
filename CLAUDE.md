@@ -58,6 +58,14 @@ Written to current German law: Impressum cites **§ 5 DDG** and **§ 18(2) MStV*
 
 The local Lighthouse CLI returns `NO_FCP` for every URL including `example.com` — the tool is broken in this environment, not the site. Verify with Playwright instead: CPU-throttle 4x via CDP, read `first-contentful-paint` / `layout-shift` / `longtask` from the performance timeline, and run `axe-core` for WCAG A/AA. Last run: FCP 48–172ms, CLS 0, zero long tasks, **0 axe violations** across 10 pages in 3 languages, no JS errors.
 
+## Running it (cold-start quickstart)
+
+- **Site:** `npm install`, then `npm run dev` (Astro dev). `npm run build` → `dist/`; `npm run preview` serves the build; `npm run check` is `astro check` (must stay 0/0/0). Port 4321 is usually taken by Axel's other project — pass `--port 4980` (and preview `--port 4990`) if it clashes.
+- **Env:** copy `.env.example` → `.env`. `PUBLIC_PSI_KEY` (optional) makes the website check reliable; `PUBLIC_CHAT_ENDPOINT` (the worker URL) is what switches the chat widget on. Both are public by design. Leaving `PUBLIC_CHAT_ENDPOINT` empty is the correct default until the worker is deployed — an unset endpoint omits the widget entirely.
+- **Assistant backend:** in `backend/`, `npm install` then `npm run dev` (regenerates the knowledge base and runs `wrangler dev`). Deploy steps and cost notes are in `backend/README.md`. Regenerate grounding after any copy change: `npm run knowledge` (in `backend/`, or `node scripts/build-knowledge.mjs` from the root).
+- **Verify** with Playwright + axe-core, not local Lighthouse (see below). Playwright is installed; `@axe-core/playwright` installs into the scratchpad and is imported by absolute path in throwaway test scripts — it is not a project dependency.
+- **State on handoff:** working tree clean and pushed; live site (GitHub Pages, noindex) serves everything except the chat widget, which stays dormant until Axel deploys the worker. Nothing is half-finished in the tree.
+
 ## Decisions log
 
 - 2026-07-10: Interview + strategy approved. Contact = email only; no pricing; no blog; German legal pages required; noindex until the real domain is live.
