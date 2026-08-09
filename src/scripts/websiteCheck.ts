@@ -128,5 +128,8 @@ export function escapeHtml(value: string): string {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/"/g, '&quot;')
+    // Not reachable today — no value lands in a single-quoted attribute — but
+    // an escaper that misses a quoting style is a trap for the next edit.
+    .replace(/'/g, '&#39;');
 }

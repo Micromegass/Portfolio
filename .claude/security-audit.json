@@ -1,0 +1,7 @@
+{
+  "auditedCommit": "ec0dbf557ebc836418c335ec145a60533389a548",
+  "auditedAt": "2026-08-09T18:57:00.000Z",
+  "skill": "vibe-security",
+  "verdict": "pass",
+  "notes": "Audited .env.example, .github/workflows/deploy.yml, astro.config.mjs, src/styles/tokens.css, plus the repo's real risk surface (innerHTML sinks, worker CORS, env exposure). No Critical/High. Verified: no secrets in repo and .env never committed (full history checked); only PUBLIC_* vars + ephemeral GITHUB_TOKEN reach CI, Anthropic key stays in the worker; chat renders with textContent; all PageSpeed values entering innerHTML are escaped and finalUrl uses textContent; worker CORS is origin-allowlisted; staging noindex confirmed live; tokens.css has no url()/@import. Fixed in this commit: pinned peaceiris/actions-gh-pages from the movable v4 tag to SHA 84c30a85c19949d7eee79c4ff27748b70285e453 (v4.1.0) because that step runs with contents:write; added ' escaping to escapeHtml (defensive, not currently reachable). Open non-blocking: PUBLIC_PSI_KEY is client-side by design and needs its HTTP-referrer restriction actually applied in Google Cloud; security headers unavailable on GitHub Pages, tracked for the production host."
+}
