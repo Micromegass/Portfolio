@@ -25,7 +25,7 @@ export const en: SiteContent = {
     work: {
       title: 'Work — websites and web apps we have built | RENOVO',
       description:
-        'Selected projects: a healthcare practice website with online booking, a hospitality brand and booking site, plus current builds from the studio lab.',
+        'Selected projects: a physiotherapy practice website, a hospitality brand and booking site, plus the client work and studio products we are building right now.',
     },
     'case-physio': {
       title: 'Case study: website for a physiotherapy practice | RENOVO',
@@ -321,6 +321,7 @@ export const en: SiteContent = {
     buildsTitle: 'What the studio is building right now',
     buildsIntro:
       'Client projects in flight and the products we develop in-house. Ask us about any of them.',
+    newTab: 'opens in a new tab',
     builds: [
       {
         key: 'davidleutert',
@@ -328,8 +329,7 @@ export const en: SiteContent = {
         sector: 'Illustration & lettering · Berlin',
         desc: 'A bilingual portfolio and archive for a Berlin illustrator and lettering artist: close to 190 pages of commissioned and personal work, with a hero that replays his actual drawing process — pencil sketch, ink, flat colour, finished print.',
         status: 'With the client for review',
-        url: 'https://micromegass.github.io/davidleutert/',
-        urlLabel: 'See the preview',
+        preview: { url: 'https://micromegass.github.io/davidleutert/', label: 'See the preview' },
         imageAlt: 'Home page of the David Leutert portfolio, showing a bold hand-lettered print',
       },
       {
@@ -338,8 +338,7 @@ export const en: SiteContent = {
         sector: 'Therapy practice · Fürth',
         desc: 'A full relaunch for a practice for systemic and sexual therapy: calm, clear, German and English. No cookies, no trackers and no external requests at all — so the site needs no cookie banner.',
         status: 'Ready to launch',
-        url: 'https://micromegass.github.io/fritzloesel/',
-        urlLabel: 'See the preview',
+        preview: { url: 'https://micromegass.github.io/fritzloesel/', label: 'See the preview' },
         imageAlt: 'Home page of the Fritz Lösel therapy practice website',
       },
       {

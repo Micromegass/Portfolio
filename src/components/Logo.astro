@@ -1,0 +1,93 @@
+---
+/**
+ * The RENOVO mark: an "O" whose left half is still the hairline "before" and
+ * whose right half has been rebuilt into a bold magenta "after". It is the
+ * studio's pitch — and the hero transformer — compressed into one letterform.
+ *
+ * Two paths only, so it stays crisp at favicon size and costs nothing inline.
+ * Motion is pure CSS (the site's convention: JS never gates a paint):
+ *   - once on load, the rebuilt half draws itself in clockwise
+ *   - on hover/focus of the logo link, the split travels a full turn
+ *   - prefers-reduced-motion gets the finished state, no movement
+ */
+interface Props {
+  /** Rendered size in px. 16–20 for favicons/footers, 34–40 for the header. */
+  size?: number;
+  /** Decorative next to the wordmark; the link already names the studio. */
+  title?: string;
+}
+
+const { size = 36, title } = Astro.props as Props;
+---
+
+<svg
+  class="logo-mark"
+  width={size}
+  height={size}
+  viewBox="0 0 40 40"
+  role={title ? 'img' : 'presentation'}
+  aria-hidden={title ? undefined : 'true'}
+  aria-label={title}
+>
+  <!-- before: the site as it stands -->
+  <path class="logo-mark__before" d="M20 5 A15 15 0 0 0 20 35" />
+  <!-- after: the half we rebuilt -->
+  <path class="logo-mark__after" d="M20 5 A15 15 0 0 1 20 35" />
+</svg>
+
+<style>
+  .logo-mark {
+    display: block;
+    overflow: visible;
+    /* The split rotates on hover; the transform lives on the whole mark. */
+    transition: transform 900ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .logo-mark__before,
+  .logo-mark__after {
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  .logo-mark__before {
+    stroke: var(--fg-mute);
+    stroke-width: 2.5;
+  }
+
+  .logo-mark__after {
+    stroke: var(--accent);
+    stroke-width: 7;
+    /* Half the circumference of r=15 (2πr / 2 ≈ 47.12) */
+    stroke-dasharray: 47.13;
+    stroke-dashoffset: 47.13;
+    animation: logo-rebuild 900ms cubic-bezier(0.22, 1, 0.36, 1) 220ms forwards;
+  }
+
+  @keyframes logo-rebuild {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* The whole turn reads as "renew" — only on deliberate interaction. */
+  :global(.mark:hover) .logo-mark,
+  :global(.mark:focus-visible) .logo-mark {
+    transform: rotate(360deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-mark {
+      transition: none;
+    }
+
+    .logo-mark__after {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+
+    :global(.mark:hover) .logo-mark,
+    :global(.mark:focus-visible) .logo-mark {
+      transform: none;
+    }
+  }
+</style>

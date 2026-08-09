@@ -318,6 +318,7 @@ export const es: SiteContent = {
     buildsTitle: 'Lo que estamos construyendo ahora',
     buildsIntro:
       'Proyectos de clientes en curso y los productos que desarrollamos internamente. Pregúntenos por cualquiera de ellos.',
+    newTab: 'se abre en una pestaña nueva',
     builds: [
       {
         key: 'davidleutert',
@@ -325,8 +326,7 @@ export const es: SiteContent = {
         sector: 'Ilustración y lettering · Berlín',
         desc: 'Un portafolio y archivo bilingüe para un ilustrador y artista de lettering de Berlín: cerca de 190 páginas de trabajo por encargo y personal, con una portada que reproduce su proceso real de dibujo — boceto a lápiz, tinta, color plano, impresión final.',
         status: 'En revisión del cliente',
-        url: 'https://micromegass.github.io/davidleutert/',
-        urlLabel: 'Ver la vista previa',
+        preview: { url: 'https://micromegass.github.io/davidleutert/', label: 'Ver la vista previa' },
         imageAlt: 'Página de inicio del portafolio de David Leutert con una impresión de lettering a mano',
       },
       {
@@ -335,8 +335,7 @@ export const es: SiteContent = {
         sector: 'Consulta de terapia · Fürth',
         desc: 'Relanzamiento completo para una consulta de terapia sistémica y sexual: serena, clara, en alemán e inglés. Sin cookies, sin rastreadores y sin ninguna petición externa — por eso el sitio no necesita aviso de cookies.',
         status: 'Lista para lanzar',
-        url: 'https://micromegass.github.io/fritzloesel/',
-        urlLabel: 'Ver la vista previa',
+        preview: { url: 'https://micromegass.github.io/fritzloesel/', label: 'Ver la vista previa' },
         imageAlt: 'Página de inicio del sitio de la consulta de terapia de Fritz Lösel',
       },
       {

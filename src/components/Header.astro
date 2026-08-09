@@ -2,6 +2,7 @@
 import { href, alternates, localeLabels, studio, type Locale, type PageKey } from '@/lib/i18n';
 import { t } from '@/data';
 import ThemeToggle from '@/components/ThemeToggle.astro';
+import Logo from '@/components/Logo.astro';
 
 interface Props {
   locale: Locale;
@@ -22,8 +23,11 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
 <header class="site-header">
   <div class="wrap header__row">
     <a class="mark" href={href('home', locale)} title={c.nav.homeAria}>
-      <span class="mark__name">{studio.name}</span>
-      <span class="mark__sub">{studio.tagline[locale]}</span>
+      <Logo size={34} />
+      <span class="mark__text">
+        <span class="mark__name">{studio.name}</span>
+        <span class="mark__sub">{studio.tagline[locale]}</span>
+      </span>
     </a>
 
     <nav class="nav" id="site-nav" aria-label={c.nav.menuLabel}>
@@ -124,11 +128,16 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
 
   .mark {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
     line-height: 1;
     text-decoration: none;
     color: var(--fg);
     margin-right: auto;
+  }
+  .mark__text {
+    display: flex;
+    flex-direction: column;
   }
 
   .mark__name {
@@ -139,8 +148,10 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
   }
 
   .mark__sub {
-    font-size: 0.6rem;
-    letter-spacing: 0.26em;
+    /* 11px floor: below this, tracked caps stop being legible as functional
+       text. Tracking eased slightly so the lockup width barely moves. */
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--fg-mute);
     margin-top: 5px;

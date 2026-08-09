@@ -1,6 +1,7 @@
 ---
 import { href, studio, servicePages, type Locale } from '@/lib/i18n';
 import { t } from '@/data';
+import Logo from '@/components/Logo.astro';
 
 interface Props {
   locale: Locale;
@@ -13,7 +14,10 @@ const c = t(locale);
 <footer class="site-footer" data-tone="contrast">
   <div class="wrap footer__grid">
     <div class="footer__brand">
-      <span class="mark__name">{studio.name}</span>
+      <span class="footer__mark">
+        <Logo size={26} />
+        <span class="mark__name">{studio.name}</span>
+      </span>
       <p class="footer__blurb">{c.footer.blurb}</p>
       <p class="footer__loc">{c.footer.locations}</p>
     </div>
@@ -62,6 +66,12 @@ const c = t(locale);
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.2fr;
     gap: var(--space-5);
+  }
+
+  .footer__mark {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
   }
 
   .mark__name {

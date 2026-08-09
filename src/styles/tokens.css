@@ -45,6 +45,12 @@
   --accent-hot: #ff6d97;
   --accent-ink: #a81a49;
 
+  /* Text sitting on a fixed dark scrim — the transformer's "before" pill floats
+     over canvas artwork, so its background is the same dark in both themes.
+     Like --on-accent this must NOT follow --fg, or light theme paints
+     near-black on near-black (measured 1.1:1 before this existed). */
+  --on-scrim: #f5f2f6;
+
   /* Semantic status (checker) — never colour alone, always paired with text.
      Light-theme values are darkened so the score numerals clear 4.5:1 on
      both white and the panel grey. */

@@ -102,9 +102,12 @@ const tr = t(locale).home.transformer;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    background: rgba(0, 0, 0, 0.55);
+    /* 0.7, not 0.55: the pill floats over canvas artwork whose brightest
+       regions are near-white, where a lighter scrim measured only 4.29:1. */
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(6px);
-    color: var(--fg);
+    /* Fixed light: the scrim behind this is dark in both themes. */
+    color: var(--on-scrim);
     padding: 0.45em 0.9em;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.14);

@@ -25,7 +25,7 @@ export const de: SiteContent = {
     work: {
       title: 'Projekte — Websites und Web-Apps aus dem Studio | RENOVO',
       description:
-        'Ausgewählte Projekte: eine Praxis-Website mit Online-Buchung, eine Hospitality-Marke mit Buchungsseite, dazu aktuelle Entwicklungen aus dem Studio-Labor.',
+        'Ausgewählte Projekte: die Website einer Physiotherapiepraxis, eine Hospitality-Marke mit Buchungsseite, dazu die Kundenprojekte und Studio-Produkte, an denen wir gerade bauen.',
     },
     'case-physio': {
       title: 'Fallstudie: Website für eine Physiotherapiepraxis | RENOVO',
@@ -318,6 +318,7 @@ export const de: SiteContent = {
     buildsTitle: 'Woran wir gerade bauen',
     buildsIntro:
       'Kundenprojekte in Arbeit und die Produkte, die wir intern entwickeln. Fragen Sie uns gern nach jedem davon.',
+    newTab: 'öffnet in einem neuen Tab',
     builds: [
       {
         key: 'davidleutert',
@@ -325,8 +326,7 @@ export const de: SiteContent = {
         sector: 'Illustration & Lettering · Berlin',
         desc: 'Ein zweisprachiges Portfolio und Archiv für einen Berliner Illustrator und Lettering-Künstler: knapp 190 Seiten Auftrags- und freie Arbeiten, mit einem Hero, der seinen echten Zeichenprozess nachspielt — Bleistiftskizze, Tusche, Farbfläche, fertiger Druck.',
         status: 'Beim Kunden in Review',
-        url: 'https://micromegass.github.io/davidleutert/',
-        urlLabel: 'Vorschau ansehen',
+        preview: { url: 'https://micromegass.github.io/davidleutert/', label: 'Vorschau ansehen' },
         imageAlt: 'Startseite des Portfolios von David Leutert mit einem kräftigen handgeletterten Druck',
       },
       {
@@ -335,8 +335,7 @@ export const de: SiteContent = {
         sector: 'Therapiepraxis · Fürth',
         desc: 'Kompletter Relaunch für eine Praxis für Systemische Therapie und Sexualtherapie: ruhig, klar, auf Deutsch und Englisch. Ohne Cookies, ohne Tracker und ganz ohne externe Requests — dadurch braucht die Seite kein Cookie-Banner.',
         status: 'Startbereit',
-        url: 'https://micromegass.github.io/fritzloesel/',
-        urlLabel: 'Vorschau ansehen',
+        preview: { url: 'https://micromegass.github.io/fritzloesel/', label: 'Vorschau ansehen' },
         imageAlt: 'Startseite der Website der Therapiepraxis Fritz Lösel',
       },
       {

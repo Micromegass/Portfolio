@@ -2,26 +2,30 @@
 import { Image } from 'astro:assets';
 import { buildImages } from '@/data/buildImages';
 import type { SiteContent } from '@/data/types';
+import type { Locale } from '@/lib/i18n';
+import { t } from '@/data';
 
 interface Props {
+  locale: Locale;
   build: SiteContent['work']['builds'][number];
   /** Heading level, so the card slots into the page outline without a jump */
   as?: 'h2' | 'h3';
 }
 
-const { build, as: Heading = 'h3' } = Astro.props as Props;
+const { locale, build, as: Heading = 'h3' } = Astro.props as Props;
+const w = t(locale).work;
 const shot = buildImages[build.key];
 ---
 
 <article class="build card">
   <div class="build__shot">
-    <!-- Two-up above 700px, full width below; `sizes` stops the browser
-         assuming 100vw and fetching an oversized candidate. -->
+    <!-- Two-up above 700px, full width below. `widths` (not `densities`): with
+         x-descriptors `sizes` is inert, so a 2x phone would still pull the
+         desktop candidate. -->
     <Image
       src={shot}
       alt={build.imageAlt}
-      width={620}
-      densities={[1, 2]}
+      widths={[320, 480, 620, 900, 1240]}
       sizes="(min-width: 1200px) 560px, (min-width: 700px) 46vw, 92vw"
       loading="lazy"
     />
@@ -36,10 +40,12 @@ const shot = buildImages[build.key];
         {build.status}
       </span>
       {
-        build.url && (
-          <a class="arrow-link build__link" href={build.url} target="_blank" rel="noopener">
-            {build.urlLabel} <span aria-hidden="true">→</span>
-            <span class="sr-only">({build.client}, opens in a new tab)</span>
+        build.preview && (
+          <a class="arrow-link build__link" href={build.preview.url} target="_blank" rel="noopener">
+            {build.preview.label} <span aria-hidden="true">→</span>
+            <span class="sr-only">
+              ({build.client}, {w.newTab})
+            </span>
           </a>
         )
       }

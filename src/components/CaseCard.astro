@@ -21,7 +21,15 @@ const shot = caseImages[caseKey];
 <article class:list={['case card card--hover', `case--${caseKey}`]}>
   <a class="case__link" href={href(page, locale)}>
     <div class="case__shot">
-      <Image src={shot} alt={c.imageAlt} width={760} densities={[1, 2]} loading="lazy" />
+      <!-- `widths` + `sizes`, not `densities`: with x-descriptors `sizes` is
+           ignored and a 2x phone pulls the full desktop candidate. -->
+      <Image
+        src={shot}
+        alt={c.imageAlt}
+        widths={[380, 560, 760, 1100, 1520]}
+        sizes="(min-width: 1200px) 560px, (min-width: 700px) 46vw, 92vw"
+        loading="lazy"
+      />
       <span class="case__url">{c.urlLabel}</span>
     </div>
     <div class="case__body">

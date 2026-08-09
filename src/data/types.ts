@@ -79,10 +79,12 @@ export interface SiteContent {
     buildsEyebrow: string;
     buildsTitle: string;
     buildsIntro: string;
+    /** Appended to external links for screen readers. */
+    newTab: string;
     /**
      * Projects currently in flight — client work not yet launched, plus the
-     * studio's own products. `key` selects the image from `buildImages`;
-     * `url` is present only where there is something a visitor may open.
+     * studio's own products. `key` selects the image from `buildImages`.
+     * `preview` is one object so a URL can never ship without its label.
      */
     builds: {
       key: BuildKey;
@@ -90,8 +92,7 @@ export interface SiteContent {
       sector: string;
       desc: string;
       status: string;
-      url?: string;
-      urlLabel?: string;
+      preview?: { url: string; label: string };
       imageAlt: string;
     }[];
   };

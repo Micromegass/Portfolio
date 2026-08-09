@@ -38,7 +38,7 @@ const w = c.work;
     <div class="wrap">
       <SectionHead eyebrow={w.buildsEyebrow} title={w.buildsTitle} intro={w.buildsIntro} />
       <div class="builds" data-reveal-group>
-        {w.builds.map((build) => <BuildCard build={build} as="h3" />)}
+        {w.builds.map((build) => <BuildCard locale={locale} build={build} as="h3" />)}
       </div>
     </div>
   </section>

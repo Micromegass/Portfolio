@@ -121,13 +121,19 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
     }, RESUME_DELAY_MS);
   }
 
+  /** Mouse and pen hover; touch does not. Only hovering pointers can use
+      enter/leave to say whether the visitor is still here — a lifted finger
+      always fires `pointerleave`, which means nothing. */
+  const hovers = (type: string) => type === 'mouse' || type === 'pen';
+
   frame.addEventListener('pointerdown', (e: PointerEvent) => {
     pointerActive = true;
     auto = false;
     cancelResume();
     setFromClientX(e.clientX);
     // Throws InvalidPointerId if the pointer is already gone (fast tap, or a
-    // gesture the browser claimed) — that must not abort the handler.
+    // gesture the browser claimed). The window listeners below are what
+    // actually guarantee the drag ends, so failing here is survivable.
     try {
       frame.setPointerCapture(e.pointerId);
     } catch {
@@ -140,22 +146,26 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
   });
 
   const release = (e: PointerEvent) => {
+    // Guard so a tap anywhere else on the page cannot restart the sweep.
+    if (!pointerActive) return;
     pointerActive = false;
-    // Touch and pen have no hover state, so no `pointerleave` will follow that
-    // means anything — start the idle countdown from the release itself.
-    if (e.pointerType !== 'mouse') scheduleResume();
+    // Touch has no hover to hold the split, so start the countdown here.
+    if (!hovers(e.pointerType)) scheduleResume();
   };
-  frame.addEventListener('pointerup', release);
-  frame.addEventListener('pointercancel', release);
+  // On window, not the frame: if `setPointerCapture` threw, a release outside
+  // the frame never reaches it and the divider would stay glued to the cursor.
+  window.addEventListener('pointerup', release);
+  window.addEventListener('pointercancel', release);
 
-  frame.addEventListener('pointerenter', () => {
+  frame.addEventListener('pointerenter', (e: PointerEvent) => {
+    if (!hovers(e.pointerType)) return;
     auto = false;
     cancelResume();
   });
   frame.addEventListener('pointerleave', (e: PointerEvent) => {
-    // A lifted finger always "leaves"; only a real mouse exit means the visitor
-    // has moved on. Anything else is handled by `release`.
-    if (e.pointerType !== 'mouse' || pointerActive) return;
+    // Only a hovering pointer leaving means the visitor has moved on; a touch
+    // release is handled above.
+    if (!hovers(e.pointerType) || pointerActive) return;
     scheduleResume();
   });
 
