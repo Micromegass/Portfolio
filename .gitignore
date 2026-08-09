@@ -12,3 +12,7 @@ npm-debug.log*
 backend/node_modules/
 backend/.wrangler/
 backend/.dev.vars
+
+# SEO audit: keep the reports (CLAUDE.md links them), not the 3.7MB of
+# regenerable screenshots
+renovostudio.com-audit/screenshots/

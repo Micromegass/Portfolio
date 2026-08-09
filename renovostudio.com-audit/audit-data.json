@@ -1,0 +1,336 @@
+{
+  "summary": {
+    "health_score": 86,
+    "business_type": "B2B service studio / agency — trilingual (EN/DE/ES), lead-generation, no e-commerce, no pricing, no blog",
+    "audit_date": "2026-08-07",
+    "target": "https://renovostudio.com (production build of dist/, 37 pages)",
+    "pages_analyzed": 37,
+    "coverage": "100% (static site, fully enumerated — not sampled)",
+    "top_findings": [
+      "Canonical domain renovostudio.com serves a registrar parking page, not the site — zero indexable presence today",
+      "Impressum and privacy policy render bracketed placeholders in production HTML in all three languages (§ 5 DDG mandatory fields)",
+      "Personal Gmail address is the studio's public contact in 43 mailto links, both legal pages and the ProfessionalService schema",
+      "Testimonial renders empty (quote: '') — the site's only social-proof slot is blank",
+      "ProfessionalService schema lacks logo, image, telephone and complete PostalAddress"
+    ],
+    "quick_wins": [
+      "Preload the latin woff2 subset — currently discovered only after 53.7KB of CSS parses",
+      "Add sizes to the 39 responsive images — srcset without sizes makes the browser assume 100vw",
+      "noindex the 404 page and drop its canonical, hreflang and schema (it duplicates the homepage title and description)",
+      "Add lastmod to the 36 sitemap URLs — the data already exists as WebSite.dateModified",
+      "Add xhtml:link hreflang alternates to the sitemap"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 78,
+      "weight": 0.22,
+      "what_works": [
+        "Self-referencing absolute canonical on all 37 pages",
+        "hreflang en/de/es/x-default on 36/37 pages — all self-referencing, all reciprocal, no dangling targets",
+        "Localized slugs (/de/ki-assistent/, /es/rediseno-web/) correctly cross-linked",
+        "robots.txt clean with absolute Sitemap pointer",
+        "Zero broken internal links across 901 anchors; zero orphan pages",
+        "Zero third-party hosts in markup — no Google Fonts, no analytics, no tag managers",
+        "Interim GitHub Pages deploy correctly noindex/nofollow with no sitemap"
+      ],
+      "findings": [
+        {
+          "title": "Canonical domain serves a registrar parking page",
+          "severity": "Critical",
+          "description": "https://renovostudio.com/ returns a 114-byte openresty-served JS redirect to /lander, publishing its own competing robots.txt, llms.txt (Disallow-Training: /) and a sitemap.xml containing only https://renovostudio.com/lander. Every canonical, og:url, hreflang and schema @id in the build asserts this domain.",
+          "recommendation": "Deploy dist/ to Cloudflare Pages or Vercel, point DNS, drop GITHUB_PAGES=true, and confirm the parking page's robots.txt/llms.txt/sitemap.xml are gone."
+        },
+        {
+          "title": "Sitemap has no lastmod",
+          "severity": "High",
+          "description": "sitemap-0.xml lists 36 URLs with no lastmod, changefreq or priority. lastmod is the element Google actually consumes, and the data already exists as WebSite.dateModified (2026-08-07).",
+          "recommendation": "Configure @astrojs/sitemap to emit lastmod per entry."
+        },
+        {
+          "title": "Sitemap omits xhtml:link hreflang alternates",
+          "severity": "Medium",
+          "description": "For a 3-language site, per-entry hreflang annotation in the sitemap is Google's recommended reinforcement of in-page hreflang. Currently absent.",
+          "recommendation": "Enable the @astrojs/sitemap i18n option to emit xhtml:link alternates."
+        },
+        {
+          "title": "404 page is treated as a real indexable page",
+          "severity": "Medium",
+          "description": "/404.html carries a canonical (…/404/), full hreflang, and ProfessionalService + WebSite schema, and duplicates the homepage's exact title and meta description. Its three hreflang entries are the audit's only non-reciprocal ones. It is correctly excluded from the sitemap and has zero inbound links.",
+          "recommendation": "Add meta robots noindex, give it a unique title, and drop the canonical, hreflang and schema."
+        },
+        {
+          "title": "No security headers on the current host",
+          "severity": "Medium",
+          "description": "The live deploy sends only strict-transport-security. content-security-policy, x-content-type-options, referrer-policy and permissions-policy are absent. GitHub Pages cannot set headers.",
+          "recommendation": "Ship a _headers file on the new host; the CSP must allow the chat worker origin once PUBLIC_CHAT_ENDPOINT is set."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 80,
+      "weight": 0.23,
+      "what_works": [
+        "No duplicate titles or descriptions anywhere except the 404/homepage pair",
+        "Unique, specific, plain-language copy — no filler, no keyword stuffing",
+        "Full trilingual parity: all 12 page types in EN/DE/ES with real translations",
+        "Case studies are honest and scope-accurate",
+        "Named, verifiable clients with outbound links; founder named and linked to GitHub + LinkedIn"
+      ],
+      "findings": [
+        {
+          "title": "Legal pages ship bracketed placeholders in production HTML",
+          "severity": "Critical",
+          "description": "Rendered and user-visible in all three languages: [Street and number], [Postcode] Fürth, [VAT ID], 'Telephone: [required — a phone number or an equally direct channel must be given]', 'This website is hosted by [hosting provider, address].' and [address as in the imprint]. A full postal address and direct contact channel are mandatory under § 5 DDG.",
+          "recommendation": "Fill all TODO-CONTENT fields in src/data/{en,de,es}.ts; confirm the supervisory-authority line matches the registered business address."
+        },
+        {
+          "title": "Personal Gmail is the studio's public identity",
+          "severity": "High",
+          "description": "axelbraunschweiger@gmail.com appears in 43 mailto: links, the Impressum, the privacy policy and the ProfessionalService schema email field. A free consumer mailbox undercuts B2B positioning at the point of conversion.",
+          "recommendation": "Set studio.email in src/lib/i18n.ts to a domain address (e.g. hello@renovostudio.com); all 43 references follow from that single source."
+        },
+        {
+          "title": "Testimonial renders empty",
+          "severity": "High",
+          "description": "testimonial: { quote: '', attribution: '' } in all three data files. The component ships but displays nothing — the site's only social-proof slot is blank.",
+          "recommendation": "Add one real, attributed client quote."
+        },
+        {
+          "title": "Thin work-index pages",
+          "severity": "Medium",
+          "description": "Nine pages under 400 words. Contact pages being short is expected; the misses are the work indexes — /work/ (335w), /de/projekte/ (294w), /es/proyectos/ (354w) — which are the natural landing pages for portfolio-intent queries but carry almost no text around the two case-study cards.",
+          "recommendation": "Add an intro framing how the studio works and what a project looks like; pair with CollectionPage + ItemList schema."
+        },
+        {
+          "title": "Unverifiable '100/100 typical Lighthouse score' claim in the hero",
+          "severity": "Low",
+          "description": "The homepage states '100/100 — typical Lighthouse score'. Lighthouse is non-functional in this environment (NO_FCP for every URL including example.com), so the claim cannot be substantiated from this repo. Measured CWV are genuinely excellent, so the substance is defensible.",
+          "recommendation": "Back it with a dated reproducible run, or restate factually in terms of measured Core Web Vitals."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 92,
+      "weight": 0.20,
+      "what_works": [
+        "Titles 29–60 characters, all unique except the 404",
+        "Descriptions 132–160 characters — every page inside the optimal range",
+        "Exactly one H1 per page, 37/37",
+        "Zero heading-level skips across all 37 pages",
+        "901 anchors: zero broken, zero orphans, zero generic anchor text",
+        "Complete Open Graph and Twitter cards with per-language OG images and og:image:alt"
+      ],
+      "findings": [
+        {
+          "title": "404 duplicates the homepage title and meta description",
+          "severity": "Low",
+          "description": "/404.html and / share the exact title 'RENOVO — AI Web Studio for relaunch & AI' and the same meta description.",
+          "recommendation": "Give the 404 a unique title and description alongside the noindex fix."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 88,
+      "weight": 0.10,
+      "what_works": [
+        "All JSON-LD parses without error across 37 pages",
+        "33 BreadcrumbList, 9 Service, 9 FAQPage, 7 ProfessionalService, 6 CreativeWork, 4 WebSite",
+        "ProfessionalService carries founder with sameAs, areaServed, availableLanguage, knowsAbout, dual PostalAddress, stable @id anchors and a WebSite publisher reference"
+      ],
+      "findings": [
+        {
+          "title": "ProfessionalService missing knowledge-panel essentials",
+          "severity": "High",
+          "description": "No logo, no image, no telephone. Both PostalAddress nodes carry only addressLocality and addressCountry — no streetAddress or postalCode. logo and image are what Google uses to build an entity card.",
+          "recommendation": "Add logo, image and telephone, and complete the Fürth PostalAddress once the Impressum data exists."
+        },
+        {
+          "title": "Schema email is the personal Gmail",
+          "severity": "Medium",
+          "description": "The ProfessionalService email must agree with whatever the Impressum finally states, for NAP consistency.",
+          "recommendation": "Update alongside the domain-email change."
+        },
+        {
+          "title": "12 pages carry only BreadcrumbList",
+          "severity": "Medium",
+          "description": "/contact/, /website-check/, /work/ and the legal pages have no page-type schema.",
+          "recommendation": "Add ContactPage to contact pages, CollectionPage + ItemList to work indexes, WebPage to legal pages."
+        },
+        {
+          "title": "404 carries ProfessionalService + WebSite schema",
+          "severity": "Low",
+          "description": "Harmless but incorrect for an error page.",
+          "recommendation": "Remove as part of the 404 fix."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 95,
+      "weight": 0.10,
+      "what_works": [
+        "Worst LCP 1244ms and worst CLS 0.0055 across 11 routes under 4x CPU throttling",
+        "Zero JS errors and zero failed requests on every route",
+        "Three.js (707KB uncompressed / 180KB gzipped) is dynamically imported and never referenced from HTML",
+        "Initial homepage payload 181KB uncompressed / 57KB gzipped",
+        "Progressive enhancement chain intact: 2D composite, WebGL upgrade after load+idle+in-viewport, static under prefers-reduced-motion",
+        "WebGL hero verified rendering by direct pixel readback (1600/1600 non-zero, 254 distinct colours, context not lost)"
+      ],
+      "findings": [
+        {
+          "title": "Fonts are not preloaded",
+          "severity": "High",
+          "description": "Three self-hosted woff2 files (34KB latin, 19KB latin-ext, 9KB vietnamese) with font-display: swap and no rel=preload. They are discovered only after 53.7KB of CSS parses, delaying text paint.",
+          "recommendation": "Preload the latin subset only, with crossorigin."
+        },
+        {
+          "title": "53.7KB of render-blocking CSS with no critical inline CSS",
+          "severity": "Medium",
+          "description": "Two stylesheets (32.2KB + 21.5KB) both block render; the head contains zero inline style. The hero animation is pure CSS, so its critical rules are the natural inline candidate.",
+          "recommendation": "Inline critical above-the-fold CSS."
+        },
+        {
+          "title": "Homepage runs 3 long tasks",
+          "severity": "Low",
+          "description": "Attributable to transformer setup; LCP is unaffected.",
+          "recommendation": "No action required; noted for completeness."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 90,
+      "weight": 0.10,
+      "what_works": [
+        "llms.txt present and well-structured (2257 chars) with absolute URLs and an explicit AI-assistant scope boundary",
+        "9 FAQPage blocks across the three service pages in all three languages",
+        "57 question-form headings; case studies structured as question passages",
+        "Clean server-rendered semantic HTML — no JS required to read content",
+        "Strong entity grounding: named founder, sameAs to GitHub and LinkedIn, knowsAbout, areaServed, named clients with outbound links",
+        "robots.txt blocks no AI crawlers"
+      ],
+      "findings": [
+        {
+          "title": "Zero AI-crawler reachability today",
+          "severity": "Critical",
+          "description": "Inherited from the deployment state. The parked domain publishes its own llms.txt with Disallow-Training: / and a one-URL sitemap. The real llms.txt is unreachable, and any answer engine asked about RENOVO resolves to a parking page.",
+          "recommendation": "Resolved by the domain/hosting fix."
+        },
+        {
+          "title": "No per-page dateModified",
+          "severity": "Medium",
+          "description": "Only the WebSite node carries dateModified. Per-page freshness is a meaningful citation signal for answer engines.",
+          "recommendation": "Add WebPage.dateModified or Service.dateModified per page."
+        },
+        {
+          "title": "Case studies lack authorship metadata",
+          "severity": "Low",
+          "description": "The 6 CreativeWork nodes have no author or datePublished.",
+          "recommendation": "Add author and datePublished to strengthen attribution when cited."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 90,
+      "weight": 0.05,
+      "what_works": [
+        "39/39 images have descriptive, properly localized alt text — zero missing, zero empty",
+        "39/39 have explicit width and height — the reason CLS is ~0",
+        "39/39 ship srcset; all content images are WebP via Astro's pipeline",
+        "Below-fold images lazy-loaded; the 6 case-study heroes correctly eager",
+        "OG images 1200x630 with declared dimensions and alt text"
+      ],
+      "findings": [
+        {
+          "title": "No sizes attribute on any of the 39 images",
+          "severity": "Medium",
+          "description": "With w-descriptor srcset and no sizes, the browser assumes 100vw and may fetch a wider candidate than the slot needs — a 315KB WebP where a 91KB one would do.",
+          "recommendation": "Pass accurate sizes to the Astro Image calls, e.g. sizes=\"(min-width: 900px) 50vw, 100vw\"."
+        },
+        {
+          "title": "Two oversized WebP variants",
+          "severity": "Low",
+          "description": "ikuna.DHXyT3kI_Z23zTnC.webp (315KB) and ikuna.DHXyT3kI_1KfRtK.webp (263KB) are the largest assets in the build.",
+          "recommendation": "Fixing sizes stops most visitors requesting them; capping the top srcset width removes them entirely."
+        }
+      ]
+    }
+  ],
+  "accessibility_crosscheck": {
+    "tool": "axe-core via @axe-core/playwright",
+    "tags": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"],
+    "pages_tested": 13,
+    "languages": 3,
+    "violations": 0,
+    "responsive": "No horizontal overflow at 390px or 320px on any tested page; mobile homepages verified rendering in all three languages"
+  },
+  "unavailable_data": {
+    "crux_field_data": "Domain has never served the site — no field data exists",
+    "gsc_indexation": "No Search Console property possible until the domain serves the site",
+    "ga4_traffic": "No analytics installed by design (zero third-party requests)",
+    "backlinks": "A never-launched domain has no meaningful profile",
+    "lighthouse": "Broken in this environment — returns NO_FCP for every URL including example.com; Playwright + CDP throttling substituted",
+    "pdf_report": "The installed seo-audit skill directory contains only SKILL.md and LICENSE.txt — scripts/google_report.py is not present"
+  },
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Launch Blockers",
+        "timeframe": "Week 1",
+        "items": [
+          "Point renovostudio.com at real hosting (Cloudflare Pages / Vercel); drop GITHUB_PAGES=true; verify the parking page's robots.txt, llms.txt and sitemap.xml are gone",
+          "Fill every TODO-CONTENT placeholder in the Impressum and privacy policy across all three languages",
+          "Switch studio.email to a domain address — all 43 mailto links, both legal pages and the schema follow",
+          "Create GSC + Bing properties, submit sitemap-index.xml, request indexing for the three homepages"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Preload the latin woff2 subset",
+          "Add sizes to the 39 responsive images",
+          "noindex the 404 page; unique title; drop canonical, hreflang and schema",
+          "Emit lastmod and xhtml:link hreflang alternates in the sitemap",
+          "Complete ProfessionalService schema: logo, image, telephone, full PostalAddress",
+          "Ship a _headers file with CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Add one real attributed testimonial",
+          "Thicken the three work-index pages and add CollectionPage + ItemList schema",
+          "Add ContactPage / WebPage schema to the 12 BreadcrumbList-only pages",
+          "Add per-page dateModified, plus author and datePublished on case studies",
+          "Resolve or restate the '100/100 typical Lighthouse score' hero claim",
+          "Inline critical above-the-fold CSS"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Re-audit with real CrUX/GSC/GA4 data after ~28 days of live traffic",
+          "Watch indexation weekly for the first month across 36 URLs and 3 languages",
+          "Regenerate the assistant knowledge base after the copy changes in Phase 1",
+          "Re-run CWV and axe checks via Playwright after any hero changes",
+          "Deploy the chat worker and set PUBLIC_CHAT_ENDPOINT"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "full_report": "FULL-AUDIT-REPORT.md",
+    "action_plan": "ACTION-PLAN.md"
+  }
+}

@@ -70,9 +70,13 @@ function knowledgeFor(c, locale) {
   }
 
   L.push('');
-  L.push(`## ${c.work.labTitle}`);
-  L.push(c.work.labIntro);
-  for (const p of c.work.lab) L.push(`- ${p.title} (${p.tag}): ${p.desc}`);
+  L.push(`## ${c.work.buildsTitle}`);
+  L.push(c.work.buildsIntro);
+  for (const p of c.work.builds) {
+    // The status matters here: the assistant must never imply an unlaunched
+    // project is live, and must only offer a link where one actually exists.
+    L.push(`- ${p.client} (${p.sector}) — ${p.status}: ${p.desc}${p.url ? ` Preview: ${p.url}` : ''}`);
+  }
 
   L.push('');
   L.push('## Contact');

@@ -2,6 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import SectionHead from '@/components/SectionHead.astro';
 import CaseCard from '@/components/CaseCard.astro';
+import BuildCard from '@/components/BuildCard.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import type { Locale } from '@/lib/i18n';
 import { t } from '@/data';
@@ -35,20 +36,9 @@ const w = c.work;
 
   <section class="band" data-tone="light">
     <div class="wrap">
-      <SectionHead eyebrow={w.labEyebrow} title={w.labTitle} intro={w.labIntro} />
-      <div class="lab" data-reveal-group>
-        {
-          w.lab.map((item) => (
-            <article class="lab-card card">
-              <h3 class="lab-card__title">{item.title}</h3>
-              <p class="lab-card__desc">{item.desc}</p>
-              <span class="lab-card__tag">
-                <span class="dot" aria-hidden="true" />
-                {item.tag}
-              </span>
-            </article>
-          ))
-        }
+      <SectionHead eyebrow={w.buildsEyebrow} title={w.buildsTitle} intro={w.buildsIntro} />
+      <div class="builds" data-reveal-group>
+        {w.builds.map((build) => <BuildCard build={build} as="h3" />)}
       </div>
     </div>
   </section>
@@ -90,61 +80,15 @@ const w = c.work;
     gap: var(--space-3);
   }
 
-  .lab {
+  .builds {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-3);
-  }
-
-  .lab-card {
-    padding: var(--space-4);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    border-style: dashed;
-  }
-
-  .lab-card__title {
-    font-size: var(--text-md);
-    margin: 0;
-  }
-
-  .lab-card__desc {
-    color: var(--fg-mute);
-    font-size: var(--text-sm);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .lab-card__tag {
-    margin-top: auto;
-    padding-top: var(--space-3);
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    font-size: var(--text-xs);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--fg-mute);
-  }
-
-  .dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-
-  @media (max-width: 1000px) {
-    .lab {
-      grid-template-columns: 1fr 1fr;
-    }
   }
 
   @media (max-width: 700px) {
     .cases,
-    .lab {
+    .builds {
       grid-template-columns: 1fr;
     }
   }

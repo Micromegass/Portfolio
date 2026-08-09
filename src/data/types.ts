@@ -1,5 +1,8 @@
 import type { PageKey, ServiceKey } from '@/lib/i18n';
 
+/** Projects shown in the "current builds" band; each maps to one image. */
+export type BuildKey = 'davidleutert' | 'fritzloesel' | 'yosoytattoo' | 'trazo';
+
 /** One typed shape for all three languages — translations cannot drift. */
 export interface SiteContent {
   meta: Record<PageKey, { title: string; description: string }>;
@@ -73,10 +76,24 @@ export interface SiteContent {
     intro: string;
     visitLabel: string;
     readLabel: string;
-    labEyebrow: string;
-    labTitle: string;
-    labIntro: string;
-    lab: { title: string; desc: string; tag: string }[];
+    buildsEyebrow: string;
+    buildsTitle: string;
+    buildsIntro: string;
+    /**
+     * Projects currently in flight — client work not yet launched, plus the
+     * studio's own products. `key` selects the image from `buildImages`;
+     * `url` is present only where there is something a visitor may open.
+     */
+    builds: {
+      key: BuildKey;
+      client: string;
+      sector: string;
+      desc: string;
+      status: string;
+      url?: string;
+      urlLabel?: string;
+      imageAlt: string;
+    }[];
   };
 
   cases: Record<

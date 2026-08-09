@@ -18,6 +18,13 @@ import { drawAfter, drawBefore, makeSiteCanvas, type RenderLabels } from './site
 const W = 1600;
 const H = 900;
 
+/* How long the hero waits, after the visitor lets go and stays away, before it
+   resumes its own sweep. Releasing a drag fires pointerup → lostpointercapture
+   → pointerleave, and on touch that sequence runs on *every* release — so
+   resuming straight off `pointerleave` used to snatch the split back the
+   instant the visitor finished setting it. */
+const RESUME_DELAY_MS = 4000;
+
 interface Options {
   /** WebGL target — must never receive a 2D context */
   canvas: HTMLCanvasElement;
@@ -95,36 +102,67 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
     applyIfStatic();
   }
 
+  let resumeTimer: number | undefined;
+
+  function cancelResume() {
+    if (resumeTimer === undefined) return;
+    clearTimeout(resumeTimer);
+    resumeTimer = undefined;
+  }
+
+  /** Hand the sweep back only once the visitor has let go *and* stayed away. */
+  function scheduleResume() {
+    if (reduced) return;
+    cancelResume();
+    resumeTimer = window.setTimeout(() => {
+      resumeTimer = undefined;
+      auto = true;
+      t0 = performance.now();
+    }, RESUME_DELAY_MS);
+  }
+
   frame.addEventListener('pointerdown', (e: PointerEvent) => {
     pointerActive = true;
     auto = false;
+    cancelResume();
     setFromClientX(e.clientX);
-    frame.setPointerCapture(e.pointerId);
+    // Throws InvalidPointerId if the pointer is already gone (fast tap, or a
+    // gesture the browser claimed) — that must not abort the handler.
+    try {
+      frame.setPointerCapture(e.pointerId);
+    } catch {
+      /* no capture: dragging past the frame edge just stops updating */
+    }
   });
 
   frame.addEventListener('pointermove', (e: PointerEvent) => {
     if (pointerActive) setFromClientX(e.clientX);
   });
 
-  const release = () => {
+  const release = (e: PointerEvent) => {
     pointerActive = false;
+    // Touch and pen have no hover state, so no `pointerleave` will follow that
+    // means anything — start the idle countdown from the release itself.
+    if (e.pointerType !== 'mouse') scheduleResume();
   };
   frame.addEventListener('pointerup', release);
   frame.addEventListener('pointercancel', release);
 
   frame.addEventListener('pointerenter', () => {
     auto = false;
+    cancelResume();
   });
-  frame.addEventListener('pointerleave', () => {
-    if (!pointerActive && !reduced) {
-      auto = true;
-      t0 = performance.now();
-    }
+  frame.addEventListener('pointerleave', (e: PointerEvent) => {
+    // A lifted finger always "leaves"; only a real mouse exit means the visitor
+    // has moved on. Anything else is handled by `release`.
+    if (e.pointerType !== 'mouse' || pointerActive) return;
+    scheduleResume();
   });
 
   // Keyboard + assistive tech drive the same value through a real range input
   slider.addEventListener('input', () => {
     auto = false;
+    cancelResume();
     target = Number(slider.value) / 100;
     applyIfStatic();
   });

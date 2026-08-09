@@ -317,30 +317,46 @@ export const en: SiteContent = {
       'Two live businesses whose digital presence we designed and built — plus what the studio is working on right now.',
     visitLabel: 'Visit live site',
     readLabel: 'Read case study',
-    labEyebrow: 'Studio lab',
-    labTitle: 'What we are building right now',
-    labIntro:
-      'Products the studio develops in-house to sharpen the tools and the workflow. Ask us about any of them.',
-    lab: [
+    buildsEyebrow: 'Current builds',
+    buildsTitle: 'What the studio is building right now',
+    buildsIntro:
+      'Client projects in flight and the products we develop in-house. Ask us about any of them.',
+    builds: [
       {
-        title: 'Reminder app',
-        desc: 'A calm reminder tool that treats attention as a scarce resource.', // TODO-CONTENT
-        tag: 'Working prototype',
+        key: 'davidleutert',
+        client: 'David Leutert',
+        sector: 'Illustration & lettering · Berlin',
+        desc: 'A bilingual portfolio and archive for a Berlin illustrator and lettering artist: close to 190 pages of commissioned and personal work, with a hero that replays his actual drawing process — pencil sketch, ink, flat colour, finished print.',
+        status: 'With the client for review',
+        url: 'https://micromegass.github.io/davidleutert/',
+        urlLabel: 'See the preview',
+        imageAlt: 'Home page of the David Leutert portfolio, showing a bold hand-lettered print',
       },
       {
-        title: 'Tattoo price calculator',
-        desc: 'Instant, transparent price estimates for tattoo studios and their clients.', // TODO-CONTENT
-        tag: 'Working prototype',
+        key: 'fritzloesel',
+        client: 'Fritz Lösel',
+        sector: 'Therapy practice · Fürth',
+        desc: 'A full relaunch for a practice for systemic and sexual therapy: calm, clear, German and English. No cookies, no trackers and no external requests at all — so the site needs no cookie banner.',
+        status: 'Ready to launch',
+        url: 'https://micromegass.github.io/fritzloesel/',
+        urlLabel: 'See the preview',
+        imageAlt: 'Home page of the Fritz Lösel therapy practice website',
       },
       {
-        title: 'Flight search tool',
-        desc: 'A focused flight search for routes the big platforms handle badly.', // TODO-CONTENT
-        tag: 'Working prototype',
+        key: 'yosoytattoo',
+        client: 'Yo Soy Tattoo Medellín',
+        sector: 'Tattoo studio & academy · Medellín',
+        desc: 'A Spanish-first website with an English mirror for a tattoo studio and academy — including a built-in AI assistant that answers questions about courses, services and location, and hands over to WhatsApp instead of guessing.',
+        status: 'Ready to launch',
+        imageAlt: 'Home page of the Yo Soy Tattoo website with the chat assistant button in the corner',
       },
       {
-        title: 'Medellín city guide',
-        desc: 'A local guide to Medellín, built by someone who lives there.', // TODO-CONTENT
-        tag: 'Working prototype',
+        key: 'trazo',
+        client: 'Trazo',
+        sector: 'Studio product · in-house',
+        desc: 'Pricing software for professional tattoo artists. It turns hours, materials and complexity into a defensible price range, shows exactly how it got there, and exports a branded quote. Three languages, three currencies.',
+        status: 'In development',
+        imageAlt: 'A Trazo price quote showing how a tattoo was assessed and priced',
       },
     ],
   },
@@ -394,7 +410,7 @@ export const en: SiteContent = {
       sector: 'Hospitality · Colombia',
       url: 'https://ikunaglamping.com',
       urlLabel: 'ikunaglamping.com',
-      imageAlt: 'Geodesic glamping dome on a forested mountainside in Antioquia',
+      imageAlt: 'The Ikuna Glamping wordmark on the home page we built, over a dark textured background',
       cardTitle: 'A mountain refuge with a digital front door',
       cardDesc:
         'Brand and image-led booking site for a glamping refuge in Antioquia — fast enough for rural mobile, atmospheric enough to sell the feeling.',
