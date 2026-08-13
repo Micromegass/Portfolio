@@ -5,16 +5,28 @@ import { t } from '@/data';
 interface Props {
   locale: Locale;
   page: PageKey;
+  /**
+   * The 404 borrows the home page key for its layout, but it is not the home
+   * page: without this it duplicates the home title, description, canonical,
+   * hreflang and schema, and invites indexing of an error page.
+   */
+  errorPage?: boolean;
 }
 
-const { locale, page } = Astro.props;
+const { locale, page, errorPage = false } = Astro.props;
 const meta = t(locale).meta[page];
 const site = Astro.site!.toString().replace(/\/$/, '');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const canonical = site + base + (Astro.url.pathname.replace(base, '') || '/');
 
-// The interim GitHub Pages deploy must never be indexed
-const noindex = import.meta.env.GITHUB_PAGES === 'true';
+// The interim GitHub Pages deploy must never be indexed; nor should an error page
+const noindex = import.meta.env.GITHUB_PAGES === 'true' || errorPage;
+
+/* Its own identity, so it stops duplicating the home page in search results. */
+const errorMeta = {
+  title: `${t(locale).notFound.title} | ${studio.name}`,
+  description: t(locale).notFound.body,
+};
 
 const orgJsonLd = {
   '@context': 'https://schema.org',
@@ -128,27 +140,36 @@ const caseJsonLd = caseKey && {
   keywords: c.cases[caseKey].specs.map((s) => s.value).join(', '),
 };
 
-const blocks = [
-  page === 'home' || page === 'about' ? orgJsonLd : null,
-  page === 'home' ? websiteJsonLd : null,
-  breadcrumbJsonLd,
-  serviceJsonLd,
-  faqJsonLd,
-  caseJsonLd,
-].filter(Boolean);
+// An error page describes nothing, so it carries no structured data at all.
+const blocks = errorPage
+  ? []
+  : [
+      page === 'home' || page === 'about' ? orgJsonLd : null,
+      page === 'home' ? websiteJsonLd : null,
+      breadcrumbJsonLd,
+      serviceJsonLd,
+      faqJsonLd,
+      caseJsonLd,
+    ].filter(Boolean);
 ---
 
-<title>{meta.title}</title>
-<meta name="description" content={meta.description} />
-<link rel="canonical" href={canonical} />
+<title>{errorPage ? errorMeta.title : meta.title}</title>
+<meta name="description" content={errorPage ? errorMeta.description : meta.description} />
+{/* An error page is not a canonical URL and has no language alternates. */}
+{!errorPage && <link rel="canonical" href={canonical} />}
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 
 {
-  alternates(page).map(({ locale: l, path }) => (
-    <link rel="alternate" hreflang={l} href={site + base + path} />
-  ))
+  !errorPage &&
+    alternates(page).map(({ locale: l, path }) => (
+      <link rel="alternate" hreflang={l} href={site + base + path} />
+    ))
 }
-<link rel="alternate" hreflang="x-default" href={site + base + alternates(page)[0].path} />
+{
+  !errorPage && (
+    <link rel="alternate" hreflang="x-default" href={site + base + alternates(page)[0].path} />
+  )
+}
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content={meta.title} />

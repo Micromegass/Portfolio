@@ -20,6 +20,10 @@ export const renderLabels: Record<Locale, RenderLabels> = {
     ctaSecondary: 'Our services',
     cards: ['Manufacturing', 'Assembly', 'Service'],
     navNew: ['Services', 'Work', 'Team', 'Contact'],
+    urlOld: 'www.your-company.co.uk/index.html',
+    urlNew: 'your-company.co.uk',
+    statValue: 'Fast',
+    statLabel: 'on every phone',
   },
   de: {
     company: 'MEYER & SÖHNE GMBH',
@@ -35,6 +39,10 @@ export const renderLabels: Record<Locale, RenderLabels> = {
     ctaSecondary: 'Leistungen',
     cards: ['Fertigung', 'Montage', 'Service'],
     navNew: ['Leistungen', 'Projekte', 'Team', 'Kontakt'],
+    urlOld: 'www.ihre-firma.de/index.html',
+    urlNew: 'ihre-firma.de',
+    statValue: 'Schnell',
+    statLabel: 'auf jedem Handy',
   },
   es: {
     company: 'MEYER E HIJOS S.A.',
@@ -50,5 +58,9 @@ export const renderLabels: Record<Locale, RenderLabels> = {
     ctaSecondary: 'Servicios',
     cards: ['Fabricación', 'Montaje', 'Servicio'],
     navNew: ['Servicios', 'Proyectos', 'Equipo', 'Contacto'],
+    urlOld: 'www.su-empresa.com/index.html',
+    urlNew: 'su-empresa.com',
+    statValue: 'Rápido',
+    statLabel: 'en cualquier móvil',
   },
 };

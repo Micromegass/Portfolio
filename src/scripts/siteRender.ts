@@ -23,6 +23,17 @@ export interface RenderLabels {
   ctaSecondary: string;
   cards: string[];
   navNew: string[];
+  /** Address bar of each mock — was hardcoded German on all three locales */
+  urlOld: string;
+  urlNew: string;
+  /**
+   * The floating chip on the "after" mock. Deliberately NOT a number: this
+   * used to read "+38 % Anfragen", an unverified outcome, in German, shown to
+   * English and Spanish visitors. Describe a property of the rebuilt site,
+   * never a result the client got.
+   */
+  statValue: string;
+  statLabel: string;
 }
 
 function roundRect(c: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
@@ -45,7 +56,7 @@ export function drawBefore(c: CanvasRenderingContext2D, W: number, H: number, L:
   c.fillRect(0, 0, W, 70);
   c.fillStyle = '#8d887c';
   c.font = `600 26px ${SANS}`;
-  c.fillText('www.ihre-firma.de/index.html', 40, 46);
+  c.fillText(L.urlOld, 40, 46);
 
   // loud header
   c.fillStyle = '#1c4f8b';
@@ -53,9 +64,12 @@ export function drawBefore(c: CanvasRenderingContext2D, W: number, H: number, L:
   c.fillStyle = '#ffd94a';
   c.font = `bold 62px ${SERIF}`;
   c.fillText(L.company, 48, 168);
+  // Measured, not hardcoded: the German company name is long enough to run
+  // under a fixed tagline position and the two collided.
+  const companyEnd = 48 + c.measureText(L.company).width;
   c.fillStyle = '#ffffff';
   c.font = `italic 28px ${SERIF}`;
-  c.fillText(L.tagline, 780, 172);
+  c.fillText(L.tagline, Math.max(780, companyEnd + 40), 172);
 
   // cramped nav
   c.fillStyle = '#d6d2c6';
@@ -112,7 +126,7 @@ export function drawAfter(c: CanvasRenderingContext2D, W: number, H: number, L: 
   c.fillRect(0, 0, W, 70);
   c.fillStyle = 'rgba(255,255,255,0.45)';
   c.font = `600 26px ${SANS}`;
-  c.fillText('ihre-firma.de', 40, 46);
+  c.fillText(L.urlNew, 40, 46);
 
   // nav
   c.fillStyle = '#f5f2f6';
@@ -194,10 +208,10 @@ export function drawAfter(c: CanvasRenderingContext2D, W: number, H: number, L: 
   c.stroke();
   c.fillStyle = '#ff3d77';
   c.font = `780 46px ${SANS}`;
-  c.fillText('+38 %', 1508, 700);
+  c.fillText(L.statValue, 1508, 700);
   c.fillStyle = 'rgba(245,242,246,0.55)';
   c.font = `500 22px ${SANS}`;
-  c.fillText('Anfragen', 1508, 730);
+  c.fillText(L.statLabel, 1508, 730);
 
   // small logo/badge cluster top-right of the visual
   for (let i = 0; i < 3; i++) {

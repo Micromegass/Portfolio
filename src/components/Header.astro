@@ -42,6 +42,9 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
           </a>
         ))
       }
+      {/* The header CTA is hidden below 920px, so without this the whole
+          small-screen experience has no call to action anywhere. */}
+      <a class="button button--primary nav__cta" href={href('contact', locale)}>{c.nav.cta}</a>
     </nav>
 
     <div class="header__end">
@@ -162,6 +165,11 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     gap: var(--space-4);
   }
 
+  /* Only for the collapsed menu — on desktop .header__cta already covers it. */
+  .nav__cta {
+    display: none;
+  }
+
   .nav__link {
     color: var(--fg-mute);
     text-decoration: none;
@@ -263,6 +271,13 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
 
     .site-header--open .nav {
       display: flex;
+    }
+
+    .nav__cta {
+      display: inline-flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: var(--space-3);
     }
 
     .nav__link {

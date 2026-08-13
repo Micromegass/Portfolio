@@ -183,7 +183,17 @@ export interface SiteContent {
     opportunitiesNone: string;
     savingsLabel: string;
     scale: { good: string; ok: string; poor: string };
-    errors: { invalid: string; failed: string; quota: string; unreachable: string };
+    /** Recovery action shown with a failed check — a real button, not prose. */
+    errorCta: string;
+    errorSubject: string;
+    errors: {
+      /** Empty field is a different mistake from a malformed address. */
+      empty: string;
+      invalid: string;
+      failed: string;
+      quota: string;
+      unreachable: string;
+    };
     resultFor: string;
     /** Plain-language explainer of what each score means */
     explainTitle: string;

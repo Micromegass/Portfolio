@@ -43,8 +43,24 @@ const k = c.check;
         </p>
       </form>
 
-      <!-- Status region: announced to screen readers as it changes -->
+      <!-- Status region: announced to screen readers as it changes. Errors get
+           their own surface and a real recovery action rather than another run
+           of small print under the privacy note. -->
       <p class="checker__status" id="check-status" role="status" aria-live="polite"></p>
+      <div class="checker__error" id="check-error" role="alert" hidden>
+        <svg class="checker__error-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path
+            fill="currentColor"
+            d="M10 1.6 19 18H1L10 1.6Zm0 4.9a1 1 0 0 0-1 1v4.2a1 1 0 1 0 2 0V7.5a1 1 0 0 0-1-1Zm0 8a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3Z"
+          ></path>
+        </svg>
+        <div class="checker__error-body">
+          <p class="checker__error-text" id="check-error-text"></p>
+          <a class="button button--primary checker__error-cta" id="check-error-cta" href="#"
+            >{c.check.errorCta}</a
+          >
+        </div>
+      </div>
     </div>
   </section>
 
@@ -108,7 +124,10 @@ const k = c.check;
   </section>
 </Base>
 
-<script is:inline define:vars={{ strings: t(Astro.props.locale).check }}>
+<script
+  is:inline
+  define:vars={{ strings: { ...t(Astro.props.locale).check, email: studio.email } }}
+>
   window.__CHECK_STRINGS__ = strings;
 </script>
 
@@ -121,6 +140,9 @@ const k = c.check;
   const status = document.getElementById('check-status');
   const results = document.getElementById('check-results');
   const placeholder = document.getElementById('check-placeholder');
+  const errorBox = document.getElementById('check-error');
+  const errorText = document.getElementById('check-error-text');
+  const errorCta = document.getElementById('check-error-cta');
   const submitLabel = document.querySelector('[data-submit-label]');
   const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
@@ -151,6 +173,8 @@ const k = c.check;
 
     submitBtn && (submitBtn.disabled = true);
     submitLabel && (submitLabel.textContent = strings.running);
+    // Clear the previous failure, or a stale error sits under a running check.
+    errorBox && (errorBox.hidden = true);
     status.textContent = strings.runningNote;
     status.dataset.state = 'busy';
 
@@ -193,8 +217,21 @@ const k = c.check;
       results!.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
       const kind = err instanceof CheckError ? err.kind : 'failed';
-      status.textContent = strings.errors[kind];
-      status.dataset.state = 'error';
+      // Empty field is not a malformed address — say the thing that is wrong.
+      const key = kind === 'invalid' && !input!.value.trim() ? 'empty' : kind;
+      status.textContent = '';
+      delete status.dataset.state;
+      errorText!.textContent = strings.errors[key] ?? strings.errors.failed;
+      // The recovery has to be a real action: hand the address we already have
+      // to a prefilled email so a failed check still converts.
+      const typed = input!.value.trim();
+      errorCta!.setAttribute(
+        'href',
+        `mailto:${strings.email}?subject=${encodeURIComponent(strings.errorSubject)}${
+          typed ? `&body=${encodeURIComponent(typed)}` : ''
+        }`
+      );
+      errorBox!.hidden = false;
     } finally {
       submitBtn && (submitBtn.disabled = false);
       submitLabel && (submitLabel.textContent = strings.submit);
@@ -312,6 +349,48 @@ const k = c.check;
   .checker__status[data-state='error'] {
     color: var(--status-bad);
     font-weight: 600;
+  }
+
+  /* A failure gets its own surface. Previously this was 14px accent-coloured
+     prose directly beneath a 14px accent-coloured privacy link, so the two
+     read as one run of small print and the error disappeared into it. */
+  .checker__error {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    margin-top: var(--space-4);
+    max-width: 38rem;
+    padding: var(--space-4);
+    border: 1px solid color-mix(in srgb, var(--status-bad) 45%, transparent);
+    border-left-width: 3px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--status-bad) 8%, var(--surface));
+  }
+
+  .checker__error[hidden] {
+    display: none;
+  }
+
+  .checker__error-icon {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    margin-top: 0.1em;
+    color: var(--status-bad);
+  }
+
+  .checker__error-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .checker__error-text {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--fg);
   }
 
   /* ---- results ---- */

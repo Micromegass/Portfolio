@@ -122,7 +122,7 @@ export const en: SiteContent = {
     },
     work: {
       eyebrow: 'Selected work',
-      title: 'Real businesses. Real results.',
+      title: 'Real businesses. See exactly what we built.',
       intro: 'Websites that real businesses rely on every day.',
       more: 'All work',
     },
@@ -597,10 +597,13 @@ export const en: SiteContent = {
     opportunitiesNone: 'No major technical issues found — a good starting point.',
     savingsLabel: 'potential saving',
     scale: { good: 'Good', ok: 'Needs work', poor: 'Poor' },
+    errorCta: 'Email us the address instead',
+    errorSubject: 'Website check — please run this for me',
     errors: {
+      empty: 'Enter your website address first — something like your-company.com.',
       invalid: 'That does not look like a valid website address. Try something like your-company.com.',
       failed: 'The check could not be completed. Please try again in a moment.',
-      quota: 'The free analysis quota is exhausted right now. Please try again later, or email us and we will run it for you.',
+      quota: 'Google’s free analysis quota is exhausted right now — this is a limit on their side, not a problem with your website. Send us the address and we will run the check ourselves.',
       unreachable:
         'Google could not load that address. Check the spelling, and make sure the site is publicly reachable.',
     },

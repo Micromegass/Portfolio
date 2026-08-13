@@ -15,7 +15,11 @@ export default defineConfig({
   trailingSlash: 'ignore',
   output: 'static',
   // No sitemap on the interim GitHub Pages deploy — it must not be indexed
-  integrations: onGitHubPages ? [] : [sitemap()],
+  // `lastmod` is the one sitemap hint Google actually consumes; without it the
+  // 36 URLs carry no freshness signal at all.
+  integrations: onGitHubPages
+    ? []
+    : [sitemap({ serialize: (item) => ({ ...item, lastmod: new Date().toISOString() }) })],
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'de', 'es'],

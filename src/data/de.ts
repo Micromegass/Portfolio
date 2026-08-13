@@ -25,7 +25,7 @@ export const de: SiteContent = {
     work: {
       title: 'Projekte — Websites und Web-Apps aus dem Studio | RENOVO',
       description:
-        'Ausgewählte Projekte: die Website einer Physiotherapiepraxis, eine Hospitality-Marke mit Buchungsseite, dazu die Kundenprojekte und Studio-Produkte, an denen wir gerade bauen.',
+        'Ausgewählte Projekte: die Website einer Physiotherapiepraxis, eine Hospitality-Marke mit Buchungsseite, dazu die Projekte, an denen wir gerade bauen.',
     },
     'case-physio': {
       title: 'Fallstudie: Website für eine Physiotherapiepraxis | RENOVO',
@@ -122,7 +122,7 @@ export const de: SiteContent = {
     },
     work: {
       eyebrow: 'Ausgewählte Projekte',
-      title: 'Echte Unternehmen. Echte Ergebnisse.',
+      title: 'Echte Unternehmen. Sehen Sie genau, was wir gebaut haben.',
       intro: 'Websites, auf die sich echte Unternehmen jeden Tag verlassen.',
       more: 'Alle Projekte',
     },
@@ -595,7 +595,10 @@ export const de: SiteContent = {
     opportunitiesNone: 'Keine größeren technischen Probleme gefunden — eine gute Ausgangslage.',
     savingsLabel: 'mögliche Ersparnis',
     scale: { good: 'Gut', ok: 'Ausbaufähig', poor: 'Schwach' },
+    errorCta: 'Adresse stattdessen per E-Mail senden',
+    errorSubject: 'Website-Check — bitte für mich durchführen',
     errors: {
+      empty: 'Geben Sie zuerst Ihre Website-Adresse ein — zum Beispiel ihre-firma.de.',
       invalid: 'Das sieht nicht nach einer gültigen Adresse aus. Versuchen Sie es mit ihre-firma.de.',
       failed: 'Der Check konnte nicht abgeschlossen werden. Bitte versuchen Sie es gleich noch einmal.',
       quota:

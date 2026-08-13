@@ -122,7 +122,7 @@ export const es: SiteContent = {
     },
     work: {
       eyebrow: 'Proyectos seleccionados',
-      title: 'Negocios reales. Resultados reales.',
+      title: 'Negocios reales. Vea exactamente qué construimos.',
       intro: 'Sitios web en los que negocios reales confían todos los días.',
       more: 'Todos los proyectos',
     },
@@ -595,7 +595,10 @@ export const es: SiteContent = {
     opportunitiesNone: 'No se encontraron problemas técnicos importantes — buen punto de partida.',
     savingsLabel: 'de ahorro potencial',
     scale: { good: 'Bien', ok: 'Mejorable', poor: 'Deficiente' },
+    errorCta: 'Envíenos la dirección por correo',
+    errorSubject: 'Análisis web — háganlo por mí, por favor',
     errors: {
+      empty: 'Introduzca primero la dirección de su web — por ejemplo su-empresa.com.',
       invalid: 'Eso no parece una dirección válida. Pruebe con algo como su-empresa.com.',
       failed: 'No se pudo completar el análisis. Inténtelo de nuevo en un momento.',
       quota:

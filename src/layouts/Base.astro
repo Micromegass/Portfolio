@@ -12,9 +12,11 @@ import WhatsAppButton from '@/components/WhatsAppButton.astro';
 interface Props {
   locale: Locale;
   page: PageKey;
+  /** Error pages reuse a page key for layout but must not inherit its SEO. */
+  errorPage?: boolean;
 }
 
-const { locale, page } = Astro.props;
+const { locale, page, errorPage = false } = Astro.props;
 /* Mirrors ChatWidget's own condition: the assistant is only built when a
    backend exists, and the WhatsApp button must sit clear of it when it is. */
 const hasAssistant = Boolean(import.meta.env.PUBLIC_CHAT_ENDPOINT);
@@ -39,7 +41,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         if (stored === 'dark' || stored === 'light') document.documentElement.dataset.theme = stored;
       } catch (e) {}
     </script>
-    <Seo locale={locale} page={page} />
+    <Seo locale={locale} page={page} errorPage={errorPage} />
   </head>
   <body>
     <script is:inline>
