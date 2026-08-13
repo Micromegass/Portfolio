@@ -27,6 +27,17 @@ export interface SiteContent {
     colophon: string;
   };
 
+  /**
+   * WhatsApp is a site-wide contact channel (floating button, footer, contact
+   * page), so it lives here rather than under any one surface. `prefill` is the
+   * message the chat opens with — it must never promise anything on our behalf.
+   */
+  whatsapp: {
+    label: string;
+    aria: string;
+    prefill: string;
+  };
+
   home: {
     eyebrow: string;
     headline: [string, string, string];

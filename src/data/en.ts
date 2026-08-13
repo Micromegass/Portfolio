@@ -90,6 +90,12 @@ export const en: SiteContent = {
     colophon: 'Built by hand with an AI-first workflow. No trackers, no cookies.',
   },
 
+  whatsapp: {
+    label: 'WhatsApp',
+    aria: 'Write to us on WhatsApp',
+    prefill: 'Hello RENOVO — I have a question about my website.',
+  },
+
   home: {
     eyebrow: 'Website relaunch · AI assistants · Web apps',
     headline: ['Your website,', 'rebuilt for the', 'AI era.'],
@@ -329,7 +335,6 @@ export const en: SiteContent = {
         sector: 'Illustration & lettering · Berlin',
         desc: 'A bilingual portfolio and archive for a Berlin illustrator and lettering artist: close to 190 pages of commissioned and personal work, with a hero that replays his actual drawing process — pencil sketch, ink, flat colour, finished print.',
         status: 'With the client for review',
-        preview: { url: 'https://micromegass.github.io/davidleutert/', label: 'See the preview' },
         imageAlt: 'Home page of the David Leutert portfolio, showing a bold hand-lettered print',
       },
       {
@@ -775,19 +780,29 @@ export const en: SiteContent = {
           ],
         },
         {
-          heading: '6. Fonts and other assets',
+          heading: '6. Contact by WhatsApp',
+          body: [
+            'This site links to WhatsApp so you can reach us directly. The link only opens WhatsApp — merely loading our pages establishes no connection to WhatsApp or Meta, and we embed no WhatsApp widget or tracking pixel.',
+            'If you choose to write to us there, the conversation is processed by WhatsApp Ireland Limited and, depending on the service configuration, by Meta Platforms, Inc. in the United States. We have no influence over that processing; WhatsApp receives your telephone number and the content of your messages, and metadata about the exchange. Meta’s own privacy information applies in addition to this policy.',
+            'Legal basis: your consent, given by deliberately opening the chat and writing to us, Art. 6 para. 1 lit. a GDPR; where your message concerns the initiation or performance of a contract, also Art. 6 para. 1 lit. b GDPR.',
+            'Third-country transfer: Meta Platforms, Inc. is certified under the EU-US Data Privacy Framework, which the European Commission has recognised as providing an adequate level of protection (adequacy decision of 10 July 2023).',
+            'Retention: messages are deleted once your enquiry has been dealt with conclusively, unless statutory retention obligations prevent deletion. If you would rather not use WhatsApp, email reaches us just as well.',
+          ],
+        },
+        {
+          heading: '7. Fonts and other assets',
           body: [
             'All fonts, images, scripts and stylesheets are served from this website’s own server. In particular, no Google Fonts CDN, no content delivery network and no social media plugins are used. No connection to third-party servers is established when you simply browse the site.',
           ],
         },
         {
-          heading: '7. Cookies, analytics and tracking',
+          heading: '8. Cookies, analytics and tracking',
           body: [
             'This website sets no cookies and uses no analytics, tracking, remarketing or profiling technologies. Your language preference and colour theme, if you change them, are stored locally in your browser and never transmitted to us.',
           ],
         },
         {
-          heading: '8. Your rights',
+          heading: '9. Your rights',
           body: [
             'You have the right to obtain information about the personal data we process concerning you (Art. 15 GDPR), to have inaccurate data corrected (Art. 16), to have data erased (Art. 17), to have processing restricted (Art. 18), to receive your data in a portable format (Art. 20) and to withdraw consent you have given at any time with effect for the future (Art. 7 para. 3).',
             'Right to object: you have the right to object at any time, on grounds relating to your particular situation, to processing based on Art. 6 para. 1 lit. f GDPR (Art. 21 GDPR).',
@@ -795,14 +810,14 @@ export const en: SiteContent = {
           ],
         },
         {
-          heading: '9. Right to lodge a complaint',
+          heading: '10. Right to lodge a complaint',
           body: [
             'You have the right to lodge a complaint with a data protection supervisory authority, in particular in the member state of your habitual residence, place of work or the place of the alleged infringement (Art. 77 GDPR).',
             'The authority responsible for us is the Bavarian State Office for Data Protection Supervision (Bayerisches Landesamt für Datenschutzaufsicht), Promenade 18, 91522 Ansbach, Germany.', // TODO-CONTENT: adjust if the business is registered outside Bavaria
           ],
         },
         {
-          heading: '10. Changes to this policy',
+          heading: '11. Changes to this policy',
           body: [
             'We update this privacy policy when changes to the website or to the law make it necessary. The version published here always applies.',
           ],

@@ -10,6 +10,15 @@ export const studio = {
   domain: 'renovostudio.com',
   email: 'axelbraunschweiger@gmail.com',
   person: 'Axel Braunschweiger',
+  /**
+   * WhatsApp: `digits` is what wa.me needs (no +, spaces or dashes); `display`
+   * is what a human reads. Keep both in sync — and keep them in sync with the
+   * Impressum, which needs a direct contact channel under § 5 DDG.
+   */
+  whatsapp: {
+    digits: '573202137192',
+    display: '+57 320 213 7192',
+  },
   /** Profiles search and answer engines can use to identify us (schema sameAs) */
   profiles: [
     'https://github.com/Micromegass',

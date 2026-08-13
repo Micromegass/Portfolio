@@ -38,6 +38,11 @@ const c = t(locale);
     <div class="footer__col">
       <h2 class="footer__head">{c.footer.contactLabel}</h2>
       <a href={`mailto:${studio.email}`}>{studio.email}</a>
+      <a
+        href={`https://wa.me/${studio.whatsapp.digits}?text=${encodeURIComponent(c.whatsapp.prefill)}`}
+        rel="noopener"
+        target="_blank">{`${c.whatsapp.label} · ${studio.whatsapp.display}`}</a
+      >
       <a href="https://github.com/Micromegass" rel="me noopener" target="_blank">GitHub</a>
       <a
         href="https://www.linkedin.com/in/axel-braunschweiger-17b5609b/"

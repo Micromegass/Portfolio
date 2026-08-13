@@ -90,6 +90,12 @@ export const es: SiteContent = {
     colophon: 'Hecho a mano con un flujo de trabajo AI-first. Sin rastreadores, sin cookies.',
   },
 
+  whatsapp: {
+    label: 'WhatsApp',
+    aria: 'Escríbanos por WhatsApp',
+    prefill: 'Hola RENOVO — tengo una pregunta sobre mi sitio web.',
+  },
+
   home: {
     eyebrow: 'Rediseño web · Asistentes de IA · Aplicaciones web',
     headline: ['Su sitio web,', 'reconstruido para', 'la era de la IA.'],
@@ -326,7 +332,6 @@ export const es: SiteContent = {
         sector: 'Ilustración y lettering · Berlín',
         desc: 'Un portafolio y archivo bilingüe para un ilustrador y artista de lettering de Berlín: cerca de 190 páginas de trabajo por encargo y personal, con una portada que reproduce su proceso real de dibujo — boceto a lápiz, tinta, color plano, impresión final.',
         status: 'En revisión del cliente',
-        preview: { url: 'https://micromegass.github.io/davidleutert/', label: 'Ver la vista previa' },
         imageAlt: 'Página de inicio del portafolio de David Leutert con una impresión de lettering a mano',
       },
       {
@@ -774,19 +779,29 @@ export const es: SiteContent = {
           ],
         },
         {
-          heading: '6. Fuentes y otros recursos',
+          heading: '6. Contacto por WhatsApp',
+          body: [
+            'Este sitio enlaza a WhatsApp para que pueda escribirnos directamente. El enlace solo abre WhatsApp — la mera carga de nuestras páginas no establece ninguna conexión con WhatsApp ni con Meta, y no incrustamos ningún widget ni píxel de seguimiento.',
+            'Si decide escribirnos allí, la conversación es tratada por WhatsApp Ireland Limited y, según la configuración del servicio, por Meta Platforms, Inc. en Estados Unidos. No tenemos influencia sobre ese tratamiento; WhatsApp recibe su número de teléfono, el contenido de sus mensajes y metadatos sobre la comunicación. La información de privacidad de Meta se aplica de forma complementaria.',
+            'Base jurídica: su consentimiento, otorgado al abrir deliberadamente el chat y escribirnos, art. 6.1.a RGPD; si su mensaje se refiere a la preparación o ejecución de un contrato, además art. 6.1.b RGPD.',
+            'Transferencia a un tercer país: Meta Platforms, Inc. está certificada en el EU-US Data Privacy Framework, que la Comisión Europea ha reconocido como nivel de protección adecuado (decisión de adecuación de 10 de julio de 2023).',
+            'Conservación: los mensajes se eliminan una vez resuelta definitivamente su consulta, salvo obligaciones legales de conservación. Si prefiere no usar WhatsApp, el correo electrónico funciona igual de bien.',
+          ],
+        },
+        {
+          heading: '7. Fuentes y otros recursos',
           body: [
             'Todas las fuentes, imágenes, scripts y hojas de estilo se sirven desde el propio servidor de este sitio. En particular, no se utiliza el CDN de Google Fonts, ninguna red de distribución de contenidos ni complementos de redes sociales. Al navegar por el sitio no se establece ninguna conexión con servidores de terceros.',
           ],
         },
         {
-          heading: '7. Cookies, analítica y rastreo',
+          heading: '8. Cookies, analítica y rastreo',
           body: [
             'Este sitio no utiliza cookies ni tecnologías de analítica, rastreo, remarketing o elaboración de perfiles. Su preferencia de idioma y de tema de color, si las cambia, se guardan localmente en su navegador y nunca se nos transmiten.',
           ],
         },
         {
-          heading: '8. Sus derechos',
+          heading: '9. Sus derechos',
           body: [
             'Tiene derecho a obtener información sobre los datos personales que tratamos sobre usted (art. 15 RGPD), a la rectificación de datos inexactos (art. 16), a la supresión (art. 17), a la limitación del tratamiento (art. 18), a la portabilidad (art. 20) y a retirar en cualquier momento el consentimiento otorgado con efectos para el futuro (art. 7 apdo. 3).',
             'Derecho de oposición: tiene derecho a oponerse en cualquier momento, por motivos relacionados con su situación particular, al tratamiento basado en el art. 6 apdo. 1 lit. f RGPD (art. 21 RGPD).',
@@ -794,14 +809,14 @@ export const es: SiteContent = {
           ],
         },
         {
-          heading: '9. Derecho a presentar una reclamación',
+          heading: '10. Derecho a presentar una reclamación',
           body: [
             'Tiene derecho a presentar una reclamación ante una autoridad de control de protección de datos, en particular en el Estado miembro de su residencia habitual, lugar de trabajo o del lugar de la supuesta infracción (art. 77 RGPD).',
             'La autoridad competente para nosotros es la Oficina Estatal Bávara de Supervisión de Protección de Datos (Bayerisches Landesamt für Datenschutzaufsicht), Promenade 18, 91522 Ansbach, Alemania.', // TODO-CONTENT
           ],
         },
         {
-          heading: '10. Cambios en esta política',
+          heading: '11. Cambios en esta política',
           body: [
             'Actualizamos esta política cuando los cambios en el sitio o en la legislación lo hacen necesario. Siempre rige la versión publicada aquí.',
           ],

@@ -7,6 +7,7 @@ import Seo from '@/components/Seo.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import ChatWidget from '@/components/ChatWidget.astro';
+import WhatsAppButton from '@/components/WhatsAppButton.astro';
 
 interface Props {
   locale: Locale;
@@ -14,6 +15,9 @@ interface Props {
 }
 
 const { locale, page } = Astro.props;
+/* Mirrors ChatWidget's own condition: the assistant is only built when a
+   backend exists, and the WhatsApp button must sit clear of it when it is. */
+const hasAssistant = Boolean(import.meta.env.PUBLIC_CHAT_ENDPOINT);
 const skipLabel = { en: 'Skip to content', de: 'Zum Inhalt springen', es: 'Saltar al contenido' }[
   locale
 ];
@@ -58,6 +62,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </main>
     <Footer locale={locale} />
     <ChatWidget locale={locale} />
+    {/* Not on the contact page: WhatsApp and email are already inline there,
+        and a floating copy only covers them. */}
+    {page !== 'contact' && <WhatsAppButton locale={locale} raised={hasAssistant} />}
     <script>
       import { initMotion } from '@/scripts/motion';
       initMotion();

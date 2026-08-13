@@ -90,6 +90,12 @@ export const de: SiteContent = {
     colophon: 'Von Hand gebaut, mit AI-first-Workflow. Keine Tracker, keine Cookies.',
   },
 
+  whatsapp: {
+    label: 'WhatsApp',
+    aria: 'Schreiben Sie uns auf WhatsApp',
+    prefill: 'Hallo RENOVO — ich habe eine Frage zu meiner Website.',
+  },
+
   home: {
     eyebrow: 'Website-Relaunch · KI-Assistenten · Web-Apps',
     headline: ['Ihre Website,', 'neu gebaut für', 'die KI-Zeit.'],
@@ -326,7 +332,6 @@ export const de: SiteContent = {
         sector: 'Illustration & Lettering · Berlin',
         desc: 'Ein zweisprachiges Portfolio und Archiv für einen Berliner Illustrator und Lettering-Künstler: knapp 190 Seiten Auftrags- und freie Arbeiten, mit einem Hero, der seinen echten Zeichenprozess nachspielt — Bleistiftskizze, Tusche, Farbfläche, fertiger Druck.',
         status: 'Beim Kunden in Review',
-        preview: { url: 'https://micromegass.github.io/davidleutert/', label: 'Vorschau ansehen' },
         imageAlt: 'Startseite des Portfolios von David Leutert mit einem kräftigen handgeletterten Druck',
       },
       {
@@ -777,19 +782,29 @@ export const de: SiteContent = {
           ],
         },
         {
-          heading: '6. Schriften und weitere Ressourcen',
+          heading: '6. Kontaktaufnahme per WhatsApp',
+          body: [
+            'Diese Website verlinkt WhatsApp, damit Sie uns direkt erreichen können. Der Link öffnet lediglich WhatsApp — allein durch das Aufrufen unserer Seiten wird keine Verbindung zu WhatsApp oder Meta hergestellt; wir binden weder ein WhatsApp-Widget noch ein Tracking-Pixel ein.',
+            'Wenn Sie uns dort schreiben, wird die Konversation von der WhatsApp Ireland Limited und, je nach Konfiguration des Dienstes, von Meta Platforms, Inc. in den USA verarbeitet. Auf diese Verarbeitung haben wir keinen Einfluss; WhatsApp erhält Ihre Telefonnummer, den Inhalt Ihrer Nachrichten sowie Metadaten zur Kommunikation. Ergänzend gelten die Datenschutzhinweise von Meta.',
+            'Rechtsgrundlage: Ihre Einwilligung, erteilt durch das bewusste Öffnen des Chats und das Schreiben an uns, Art. 6 Abs. 1 lit. a DSGVO; betrifft Ihre Nachricht die Anbahnung oder Durchführung eines Vertrags, zusätzlich Art. 6 Abs. 1 lit. b DSGVO.',
+            'Drittlandtransfer: Meta Platforms, Inc. ist unter dem EU-US Data Privacy Framework zertifiziert, das die Europäische Kommission als angemessenes Schutzniveau anerkannt hat (Angemessenheitsbeschluss vom 10. Juli 2023).',
+            'Speicherdauer: Nachrichten werden gelöscht, sobald Ihre Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Wenn Sie WhatsApp nicht nutzen möchten, erreichen Sie uns genauso gut per E-Mail.',
+          ],
+        },
+        {
+          heading: '7. Schriften und weitere Ressourcen',
           body: [
             'Sämtliche Schriften, Bilder, Skripte und Stylesheets werden vom eigenen Server dieser Website ausgeliefert. Insbesondere kommen kein Google-Fonts-CDN, kein Content Delivery Network und keine Social-Media-Plugins zum Einsatz. Beim bloßen Betrachten der Seiten wird keine Verbindung zu Servern Dritter aufgebaut.',
           ],
         },
         {
-          heading: '7. Cookies, Analyse und Tracking',
+          heading: '8. Cookies, Analyse und Tracking',
           body: [
             'Diese Website setzt keine Cookies und verwendet keine Analyse-, Tracking-, Remarketing- oder Profiling-Technologien. Ihre Sprach- und Farbschema-Einstellung wird, sofern Sie sie ändern, ausschließlich lokal in Ihrem Browser gespeichert und nicht an uns übermittelt.',
           ],
         },
         {
-          heading: '8. Ihre Rechte',
+          heading: '9. Ihre Rechte',
           body: [
             'Sie haben das Recht auf Auskunft über die zu Ihrer Person verarbeiteten Daten (Art. 15 DSGVO), auf Berichtigung unrichtiger Daten (Art. 16), auf Löschung (Art. 17), auf Einschränkung der Verarbeitung (Art. 18), auf Datenübertragbarkeit (Art. 20) sowie auf jederzeitigen Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3).',
             'Widerspruchsrecht: Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen eine Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO Widerspruch einzulegen (Art. 21 DSGVO).',
@@ -797,14 +812,14 @@ export const de: SiteContent = {
           ],
         },
         {
-          heading: '9. Beschwerderecht',
+          heading: '10. Beschwerderecht',
           body: [
             'Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere im Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes (Art. 77 DSGVO).',
             'Die für uns zuständige Behörde ist das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach.', // TODO-CONTENT: anpassen, falls der Sitz außerhalb Bayerns liegt
           ],
         },
         {
-          heading: '10. Änderungen dieser Erklärung',
+          heading: '11. Änderungen dieser Erklärung',
           body: [
             'Wir passen diese Datenschutzerklärung an, wenn Änderungen an der Website oder der Rechtslage dies erforderlich machen. Es gilt jeweils die hier veröffentlichte Fassung.',
           ],

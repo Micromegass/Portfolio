@@ -9,6 +9,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const c = t(locale).contact;
+const wa = t(locale).whatsapp;
 ---
 
 <Base locale={locale} page="contact">
@@ -22,6 +23,16 @@ const c = t(locale).contact;
         <a class="mailto" href={`mailto:${studio.email}`}>
           <span class="mailto__label">{c.emailLabel}</span>
           <span class="mailto__address">{studio.email}</span>
+        </a>
+
+        <a
+          class="mailto mailto--wa"
+          href={`https://wa.me/${studio.whatsapp.digits}?text=${encodeURIComponent(wa.prefill)}`}
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="mailto__label">{wa.label}</span>
+          <span class="mailto__address">{studio.whatsapp.display}</span>
         </a>
 
         <p class="status">
@@ -100,6 +111,19 @@ const c = t(locale).contact;
     text-decoration: none;
     border-bottom: 2px solid var(--accent);
     padding-bottom: var(--space-2);
+  }
+
+  /* Second channel, so it reads as an alternative rather than a rival CTA. */
+  .mailto--wa {
+    margin-top: var(--space-4);
+    margin-left: var(--space-6);
+    border-bottom-color: #25d366;
+  }
+
+  @media (max-width: 640px) {
+    .mailto--wa {
+      margin-left: 0;
+    }
   }
 
   .mailto__label {
