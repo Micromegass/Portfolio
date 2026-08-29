@@ -2,6 +2,7 @@ import type { BuildKey } from './types';
 import davidleutert from '@/assets/builds/davidleutert.webp';
 import fritzloesel from '@/assets/builds/fritzloesel.webp';
 import yosoytattoo from '@/assets/builds/yosoytattoo.webp';
+import harmonia from '@/assets/builds/harmonia.webp';
 import trazo from '@/assets/builds/trazo.webp';
 
 /**
@@ -13,5 +14,6 @@ export const buildImages: Record<BuildKey, ImageMetadata> = {
   davidleutert,
   fritzloesel,
   yosoytattoo,
+  harmonia,
   trazo,
 };

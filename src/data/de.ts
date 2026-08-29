@@ -320,6 +320,11 @@ export const de: SiteContent = {
       'Zwei laufende Unternehmen, deren digitalen Auftritt wir gestaltet und gebaut haben — dazu das, was im Studio gerade entsteht.',
     visitLabel: 'Website ansehen',
     readLabel: 'Fallstudie lesen',
+    casesEyebrow: 'Live im Einsatz',
+    casesTitle: 'Mit diesen Websites arbeiten zwei Unternehmen heute',
+    casesIntro:
+      'Beide Websites sind online und bei echten Unternehmen täglich im Einsatz. Lesen Sie, wie sie entstanden sind — oder besuchen Sie sie direkt.',
+    liveBadge: 'Live',
     buildsEyebrow: 'Aktuelle Projekte',
     buildsTitle: 'Woran wir gerade bauen',
     buildsIntro:
@@ -352,6 +357,15 @@ export const de: SiteContent = {
         imageAlt: 'Startseite der Website von Yo Soy Tattoo mit dem Chat-Assistenten in der Ecke',
       },
       {
+        key: 'harmonia',
+        client: 'Harmonia Baila',
+        sector: 'Tanzakademie · Medellín',
+        desc: 'Eine zweisprachige Website (Spanisch/Englisch) für eine Tanzakademie, geführt von einer studierten Profitänzerin: Salsa, Bachata und weitere Rhythmen, Kurse für Kinder und Erwachsene, Stundenpläne, Galerie und Probestunden-Buchung über WhatsApp.',
+        status: 'Beim Kunden in Review',
+        preview: { url: 'https://micromegass.github.io/harmonia/es/', label: 'Vorschau ansehen' },
+        imageAlt: 'Startseite der Website der Tanzakademie Harmonia Baila mit einem tanzenden Paar neben der Überschrift',
+      },
+      {
         key: 'trazo',
         client: 'Trazo',
         sector: 'Studio-Produkt · intern',
@@ -369,14 +383,14 @@ export const de: SiteContent = {
       url: 'https://www.physio-und-ergo-fuerth.de',
       urlLabel: 'physio-und-ergo-fuerth.de',
       imageAlt: 'Behandlungsraum der Physiotherapiepraxis in Fürth',
-      cardTitle: 'Eine Praxis, die sich klar erklärt',
+      cardTitle: 'Die Website einer Therapiepraxis in Fürth',
       cardDesc:
         'Website und digitaler Auftritt für eine Physio- und Ergotherapiepraxis in Fürth — jede Behandlung und jedes Teammitglied verständlich erklärt.',
       metrics: [
         { value: 'Website', label: 'Design & Umsetzung' },
         { value: 'Mobile-first', label: 'fürs Handy gebaut' },
       ],
-      title: 'Eine Praxis, die sich klar erklärt',
+      title: 'Die Website einer Therapiepraxis in Fürth',
       summary:
         'Eine Physio- und Ergotherapiepraxis am Fürther Hauptbahnhof brauchte mehr als eine Visitenkarte im Netz. Wir haben die Website gestaltet und gebaut: das gesamte Behandlungsangebot in klarer Sprache, das Team persönlich vorgestellt, alles auf dem Handy schnell zu finden.',
       specs: [

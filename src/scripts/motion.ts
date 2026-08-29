@@ -20,10 +20,14 @@ export function initMotion(): void {
   const root = document.documentElement;
   root.dataset.motionReady = '1';
 
-  // Smooth scroll purely for feel — nothing depends on its position
-  const lenis = new Lenis({ lerp: 0.11 });
+  // Smooth scroll purely for feel — nothing depends on its position.
+  // Duration + ease-out glide instead of raw lerp, and `anchors` routes
+  // in-page links through Lenis; global.css switches native
+  // `scroll-behavior: smooth` off while Lenis runs, because the two easings
+  // fighting is what made scrolling feel notchy. GSAP's default lag smoothing
+  // stays on so a heavy frame (WebGL init) can't turn into a scroll jump.
+  const lenis = new Lenis({ duration: 1.2, anchors: true });
   gsap.ticker.add((time) => lenis.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
 
   const io = new IntersectionObserver(
     (entries) => {

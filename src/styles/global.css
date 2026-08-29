@@ -13,8 +13,20 @@
 }
 
 html {
+  /* No-JS fallback for in-page links only. While Lenis drives the scroll it
+     tags <html> with .lenis — native smoothing must switch off then, or the
+     two easings fight and the page moves in steps instead of gliding. */
   scroll-behavior: smooth;
   background: var(--canvas);
+}
+
+html.lenis {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
 body {

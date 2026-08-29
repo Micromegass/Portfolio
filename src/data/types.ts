@@ -1,7 +1,7 @@
 import type { PageKey, ServiceKey } from '@/lib/i18n';
 
 /** Projects shown in the "current builds" band; each maps to one image. */
-export type BuildKey = 'davidleutert' | 'fritzloesel' | 'yosoytattoo' | 'trazo';
+export type BuildKey = 'davidleutert' | 'fritzloesel' | 'yosoytattoo' | 'harmonia' | 'trazo';
 
 /** One typed shape for all three languages — translations cannot drift. */
 export interface SiteContent {
@@ -87,6 +87,15 @@ export interface SiteContent {
     intro: string;
     visitLabel: string;
     readLabel: string;
+    /**
+     * Heading over the two case studies. Their sites are live and in daily
+     * use — the heading has to say so, because the cards alone did not.
+     */
+    casesEyebrow: string;
+    casesTitle: string;
+    casesIntro: string;
+    /** Chip on each case card marking the site as live client work. */
+    liveBadge: string;
     buildsEyebrow: string;
     buildsTitle: string;
     buildsIntro: string;

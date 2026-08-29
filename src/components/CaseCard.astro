@@ -30,6 +30,7 @@ const shot = caseImages[caseKey];
         sizes="(min-width: 1200px) 560px, (min-width: 700px) 46vw, 92vw"
         loading="lazy"
       />
+      <span class="case__live"><span class="case__live-dot" aria-hidden="true"></span>{w.liveBadge}</span>
       <span class="case__url">{c.urlLabel}</span>
     </div>
     <div class="case__body">
@@ -93,11 +94,41 @@ const shot = caseImages[caseKey];
     border-radius: 999px;
   }
 
+  /* Marks the site as live client work — the pulse is the same claim as the
+     builds' status dot, so the two card families read as one system. */
+  .case__live {
+    position: absolute;
+    left: var(--space-3);
+    top: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    padding: 0.4em 0.85em;
+    border-radius: 999px;
+  }
+
+  .case__live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex: none;
+  }
+
   .case__body {
     padding: var(--space-4) var(--space-4) var(--space-5);
   }
 
   .case__title {
+    /* Fixed size regardless of heading level: at h2 scale the two cards
+       shouted over the rest of the Work page. */
+    font-size: var(--text-lg);
     margin: 0 0 var(--space-2);
   }
 

@@ -323,6 +323,11 @@ export const en: SiteContent = {
       'Two live businesses whose digital presence we designed and built — plus what the studio is working on right now.',
     visitLabel: 'Visit live site',
     readLabel: 'Read case study',
+    casesEyebrow: 'Live client work',
+    casesTitle: 'Two businesses run on these sites today',
+    casesIntro:
+      'Both sites are online and in daily use by real businesses. Read how they were built, or visit them directly.',
+    liveBadge: 'Live',
     buildsEyebrow: 'Current builds',
     buildsTitle: 'What the studio is building right now',
     buildsIntro:
@@ -355,6 +360,15 @@ export const en: SiteContent = {
         imageAlt: 'Home page of the Yo Soy Tattoo website with the chat assistant button in the corner',
       },
       {
+        key: 'harmonia',
+        client: 'Harmonia Baila',
+        sector: 'Dance academy · Medellín',
+        desc: 'A bilingual Spanish–English website for a dance academy led by a university-trained professional dancer: salsa, bachata and more rhythms, classes for kids and adults, schedules, a gallery, and trial-class booking over WhatsApp.',
+        status: 'With the client for review',
+        preview: { url: 'https://micromegass.github.io/harmonia/es/', label: 'See the preview' },
+        imageAlt: 'Home page of the Harmonia Baila dance academy website, with a dancing couple beside the headline',
+      },
+      {
         key: 'trazo',
         client: 'Trazo',
         sector: 'Studio product · in-house',
@@ -372,14 +386,14 @@ export const en: SiteContent = {
       url: 'https://www.physio-und-ergo-fuerth.de',
       urlLabel: 'physio-und-ergo-fuerth.de',
       imageAlt: 'Treatment room at the physiotherapy practice in Fürth',
-      cardTitle: 'A practice that explains itself clearly',
+      cardTitle: 'The website of a therapy practice in Fürth',
       cardDesc:
         'Website and digital presence for a physiotherapy and occupational therapy practice in Fürth — every treatment and every therapist, in plain language.',
       metrics: [
         { value: 'Website', label: 'design & build' },
         { value: 'Mobile-first', label: 'built for phones' },
       ],
-      title: 'A practice that explains itself clearly',
+      title: 'The website of a therapy practice in Fürth',
       summary:
         'A physiotherapy and occupational therapy practice at Fürth central station needed more than a business card on the web. We designed and built the website: the full treatment range explained in plain language, the team introduced personally, and everything easy to find on a phone.',
       specs: [

@@ -320,6 +320,11 @@ export const es: SiteContent = {
       'Dos negocios en marcha cuya presencia digital diseñamos y construimos — y lo que el estudio está construyendo ahora.',
     visitLabel: 'Ver sitio en vivo',
     readLabel: 'Leer el caso',
+    casesEyebrow: 'Trabajo en vivo',
+    casesTitle: 'Dos negocios trabajan hoy con estos sitios',
+    casesIntro:
+      'Ambos sitios están en línea y en uso diario por negocios reales. Lea cómo se construyeron — o visítelos directamente.',
+    liveBadge: 'En vivo',
     buildsEyebrow: 'Proyectos actuales',
     buildsTitle: 'Lo que estamos construyendo ahora',
     buildsIntro:
@@ -352,6 +357,15 @@ export const es: SiteContent = {
         imageAlt: 'Página de inicio del sitio de Yo Soy Tattoo con el botón del asistente de chat',
       },
       {
+        key: 'harmonia',
+        client: 'Harmonia Baila',
+        sector: 'Academia de baile · Medellín',
+        desc: 'Un sitio bilingüe español–inglés para una academia de baile dirigida por una bailarina profesional con formación universitaria: salsa, bachata y más ritmos, clases para niños y adultos, horarios, galería y reserva de la clase de prueba por WhatsApp.',
+        status: 'En revisión del cliente',
+        preview: { url: 'https://micromegass.github.io/harmonia/es/', label: 'Ver la vista previa' },
+        imageAlt: 'Página de inicio del sitio de la academia de baile Harmonia Baila, con una pareja bailando junto al titular',
+      },
+      {
         key: 'trazo',
         client: 'Trazo',
         sector: 'Producto del estudio · interno',
@@ -369,14 +383,14 @@ export const es: SiteContent = {
       url: 'https://www.physio-und-ergo-fuerth.de',
       urlLabel: 'physio-und-ergo-fuerth.de',
       imageAlt: 'Sala de tratamiento de la clínica de fisioterapia en Fürth',
-      cardTitle: 'Una clínica que se explica con claridad',
+      cardTitle: 'La web de una clínica de terapia en Fürth',
       cardDesc:
         'Web y presencia digital para una clínica de fisioterapia y terapia ocupacional en Fürth — cada tratamiento y cada terapeuta, en lenguaje claro.',
       metrics: [
         { value: 'Web', label: 'diseño y desarrollo' },
         { value: 'Mobile-first', label: 'pensada para el móvil' },
       ],
-      title: 'Una clínica que se explica con claridad',
+      title: 'La web de una clínica de terapia en Fürth',
       summary:
         'Una clínica de fisioterapia y terapia ocupacional junto a la estación central de Fürth necesitaba más que una tarjeta de presentación en línea. Diseñamos y construimos la web: toda la oferta de tratamientos explicada en lenguaje claro, el equipo presentado de forma personal y todo fácil de encontrar en el móvil.',
       specs: [

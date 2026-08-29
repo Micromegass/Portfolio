@@ -4,6 +4,7 @@ import Transformer from '@/components/Transformer.astro';
 import HeroCheck from '@/components/HeroCheck.astro';
 import SectionHead from '@/components/SectionHead.astro';
 import CaseCard from '@/components/CaseCard.astro';
+import BuildCard from '@/components/BuildCard.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { href, servicePages, type Locale } from '@/lib/i18n';
 import { t } from '@/data';
@@ -15,6 +16,10 @@ interface Props {
 const { locale } = Astro.props;
 const c = t(locale);
 const h = c.home;
+
+// The homepage shows client projects in flight; in-house products stay on the
+// Work page. This also keeps the two-up grid even.
+const homeBuilds = c.work.builds.filter((b) => b.key !== 'trazo');
 ---
 
 <Base locale={locale} page="home">
@@ -81,6 +86,20 @@ const h = c.home;
       <div class="cases" data-reveal-group>
         <CaseCard locale={locale} caseKey="physio" />
         <CaseCard locale={locale} caseKey="ikuna" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Current builds: client work in flight, not yet launched -->
+  <section class="band" data-tone="light">
+    <div class="wrap">
+      <SectionHead
+        eyebrow={c.work.buildsEyebrow}
+        title={c.work.buildsTitle}
+        intro={c.work.buildsIntro}
+      />
+      <div class="builds" data-reveal-group>
+        {homeBuilds.map((build) => <BuildCard locale={locale} build={build} />)}
       </div>
       <p class="more" data-reveal>
         <a class="button button--ghost" href={href('work', locale)}>{h.work.more}</a>
@@ -233,7 +252,8 @@ const h = c.home;
     padding-top: var(--space-3);
   }
 
-  .cases {
+  .cases,
+  .builds {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-3);
@@ -318,6 +338,7 @@ const h = c.home;
 
     .services,
     .cases,
+    .builds,
     .steps {
       grid-template-columns: 1fr;
     }
