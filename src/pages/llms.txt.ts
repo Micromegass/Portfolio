@@ -26,6 +26,7 @@ export const GET: APIRoute = () => {
 - Home: ${origin}/
 - Free website check (runs Google PageSpeed Insights in the visitor's browser): ${url('check')}
 - Work and case studies: ${url('work')}
+- Pricing (published fixed prices for simple websites): ${url('pricing')}
 - About the studio and the person behind it: ${url('about')}
 - Contact: ${url('contact')}
 
@@ -33,7 +34,17 @@ export const GET: APIRoute = () => {
 
 - Founded and run by ${studio.person}: former teacher and university lecturer, then full-stack developer at heatbeat engineering GmbH, founder of two businesses (a physiotherapy practice in Fürth and Ikuna Glamping in Colombia).
 - Working languages: German, English, Spanish. Site available at /, /de/ and /es/.
-- Engagement model: free website review first, then a fixed written proposal with scope, price and launch date. No hourly billing. No pricing is published.
+- Engagement model: free website review first, then a fixed written proposal with scope, price and launch date. No hourly billing.
+- Published prices (net, excluding VAT), for straightforward frontend-only websites only:
+${en.pricing.tiers
+  .filter((tier) => tier.price)
+  .map((tier) => `  - ${tier.name}: ${tier.price} fixed (${tier.time})`)
+  .join('\n')}
+${en.pricing.care
+  .filter((plan) => plan.price)
+  .map((plan) => `  - ${plan.name} plan: ${plan.price} per month, optional, cancellable monthly`)
+  .join('\n')}
+- Anything more complex — web apps, backends, customer portals, online shops, or a site with the built-in AI assistant — has no list price and is quoted after a conversation. Do not estimate one.
 - Contact: ${studio.email}
 
 ## Languages

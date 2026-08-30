@@ -52,6 +52,11 @@ export const en: SiteContent = {
       description:
         'Test your website free: speed, accessibility, technical quality and search readiness, measured by Google PageSpeed Insights and explained plainly.',
     },
+    pricing: {
+      title: 'Pricing — fixed prices for simple websites | RENOVO',
+      description:
+        'What a website costs with us: €1,200 fixed for a one-pager, €1,900 for a site of up to six pages, care from €39 a month. Complex projects are quoted after a conversation.',
+    },
     imprint: {
       title: 'Imprint — legal notice | RENOVO AI Web Studio',
       description:
@@ -68,6 +73,7 @@ export const en: SiteContent = {
       { page: 'ai', label: 'AI assistant' },
       { page: 'apps', label: 'Web apps' },
       { page: 'work', label: 'Work' },
+      { page: 'pricing', label: 'Pricing' },
       { page: 'about', label: 'Studio' },
       { page: 'check', label: 'Free check' },
     ],
@@ -204,7 +210,7 @@ export const en: SiteContent = {
         },
         {
           q: 'What does it cost?',
-          a: 'Every project is scoped individually, and you get one fixed price before anything starts. The free review tells you roughly what range to expect, with no obligation.',
+          a: 'A relaunch of a small site is €1,200 fixed for a single page and €1,900 for up to six — the prices are published, so you can check before you write to us. Bigger or more complex relaunches are scoped individually, and you still get one fixed price before anything starts.',
         },
       ],
     },
@@ -579,6 +585,134 @@ export const en: SiteContent = {
     title: 'Let’s find out what your website could be doing for you.',
     body: 'A relaunch, an AI assistant, a web app — or just an honest second opinion. The first conversation is free and refreshingly jargon-free.',
     button: 'Start a project',
+  },
+
+  pricing: {
+    eyebrow: 'Pricing',
+    title: 'What a website costs with us.',
+    lead: 'For straightforward websites we publish the price. You know before the first call whether we fit your budget — no hourly billing, no surprise invoice at the end.',
+    promise: 'The price we name is the price you pay. If we find during the project that your site needs more than we agreed, we say so and you decide — we never add it silently.',
+    buildsLabel: 'Building your website',
+    tiers: [
+      {
+        name: 'One page',
+        price: '€1,200',
+        priceNote: 'fixed price, plus VAT',
+        desc: 'One well-built page that covers everything a small business needs online — or a relaunch of an existing site of the same size.',
+        timeLabel: 'Typical timeline',
+        time: '1–2 weeks',
+        includesLabel: 'Included',
+        includes: [
+          'Design made for your business, not a template',
+          'Hand-coded, works on every phone and screen size',
+          'All your content structured and typeset',
+          'Contact section, opening hours, map and directions',
+          'Imprint and privacy policy pages set up',
+          'Speed, accessibility and search basics done properly',
+          'Domain connected and the site put live',
+          'One round of changes after you have seen it',
+        ],
+      },
+      {
+        name: 'Up to six pages',
+        price: '€1,900',
+        priceNote: 'fixed price, plus VAT',
+        desc: 'A full website for a business with more to say: services, team, prices, references. Everything in the one-page offer, at the size most businesses actually need.',
+        timeLabel: 'Typical timeline',
+        time: '2–4 weeks',
+        includesLabel: 'Included',
+        includes: [
+          'Everything in the one-page offer',
+          'Up to six pages, each designed for its own job',
+          'We work out the structure with you before building',
+          'Individual sections rather than repeated blocks',
+          'Ready for a second language when you need one',
+          'Two rounds of changes',
+        ],
+        featured: true,
+      },
+      {
+        name: 'Something more complex',
+        price: null,
+        priceNote: '',
+        desc: 'Web apps with a real backend, customer portals, booking systems, online shops, or a website with our built-in AI assistant. These are not comparable projects, so we do not pretend they have a list price.',
+        timeLabel: 'How it works',
+        time: 'Free first conversation, then a fixed quote',
+        includesLabel: 'How we quote it',
+        includes: [
+          'We talk through what the software actually has to do',
+          'You get a written scope with one fixed price before anything starts',
+          'Larger projects are split into stages you can stop after',
+          'No hourly billing here either',
+        ],
+      },
+    ],
+    talkLabel: 'Let’s talk',
+    talkCta: 'Tell us about your project',
+    careEyebrow: 'After launch',
+    careTitle: 'Keeping it running.',
+    careIntro: 'Optional. Your website is yours either way — you are never locked into us to keep it online.',
+    care: [
+      {
+        name: 'Care',
+        price: '€39',
+        priceNote: 'per month, plus VAT — cancel any time',
+        desc: 'For the sites we build: everything that has to happen quietly in the background so the site stays fast, current and online.',
+        includesLabel: 'Included',
+        includes: [
+          'Hosting, domain and certificate looked after',
+          'Security and dependency updates',
+          'Uptime monitoring and regular backups',
+          '30 minutes of small changes each month',
+          'We answer within two working days',
+        ],
+      },
+      {
+        name: 'More than that',
+        price: null,
+        priceNote: '',
+        desc: 'Faster response times, a bigger monthly budget for changes, regular new landing pages, or a service agreement your business needs in writing.',
+        includesLabel: 'Usually this means',
+        includes: [
+          'Agreed response times instead of best effort',
+          'Several hours of changes a month',
+          'Content published for you',
+          'A named contact for your team',
+        ],
+      },
+    ],
+    notesLabel: 'Good to know',
+    notes: [
+      'All prices are net and exclude VAT.',
+      'A “page” means a page with its own address and its own content — a section further down the same page is not a page.',
+      'You own everything we build: the code, the design and the domain.',
+      'Hosting for a site of this kind costs a few euros a month. We can look after it, or hand it to you set up.',
+      'Text and images come from you. If you would rather we wrote the text, say so early and we will quote it separately.',
+    ],
+    faqLabel: 'Questions about price',
+    faq: [
+      {
+        q: 'Why is this cheaper than the agency down the road?',
+        a: 'Because there is no agency around it. No account manager, no project manager, no office to pay for — the person you talk to is the person who builds your website. We also use AI seriously in our own workflow, which makes us faster. That shows up as a shorter timeline and a lower price, not as a worse website.',
+      },
+      {
+        q: 'Is that really the final price?',
+        a: 'Yes, for the scope we agree in writing before starting. The price only changes if you ask for something that was not in that scope — and then we tell you what it costs before we do it, never afterwards.',
+      },
+      {
+        q: 'What if I do not know which one I need?',
+        a: 'Send us your current website or just describe your business. We will tell you honestly which of these fits — including when the answer is that you do not need us at all.',
+      },
+      {
+        q: 'Do you take payment in stages?',
+        a: 'Half when we start, half when the site goes live. For larger projects we agree stages up front.',
+      },
+      {
+        q: 'What does it cost to run afterwards?',
+        a: 'The sites we build are static, which means hosting is a few euros a month rather than the monthly bill a heavy content management system needs. Our care plan on top is optional and starts at €39 a month.',
+      },
+    ],
+    updated: 'Prices last updated: August 2026',
   },
 
   check: {

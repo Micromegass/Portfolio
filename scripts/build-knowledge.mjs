@@ -75,8 +75,44 @@ function knowledgeFor(c, locale) {
   for (const p of c.work.builds) {
     // The status matters here: the assistant must never imply an unlaunched
     // project is live, and must only offer a link where one actually exists.
-    L.push(`- ${p.client} (${p.sector}) — ${p.status}: ${p.desc}${p.url ? ` Preview: ${p.url}` : ''}`);
+    L.push(
+      `- ${p.client} (${p.sector}) — ${p.status}: ${p.desc}${p.preview ? ` Preview: ${p.preview.url}` : ''}`
+    );
   }
+
+  // Prices are the one topic where the assistant is allowed to be specific, so
+  // the published figures have to reach it verbatim — and the unpriced tiers
+  // have to reach it just as clearly as "no list price exists".
+  L.push('');
+  L.push(`## ${c.pricing.title} — ${url('pricing')}`);
+  L.push(c.pricing.lead);
+  L.push(c.pricing.promise);
+  for (const tier of c.pricing.tiers) {
+    L.push('');
+    L.push(
+      tier.price
+        ? `### ${tier.name}: ${tier.price} (${tier.priceNote}) — ${tier.time}`
+        : `### ${tier.name}: no published price — quoted after a conversation. Never estimate one.`
+    );
+    L.push(tier.desc);
+    L.push(`${tier.includesLabel}: ${tier.includes.join('; ')}`);
+  }
+  for (const plan of c.pricing.care) {
+    L.push('');
+    L.push(
+      plan.price
+        ? `### ${plan.name}: ${plan.price} (${plan.priceNote})`
+        : `### ${plan.name}: no published price — agreed individually.`
+    );
+    L.push(plan.desc);
+    L.push(`${plan.includesLabel}: ${plan.includes.join('; ')}`);
+  }
+  L.push('');
+  L.push(`${c.pricing.notesLabel}: ${c.pricing.notes.join(' ')}`);
+  L.push(c.pricing.updated);
+  L.push('');
+  L.push(`${c.pricing.faqLabel}:`);
+  for (const f of c.pricing.faq) L.push(`- Q: ${f.q}\n  A: ${f.a}`);
 
   L.push('');
   L.push('## Contact');

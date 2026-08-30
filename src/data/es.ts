@@ -52,6 +52,11 @@ export const es: SiteContent = {
       description:
         'Analice su web gratis: velocidad, accesibilidad, calidad técnica y preparación para buscadores, medido por Google PageSpeed Insights y explicado claro.',
     },
+    pricing: {
+      title: 'Precios — precio fijo para webs sencillas | RENOVO',
+      description:
+        'Lo que cuesta una web con nosotros: 1.200 € fijos para una página, 1.900 € hasta seis páginas, mantenimiento desde 39 € al mes. Proyectos complejos, tras hablar.',
+    },
     imprint: {
       title: 'Aviso legal — información según § 5 DDG | RENOVO',
       description:
@@ -68,6 +73,7 @@ export const es: SiteContent = {
       { page: 'ai', label: 'Asistente IA' },
       { page: 'apps', label: 'Aplicaciones' },
       { page: 'work', label: 'Proyectos' },
+      { page: 'pricing', label: 'Precios' },
       { page: 'about', label: 'Estudio' },
       { page: 'check', label: 'Análisis gratis' },
     ],
@@ -201,7 +207,7 @@ export const es: SiteContent = {
         },
         {
           q: '¿Cuánto cuesta?',
-          a: 'Cada proyecto se presupuesta individualmente y recibe un precio cerrado antes de empezar. La revisión gratuita le indica el rango aproximado, sin compromiso.',
+          a: 'El rediseño de una web pequeña cuesta 1.200 € para una página y 1.900 € hasta seis — los precios están publicados, así que puede verlos antes de escribirnos. Los rediseños más grandes o complejos se presupuestan aparte, y también ahí el precio cerrado está antes de empezar.',
         },
       ],
     },
@@ -576,6 +582,135 @@ export const es: SiteContent = {
     title: 'Averigüemos qué podría estar haciendo su web por usted.',
     body: 'Un rediseño, un asistente de IA, una aplicación web — o simplemente una segunda opinión honesta. La primera conversación es gratis y refrescantemente libre de jerga.',
     button: 'Iniciar un proyecto',
+  },
+
+  pricing: {
+    eyebrow: 'Precios',
+    title: 'Lo que cuesta una web con nosotros.',
+    lead: 'Para webs sencillas publicamos el precio. Usted sabe antes de la primera llamada si encajamos en su presupuesto — sin facturación por horas y sin sorpresas en la factura final.',
+    promise: 'El precio que decimos es el que paga. Si durante el proyecto vemos que su web necesita más de lo acordado, se lo decimos y usted decide — nunca lo añadimos en silencio.',
+    buildsLabel: 'Construir su web',
+    tiers: [
+      {
+        name: 'Una página',
+        price: '1.200 €',
+        priceNote: 'precio fijo, más impuestos',
+        desc: 'Una página bien construida con todo lo que un negocio pequeño necesita en línea — o el rediseño de una web existente de ese tamaño.',
+        timeLabel: 'Plazo habitual',
+        time: '1–2 semanas',
+        includesLabel: 'Incluido',
+        includes: [
+          'Diseño hecho para su negocio, no una plantilla',
+          'Programada a mano, funciona en cualquier móvil y pantalla',
+          'Todos sus contenidos estructurados y bien compuestos',
+          'Sección de contacto, horarios, mapa y cómo llegar',
+          'Páginas legales configuradas',
+          'Velocidad, accesibilidad y bases de SEO bien hechas',
+          'Dominio conectado y web publicada',
+          'Una ronda de cambios después de que la vea',
+        ],
+      },
+      {
+        name: 'Hasta seis páginas',
+        price: '1.900 €',
+        priceNote: 'precio fijo, más impuestos',
+        desc: 'Una web completa para un negocio con más que contar: servicios, equipo, precios, referencias. Todo lo de la oferta de una página, en el tamaño que la mayoría realmente necesita.',
+        timeLabel: 'Plazo habitual',
+        time: '2–4 semanas',
+        includesLabel: 'Incluido',
+        includes: [
+          'Todo lo de la oferta de una página',
+          'Hasta seis páginas, cada una diseñada para su función',
+          'La estructura la definimos con usted antes de construir',
+          'Secciones propias en lugar de bloques repetidos',
+          'Preparada para un segundo idioma cuando lo necesite',
+          'Dos rondas de cambios',
+        ],
+        featured: true,
+      },
+      {
+        name: 'Algo más complejo',
+        price: null,
+        priceNote: '',
+        desc: 'Aplicaciones web con backend real, portales de clientes, sistemas de reservas, tiendas en línea o una web con nuestro asistente de IA integrado. Son proyectos que no se parecen entre sí, así que no fingimos que tienen precio de lista.',
+        timeLabel: 'Cómo funciona',
+        time: 'Primera conversación gratis y luego un precio fijo',
+        includesLabel: 'Cómo lo presupuestamos',
+        includes: [
+          'Hablamos de lo que el software tiene que hacer de verdad',
+          'Recibe un alcance por escrito con un precio fijo antes de empezar',
+          'Los proyectos grandes se dividen en etapas en las que puede parar',
+          'Aquí tampoco facturamos por horas',
+        ],
+      },
+    ],
+    talkLabel: 'Hablemos',
+    talkCta: 'Cuéntenos su proyecto',
+    careEyebrow: 'Después del lanzamiento',
+    careTitle: 'Y mantenerla funcionando.',
+    careIntro: 'Opcional. La web es suya en cualquier caso — nunca queda atado a nosotros para mantenerla en línea.',
+    care: [
+      {
+        name: 'Mantenimiento',
+        price: '39 €',
+        priceNote: 'al mes, más impuestos — cancelable cada mes',
+        desc: 'Para las webs que construimos: todo lo que debe pasar en silencio de fondo para que siga rápida, al día y en línea.',
+        includesLabel: 'Incluido',
+        includes: [
+          'Hosting, dominio y certificado atendidos',
+          'Actualizaciones de seguridad y de dependencias',
+          'Monitoreo de disponibilidad y copias de seguridad',
+          '30 minutos de cambios pequeños al mes',
+          'Respondemos en dos días hábiles',
+        ],
+      },
+      {
+        name: 'Más que eso',
+        price: null,
+        priceNote: '',
+        desc: 'Tiempos de respuesta más rápidos, un presupuesto mensual mayor para cambios, landings nuevas con regularidad o un acuerdo de servicio que su negocio necesita por escrito.',
+        includesLabel: 'Normalmente significa',
+        includes: [
+          'Tiempos de respuesta acordados, no según disponibilidad',
+          'Varias horas de cambios al mes',
+          'Publicamos contenidos por usted',
+          'Un contacto fijo para su equipo',
+        ],
+      },
+    ],
+    notesLabel: 'Bueno saberlo',
+    notes: [
+      '¿Está en Colombia? Hablemos — ajustamos la propuesta al mercado local.',
+      'Todos los precios son netos, sin impuestos.',
+      'Una «página» es una página con su propia dirección y su propio contenido — una sección más abajo en la misma página no es una página.',
+      'Todo lo que construimos es suyo: el código, el diseño y el dominio.',
+      'El hosting de una web así cuesta unos pocos euros al mes. Podemos encargarnos o entregárselo ya configurado.',
+      'Los textos y las imágenes los pone usted. Si prefiere que escribamos los textos, dígalo pronto y lo presupuestamos aparte.',
+    ],
+    faqLabel: 'Preguntas sobre el precio',
+    faq: [
+      {
+        q: '¿Por qué es más barato que la agencia de al lado?',
+        a: 'Porque no hay una agencia alrededor. Sin ejecutivo de cuenta, sin jefe de proyecto, sin oficina que pagar — quien habla con usted es quien construye su web. Además usamos IA en serio en nuestro propio flujo de trabajo, y eso nos hace más rápidos. Se nota en el plazo y en el precio, no en una web peor.',
+      },
+      {
+        q: '¿Ese es de verdad el precio final?',
+        a: 'Sí, para el alcance que acordamos por escrito antes de empezar. El precio solo cambia si pide algo que no estaba en ese alcance — y entonces le decimos lo que cuesta antes de hacerlo, nunca después.',
+      },
+      {
+        q: '¿Y si no sé cuál necesito?',
+        a: 'Envíenos su web actual o describa su negocio. Le diremos con honestidad cuál encaja — incluso cuando la respuesta sea que no nos necesita.',
+      },
+      {
+        q: '¿Se puede pagar por partes?',
+        a: 'La mitad al empezar y la mitad cuando la web sale en línea. En proyectos grandes acordamos las etapas por adelantado.',
+      },
+      {
+        q: '¿Cuánto cuesta mantenerla después?',
+        a: 'Las webs que construimos son estáticas, así que el hosting cuesta unos pocos euros al mes en vez de la factura mensual de un gestor de contenidos pesado. Nuestro mantenimiento encima es opcional y empieza en 39 € al mes.',
+      },
+    ],
+    updated: 'Precios actualizados: agosto de 2026',
   },
 
   check: {

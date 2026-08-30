@@ -42,7 +42,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
           </a>
         ))
       }
-      {/* The header CTA is hidden below 920px, so without this the whole
+      {/* The header CTA is hidden below 1024px, so without this the whole
           small-screen experience has no call to action anywhere. */}
       <a class="button button--primary nav__cta" href={href('contact', locale)}>{c.nav.cta}</a>
     </nav>
@@ -223,6 +223,13 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
   .header__cta {
     font-size: 0.88rem;
     padding: 0.7em 1.2em;
+    /* "Projekt starten" and "Iniciar un proyecto" broke across two lines once
+       the row got busier, leaving a pill twice as tall as the one beside it. */
+    white-space: nowrap;
+  }
+
+  .nav__link {
+    white-space: nowrap;
   }
 
   .burger {
@@ -246,7 +253,20 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     transition: transform var(--dur) var(--ease);
   }
 
-  @media (max-width: 920px) {
+  /* Seven nav items no longer fit at the full desktop rhythm, so the row
+     tightens before it collapses. Without this the links wrap onto a second
+     line between the burger breakpoint and roughly 1240px. */
+  @media (max-width: 1240px) {
+    .header__row {
+      gap: var(--space-4);
+    }
+
+    .nav {
+      gap: var(--space-3);
+    }
+  }
+
+  @media (max-width: 1024px) {
     .header__row {
       flex-wrap: wrap;
       gap: var(--space-3);

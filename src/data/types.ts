@@ -172,6 +172,55 @@ export interface SiteContent {
 
   cta: { eyebrow: string; title: string; body: string; button: string };
 
+  /**
+   * Published prices. Deliberately transparent for simple frontend work and
+   * deliberately silent for everything else: a `price` of `null` renders the
+   * "talk to us" state instead of a number, so a tier can never accidentally
+   * ship a figure we have not committed to. Prices are formatted per locale in
+   * the data, never computed — no currency conversion anywhere.
+   */
+  pricing: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    /** Sits under the lead — why the numbers are public at all. */
+    promise: string;
+    buildsLabel: string;
+    tiers: {
+      name: string;
+      /** `null` = no published price; the card shows `talkLabel` instead. */
+      price: string | null;
+      priceNote: string;
+      desc: string;
+      timeLabel: string;
+      time: string;
+      includesLabel: string;
+      includes: string[];
+      /** Marks the card visitors should look at first. */
+      featured?: boolean;
+    }[];
+    /** CTA on a tier without a published price. */
+    talkLabel: string;
+    talkCta: string;
+    careEyebrow: string;
+    careTitle: string;
+    careIntro: string;
+    care: {
+      name: string;
+      price: string | null;
+      priceNote: string;
+      desc: string;
+      includesLabel: string;
+      includes: string[];
+    }[];
+    notesLabel: string;
+    notes: string[];
+    faqLabel: string;
+    faq: { q: string; a: string }[];
+    /** Dated, so a visitor knows how current the numbers are. */
+    updated: string;
+  };
+
   /** Free website check — client-side PageSpeed Insights lead magnet */
   check: {
     eyebrow: string;

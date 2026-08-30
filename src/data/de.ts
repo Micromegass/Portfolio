@@ -52,6 +52,11 @@ export const de: SiteContent = {
       description:
         'Testen Sie Ihre Website kostenlos: Ladezeit, Barrierefreiheit, Technik und SEO, gemessen von Google PageSpeed Insights und verständlich erklärt.',
     },
+    pricing: {
+      title: 'Preise — Festpreise für einfache Websites | RENOVO',
+      description:
+        'Was eine Website bei uns kostet: 1.200 € Festpreis für eine Seite, 1.900 € für bis zu sechs Seiten, Betreuung ab 39 € im Monat. Komplexe Projekte nach Gespräch.',
+    },
     imprint: {
       title: 'Impressum — Angaben gemäß § 5 DDG | RENOVO',
       description:
@@ -68,6 +73,7 @@ export const de: SiteContent = {
       { page: 'ai', label: 'KI-Assistent' },
       { page: 'apps', label: 'Web-Apps' },
       { page: 'work', label: 'Projekte' },
+      { page: 'pricing', label: 'Preise' },
       { page: 'about', label: 'Studio' },
       { page: 'check', label: 'Website-Check' },
     ],
@@ -201,7 +207,7 @@ export const de: SiteContent = {
         },
         {
           q: 'Was kostet das?',
-          a: 'Jedes Projekt wird einzeln kalkuliert, und Sie erhalten einen Festpreis, bevor irgendetwas beginnt. Der kostenlose Check sagt Ihnen unverbindlich, mit welcher Größenordnung Sie rechnen können.',
+          a: 'Der Relaunch einer kleinen Website kostet 1.200 € für eine Seite und 1.900 € für bis zu sechs — die Preise stehen öffentlich auf der Seite, Sie können also vorher nachsehen. Größere oder komplexere Relaunches kalkulieren wir einzeln, und auch dann steht der Festpreis, bevor irgendetwas beginnt.',
         },
       ],
     },
@@ -576,6 +582,134 @@ export const de: SiteContent = {
     title: 'Finden wir heraus, was Ihre Website für Sie leisten könnte.',
     body: 'Ein Relaunch, ein KI-Assistent, eine Web-App — oder einfach eine ehrliche zweite Meinung. Das erste Gespräch ist kostenlos und erfrischend frei von Fachchinesisch.',
     button: 'Projekt starten',
+  },
+
+  pricing: {
+    eyebrow: 'Preise',
+    title: 'Was eine Website bei uns kostet.',
+    lead: 'Für überschaubare Websites nennen wir den Preis öffentlich. Sie wissen vor dem ersten Gespräch, ob wir zu Ihrem Budget passen — keine Stundenabrechnung, keine Überraschung auf der Schlussrechnung.',
+    promise: 'Der genannte Preis ist der Preis, den Sie zahlen. Stellt sich während des Projekts heraus, dass Ihre Website mehr braucht als vereinbart, sagen wir es Ihnen und Sie entscheiden — dazugerechnet wird nie stillschweigend.',
+    buildsLabel: 'Ihre Website bauen',
+    tiers: [
+      {
+        name: 'Eine Seite',
+        price: '1.200 €',
+        priceNote: 'Festpreis, zzgl. USt.',
+        desc: 'Eine gut gebaute Seite mit allem, was ein kleiner Betrieb online braucht — oder der Relaunch einer bestehenden Website in dieser Größe.',
+        timeLabel: 'Üblicher Zeitrahmen',
+        time: '1–2 Wochen',
+        includesLabel: 'Enthalten',
+        includes: [
+          'Design für Ihren Betrieb, keine Vorlage von der Stange',
+          'Handgeschrieben, funktioniert auf jedem Handy und Bildschirm',
+          'Ihre Inhalte strukturiert und typografisch gesetzt',
+          'Kontaktbereich, Öffnungszeiten, Karte und Anfahrt',
+          'Impressum und Datenschutzerklärung eingerichtet',
+          'Tempo, Barrierefreiheit und SEO-Grundlagen sauber gemacht',
+          'Domain verbunden und Website online gestellt',
+          'Eine Korrekturrunde, nachdem Sie alles gesehen haben',
+        ],
+      },
+      {
+        name: 'Bis zu sechs Seiten',
+        price: '1.900 €',
+        priceNote: 'Festpreis, zzgl. USt.',
+        desc: 'Eine vollständige Website für Betriebe mit mehr zu erzählen: Leistungen, Team, Preise, Referenzen. Alles aus dem Ein-Seiten-Angebot, in der Größe, die die meisten wirklich brauchen.',
+        timeLabel: 'Üblicher Zeitrahmen',
+        time: '2–4 Wochen',
+        includesLabel: 'Enthalten',
+        includes: [
+          'Alles aus dem Ein-Seiten-Angebot',
+          'Bis zu sechs Seiten, jede für ihre eigene Aufgabe gestaltet',
+          'Die Struktur erarbeiten wir vorab gemeinsam mit Ihnen',
+          'Eigene Abschnitte statt immer gleicher Bausteine',
+          'Vorbereitet für eine zweite Sprache, wenn Sie sie brauchen',
+          'Zwei Korrekturrunden',
+        ],
+        featured: true,
+      },
+      {
+        name: 'Etwas Komplexeres',
+        price: null,
+        priceNote: '',
+        desc: 'Web-Apps mit echtem Backend, Kundenportale, Buchungssysteme, Onlineshops oder eine Website mit unserem eingebauten KI-Assistenten. Solche Projekte sind nicht vergleichbar — deshalb tun wir nicht so, als hätten sie einen Listenpreis.',
+        timeLabel: 'So läuft es',
+        time: 'Kostenloses Erstgespräch, dann ein Festpreis',
+        includesLabel: 'So kalkulieren wir',
+        includes: [
+          'Wir sprechen durch, was die Software wirklich leisten muss',
+          'Sie bekommen einen schriftlichen Umfang mit einem Festpreis, bevor irgendetwas beginnt',
+          'Größere Projekte teilen wir in Etappen, nach denen Sie aufhören können',
+          'Auch hier keine Stundenabrechnung',
+        ],
+      },
+    ],
+    talkLabel: 'Sprechen wir',
+    talkCta: 'Erzählen Sie uns von Ihrem Projekt',
+    careEyebrow: 'Nach dem Start',
+    careTitle: 'Und dann am Laufen halten.',
+    careIntro: 'Optional. Die Website gehört in jedem Fall Ihnen — Sie sind nie an uns gebunden, um sie online zu halten.',
+    care: [
+      {
+        name: 'Betreuung',
+        price: '39 €',
+        priceNote: 'im Monat, zzgl. USt. — monatlich kündbar',
+        desc: 'Für die Websites, die wir bauen: alles, was im Hintergrund leise passieren muss, damit die Seite schnell, aktuell und erreichbar bleibt.',
+        includesLabel: 'Enthalten',
+        includes: [
+          'Hosting, Domain und Zertifikat werden betreut',
+          'Sicherheits- und Technik-Updates',
+          'Erreichbarkeitsprüfung und regelmäßige Backups',
+          '30 Minuten kleine Änderungen pro Monat',
+          'Wir antworten innerhalb von zwei Werktagen',
+        ],
+      },
+      {
+        name: 'Mehr als das',
+        price: null,
+        priceNote: '',
+        desc: 'Schnellere Reaktionszeiten, ein größeres monatliches Budget für Änderungen, regelmäßig neue Landingpages oder eine Vereinbarung, die Ihr Betrieb schriftlich braucht.',
+        includesLabel: 'Meistens heißt das',
+        includes: [
+          'Zugesagte Reaktionszeiten statt bestem Bemühen',
+          'Mehrere Stunden Änderungen im Monat',
+          'Inhalte werden für Sie eingepflegt',
+          'Ein fester Ansprechpartner für Ihr Team',
+        ],
+      },
+    ],
+    notesLabel: 'Gut zu wissen',
+    notes: [
+      'Alle Preise sind Nettopreise und verstehen sich zzgl. gesetzlicher Umsatzsteuer.',
+      'Eine „Seite“ ist eine Seite mit eigener Adresse und eigenem Inhalt — ein Abschnitt weiter unten auf derselben Seite ist keine Seite.',
+      'Alles Gebaute gehört Ihnen: der Code, das Design und die Domain.',
+      'Hosting kostet für solche Websites wenige Euro im Monat. Wir übernehmen das gern oder übergeben es Ihnen fertig eingerichtet.',
+      'Texte und Bilder kommen von Ihnen. Wenn wir die Texte schreiben sollen, sagen Sie früh Bescheid — das kalkulieren wir separat.',
+    ],
+    faqLabel: 'Fragen zum Preis',
+    faq: [
+      {
+        q: 'Warum ist das günstiger als bei der Agentur um die Ecke?',
+        a: 'Weil keine Agentur drumherum steht. Kein Kundenbetreuer, keine Projektleitung, kein Büro, das mitfinanziert werden muss — wer mit Ihnen spricht, baut auch Ihre Website. Dazu setzen wir KI ernsthaft im eigenen Arbeitsablauf ein, das macht uns schneller. Das zeigt sich in kürzerer Dauer und niedrigerem Preis, nicht in einer schlechteren Website.',
+      },
+      {
+        q: 'Ist das wirklich der Endpreis?',
+        a: 'Ja, für den Umfang, den wir vorher schriftlich vereinbaren. Der Preis ändert sich nur, wenn Sie etwas wünschen, das darin nicht enthalten war — und dann sagen wir Ihnen vorher, was es kostet, nie hinterher.',
+      },
+      {
+        q: 'Was, wenn ich nicht weiß, was ich brauche?',
+        a: 'Schicken Sie uns Ihre jetzige Website oder beschreiben Sie einfach Ihren Betrieb. Wir sagen Ihnen ehrlich, was davon passt — auch dann, wenn die Antwort lautet, dass Sie uns gar nicht brauchen.',
+      },
+      {
+        q: 'Kann man in Raten zahlen?',
+        a: 'Die Hälfte zum Start, die Hälfte, wenn die Website online geht. Bei größeren Projekten vereinbaren wir die Etappen vorher.',
+      },
+      {
+        q: 'Was kostet der laufende Betrieb?',
+        a: 'Die Websites, die wir bauen, sind statisch — Hosting kostet damit wenige Euro im Monat statt der laufenden Kosten eines schweren Redaktionssystems. Unsere Betreuung obendrauf ist freiwillig und beginnt bei 39 € im Monat.',
+      },
+    ],
+    updated: 'Preise zuletzt aktualisiert: August 2026',
   },
 
   check: {

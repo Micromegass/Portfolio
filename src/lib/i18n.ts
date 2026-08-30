@@ -32,6 +32,7 @@ export type PageKey =
   | 'ai'
   | 'apps'
   | 'check'
+  | 'pricing'
   | 'work'
   | 'case-physio'
   | 'case-ikuna'
@@ -63,6 +64,7 @@ export const routes: Record<PageKey, Record<Locale, string>> = {
     de: '/de/website-check/',
     es: '/es/analisis-web/',
   },
+  pricing: { en: '/pricing/', de: '/de/preise/', es: '/es/precios/' },
   work: { en: '/work/', de: '/de/projekte/', es: '/es/proyectos/' },
   'case-physio': {
     en: '/work/physio-ergo-fuerth/',
