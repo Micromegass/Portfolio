@@ -228,22 +228,6 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     white-space: nowrap;
   }
 
-  /* The navbar "Start a project" CTA is intentionally green rather than the
-     studio magenta accent — scoped here so the global --accent and every
-     other .button--primary stay unchanged. The near-black .button--primary
-     text (--on-accent) clears WCAG AA on both greens in either theme:
-     #22c55e ≈ 8.7:1, hover #16a34a ≈ 6.0:1. Covers both the desktop pill
-     (.header__cta) and the collapsed-menu copy (.nav__cta). */
-  .header__cta,
-  .nav__cta {
-    background: #22c55e;
-  }
-
-  .header__cta:hover,
-  .nav__cta:hover {
-    background: #16a34a;
-  }
-
   .nav__link {
     white-space: nowrap;
   }
