@@ -79,6 +79,7 @@ export const en: SiteContent = {
     ],
     cta: 'Start a project',
     menuLabel: 'Main navigation',
+    langsLabel: 'Language',
     homeAria: 'RENOVO — home',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',

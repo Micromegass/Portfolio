@@ -31,7 +31,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
         <p class="lead intro__lead">{c.summary}</p>
         <div class="intro__actions">
           <a class="button button--primary" href={c.url} target="_blank" rel="noopener"
-            >{w.visitLabel} <span>↗</span></a
+            >{w.visitLabel} <span>↗</span><span class="sr-only">({w.newTab})</span></a
           >
         </div>
       </div>
