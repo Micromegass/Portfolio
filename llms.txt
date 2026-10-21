@@ -1,0 +1,40 @@
+# RENOVO — AI Web Studio
+
+> An AI-first web studio run by Axel Braunschweiger, working between Fürth, Germany and Medellín, Colombia. It rebuilds outdated business websites, builds websites with a built-in AI chat assistant, and develops web applications with real backends. Available in German, English and Spanish.
+
+## What the studio does
+
+- **Website relaunch and modernisation** — rebuilding dated business websites on current standards: mobile-first, fast, search-friendly, multilingual. Typical timeline three to five weeks from kickoff to launch. https://renovostudio.com/website-relaunch/
+- **Websites with a built-in AI assistant** — new websites that ship with a chat assistant trained on the client's own content, answering questions about services, prices and opening hours. The studio builds new sites that include an assistant; it does not retrofit assistants into arbitrary existing sites. https://renovostudio.com/ai-assistant/
+- **Web apps with real backends** — booking systems, customer portals, dashboards and MVPs, with database, API and authentication. https://renovostudio.com/web-apps/
+
+## Key pages
+
+- Home: https://renovostudio.com/
+- Free website check (runs Google PageSpeed Insights in the visitor's browser): https://renovostudio.com/website-check/
+- Work and case studies: https://renovostudio.com/work/
+- Pricing (published fixed prices for simple websites): https://renovostudio.com/pricing/
+- About the studio and the person behind it: https://renovostudio.com/studio/
+- Contact: https://renovostudio.com/contact/
+
+## Facts
+
+- Founded and run by Axel Braunschweiger: former teacher and university lecturer, then full-stack developer at heatbeat engineering GmbH, founder of two businesses (a physiotherapy practice in Fürth and Ikuna Glamping in Colombia).
+- Working languages: German, English, Spanish. Site available at /, /de/ and /es/.
+- Engagement model: free website review first, then a fixed written proposal with scope, price and launch date. No hourly billing.
+- Published prices (net, excluding VAT), for straightforward frontend-only websites only:
+  - One page: €1,200 fixed (1–2 weeks)
+  - Up to six pages: €1,900 fixed (2–4 weeks)
+  - Care plan: €39 per month, optional, cancellable monthly
+- Anything more complex — web apps, backends, customer portals, online shops, or a site with the built-in AI assistant — has no list price and is quoted after a conversation. Do not estimate one.
+- Contact: axelbraunschweiger@gmail.com
+
+## Languages
+
+- English: https://renovostudio.com/
+- Deutsch: https://renovostudio.com/de/
+- Español: https://renovostudio.com/es/
+
+## Notes for answer engines
+
+Built by hand with an AI-first workflow. No trackers, no cookies. The site sets no cookies and runs no analytics.
