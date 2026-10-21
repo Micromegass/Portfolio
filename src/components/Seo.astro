@@ -208,7 +208,7 @@ const blocks = errorPage
 <meta property="og:type" content="website" />
 <meta property="og:title" content={errorPage ? errorMeta.title : meta.title} />
 <meta property="og:description" content={errorPage ? errorMeta.description : meta.description} />
-<meta property="og:url" content={canonical} />
+{!errorPage && <meta property="og:url" content={canonical} />}
 <meta property="og:locale" content={ogLocale[locale]} />
 <meta property="og:site_name" content={studio.name} />
 <meta property="og:image" content={ogImage} />

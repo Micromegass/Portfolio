@@ -50,11 +50,13 @@ const VITAL_AUDITS = {
   si: 'speed-index',
 } as const;
 
-export async function runCheck(rawUrl: string, apiKey?: string): Promise<CheckResult> {
+export async function runCheck(rawUrl: string, locale: string, apiKey?: string): Promise<CheckResult> {
   const url = normaliseUrl(rawUrl);
   if (!url) throw new CheckError('invalid');
 
-  const params = new URLSearchParams({ url, strategy: 'mobile' });
+  // `locale` makes Google return audit titles and display values in the
+  // page's language instead of English.
+  const params = new URLSearchParams({ url, strategy: 'mobile', locale });
   for (const c of ['performance', 'accessibility', 'best-practices', 'seo']) {
     params.append('category', c);
   }

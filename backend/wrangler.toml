@@ -6,7 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 # Public settings only. The API key is a secret:
 #   npx wrangler secret put ANTHROPIC_API_KEY
 [vars]
-ALLOWED_ORIGINS = "https://renovostudio.com,https://www.renovostudio.com,https://micromegass.github.io,http://127.0.0.1:4990,http://localhost:4990"
+ALLOWED_ORIGINS = "https://renovostudio.com,https://www.renovostudio.com,https://micromegass.github.io,http://127.0.0.1:4990,http://localhost:4990,http://127.0.0.1:4980,http://localhost:4980"
 CHAT_MODEL = "claude-opus-4-8"
 RATE_PER_HOUR = "30"
 

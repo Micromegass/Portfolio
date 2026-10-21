@@ -126,7 +126,7 @@ const k = c.check;
 
 <script
   is:inline
-  define:vars={{ strings: { ...t(Astro.props.locale).check, email: studio.email } }}
+  define:vars={{ strings: { ...t(Astro.props.locale).check, email: studio.email, locale: Astro.props.locale } }}
 >
   window.__CHECK_STRINGS__ = strings;
 </script>
@@ -179,7 +179,7 @@ const k = c.check;
     status.dataset.state = 'busy';
 
     try {
-      const r = await runCheck(input.value, apiKey);
+      const r = await runCheck(input.value, strings.locale, apiKey);
 
       (document.getElementById('result-url') as HTMLElement).textContent = r.finalUrl;
 
@@ -204,7 +204,7 @@ const k = c.check;
               (o) => `
               <li class="opp">
                 <span class="opp__title">${escapeHtml(o.title)}</span>
-                <span class="opp__saving">${(o.savingsMs / 1000).toFixed(1)}s ${strings.savingsLabel}</span>
+                <span class="opp__saving">${(o.savingsMs / 1000).toLocaleString(strings.locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} s ${strings.savingsLabel}</span>
               </li>`
             )
             .join('')
@@ -212,7 +212,8 @@ const k = c.check;
 
       results!.hidden = false;
       placeholder!.hidden = true;
-      status.textContent = '';
+      // Tell screen readers the wait is over — the results appear silently.
+      status.textContent = strings.doneNote;
       delete status.dataset.state;
       results!.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {

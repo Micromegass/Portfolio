@@ -65,7 +65,7 @@ const strings = JSON.stringify({
           </button>
         </header>
 
-        <div class="chat__log" data-chat-log tabindex="0">
+        <div class="chat__log" data-chat-log data-lenis-prevent tabindex="0">
           <div class="chat__msg chat__msg--assistant">{c.intro}</div>
           <div class="chat__suggest" data-chat-suggestions>
             <p class="chat__suggest-label">{c.suggestionsLabel}</p>
@@ -411,17 +411,22 @@ const strings = JSON.stringify({
   }
 
   @media (max-width: 480px) {
+    /* The container spans the full width here, so its empty area must let
+       taps through to the page; only the launcher and panel catch them. */
     .chat {
       left: clamp(0.75rem, 3vw, 1.5rem);
       align-items: stretch;
+      pointer-events: none;
     }
 
     .chat__launch {
       align-self: flex-end;
+      pointer-events: auto;
     }
 
     .chat__panel {
       width: 100%;
+      pointer-events: auto;
     }
   }
 

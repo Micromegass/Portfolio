@@ -40,11 +40,26 @@ export function initMotion(): void {
     { rootMargin: '0px 0px -8% 0px' }
   );
 
-  document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => io.observe(el));
+  // Once the reveal has run, hand the element its own transitions back and
+  // drop the stagger delay, so later hovers neither lag nor lose their easing.
+  const settle = (el: HTMLElement) => {
+    el.addEventListener('transitionend', function done(event) {
+      if (event.target !== el || event.propertyName !== 'opacity') return;
+      el.removeEventListener('transitionend', done);
+      el.style.transitionDelay = '';
+      el.classList.add('is-settled');
+    });
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
+    settle(el);
+    io.observe(el);
+  });
 
   document.querySelectorAll<HTMLElement>('[data-reveal-group]').forEach((group) => {
     Array.from(group.children).forEach((child, i) => {
       (child as HTMLElement).style.transitionDelay = `${i * 90}ms`;
+      settle(child as HTMLElement);
     });
     io.observe(group);
   });

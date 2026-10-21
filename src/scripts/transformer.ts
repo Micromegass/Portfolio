@@ -232,7 +232,8 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
         alpha: false,
         powerPreference: 'low-power',
       });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // No devicePixelRatio upscaling: the textures are W×H, so a larger
+      // buffer would only multiply shader cost without adding detail.
       renderer.setSize(W, H, false);
 
       const scene = new THREE.Scene();
@@ -342,6 +343,13 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
       // can come back and the loop would otherwise render into a dead context.
       window.addEventListener('pagehide', () => {
         webgl?.dispose();
+        webgl = null;
+        frame.classList.remove('transformer__frame--gl');
+      });
+
+      // A lost context (GPU reset, eviction on mobile) makes render() a no-op;
+      // hand the frame back to the 2D layer instead of leaving it blank.
+      canvas.addEventListener('webglcontextlost', () => {
         webgl = null;
         frame.classList.remove('transformer__frame--gl');
       });

@@ -87,7 +87,9 @@ function validate(body: unknown): { messages: Turn[]; locale: Locale } | string 
     if (typeof content !== 'string') return 'bad_request';
     const text = content.trim();
     if (!text) return 'bad_request';
-    if (text.length > MAX_CHARS_PER_TURN) return 'too_long';
+    // Only the visitor's turns are capped per message: a reply may run to
+    // MAX_OUTPUT_TOKENS, which is longer than this. The total cap still applies.
+    if (role === 'user' && text.length > MAX_CHARS_PER_TURN) return 'too_long';
     total += text.length;
     clean.push({ role, content: text });
   }
