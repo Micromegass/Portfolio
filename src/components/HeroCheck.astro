@@ -12,8 +12,9 @@ const k = c.check;
 const checkHref = href('check', locale);
 ---
 
-<!-- Immediate action on arrival: type an address, land on the results page
-     with the analysis already running. -->
+<!-- Immediate action on arrival: type an address, land on the check page with
+     it prefilled. The check (and the request to Google) only runs once the
+     visitor presses start there — that click is the consent. -->
 <form class="hero-check" id="hero-check" action={checkHref} method="get" data-target={checkHref}>
   <label class="sr-only" for="hero-check-url">{k.inputLabel}</label>
 
@@ -31,7 +32,7 @@ const checkHref = href('check', locale);
       autocomplete="url"
       spellcheck="false"
       placeholder={k.placeholder}
-      aria-describedby="hero-check-note"
+      aria-describedby="hero-check-note hero-check-privacy"
       required
     />
     <button class="hero-check__go" type="submit">
@@ -41,6 +42,10 @@ const checkHref = href('check', locale);
   </div>
 
   <p class="hero-check__note" id="hero-check-note">{c.home.checkNote}</p>
+  <p class="hero-check__privacy" id="hero-check-privacy">
+    {c.home.checkPrivacyNote}{' '}
+    <a href={href('privacy', locale)}>{k.privacyLink}</a>
+  </p>
   <p class="hero-check__error" id="hero-check-error" role="alert"></p>
 </form>
 
@@ -165,6 +170,12 @@ const checkHref = href('check', locale);
 
   .hero-check__note {
     margin: var(--space-3) 0 0;
+    font-size: var(--text-sm);
+    color: var(--fg-mute);
+  }
+
+  .hero-check__privacy {
+    margin: var(--space-1) 0 0;
     font-size: var(--text-sm);
     color: var(--fg-mute);
   }

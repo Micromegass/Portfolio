@@ -239,12 +239,15 @@ const k = c.check;
     }
   });
 
-  // Handoff from the homepage hero: ?url=… prefills and runs straight away,
-  // so a visitor who typed on the landing page never types twice.
+  // Handoff from the homepage hero: ?url=… only prefills, so a visitor who
+  // typed on the landing page never types twice. It must never run on its
+  // own — a shared link would otherwise send the address and the visitor's IP
+  // to Google without consent. Pressing start (next to the privacy note) is
+  // the consent the privacy policy describes.
   const handoff = new URLSearchParams(window.location.search).get('url');
-  if (handoff && input && form) {
+  if (handoff && input) {
     input.value = handoff;
-    form.requestSubmit();
+    submitBtn?.focus({ preventScroll: true });
   }
 </script>
 
