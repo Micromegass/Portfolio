@@ -462,7 +462,7 @@ export const de: SiteContent = {
         },
         {
           heading: 'Warum funktioniert es?',
-          body: 'Niemand bucht eine Auszeit wegen einer Feature-Liste. Gebucht wird, weil die Seite den Ort fühlbar gemacht hat — also investiert das Design in Atmosphäre und Geschwindigkeit und entfernt alles, was mit der Entscheidung zu kommen konkurriert.',
+          body: 'Niemand bucht eine Auszeit wegen einer Feature-Liste. Gebucht wird, weil die Seite den Ort fühlbar gemacht hat — also investiert das Design in Atmosphäre und Geschwindigkeit und entfernt alles, was von der Entscheidung für die Reise ablenkt.',
         },
       ],
       outcomeLabel: 'Was es dem Unternehmen bringt',
@@ -745,8 +745,9 @@ export const de: SiteContent = {
     },
     opportunitiesLabel: 'Größte Hebel',
     opportunitiesNone: 'Keine größeren technischen Probleme gefunden — eine gute Ausgangslage.',
+    opportunitiesNoStandout: 'Keine einzelne Maßnahme sticht heraus — die Werte oben zeigen, wo die Zeit verloren geht.',
     savingsLabel: 'mögliche Ersparnis',
-    scale: { good: 'Gut', ok: 'Ausbaufähig', poor: 'Schwach' },
+    scale: { good: 'Gut', ok: 'Ausbaufähig', poor: 'Schwach', na: 'Nicht messbar' },
     errorCta: 'Adresse stattdessen per E-Mail senden',
     errorSubject: 'Website-Check — bitte für mich durchführen',
     errors: {
@@ -969,7 +970,7 @@ export const de: SiteContent = {
         {
           heading: '10. Beschwerderecht',
           body: [
-            'Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere im Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes (Art. 77 DSGVO).',
+            'Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, insbesondere im Mitgliedstaat Ihres gewöhnlichen Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes (Art. 77 DSGVO).',
             'Die für uns zuständige Behörde ist das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach.', // TODO-CONTENT: anpassen, falls der Sitz außerhalb Bayerns liegt
           ],
         },

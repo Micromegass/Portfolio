@@ -747,8 +747,9 @@ export const en: SiteContent = {
     },
     opportunitiesLabel: 'Biggest opportunities',
     opportunitiesNone: 'No major technical issues found — a good starting point.',
+    opportunitiesNoStandout: 'No single fix stands out — the scores above show where the time goes.',
     savingsLabel: 'potential saving',
-    scale: { good: 'Good', ok: 'Needs work', poor: 'Poor' },
+    scale: { good: 'Good', ok: 'Needs work', poor: 'Poor', na: 'Could not be measured' },
     errorCta: 'Email us the address instead',
     errorSubject: 'Website check — please run this for me',
     errors: {

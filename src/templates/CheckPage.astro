@@ -150,10 +150,11 @@ const k = c.check;
 
   const CATS = ['performance', 'accessibility', 'bestPractices', 'seo'] as const;
 
-  function ring(score: number, label: string) {
+  function ring(score: number | null, label: string) {
     const b = band(score);
     const circumference = 2 * Math.PI * 26;
-    const offset = circumference * (1 - score / 100);
+    // An unmeasured score draws an empty ring and a dash, not a red zero.
+    const offset = circumference * (1 - (score ?? 0) / 100);
     return `
       <div class="score score--${b}">
         <svg viewBox="0 0 60 60" aria-hidden="true">
@@ -161,7 +162,7 @@ const k = c.check;
           <circle class="score__value" cx="30" cy="30" r="26"
             stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"></circle>
         </svg>
-        <span class="score__num">${score}</span>
+        <span class="score__num">${score ?? '–'}</span>
         <span class="score__label">${label}</span>
         <span class="score__band">${strings.scale[b]}</span>
       </div>`;
@@ -190,7 +191,7 @@ const k = c.check;
       document.getElementById('result-vitals')!.innerHTML = r.vitals
         .map(
           (v) => `
-          <div class="vital vital--${band(Math.round(v.score * 100))}">
+          <div class="vital vital--${band(v.score === null ? null : Math.round(v.score * 100))}">
             <dt class="vital__label">${strings.vitals[v.id]}</dt>
             <dd class="vital__value">${escapeHtml(v.display)}</dd>
           </div>`
@@ -208,7 +209,10 @@ const k = c.check;
               </li>`
             )
             .join('')
-        : `<li class="opp opp--none">${strings.opportunitiesNone}</li>`;
+        : // "No major issues" under a red ring would contradict the measurement.
+          `<li class="opp opp--none">${
+            (r.scores.performance ?? 0) >= 90 ? strings.opportunitiesNone : strings.opportunitiesNoStandout
+          }</li>`;
 
       results!.hidden = false;
       placeholder!.hidden = true;
@@ -398,6 +402,11 @@ const k = c.check;
   }
 
   /* ---- results ---- */
+  /* Auto-scroll lands here; clear the sticky header (~77px) plus breathing room. */
+  .results {
+    scroll-margin-top: calc(77px + var(--space-4));
+  }
+
   .results__for {
     font-size: var(--text-sm);
     color: var(--fg-mute);
@@ -471,6 +480,7 @@ const k = c.check;
   :global(.score--good .score__num) { color: var(--status-good); }
   :global(.score--ok .score__num) { color: var(--status-warn); }
   :global(.score--poor .score__num) { color: var(--status-bad); }
+  :global(.score--na .score__num) { color: var(--fg-mute); }
 
   :global(.score__label) {
     margin-top: var(--space-3);
