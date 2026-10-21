@@ -64,10 +64,11 @@ export function initChat({ root, endpoint, locale, strings }: Options): void {
     root.classList.toggle('chat--open', next);
     launcher!.setAttribute('aria-expanded', String(next));
     panel!.hidden = !next;
+    // Closing only hides the panel: a reply in flight keeps streaming into the
+    // log, so the visible thread and the transcript never disagree.
     if (next) {
       input!.focus();
     } else {
-      controller?.abort();
       launcher!.focus();
     }
   }

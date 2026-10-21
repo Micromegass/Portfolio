@@ -725,6 +725,7 @@ export const en: SiteContent = {
     submit: 'Run the check',
     running: 'Analysing…',
     runningNote: 'Google is loading your site on a simulated mobile device. This usually takes 20–40 seconds.',
+    doneNote: 'The check is complete. Your results are below.',
     privacyNote:
       'The address you enter is sent to the Google PageSpeed Insights API to run the analysis. We do not store it.',
     privacyLink: 'How we handle your data',
@@ -786,7 +787,7 @@ export const en: SiteContent = {
 
   chat: {
     launch: 'Ask the studio',
-    launchAria: 'Open the studio assistant',
+    launchAria: 'Ask the studio — open the assistant',
     title: 'Studio assistant',
     subtitle: 'The same kind of assistant we build into client sites.',
     intro:

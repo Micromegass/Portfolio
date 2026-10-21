@@ -232,6 +232,8 @@ export interface SiteContent {
     submit: string;
     running: string;
     runningNote: string;
+    /** Announced to screen readers when results arrive. */
+    doneNote: string;
     privacyNote: string;
     privacyLink: string;
     scoresLabel: string;

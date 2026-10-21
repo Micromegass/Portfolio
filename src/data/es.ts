@@ -10,7 +10,7 @@ export const es: SiteContent = {
     relaunch: {
       title: 'Rediseño y modernización web | RENOVO',
       description:
-        'Su web se ve y carga como si fuera de hace años. La reconstruimos con estándares actuales: rápida, mobile-first y multilingüe, en tres a cinco semanas.',
+        'Su web se ve y carga como si fuera de hace años. La reconstruimos con estándares actuales: rápida, mobile-first y multilingüe, normalmente en tres a cinco semanas.',
     },
     ai: {
       title: 'Sitios web con asistente de IA integrado | RENOVO',
@@ -33,7 +33,7 @@ export const es: SiteContent = {
         'Diseño y desarrollo web para una clínica de fisioterapia en Fürth, Alemania — cada tratamiento explicado con claridad y construido mobile-first.',
     },
     'case-ikuna': {
-      title: 'Caso: Ikuna Glamping — marca y web',
+      title: 'Caso: Ikuna Glamping — marca y web | RENOVO',
       description:
         'Marca y sitio web visual para un refugio de glamping en Antioquia — rápido en conexiones móviles rurales y con la atmósfera para vender la experiencia.',
     },
@@ -48,7 +48,7 @@ export const es: SiteContent = {
         'Envíenos su sitio web actual y reciba una valoración honesta de qué lo está frenando. Respondemos personalmente en español, inglés o alemán.',
     },
     check: {
-      title: 'Análisis web gratuito — velocidad y SEO',
+      title: 'Análisis web gratuito — velocidad y SEO | RENOVO',
       description:
         'Analice su web gratis: velocidad, accesibilidad, calidad técnica y preparación para buscadores, medido por Google PageSpeed Insights y explicado claro.',
     },
@@ -495,10 +495,10 @@ export const es: SiteContent = {
       },
       {
         title: 'Lenguaje claro, siempre',
-        body: 'Nunca debería necesitar un traductor para entender por qué está pagando. Cada propuesta, actualización y entrega se escribe para que un dueño sin perfil técnico la siga.',
+        body: 'Nunca debería necesitar un traductor para entender qué está pagando. Cada propuesta, actualización y entrega se escribe para que un dueño sin perfil técnico la siga.',
       },
       {
-        title: 'La velocidad es una función',
+        title: 'La velocidad es una ventaja',
         body: 'Cada sitio que entregamos apunta a las mejores puntuaciones de Lighthouse. La velocidad no es vanidad: decide su posicionamiento, cuánto se quedan los visitantes y cuántos se vuelven clientes.',
       },
     ],
@@ -525,7 +525,7 @@ export const es: SiteContent = {
         body: 'Desarrollo full-stack en heatbeat engineering GmbH: Python, Django, PostgreSQL, React, Docker. Responsabilidad sobre funcionalidades en todo el ciclo — arquitectura, APIs, visualización de datos, despliegue. Software de producción, responsabilidad de producción.',
       },
       {
-        period: 'Fundar',
+        period: 'Fundación',
         title: 'Dos empresas, dos sitios web',
         body: 'Fundó una clínica de fisioterapia y terapia ocupacional en Fürth y cofundó Ikuna Glamping en las montañas colombianas, construyendo la presencia digital de ambas. Dirigir negocios cambia cómo se construye software: se empieza a pensar en ingresos, operaciones y confianza del cliente, no en funcionalidades.',
       },
@@ -724,6 +724,7 @@ export const es: SiteContent = {
     running: 'Analizando…',
     runningNote:
       'Google está cargando su sitio en un móvil simulado. Suele tardar entre 20 y 40 segundos.',
+    doneNote: 'El análisis ha terminado. Encontrará sus resultados más abajo.',
     privacyNote:
       'La dirección que escriba se envía a la API de Google PageSpeed Insights para realizar el análisis. Nosotros no la guardamos.',
     privacyLink: 'Cómo tratamos sus datos',
@@ -786,7 +787,7 @@ export const es: SiteContent = {
 
   chat: {
     launch: 'Pregunte al estudio',
-    launchAria: 'Abrir el asistente del estudio',
+    launchAria: 'Pregunte al estudio — abrir el asistente',
     title: 'Asistente del estudio',
     subtitle: 'El mismo tipo de asistente que integramos en los sitios de clientes.',
     intro:
@@ -916,7 +917,7 @@ export const es: SiteContent = {
             'Nuestro sitio web ofrece un asistente de chat que responde preguntas sobre el estudio. Solo se inicia cuando usted lo abre activamente; no se envía nada hasta que usted manda un mensaje.',
             'Al enviar un mensaje, ese mensaje y el desarrollo previo de la conversación se transmiten a nuestra propia función de servidor y, desde allí, a Anthropic PBC, 548 Market St, PMB 90375, San Francisco, CA 94104, EE. UU., que genera la respuesta con el modelo de lenguaje Claude. Su dirección IP la procesa nuestra función de servidor para prevenir abusos y no se comunica a Anthropic.',
             'Finalidad y base jurídica: el asistente solo funciona a petición expresa suya, por lo que la base jurídica es su consentimiento conforme al art. 6.1.a RGPD, otorgado al enviar activamente un mensaje. Puede retirar su consentimiento en cualquier momento con efectos para el futuro simplemente dejando de usar el asistente. Además, existe nuestro interés legítimo en la prevención de abusos descrita, art. 6.1.f RGPD.',
-            'Transferencia a terceros países: Anthropic PBC está certificada en el marco EU-US Data Privacy Framework, respecto del cual la Comisión Europea ha reconocido un nivel de protección adecuado (decisión de adecuación de 10 de julio de 2023). Con Anthropic existe además un contrato de encargo de tratamiento conforme al art. 28 RGPD.',
+            'Transferencia a terceros países: Anthropic PBC está certificada en el Marco de Privacidad de Datos UE-EE. UU., respecto del cual la Comisión Europea ha reconocido un nivel de protección adecuado (decisión de adecuación de 10 de julio de 2023). Con Anthropic existe además un contrato de encargo de tratamiento conforme al art. 28 RGPD.',
             'Conservación: nosotros no almacenamos la conversación. Existe en su navegador mientras la ventana de chat está abierta y desaparece al cerrar o recargar la página. Anthropic conserva entradas y salidas durante un tiempo limitado para detectar abusos y no las utiliza para entrenar sus modelos. Nuestra función de servidor guarda un contador por dirección IP durante un máximo de 65 minutos, únicamente para aplicar un límite de uso.',
             'Le rogamos que no introduzca en el chat categorías especiales de datos personales (por ejemplo, datos de salud) ni información confidencial. Para asuntos sensibles, escríbanos por correo electrónico.',
             'El asistente genera sus respuestas de forma automatizada y puede equivocarse. Sus respuestas no son jurídicamente vinculantes y no se adopta ninguna decisión con efectos jurídicos para usted sobre la base de la conversación.',
@@ -937,7 +938,7 @@ export const es: SiteContent = {
             'Este sitio enlaza a WhatsApp para que pueda escribirnos directamente. El enlace solo abre WhatsApp — la mera carga de nuestras páginas no establece ninguna conexión con WhatsApp ni con Meta, y no incrustamos ningún widget ni píxel de seguimiento.',
             'Si decide escribirnos allí, la conversación es tratada por WhatsApp Ireland Limited y, según la configuración del servicio, por Meta Platforms, Inc. en Estados Unidos. No tenemos influencia sobre ese tratamiento; WhatsApp recibe su número de teléfono, el contenido de sus mensajes y metadatos sobre la comunicación. La información de privacidad de Meta se aplica de forma complementaria.',
             'Base jurídica: su consentimiento, otorgado al abrir deliberadamente el chat y escribirnos, art. 6.1.a RGPD; si su mensaje se refiere a la preparación o ejecución de un contrato, además art. 6.1.b RGPD.',
-            'Transferencia a un tercer país: Meta Platforms, Inc. está certificada en el EU-US Data Privacy Framework, que la Comisión Europea ha reconocido como nivel de protección adecuado (decisión de adecuación de 10 de julio de 2023).',
+            'Transferencia a un tercer país: Meta Platforms, Inc. está certificada en el Marco de Privacidad de Datos UE-EE. UU., que la Comisión Europea ha reconocido como nivel de protección adecuado (decisión de adecuación de 10 de julio de 2023).',
             'Conservación: los mensajes se eliminan una vez resuelta definitivamente su consulta, salvo obligaciones legales de conservación. Si prefiere no usar WhatsApp, el correo electrónico funciona igual de bien.',
           ],
         },

@@ -33,7 +33,7 @@ export const de: SiteContent = {
         'Website-Design und -Entwicklung für eine Physiotherapiepraxis in Fürth — jede Behandlung verständlich erklärt, konsequent mobile-first gebaut.',
     },
     'case-ikuna': {
-      title: 'Fallstudie: Ikuna Glamping — Marke & Website',
+      title: 'Fallstudie: Ikuna Glamping — Marke & Website | RENOVO',
       description:
         'Marke und bildstarke Website für ein Glamping-Refugium in Antioquia — schnell auf ländlichen Mobilverbindungen und atmosphärisch genug zum Buchen.',
     },
@@ -48,7 +48,7 @@ export const de: SiteContent = {
         'Schicken Sie uns Ihre Website und erhalten Sie eine ehrliche Einschätzung, was sie ausbremst. Wir antworten persönlich, auf Deutsch, Englisch oder Spanisch.',
     },
     check: {
-      title: 'Kostenloser Website-Check — Tempo & SEO',
+      title: 'Kostenloser Website-Check — Tempo & SEO | RENOVO',
       description:
         'Testen Sie Ihre Website kostenlos: Ladezeit, Barrierefreiheit, Technik und SEO, gemessen von Google PageSpeed Insights und verständlich erklärt.',
     },
@@ -106,7 +106,7 @@ export const de: SiteContent = {
   home: {
     eyebrow: 'Website-Relaunch · KI-Assistenten · Web-Apps',
     headline: ['Ihre Website,', 'neu gebaut für', 'die KI-Zeit.'],
-    sub: 'Wir modernisieren veraltete Firmenwebsites, bauen Seiten mit einem KI-Assistenten, der Ihre Kunden rund um die Uhr beantwortet, und entwickeln Web-Apps mit echtem Backend — in Wochen statt Quartalen.',
+    sub: 'Wir modernisieren veraltete Firmenwebsites, bauen Seiten mit einem KI-Assistenten, der Ihren Kunden rund um die Uhr antwortet, und entwickeln Web-Apps mit echtem Backend — in Wochen statt Quartalen.',
     ctaPrimary: 'Kostenlosen Website-Check anfordern',
     ctaSecondary: 'Projekte ansehen',
     checkNote: 'Kostenlos, ohne Anmeldung. Googles eigene Messwerte in etwa 30 Sekunden.',
@@ -723,6 +723,7 @@ export const de: SiteContent = {
     running: 'Analysiere…',
     runningNote:
       'Google lädt Ihre Seite gerade auf einem simulierten Mobilgerät. Das dauert meist 20–40 Sekunden.',
+    doneNote: 'Der Check ist fertig. Ihre Ergebnisse finden Sie unten.',
     privacyNote:
       'Die eingegebene Adresse wird zur Analyse an die Google-PageSpeed-Insights-API übermittelt. Wir speichern sie nicht.',
     privacyLink: 'Wie wir mit Ihren Daten umgehen',
@@ -785,7 +786,7 @@ export const de: SiteContent = {
 
   chat: {
     launch: 'Studio fragen',
-    launchAria: 'Studio-Assistenten öffnen',
+    launchAria: 'Studio fragen — Assistenten öffnen',
     title: 'Studio-Assistent',
     subtitle: 'Genau die Art Assistent, die wir in Kundenseiten einbauen.',
     intro:
@@ -905,7 +906,7 @@ export const de: SiteContent = {
         {
           heading: '3. Website-Check (Google PageSpeed Insights)',
           body: [
-            'Auf unserer Seite „Website-Check" können Sie die Adresse einer Website eingeben und analysieren lassen. Die Analyse führen nicht wir durch: Mit dem Klick auf den Button sendet Ihr Browser die eingegebene Adresse unmittelbar an die Google-PageSpeed-Insights-API der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.',
+            'Auf unserer Seite „Website-Check“ können Sie die Adresse einer Website eingeben und analysieren lassen. Die Analyse führen nicht wir durch: Mit dem Klick auf den Button sendet Ihr Browser die eingegebene Adresse unmittelbar an die Google-PageSpeed-Insights-API der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.',
             'Dabei werden Ihre IP-Adresse sowie die technischen Angaben Ihrer Browseranfrage an Google übermittelt und können auf Server in den USA übertragen werden. Google verarbeitet diese Daten nach seiner eigenen Datenschutzerklärung: https://policies.google.com/privacy',
             'Zweck und Rechtsgrundlage: Die Analyse erfolgt ausschließlich auf Ihre ausdrückliche Veranlassung hin. Rechtsgrundlage ist daher Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch das aktive Starten des Checks erteilen. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie das Werkzeug nicht nutzen. Ohne gestarteten Check werden keine Daten an Google übermittelt.',
             'Drittlandübermittlung: Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert, für das die Europäische Kommission mit Angemessenheitsbeschluss vom 10. Juli 2023 ein angemessenes Schutzniveau festgestellt hat. Ergänzend stützt sich Google auf die Standardvertragsklauseln der Europäischen Kommission.',

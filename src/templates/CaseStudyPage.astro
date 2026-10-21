@@ -37,7 +37,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
       </div>
     </section>
 
-    <figure class="shot" data-reveal>
+    <figure class="shot">
       <div class="wrap">
         <Image
           src={caseImages[caseKey]}
@@ -45,6 +45,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
           width={1400}
           densities={[1, 1.5]}
           loading="eager"
+          fetchpriority="high"
         />
       </div>
     </figure>

@@ -248,10 +248,18 @@ img { max-width: 100%; height: auto; display: block; }
    (html.motion, set inline in <head>). If the bundle never initialises, the
    inline script drops the class and everything becomes visible. */
 
-.motion [data-reveal],
-.motion [data-reveal-group] > * {
+/* Only the un-revealed state sets a transform, so once in, elements keep
+   their own (the card hover lift). The reveal transition stays until it has
+   run; motion.ts then marks the element .is-settled and its own transitions
+   apply again. */
+.motion [data-reveal]:not(.is-in),
+.motion [data-reveal-group]:not(.is-in) > * {
   opacity: 0;
   transform: translateY(24px);
+}
+
+.motion [data-reveal]:not(.is-settled),
+.motion [data-reveal-group] > :not(.is-settled) {
   transition:
     opacity 0.8s var(--ease),
     transform 0.8s var(--ease);
@@ -260,7 +268,6 @@ img { max-width: 100%; height: auto; display: block; }
 .motion [data-reveal].is-in,
 .motion [data-reveal-group].is-in > * {
   opacity: 1;
-  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
