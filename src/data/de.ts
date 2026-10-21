@@ -79,6 +79,7 @@ export const de: SiteContent = {
     ],
     cta: 'Projekt starten',
     menuLabel: 'Hauptnavigation',
+    langsLabel: 'Sprache',
     homeAria: 'RENOVO — Startseite',
     openMenu: 'Menü öffnen',
     closeMenu: 'Menü schließen',

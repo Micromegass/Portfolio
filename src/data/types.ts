@@ -11,6 +11,7 @@ export interface SiteContent {
     items: { page: PageKey; label: string }[];
     cta: string;
     menuLabel: string;
+    langsLabel: string;
     homeAria: string;
     openMenu: string;
     closeMenu: string;

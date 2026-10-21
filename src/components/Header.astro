@@ -48,7 +48,7 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
     </nav>
 
     <div class="header__end">
-      <nav class="langs" aria-label="Language">
+      <nav class="langs" aria-label={c.nav.langsLabel}>
         {
           /* The visible label is the two-letter code; assistive tech gets the
              full language name, which "E N" spelled out is not. */

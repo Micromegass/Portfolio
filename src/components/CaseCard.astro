@@ -88,7 +88,9 @@ const shot = caseImages[caseKey];
     font-size: var(--text-xs);
     font-weight: 700;
     letter-spacing: 0.08em;
-    background: rgba(0, 0, 0, 0.5);
+    /* 0.7, as on the hero tags: lighter scrims fail 4.5:1 over near-white
+       regions of the screenshot. */
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 0.4em 0.85em;
     border-radius: 999px;
@@ -107,7 +109,7 @@ const shot = caseImages[caseKey];
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 0.4em 0.85em;
     border-radius: 999px;
