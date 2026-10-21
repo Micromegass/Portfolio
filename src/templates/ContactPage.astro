@@ -42,7 +42,7 @@ const wa = t(locale).whatsapp;
         <p class="langs">{c.languagesNote}</p>
       </div>
 
-      <aside class="review card" data-reveal>
+      <aside class="review card">
         <h2 class="review__title">{c.reviewTitle}</h2>
         <p class="review__body">{c.reviewBody}</p>
 
@@ -169,10 +169,13 @@ const wa = t(locale).whatsapp;
     font-size: var(--text-sm);
   }
 
+  /* Beside the h1, so it takes the pure-CSS hero entrance (global.css), not a
+     JS scroll reveal. */
   .review {
     background: var(--surface);
     border-color: var(--line);
     padding: var(--space-5);
+    animation: hero-in 0.8s var(--ease) 0.18s both;
   }
 
   .review__title {

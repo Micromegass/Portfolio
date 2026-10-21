@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 const tr = t(locale).home.transformer;
 ---
 
-<figure class="transformer" data-reveal>
+<figure class="transformer">
   <div class="transformer__frame" id="tx-frame">
     <!-- Two canvases: 2D paints immediately, WebGL takes over on upgrade.
          A canvas can only ever hold one context type, so they cannot share. -->
@@ -53,8 +53,10 @@ const tr = t(locale).home.transformer;
 </script>
 
 <style>
+  /* Hero centrepiece: pure-CSS entrance (global.css), never a JS reveal. */
   .transformer {
     margin: clamp(2.5rem, 6vw, 4.5rem) 0 0;
+    animation: hero-in 0.8s var(--ease) 0.36s both;
   }
 
   .transformer__frame {

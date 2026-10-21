@@ -15,7 +15,7 @@ export const de: SiteContent = {
     ai: {
       title: 'Websites mit integriertem KI-Assistenten | RENOVO',
       description:
-        'Wir bauen Websites mit Chat-Assistent auf Basis Ihrer eigenen Inhalte: Er beantwortet Fragen zu Leistungen, Preisen und Öffnungszeiten rund um die Uhr.',
+        'Wir bauen Websites mit Chat-Assistenten auf Basis Ihrer eigenen Inhalte: Er beantwortet Fragen zu Leistungen, Preisen und Öffnungszeiten rund um die Uhr.',
     },
     apps: {
       title: 'Web-Apps mit echtem Backend | RENOVO',
@@ -171,7 +171,7 @@ export const de: SiteContent = {
       lead: 'Die meisten Firmenwebsites wurden vor Jahren gebaut, von jemandem, der längst weitergezogen ist. Sie laden langsam, funktionieren auf dem Handy nicht richtig und schicken Kunden still und leise zur Konkurrenz. Wir bauen sie von Grund auf neu — für Praxen, Handwerksbetriebe, Kanzleien und Einzelhandel in Fürth, Nürnberg und der Metropolregion, und remote für Kunden überall.',
       problem: {
         title: 'Was eine veraltete Website kostet',
-        body: 'Besucher entscheiden in Sekunden. Eine langsame, überladene oder auf dem Handy kaputte Seite signalisiert, dass Ihr Unternehmen hinterherhinkt — ob das stimmt oder nicht. Suchmaschinen bewerten sie schlechter, also finden Sie ohnehin weniger Leute. Und jede Anfrage, die nicht kommt, bleibt unsichtbar: Den Kunden, der wieder gegangen ist, sehen Sie nie.',
+        body: 'Besucher entscheiden in Sekunden. Eine langsame, überladene oder auf dem Handy kaputte Seite signalisiert, dass Ihr Unternehmen hinterherhinkt — ob das stimmt oder nicht. Suchmaschinen bewerten sie schlechter, also werden Sie überhaupt seltener gefunden. Und jede Anfrage, die nicht kommt, bleibt unsichtbar: Den Kunden, der wieder gegangen ist, sehen Sie nie.',
       },
       solution: {
         title: 'Was wir dagegen tun',
@@ -454,7 +454,7 @@ export const de: SiteContent = {
       sections: [
         {
           heading: 'Welches Problem sollte das Refugium lösen?',
-          body: 'Glamping verkauft ein Gefühl. Eine langsame, überladene Website zerstört dieses Gefühl, bevor ein Gast die Berge gesehen hat. Die Seite musste atmosphärisch sein, schnell auf den ländlichen Mobilverbindungen, die Gäste wirklich nutzen — und unverkennbar lokal statt generische Buchungsvorlage.',
+          body: 'Glamping verkauft ein Gefühl. Eine langsame, überladene Website zerstört dieses Gefühl, bevor ein Gast die Berge gesehen hat. Die Seite musste atmosphärisch sein, schnell auf den ländlichen Mobilverbindungen, die Gäste wirklich nutzen — und unverkennbar lokal sein, statt wie eine generische Buchungsvorlage zu wirken.',
         },
         {
           heading: 'Was hat RENOVO für Ikuna gebaut?',
@@ -617,7 +617,7 @@ export const de: SiteContent = {
         name: 'Bis zu sechs Seiten',
         price: '1.900 €',
         priceNote: 'Festpreis, zzgl. USt.',
-        desc: 'Eine vollständige Website für Betriebe mit mehr zu erzählen: Leistungen, Team, Preise, Referenzen. Alles aus dem Ein-Seiten-Angebot, in der Größe, die die meisten wirklich brauchen.',
+        desc: 'Eine vollständige Website für Betriebe, die mehr zu erzählen haben: Leistungen, Team, Preise, Referenzen. Alles aus dem Ein-Seiten-Angebot, in der Größe, die die meisten wirklich brauchen.',
         timeLabel: 'Üblicher Zeitrahmen',
         time: '2–4 Wochen',
         includesLabel: 'Enthalten',
