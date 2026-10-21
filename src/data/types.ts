@@ -47,6 +47,8 @@ export interface SiteContent {
     ctaSecondary: string;
     /** Reassurance under the hero's check field */
     checkNote: string;
+    /** Google-transfer disclosure under the hero's check field; links to the privacy policy */
+    checkPrivacyNote: string;
     facts: { value: string; label: string }[];
     transformer: { before: string; after: string; hint: string };
     services: { eyebrow: string; title: string; intro: string; more: string };

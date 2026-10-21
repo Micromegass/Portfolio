@@ -110,6 +110,8 @@ export const en: SiteContent = {
     ctaPrimary: 'Get a free website review',
     ctaSecondary: 'See the work',
     checkNote: 'Free, no sign-up. Google’s own measurements in about 30 seconds.',
+    checkPrivacyNote:
+      'Nothing is sent until you start the check on the next page. Then the address and your IP address go to Google PageSpeed Insights.',
     facts: [
       { value: '3–5 weeks', label: 'from kickoff to launch' },
       { value: '100/100', label: 'typical Lighthouse score' },
@@ -727,7 +729,7 @@ export const en: SiteContent = {
     runningNote: 'Google is loading your site on a simulated mobile device. This usually takes 20–40 seconds.',
     doneNote: 'The check is complete. Your results are below.',
     privacyNote:
-      'The address you enter is sent to the Google PageSpeed Insights API to run the analysis. We do not store it.',
+      'Only when you start the check are the address you enter and your IP address sent to the Google PageSpeed Insights API. We do not store either.',
     privacyLink: 'How we handle your data',
     scoresLabel: 'Scores',
     categories: {

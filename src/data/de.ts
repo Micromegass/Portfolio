@@ -110,6 +110,8 @@ export const de: SiteContent = {
     ctaPrimary: 'Kostenlosen Website-Check anfordern',
     ctaSecondary: 'Projekte ansehen',
     checkNote: 'Kostenlos, ohne Anmeldung. Googles eigene Messwerte in etwa 30 Sekunden.',
+    checkPrivacyNote:
+      'Übermittelt wird erst, wenn Sie den Check auf der nächsten Seite starten. Dann gehen die Adresse und Ihre IP-Adresse an Google PageSpeed Insights.',
     facts: [
       { value: '3–5 Wochen', label: 'von Kickoff bis Launch' },
       { value: '100/100', label: 'typischer Lighthouse-Score' },
@@ -725,7 +727,7 @@ export const de: SiteContent = {
       'Google lädt Ihre Seite gerade auf einem simulierten Mobilgerät. Das dauert meist 20–40 Sekunden.',
     doneNote: 'Der Check ist fertig. Ihre Ergebnisse finden Sie unten.',
     privacyNote:
-      'Die eingegebene Adresse wird zur Analyse an die Google-PageSpeed-Insights-API übermittelt. Wir speichern sie nicht.',
+      'Erst wenn Sie den Check starten, werden die eingegebene Adresse und Ihre IP-Adresse an die Google-PageSpeed-Insights-API übermittelt. Wir speichern beides nicht.',
     privacyLink: 'Wie wir mit Ihren Daten umgehen',
     scoresLabel: 'Bewertungen',
     categories: {

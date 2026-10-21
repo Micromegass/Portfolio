@@ -110,6 +110,8 @@ export const es: SiteContent = {
     ctaPrimary: 'Pedir una revisión gratuita',
     ctaSecondary: 'Ver proyectos',
     checkNote: 'Gratis, sin registro. Las mediciones de Google en unos 30 segundos.',
+    checkPrivacyNote:
+      'No se envía nada hasta que inicie el análisis en la página siguiente. Entonces la dirección y su dirección IP se envían a Google PageSpeed Insights.',
     facts: [
       { value: '3–5 semanas', label: 'del inicio al lanzamiento' },
       { value: '100/100', label: 'puntuación Lighthouse habitual' },
@@ -726,7 +728,7 @@ export const es: SiteContent = {
       'Google está cargando su sitio en un móvil simulado. Suele tardar entre 20 y 40 segundos.',
     doneNote: 'El análisis ha terminado. Encontrará sus resultados más abajo.',
     privacyNote:
-      'La dirección que escriba se envía a la API de Google PageSpeed Insights para realizar el análisis. Nosotros no la guardamos.',
+      'Solo al iniciar el análisis se envían la dirección que escriba y su dirección IP a la API de Google PageSpeed Insights. Nosotros no guardamos ninguna de las dos.',
     privacyLink: 'Cómo tratamos sus datos',
     scoresLabel: 'Puntuaciones',
     categories: {
