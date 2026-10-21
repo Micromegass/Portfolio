@@ -16,8 +16,14 @@ const ENDPOINT = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 
 export interface CheckResult {
   finalUrl: string;
-  scores: { performance: number; accessibility: number; bestPractices: number; seo: number };
-  vitals: { id: 'lcp' | 'cls' | 'tbt' | 'si'; display: string; score: number }[];
+  /** `null` = Lighthouse could not compute it. Never coerce to 0 — that reads as "Poor". */
+  scores: {
+    performance: number | null;
+    accessibility: number | null;
+    bestPractices: number | null;
+    seo: number | null;
+  };
+  vitals: { id: 'lcp' | 'cls' | 'tbt' | 'si'; display: string; score: number | null }[];
   opportunities: { title: string; savingsMs: number }[];
 }
 
@@ -87,14 +93,18 @@ export async function runCheck(rawUrl: string, locale: string, apiKey?: string):
   const data = await response.json();
   const lh = data?.lighthouseResult;
   if (!lh?.categories) throw new CheckError('unreachable');
+  // Lighthouse loaded something but the run failed (e.g. the page never
+  // painted) — the scores would be meaningless.
+  if (lh.runtimeError && lh.runtimeError.code !== 'NO_ERROR') throw new CheckError('unreachable');
 
-  const pct = (v: unknown) => Math.round(((v as number) ?? 0) * 100);
+  const pct = (v: unknown) => (typeof v === 'number' ? Math.round(v * 100) : null);
 
   const vitals = (Object.keys(VITAL_AUDITS) as (keyof typeof VITAL_AUDITS)[])
     .map((id) => {
       const audit = lh.audits?.[VITAL_AUDITS[id]];
       if (!audit?.displayValue) return null;
-      return { id, display: String(audit.displayValue), score: (audit.score as number) ?? 0 };
+      const score = typeof audit.score === 'number' ? audit.score : null;
+      return { id, display: String(audit.displayValue), score };
     })
     .filter(Boolean) as CheckResult['vitals'];
 
@@ -120,7 +130,8 @@ export async function runCheck(rawUrl: string, locale: string, apiKey?: string):
   };
 }
 
-export function band(score: number): 'good' | 'ok' | 'poor' {
+export function band(score: number | null): 'good' | 'ok' | 'poor' | 'na' {
+  if (score === null) return 'na';
   return score >= 90 ? 'good' : score >= 50 ? 'ok' : 'poor';
 }
 

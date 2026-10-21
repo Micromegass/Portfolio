@@ -746,8 +746,9 @@ export const es: SiteContent = {
     },
     opportunitiesLabel: 'Mayores oportunidades',
     opportunitiesNone: 'No se encontraron problemas técnicos importantes — buen punto de partida.',
+    opportunitiesNoStandout: 'Ninguna mejora concreta destaca por sí sola — las puntuaciones de arriba muestran dónde se pierde el tiempo.',
     savingsLabel: 'de ahorro potencial',
-    scale: { good: 'Bien', ok: 'Mejorable', poor: 'Deficiente' },
+    scale: { good: 'Bien', ok: 'Mejorable', poor: 'Deficiente', na: 'No se pudo medir' },
     errorCta: 'Envíenos la dirección por correo',
     errorSubject: 'Análisis web — háganlo por mí, por favor',
     errors: {

@@ -243,9 +243,13 @@ export interface SiteContent {
     vitalsLabel: string;
     vitals: { lcp: string; cls: string; tbt: string; si: string };
     opportunitiesLabel: string;
+    /** Only shown when performance scores 90+ — otherwise it would contradict the rings. */
     opportunitiesNone: string;
+    /** Empty list under a sub-90 performance score: no single fix, not "no problem". */
+    opportunitiesNoStandout: string;
     savingsLabel: string;
-    scale: { good: string; ok: string; poor: string };
+    /** `na` labels a score PageSpeed could not compute — never shown as 0. */
+    scale: { good: string; ok: string; poor: string; na: string };
     /** Recovery action shown with a failed check — a real button, not prose. */
     errorCta: string;
     errorSubject: string;
