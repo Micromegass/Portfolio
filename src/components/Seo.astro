@@ -94,25 +94,40 @@ const faqJsonLd = faqSource && {
  * Published prices, as machine-readable offers. The displayed price is a
  * localized string ("€1,200", "1.200 €"), so the digits are extracted rather
  * than duplicated — a tier without a published price (`null`) contributes no
- * offer at all, which is exactly the claim we want to make.
+ * offer at all, which is exactly the claim we want to make. Every published
+ * price is net ("plus VAT"), and care plans are billed per month.
  */
+type PricedItem = { name: string; desc: string; price: string | null };
+const toOffers = (items: PricedItem[], monthly: boolean) =>
+  items
+    .filter((o) => o.price !== null)
+    .map((o) => {
+      const price = Number(o.price!.replace(/\D/g, ''));
+      return {
+        '@type': 'Offer',
+        name: o.name,
+        description: o.desc,
+        priceCurrency: 'EUR',
+        price,
+        priceSpecification: {
+          '@type': monthly ? 'UnitPriceSpecification' : 'PriceSpecification',
+          price,
+          priceCurrency: 'EUR',
+          ...(monthly && { unitCode: 'MON' }),
+          valueAddedTaxIncluded: false,
+        },
+        url: canonical,
+      };
+    });
+
 const offerJsonLd = page === 'pricing' && {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: c.meta.pricing.title.split(/[—|]/)[0].trim(),
   description: meta.description,
-  provider: { '@id': site + base + '/#studio' },
+  provider: { '@type': 'ProfessionalService', '@id': site + base + '/#studio', name: studio.name },
   areaServed: ['DE', 'CO', 'Remote'],
-  offers: [...c.pricing.tiers, ...c.pricing.care]
-    .filter((o) => o.price !== null)
-    .map((o) => ({
-      '@type': 'Offer',
-      name: o.name,
-      description: o.desc,
-      priceCurrency: 'EUR',
-      price: Number(o.price!.replace(/\D/g, '')),
-      url: canonical,
-    })),
+  offers: [...toOffers(c.pricing.tiers, false), ...toOffers(c.pricing.care, true)],
 };
 
 // Social preview card, localized

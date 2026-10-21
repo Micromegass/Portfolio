@@ -103,6 +103,8 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
   }
 
   let resumeTimer: number | undefined;
+  /** A mouse or pen is inside the frame. */
+  let hovering = false;
 
   function cancelResume() {
     if (resumeTimer === undefined) return;
@@ -116,6 +118,8 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
     cancelResume();
     resumeTimer = window.setTimeout(() => {
       resumeTimer = undefined;
+      // Still here after all: leaving or blurring will schedule it again.
+      if (hovering || document.activeElement === slider) return;
       auto = true;
       t0 = performance.now();
     }, RESUME_DELAY_MS);
@@ -159,13 +163,16 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
 
   frame.addEventListener('pointerenter', (e: PointerEvent) => {
     if (!hovers(e.pointerType)) return;
+    hovering = true;
     auto = false;
     cancelResume();
   });
   frame.addEventListener('pointerleave', (e: PointerEvent) => {
     // Only a hovering pointer leaving means the visitor has moved on; a touch
     // release is handled above.
-    if (!hovers(e.pointerType) || pointerActive) return;
+    if (!hovers(e.pointerType)) return;
+    hovering = false;
+    if (pointerActive) return;
     scheduleResume();
   });
 

@@ -189,7 +189,7 @@ export const es: SiteContent = {
       ],
       forWhomLabel: 'Encaja bien si',
       forWhom: [
-        'Su sitio se rediseñó hace más de cuatro años',
+        'Su sitio se rediseñó por última vez hace más de cuatro años',
         'Se ve mal o es difícil de usar en el móvil',
         'Le da reparo enviar el enlace a un cliente nuevo',
         'Nadie en la empresa sabe cómo cambiar los textos',
@@ -210,7 +210,7 @@ export const es: SiteContent = {
         },
         {
           q: '¿Cuánto cuesta?',
-          a: 'El rediseño de una web pequeña cuesta 1.200 € para una página y 1.900 € hasta seis — los precios están publicados, así que puede verlos antes de escribirnos. Los rediseños más grandes o complejos se presupuestan aparte, y también ahí el precio cerrado está antes de empezar.',
+          a: 'El rediseño de una web pequeña cuesta 1.200 € para una página y 1.900 € hasta seis — los precios están publicados, así que puede verlos antes de escribirnos. Los rediseños más grandes o complejos se presupuestan aparte, y también en ese caso recibe un precio cerrado antes de empezar.',
         },
       ],
     },
@@ -719,7 +719,7 @@ export const es: SiteContent = {
   check: {
     eyebrow: 'Análisis web gratuito',
     title: '¿Qué tan sana está su web, de verdad?',
-    lead: 'Escriba su dirección y reciba en medio minuto las mediciones de Google: velocidad de carga, accesibilidad, calidad técnica y preparación para buscadores — con los mayores problemas explicados en lenguaje claro.',
+    lead: 'Escriba su dirección y reciba en aproximadamente medio minuto las mediciones de Google: velocidad de carga, accesibilidad, calidad técnica y preparación para buscadores — con los mayores problemas explicados en lenguaje claro.',
     inputLabel: 'La dirección de su web',
     placeholder: 'su-empresa.com',
     submit: 'Analizar',
