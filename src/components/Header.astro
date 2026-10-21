@@ -94,6 +94,9 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
   burger?.addEventListener('click', () => {
     const open = header?.classList.toggle('site-header--open') ?? false;
     burger.setAttribute('aria-expanded', String(open));
+    // The open menu scrolls on its own; Lenis must not swallow its wheel.
+    // Only while open, so the desktop row keeps Lenis' smooth page scroll.
+    document.getElementById('site-nav')?.toggleAttribute('data-lenis-prevent', open);
     burger.setAttribute(
       'aria-label',
       (open ? burger.dataset.closeLabel : burger.dataset.openLabel) ?? ''
@@ -289,8 +292,13 @@ const langLinks = alternates(page).map(({ locale: l, path }) => ({
       padding-bottom: var(--space-3);
     }
 
+    /* A sticky header taller than the viewport never scrolls, so on a
+       landscape phone the last items would sit below the screen edge. */
     .site-header--open .nav {
       display: flex;
+      max-height: calc(100dvh - 76px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
     }
 
     .nav__cta {

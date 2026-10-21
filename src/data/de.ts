@@ -168,7 +168,7 @@ export const de: SiteContent = {
         'Ihre Seite sieht aus wie 2014 und lädt auch so. Wir bauen sie neu — gleiches Unternehmen, aktueller Stand.',
       eyebrow: 'Leistung 01',
       title: 'Eine Website, die endlich zu Ihrem Unternehmen passt.',
-      lead: 'Die meisten Firmenwebsites wurden vor Jahren gebaut, von jemandem, der längst weitergezogen ist. Sie laden langsam, brechen auf dem Handy und schicken Kunden still und leise zur Konkurrenz. Wir bauen sie von Grund auf neu — für Praxen, Handwerksbetriebe, Kanzleien und Einzelhandel in Fürth, Nürnberg und der Metropolregion, und remote für Kunden überall.',
+      lead: 'Die meisten Firmenwebsites wurden vor Jahren gebaut, von jemandem, der längst weitergezogen ist. Sie laden langsam, funktionieren auf dem Handy nicht richtig und schicken Kunden still und leise zur Konkurrenz. Wir bauen sie von Grund auf neu — für Praxen, Handwerksbetriebe, Kanzleien und Einzelhandel in Fürth, Nürnberg und der Metropolregion, und remote für Kunden überall.',
       problem: {
         title: 'Was eine veraltete Website kostet',
         body: 'Besucher entscheiden in Sekunden. Eine langsame, überladene oder auf dem Handy kaputte Seite signalisiert, dass Ihr Unternehmen hinterherhinkt — ob das stimmt oder nicht. Suchmaschinen bewerten sie schlechter, also finden Sie ohnehin weniger Leute. Und jede Anfrage, die nicht kommt, bleibt unsichtbar: Den Kunden, der wieder gegangen ist, sehen Sie nie.',
@@ -754,7 +754,7 @@ export const de: SiteContent = {
       invalid: 'Das sieht nicht nach einer gültigen Adresse aus. Versuchen Sie es mit ihre-firma.de.',
       failed: 'Der Check konnte nicht abgeschlossen werden. Bitte versuchen Sie es gleich noch einmal.',
       quota:
-        'Das kostenlose Analyse-Kontingent ist gerade erschöpft. Versuchen Sie es später noch einmal — oder schreiben Sie uns, wir führen den Check für Sie durch.',
+        'Das kostenlose Analyse-Kontingent von Google ist gerade erschöpft — das ist eine Grenze auf Googles Seite, kein Problem mit Ihrer Website. Versuchen Sie es später noch einmal — oder schreiben Sie uns, wir führen den Check für Sie durch.',
       unreachable:
         'Google konnte diese Adresse nicht laden. Prüfen Sie die Schreibweise und ob die Seite öffentlich erreichbar ist.',
     },
@@ -815,7 +815,7 @@ export const de: SiteContent = {
       rateLimited:
         'Das sind viele Fragen in einer Stunde. Schreiben Sie uns bitte stattdessen eine E-Mail.',
       tooLong:
-        'Dieses Gespräch ist lang geworden. Bitte beginnen Sie ein neues oder schreiben Sie uns eine E-Mail.',
+        'Dieses Gespräch ist lang geworden. Laden Sie die Seite neu, um ein neues zu beginnen, oder schreiben Sie uns eine E-Mail.',
       offline: 'Der Assistent ist nicht erreichbar. Bitte schreiben Sie uns eine E-Mail.',
     },
   },
@@ -886,7 +886,7 @@ export const de: SiteContent = {
       title: 'Datenschutzerklärung',
       intro:
         'Diese Website ist so gebaut, dass so wenig Daten wie möglich anfallen. Sie setzt keine Cookies, nutzt keine Analyse- oder Tracking-Werkzeuge und lädt weder Schriften noch Skripte von fremden Servern. Es gibt zwei Ausnahmen, die unten ausführlich beschrieben werden: den Website-Check und den Chat-Assistenten. Beide übermitteln erst dann Daten, wenn Sie sie aktiv starten.',
-      updated: 'Stand: Juli 2026',
+      updated: 'Stand: Oktober 2026',
       sections: [
         {
           heading: '1. Verantwortlicher',
@@ -912,7 +912,7 @@ export const de: SiteContent = {
             'Dabei werden Ihre IP-Adresse sowie die technischen Angaben Ihrer Browseranfrage an Google übermittelt und können auf Server in den USA übertragen werden. Google verarbeitet diese Daten nach seiner eigenen Datenschutzerklärung: https://policies.google.com/privacy',
             'Zweck und Rechtsgrundlage: Die Analyse erfolgt ausschließlich auf Ihre ausdrückliche Veranlassung hin. Rechtsgrundlage ist daher Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch das aktive Starten des Checks erteilen. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie das Werkzeug nicht nutzen. Ohne gestarteten Check werden keine Daten an Google übermittelt.',
             'Drittlandübermittlung: Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert, für das die Europäische Kommission mit Angemessenheitsbeschluss vom 10. Juli 2023 ein angemessenes Schutzniveau festgestellt hat. Ergänzend stützt sich Google auf die Standardvertragsklauseln der Europäischen Kommission.',
-            'Wir selbst speichern und werten die von Ihnen eingegebenen Adressen und die Analyseergebnisse nicht aus. Auf unserer Seite wird nichts gespeichert.',
+            'Wir selbst speichern die von Ihnen eingegebenen Adressen und die Analyseergebnisse nicht und werten sie auch nicht aus. Auf unserer Seite wird nichts gespeichert.',
           ],
         },
         {
