@@ -177,6 +177,16 @@ function run({ canvas, fallback, frame, slider, labels }: Options): void {
     applyIfStatic();
   });
 
+  // Focus is the keyboard's "hover": a focused range input that keeps moving
+  // on its own floods screen readers with value changes.
+  slider.addEventListener('focus', () => {
+    auto = false;
+    cancelResume();
+  });
+  slider.addEventListener('blur', () => {
+    if (!pointerActive) scheduleResume();
+  });
+
   // ---- loop --------------------------------------------------------
   // Animate only while the hero is on screen — no background CPU burn. The
   // margin starts it just before it scrolls in, so it is never caught static.

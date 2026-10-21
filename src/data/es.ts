@@ -755,7 +755,7 @@ export const es: SiteContent = {
       invalid: 'Eso no parece una dirección válida. Pruebe con algo como su-empresa.com.',
       failed: 'No se pudo completar el análisis. Inténtelo de nuevo en un momento.',
       quota:
-        'La cuota gratuita de análisis está agotada en este momento. Inténtelo más tarde o escríbanos y lo hacemos por usted.',
+        'La cuota gratuita de análisis de Google está agotada en este momento: es un límite de Google, no un problema de su sitio web. Inténtelo más tarde o escríbanos y lo hacemos por usted.',
       unreachable:
         'Google no pudo cargar esa dirección. Revise la ortografía y compruebe que el sitio sea accesible públicamente.',
     },
@@ -813,7 +813,8 @@ export const es: SiteContent = {
       failed: 'Algo ha fallado de nuestro lado. Inténtelo de nuevo o escríbanos un correo.',
       busy: 'El asistente está ocupado ahora mismo. Inténtelo de nuevo en un momento.',
       rateLimited: 'Son muchas preguntas en una hora. Escríbanos un correo, por favor.',
-      tooLong: 'Esta conversación se ha alargado. Empiece una nueva o escríbanos un correo.',
+      tooLong:
+        'Esta conversación se ha alargado. Recargue la página para empezar una nueva o escríbanos un correo.',
       offline: 'No se puede contactar con el asistente. Escríbanos un correo, por favor.',
     },
   },
@@ -842,7 +843,7 @@ export const es: SiteContent = {
         {
           heading: 'IVA',
           body: [
-            'Número de identificación fiscal según § 27a UStG: [NIF-IVA]', // TODO-CONTENT
+            'Número de identificación a efectos del IVA según § 27a UStG: [NIF-IVA]', // TODO-CONTENT
             'Si aplica el régimen de pequeño empresario del § 19 UStG, no se repercute IVA y aquí debería figurar esa indicación.',
           ],
         },
@@ -884,7 +885,7 @@ export const es: SiteContent = {
       title: 'Política de privacidad',
       intro:
         'Este sitio está construido para recoger la menor cantidad de datos posible. No usa cookies, no ejecuta analítica ni rastreo, y no carga fuentes ni scripts desde servidores de terceros. Hay dos excepciones, ambas descritas en detalle más abajo: la herramienta de análisis web y el asistente de chat. Ninguna transmite nada hasta que usted la inicia activamente.',
-      updated: 'Última actualización: julio de 2026',
+      updated: 'Última actualización: octubre de 2026',
       sections: [
         {
           heading: '1. Responsable del tratamiento',

@@ -813,7 +813,8 @@ export const en: SiteContent = {
       failed: 'Something went wrong on our side. Please try again, or write to us by email.',
       busy: 'The assistant is busy right now. Please try again in a moment.',
       rateLimited: 'That is a lot of questions for one hour. Please write to us by email instead.',
-      tooLong: 'This conversation has grown long. Please start a new one, or write to us by email.',
+      tooLong:
+        'This conversation has grown long. Please reload the page to start a new one, or write to us by email.',
       offline: 'The assistant is not reachable. Please write to us by email.',
     },
   },
@@ -884,7 +885,7 @@ export const en: SiteContent = {
       title: 'Privacy policy',
       intro:
         'This website is built to collect as little data as possible. It sets no cookies, runs no analytics or tracking, and loads no fonts or scripts from third-party servers. There are two exceptions, both described in detail below: the website check tool and the chat assistant. Neither sends anything anywhere until you actively start it.',
-      updated: 'Last updated: July 2026',
+      updated: 'Last updated: October 2026',
       sections: [
         {
           heading: '1. Controller',

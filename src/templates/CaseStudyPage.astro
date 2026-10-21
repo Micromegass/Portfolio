@@ -77,7 +77,7 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
           }
         </div>
 
-        <section class="outcomes" data-reveal>
+        <section class="outcomes" data-tone="contrast" data-reveal>
           <h2 class="outcomes__head">{c.outcomeLabel}</h2>
           <ul class="outcomes__list">
             {c.outcomes.map((o) => <li>{o}</li>)}
@@ -216,8 +216,8 @@ const nextPage: PageKey = nextKey === 'physio' ? 'case-physio' : 'case-ikuna';
 
   .outcomes {
     margin-top: var(--space-7);
-    background: var(--contrast);
-    color: var(--on-contrast);
+    background: var(--bg);
+    color: var(--fg);
     border-radius: var(--radius-lg);
     padding: var(--space-5);
   }

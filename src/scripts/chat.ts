@@ -174,7 +174,7 @@ export function initChat({ root, endpoint, locale, strings }: Options): void {
             const event = /^event: (.+)$/m.exec(frame)?.[1];
             const raw = /^data: (.+)$/m.exec(frame)?.[1];
             if (!event || !raw) continue;
-            let payload: { text?: string; error?: string };
+            let payload: { text?: string; error?: string; stop?: string };
             try {
               payload = JSON.parse(raw);
             } catch {
@@ -187,6 +187,9 @@ export function initChat({ root, endpoint, locale, strings }: Options): void {
               log!.scrollTop = log!.scrollHeight;
             } else if (event === 'error') {
               failure = payload.error ?? 'failed';
+            } else if (event === 'done' && payload.stop === 'max_tokens') {
+              // Cut off at the output ceiling — show the truncation notice below.
+              failure = 'failed';
             }
           }
         }
